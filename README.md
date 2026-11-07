@@ -17,14 +17,24 @@ web-prodi
 ├─ README.md
 ├─ src
 │  ├─ app
+│  │  ├─ (landing)
+│  │  │  ├─ layout.tsx
+│  │  │  └─ page.tsx
 │  │  ├─ dashboard
+│  │  │  ├─ layout.tsx
 │  │  │  └─ page.tsx
 │  │  ├─ favicon.ico
 │  │  ├─ globals.css
-│  │  ├─ layout.tsx
-│  │  └─ page.tsx
+│  │  └─ layout.tsx
 │  ├─ components
 │  │  ├─ app-sidebar.tsx
+│  │  ├─ landing
+│  │  │  ├─ footer.tsx
+│  │  │  ├─ header.tsx
+│  │  │  ├─ home
+│  │  │  │  ├─ hero.tsx
+│  │  │  │  └─ quick-links.tsx
+│  │  │  └─ mobile-nav.tsx
 │  │  ├─ nav-main.tsx
 │  │  ├─ nav-projects.tsx
 │  │  ├─ nav-user.tsx
@@ -33,6 +43,7 @@ web-prodi
 │  │     ├─ avatar.tsx
 │  │     ├─ breadcrumb.tsx
 │  │     ├─ button.tsx
+│  │     ├─ card.tsx
 │  │     ├─ collapsible.tsx
 │  │     ├─ dropdown-menu.tsx
 │  │     ├─ input.tsx
@@ -41,10 +52,26 @@ web-prodi
 │  │     ├─ sidebar.tsx
 │  │     ├─ skeleton.tsx
 │  │     └─ tooltip.tsx
+│  ├─ config
+│  │  ├─ auth.ts
+│  │  ├─ dashboard-nav.ts
+│  │  └─ site.ts
+│  ├─ data
+│  │  ├─ berita.ts
+│  │  └─ stats.ts
 │  ├─ hooks
 │  │  └─ use-mobile.ts
-│  └─ lib
-│     └─ utils.ts
+│  ├─ lib
+│  │  ├─ permissions.ts
+│  │  ├─ session.ts
+│  │  └─ utils.ts
+│  └─ types
+│     ├─ auth.ts
+│     ├─ berita.ts
+│     ├─ index.ts
+│     ├─ navigation.ts
+│     ├─ site.ts
+│     └─ stats.ts
 └─ tsconfig.json
 
 ```

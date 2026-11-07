@@ -5,40 +5,47 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-jakarta);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* warna tambahan: text-lime, border-lime, bg-warn, text-lavender */
+  --color-lime: var(--c-lime);
+  --color-warn: var(--c-orange);
+  --color-lavender: var(--text-accent);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,72 +56,56 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  /* 1. Palet mentah: 8 warna */
+  --c-black: #000000;
+  --c-violet: #7d39eb;
+  --c-lime: #c6ff33;
+  --c-white: #ffffff;
+  --c-orange: #fb5607;
+  --c-violet-alt: #8338ec;
+  --c-charcoal: #212529;
+  --c-mist: #e9ecef;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* 2. Peran (semantic), nama bawaan shadcn */
+  --background: color-mix(in oklab, var(--c-black) 91%, var(--c-violet));
+  --foreground: var(--c-mist);
+  --card: color-mix(in oklab, var(--c-black) 82%, var(--c-violet));
+  --card-foreground: var(--c-mist);
+  --popover: color-mix(in oklab, var(--c-black) 78%, var(--c-violet));
+  --popover-foreground: var(--c-mist);
+  --primary: var(--c-violet);
+  --primary-foreground: var(--c-white);
+  --secondary: var(--c-charcoal);
+  --secondary-foreground: var(--c-mist);
+  --muted: color-mix(in oklab, var(--c-charcoal) 70%, var(--c-black));
+  --muted-foreground: color-mix(in oklab, var(--c-mist) 62%, transparent);
+  --accent: color-mix(in oklab, var(--c-violet) 22%, var(--background));
+  --accent-foreground: var(--c-mist);
+  --destructive: var(--c-orange);
+  --border: color-mix(in oklab, var(--c-mist) 12%, transparent);
+  --input: color-mix(in oklab, var(--c-mist) 18%, transparent);
+  --ring: var(--c-lime);
+
+  --chart-1: var(--c-violet);
+  --chart-2: var(--c-lime);
+  --chart-3: var(--c-orange);
+  --chart-4: color-mix(in oklab, var(--c-violet) 38%, var(--c-white));
+  --chart-5: var(--c-mist);
+
+  --radius: 0.875rem;
+
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--c-mist);
+  --sidebar-primary: var(--c-violet);
+  --sidebar-primary-foreground: var(--c-white);
+  --sidebar-accent: color-mix(in oklab, var(--c-violet) 20%, var(--card));
+  --sidebar-accent-foreground: var(--c-mist);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--c-lime);
+
+  /* tambahan */
+  --primary-hover: var(--c-violet-alt);
+  --text-accent: color-mix(in oklab, var(--c-violet) 38%, var(--c-white));
 }
 
 @layer base {
@@ -123,8 +114,147 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(
+      70% 45% at 50% -5%,
+      color-mix(in oklab, var(--c-violet) 28%, transparent),
+      transparent
+    );
+    background-repeat: no-repeat;
   }
   html {
     @apply font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+}
+
+/* Border lime yang berputar, untuk tombol utama: <Button className="glow"> */
+@property --ang {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes spin-ang {
+  to {
+    --ang: 360deg;
+  }
+}
+.glow {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--primary), var(--primary)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 62%, var(--c-lime) 82%, transparent 100%) border-box;
+  animation: spin-ang 3.5s linear infinite;
+}
+.glow:hover {
+  background:
+    linear-gradient(var(--primary-hover), var(--primary-hover)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 62%, var(--c-lime) 82%, transparent 100%) border-box;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+}
+
+/* ===== Efek hero ===== */
+
+/* Judul glitch: pecahan warna berkedip singkat tiap beberapa detik */
+.glitch {
+  position: relative;
+  text-shadow:
+    -2px 0 color-mix(in oklab, var(--c-orange) 60%, transparent),
+    2px 0 color-mix(in oklab, var(--c-violet-alt) 70%, transparent);
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.glitch::before {
+  color: var(--c-orange);
+  animation: glitch-a 4.5s infinite steps(1);
+}
+.glitch::after {
+  color: var(--c-violet-alt);
+  animation: glitch-b 4.5s infinite steps(1);
+}
+@keyframes glitch-a {
+  0%, 86%, 94%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+  87% { opacity: 1; transform: translate(-5px, 0); clip-path: inset(8% 0 62% 0); }
+  89% { opacity: 1; transform: translate(4px, 0); clip-path: inset(55% 0 15% 0); }
+  91% { opacity: 1; transform: translate(-3px, 1px); clip-path: inset(30% 0 42% 0); }
+}
+@keyframes glitch-b {
+  0%, 87%, 95%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+  88% { opacity: 1; transform: translate(5px, 0); clip-path: inset(40% 0 35% 0); }
+  90% { opacity: 1; transform: translate(-4px, 0); clip-path: inset(12% 0 68% 0); }
+  92% { opacity: 1; transform: translate(3px, -1px); clip-path: inset(62% 0 10% 0); }
+}
+
+/* Ikon melayang */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 5deg)); }
+}
+.float {
+  animation: float-y var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* Kotak pecahan piksel berkedip */
+@keyframes blink {
+  0%, 44%, 56%, 100% { opacity: 0.9; }
+  50% { opacity: 0; }
+  70% { opacity: 0.2; }
+}
+.blink {
+  animation: blink var(--dur, 3s) steps(1) var(--delay, 0s) infinite;
+}
+
+/* Bilah loading */
+@keyframes loadbar {
+  0% { width: 6%; }
+  40% { width: 55%; }
+  70% { width: 72%; }
+  100% { width: 100%; }
+}
+.loadbar {
+  animation: loadbar 3.2s steps(8) infinite;
+}
+
+/* Latar grid dan garis pindai */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 80%);
+}
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    color-mix(in oklab, var(--c-black) 40%, transparent) 3px 4px
+  );
+  opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after,
+  .float,
+  .blink,
+  .loadbar {
+    animation: none;
   }
 }
