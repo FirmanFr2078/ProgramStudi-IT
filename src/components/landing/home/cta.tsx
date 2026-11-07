@@ -3,6 +3,7 @@ import { ArrowRightIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { buttonVariants } from "@/components/ui/button"
+import { Reveal } from "@/components/landing/reveal"
 
 export function Cta() {
   return (
@@ -10,24 +11,27 @@ export function Cta() {
       {/* latar — radial glow lilac tipis, beda dari background polos section lain */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute -inset-x-20 -inset-y-10 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse 60% 70% at 50% 40%, color-mix(in oklab, var(--c-lilac) 14%, transparent), transparent 70%)",
+            "radial-gradient(ellipse 55% 60% at 50% 40%, color-mix(in oklab, var(--c-lilac) 11%, transparent) 0%, color-mix(in oklab, var(--c-lilac) 4%, transparent) 55%, transparent 100%)",
+          filter: "blur(70px)",
         }}
       />
 
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-5">
-        <h2 className="font-heading text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl">
-          Siap Jadi Bagian dari{" "}
-          <span className="text-lime">Teknik Informatika</span>?
-        </h2>
-        <p className="max-w-md text-sm text-muted-foreground sm:text-base">
-          Bangun masa depanmu bersama kami — belajar, meneliti, dan berkarya
-          di tengah perkembangan teknologi yang terus bergerak cepat.
-        </p>
+        <Reveal className="flex flex-col items-center gap-5">
+          <h2 className="font-heading text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl">
+            Siap Jadi Bagian dari{" "}
+            <span className="text-lime">Teknik Informatika</span>?
+          </h2>
+          <p className="max-w-md text-sm text-muted-foreground sm:text-base">
+            Bangun masa depanmu bersama kami — belajar, meneliti, dan berkarya
+            di tengah perkembangan teknologi yang terus bergerak cepat.
+          </p>
+        </Reveal>
 
-        <div className="mt-2 flex flex-wrap justify-center gap-3">
+        <Reveal delay={150} className="mt-2 flex flex-wrap justify-center gap-3">
           <Link
             href="/pendaftaran"
             className={cn(
@@ -47,7 +51,7 @@ export function Cta() {
           >
             Hubungi Kami
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

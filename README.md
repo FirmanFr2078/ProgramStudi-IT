@@ -32,9 +32,14 @@ web-prodi
 │  │  │  ├─ footer.tsx
 │  │  │  ├─ header.tsx
 │  │  │  ├─ home
+│  │  │  │  ├─ cta.tsx
+│  │  │  │  ├─ faq.tsx
+│  │  │  │  ├─ focus-areas.tsx
 │  │  │  │  ├─ hero.tsx
-│  │  │  │  └─ quick-links.tsx
-│  │  │  └─ mobile-nav.tsx
+│  │  │  │  ├─ latest-news.tsx
+│  │  │  │  └─ stats.tsx
+│  │  │  ├─ mobile-nav.tsx
+│  │  │  └─ reveal.tsx
 │  │  ├─ nav-main.tsx
 │  │  ├─ nav-projects.tsx
 │  │  ├─ nav-user.tsx
@@ -55,7 +60,10 @@ web-prodi
 │  ├─ config
 │  │  ├─ auth.ts
 │  │  ├─ dashboard-nav.ts
-│  │  └─ site.ts
+│  │  ├─ faq.ts
+│  │  ├─ focus-areas.ts
+│  │  ├─ site.ts
+│  │  └─ stats.ts
 │  ├─ data
 │  │  ├─ berita.ts
 │  │  └─ stats.ts

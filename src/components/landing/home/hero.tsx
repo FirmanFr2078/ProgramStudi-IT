@@ -13,6 +13,7 @@ import {
 import { cn } from "cn";
 
 import { buttonVariants } from "@/components/ui/button";
+import { Reveal } from "@/components/landing/reveal";
 import { siteConfig } from "@/config/site";
 
 const title = "Teknik Informatika";
@@ -165,21 +166,24 @@ export function Hero() {
         />
       ))}
 
+
       {/* isi */}
       <div className="relative z-10 flex max-w-4xl flex-col items-center gap-[2.6vh] text-center">
-        <Link
-          href="/berita"
-          className="group inline-flex max-w-[90vw] items-center gap-2 rounded-full border border-input bg-card/60 py-1 pr-3 pl-1 text-[13px] text-muted-foreground backdrop-blur-sm transition-colors hover:border-lime/40 hover:text-foreground"
-        >
-          <span className="flex items-center gap-1 rounded-full bg-lime/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lime uppercase">
-            <SparkleIcon className="size-3" />
-            Baru
-          </span>
-          <span className="truncate">Pengumuman terbaru dari program studi</span>
-          <ArrowRightIcon className="size-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" />
-        </Link>
+        <Reveal>
+          <Link
+            href="/berita"
+            className="group inline-flex max-w-[90vw] items-center gap-2 rounded-full border border-input bg-card/60 py-1 pr-3 pl-1 text-[13px] text-muted-foreground backdrop-blur-sm transition-colors hover:border-lime/40 hover:text-foreground"
+          >
+            <span className="flex items-center gap-1 rounded-full bg-lime/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lime uppercase">
+              <SparkleIcon className="size-3" />
+              Baru
+            </span>
+            <span className="truncate">Pengumuman terbaru dari program studi</span>
+            <ArrowRightIcon className="size-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </Reveal>
 
-        <div className="flex flex-col items-center gap-[1.4vh]">
+        <Reveal delay={100} className="flex flex-col items-center gap-[1.4vh]">
           <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
             Program Studi
           </p>
@@ -194,13 +198,15 @@ export function Hero() {
             <span className="mx-2.5 text-lime">|</span>
             {siteConfig.university}
           </p>
-        </div>
+        </Reveal>
 
-        <p className="border border-input px-4 py-2 font-mono text-[11px] tracking-[0.25em] uppercase sm:text-xs">
-          Belajar · Meneliti · <span className="text-lime">Berkarya</span>
-        </p>
+        <Reveal delay={200}>
+          <p className="border border-input px-4 py-2 font-mono text-[11px] tracking-[0.25em] uppercase sm:text-xs">
+            Belajar · Meneliti · <span className="text-lime">Berkarya</span>
+          </p>
+        </Reveal>
 
-        <div className="mt-[0.8vh] flex flex-wrap justify-center gap-3">
+        <Reveal delay={300} className="mt-[0.8vh] flex flex-wrap justify-center gap-3">
           <Link
             href="/profil"
             className={cn(
@@ -219,7 +225,7 @@ export function Hero() {
           >
             Info Pendaftaran
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
