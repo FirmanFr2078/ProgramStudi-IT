@@ -7,7 +7,7 @@ import { Reveal } from "@/components/landing/reveal"
 import { ContactForm } from "@/components/landing/informasi/contact-form"
 
 export const metadata: Metadata = {
-  title: `Kontak — ${siteConfig.name}`,
+  title: "Kontak",
   description: `Hubungi ${siteConfig.fullName}, ${siteConfig.university}, untuk pertanyaan seputar akademik dan pendaftaran.`,
 }
 

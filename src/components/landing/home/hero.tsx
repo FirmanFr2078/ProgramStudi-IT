@@ -171,7 +171,7 @@ export function Hero() {
       <div className="relative z-10 flex max-w-4xl flex-col items-center gap-[2.6vh] text-center">
         <Reveal>
           <Link
-            href="/informasi/berita"
+            href="/informasi/kabar"
             className="group inline-flex max-w-[90vw] items-center gap-2 rounded-full border border-input bg-card/60 py-1 pr-3 pl-1 text-[13px] text-muted-foreground backdrop-blur-sm transition-colors hover:border-lime/40 hover:text-foreground"
           >
             <span className="flex items-center gap-1 rounded-full bg-lime/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lime uppercase">

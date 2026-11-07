@@ -1,10 +1,4 @@
-import {
-  BookOpenIcon,
-  GraduationCapIcon,
-  HandshakeIcon,
-  UsersIcon,
-} from "lucide-react"
-import type { FooterGroup, QuickLink, SiteNavItem } from "@/types"
+import type { FooterGroup, SiteNavItem } from "@/types"
 
 export const siteConfig = {
   name: "Prodi TI", // nama sementara, ganti kapan saja
@@ -77,39 +71,11 @@ export const mainNav: SiteNavItem[] = [
   {
     label: "Informasi",
     children: [
-      { label: "Berita", href: "/informasi/berita" },
-      { label: "Pengumuman", href: "/informasi/berita?kategori=pengumuman" },
+      { label: "Kabar", href: "/informasi/kabar" },
       { label: "Event Prodi", href: "/informasi/event" },
       { label: "Info Pendaftaran", href: "/informasi/pendaftaran" },
       { label: "Kontak", href: "/informasi/kontak" },
     ],
-  },
-]
-
-export const quickLinks: QuickLink[] = [
-  {
-    title: "Calon Mahasiswa",
-    description: "Informasi pendaftaran, jalur masuk, dan biaya kuliah.",
-    href: "/informasi/pendaftaran",
-    icon: GraduationCapIcon,
-  },
-  {
-    title: "Mahasiswa",
-    description: "Jadwal kuliah, kalender akademik, dan panduan MBKM.",
-    href: "/pendidikan/jadwal",
-    icon: BookOpenIcon,
-  },
-  {
-    title: "Dosen",
-    description: "Profil dosen, bidang keahlian, dan tautan publikasi.",
-    href: "/sdm/dosen",
-    icon: UsersIcon,
-  },
-  {
-    title: "Mitra & Alumni",
-    description: "Kerja sama industri, kampus mitra, dan jejaring alumni.",
-    href: "/profil/kerja-sama",
-    icon: HandshakeIcon,
   },
 ]
 
@@ -120,7 +86,7 @@ export const footerNav: FooterGroup[] = [
       { label: "Profil Prodi", href: "/profil/profil-prodi" },
       { label: "Dosen", href: "/sdm/dosen" },
       { label: "Kurikulum", href: "/pendidikan/kurikulum" },
-      { label: "Berita", href: "/informasi/berita" },
+      { label: "Kabar", href: "/informasi/kabar" },
     ],
   },
   {

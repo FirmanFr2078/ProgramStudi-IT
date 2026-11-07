@@ -1,39 +1,37 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { getProgramProfile } from "@/data/profile"
-import { Reveal } from "@/components/landing/reveal"
-import { Sambutan } from "@/components/landing/profil/profile-prodi/sambutan"
-import { VisiMisi } from "@/components/landing/profil/profile-prodi/visi-misi"
-import { Tujuan } from "@/components/landing/profil/profile-prodi/tujuan"
-import { ProfilLulusan } from "@/components/landing/profil/profile-prodi/profil-lulusan"
-import { Identitas } from "@/components/landing/profil/profile-prodi/identitas"
-import { Cta } from "@/components/landing/home/cta"
+import { getProgramProfile } from "@/data/profile";
+
+import { PageHeader } from "@/components/landing/page-header";
+import { Reveal } from "@/components/landing/reveal";
+import { Sambutan } from "@/components/landing/profil/profile-prodi/sambutan";
+import { VisiMisi } from "@/components/landing/profil/profile-prodi/visi-misi";
+import { Tujuan } from "@/components/landing/profil/profile-prodi/tujuan";
+import { ProfilLulusan } from "@/components/landing/profil/profile-prodi/profil-lulusan";
+import { Identitas } from "@/components/landing/profil/profile-prodi/identitas";
+import { Cta } from "@/components/landing/home/cta";
 
 export const metadata: Metadata = {
   title: "Profil Prodi",
   description:
     "Sejarah, visi misi, profil lulusan, dan identitas Program Studi Teknik Informatika Universitas Islam Balitar.",
-}
+};
 
 export default async function ProfilPage() {
-  const profile = await getProgramProfile()
+  const profile = await getProgramProfile();
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pt-10 pb-4 sm:px-6">
-        <Reveal>
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
-            Profil
-          </p>
-          <h1 className="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">
-            Profil Program Studi
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
-            Mengenal lebih dekat Program Studi Teknik Informatika — sejarah,
-            arah, dan lulusan yang kami siapkan.
-          </p>
-        </Reveal>
-      </section>
+      <PageHeader
+        eyebrow="Profil"
+        title="Profil Program Studi"
+        description="Mengenal lebih dekat Program Studi Teknik Informatika — sejarah, arah, dan lulusan yang kami siapkan."
+        breadcrumbs={[
+          { label: "Beranda", href: "/" },
+          { label: "Profil" },
+          { label: "Profil Prodi" },
+        ]}
+      />
 
       <Sambutan data={profile.sambutan} />
 
@@ -65,5 +63,5 @@ export default async function ProfilPage() {
 
       <Cta />
     </>
-  )
+  );
 }

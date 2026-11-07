@@ -2,26 +2,19 @@ import Link from "next/link"
 import { ArrowUpRightIcon } from "lucide-react"
 import { cn } from "cn"
 
-import { getBerita } from "@/data/berita"
+import { getKabar } from "@/data/kabar"
 import { Reveal } from "@/components/landing/reveal"
-
-function formatTanggal(iso: string) {
-  return new Date(iso).toLocaleDateString("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  })
-}
+import { formatTanggal } from "@/lib/utils"
 
 export async function LatestNews() {
-  const berita = await getBerita(3)
-  const [utama, ...lainnya] = berita
+  const kabar = await getKabar(3)
+  const [utama, ...lainnya] = kabar
 
   if (!utama) return null
 
   return (
     <section
-      id="berita-terkini"
+      id="kabar-terkini"
       className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24"
     >
       <Reveal className="flex flex-wrap items-end justify-between gap-4">
@@ -34,7 +27,7 @@ export async function LatestNews() {
           </h2>
         </div>
         <Link
-          href="/informasi/berita"
+          href="/informasi/kabar"
           className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           Lihat semua
@@ -43,10 +36,10 @@ export async function LatestNews() {
       </Reveal>
 
       <div className="mt-10 grid gap-6 md:mt-14 lg:grid-cols-3">
-        {/* Berita utama — besar */}
+        {/* Kabar utama — besar */}
         <Reveal className="lg:col-span-2">
           <Link
-            href={`/informasi/berita/${utama.slug}`}
+            href={`/informasi/kabar/${utama.slug}`}
             className="group relative flex h-full min-h-72 flex-col justify-end overflow-hidden rounded-2xl border p-6 transition-colors hover:border-lime"
             style={
               utama.gambar
@@ -86,12 +79,12 @@ export async function LatestNews() {
           </Link>
         </Reveal>
 
-        {/* Berita kecil — ditumpuk */}
+        {/* Kabar kecil — ditumpuk */}
         <div className="flex flex-col gap-6">
           {lainnya.map((b, i) => (
             <Reveal key={b.slug} delay={(i + 1) * 100} className="flex-1">
               <Link
-                href={`/informasi/berita/${b.slug}`}
+                href={`/informasi/kabar/${b.slug}`}
                 className="group flex h-full flex-col justify-center rounded-2xl border bg-card p-5 transition-colors hover:border-lime"
               >
                 <span
