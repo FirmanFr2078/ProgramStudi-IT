@@ -18,8 +18,30 @@ web-prodi
 ├─ src
 │  ├─ app
 │  │  ├─ (landing)
+│  │  │  ├─ informasi
+│  │  │  │  └─ kontak
+│  │  │  │     └─ page.tsx
 │  │  │  ├─ layout.tsx
-│  │  │  └─ page.tsx
+│  │  │  ├─ page.tsx
+│  │  │  ├─ pendidikan
+│  │  │  │  └─ jadwal
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ profil
+│  │  │  │  ├─ kerja-sama
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ profil-prodi
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ struktur-organisasi
+│  │  │  │     └─ page.tsx
+│  │  │  └─ sdm
+│  │  │     ├─ dosen
+│  │  │     │  ├─ page.tsx
+│  │  │     │  └─ [slug]
+│  │  │     │     └─ page.tsx
+│  │  │     └─ tendik
+│  │  │        ├─ page.tsx
+│  │  │        └─ [slug]
+│  │  │           └─ page.tsx
 │  │  ├─ dashboard
 │  │  │  ├─ layout.tsx
 │  │  │  └─ page.tsx
@@ -38,8 +60,35 @@ web-prodi
 │  │  │  │  ├─ hero.tsx
 │  │  │  │  ├─ latest-news.tsx
 │  │  │  │  └─ stats.tsx
+│  │  │  ├─ informasi
+│  │  │  │  └─ contact-form.tsx
 │  │  │  ├─ mobile-nav.tsx
-│  │  │  └─ reveal.tsx
+│  │  │  ├─ pendidikan
+│  │  │  │  └─ jadwal
+│  │  │  │     └─ day-schedule.tsx
+│  │  │  ├─ profil
+│  │  │  │  ├─ kerja-sama
+│  │  │  │  │  ├─ card.tsx
+│  │  │  │  │  ├─ detail-sheet.tsx
+│  │  │  │  │  ├─ filter.tsx
+│  │  │  │  │  └─ list.tsx
+│  │  │  │  ├─ organisasi
+│  │  │  │  │  ├─ org-chart.tsx
+│  │  │  │  │  └─ tupoksi.tsx
+│  │  │  │  └─ profile-prodi
+│  │  │  │     ├─ identitas.tsx
+│  │  │  │     ├─ profil-lulusan.tsx
+│  │  │  │     ├─ sambutan.tsx
+│  │  │  │     ├─ tujuan.tsx
+│  │  │  │     └─ visi-misi.tsx
+│  │  │  ├─ reveal.tsx
+│  │  │  └─ sdm
+│  │  │     ├─ dosen
+│  │  │     │  ├─ dosen-card.tsx
+│  │  │     │  └─ dosen-detail.tsx
+│  │  │     └─ tendik
+│  │  │        ├─ tendik-card.tsx
+│  │  │        └─ tendik-detail.tsx
 │  │  ├─ nav-main.tsx
 │  │  ├─ nav-projects.tsx
 │  │  ├─ nav-user.tsx
@@ -66,20 +115,33 @@ web-prodi
 │  │  └─ stats.ts
 │  ├─ data
 │  │  ├─ berita.ts
-│  │  └─ stats.ts
+│  │  ├─ dosen.ts
+│  │  ├─ jadwal.ts
+│  │  ├─ kerja-sama.ts
+│  │  ├─ organisasi.ts
+│  │  ├─ profile.ts
+│  │  ├─ stats.ts
+│  │  └─ tendik.ts
 │  ├─ hooks
 │  │  └─ use-mobile.ts
 │  ├─ lib
+│  │  ├─ initials.ts
 │  │  ├─ permissions.ts
 │  │  ├─ session.ts
 │  │  └─ utils.ts
 │  └─ types
 │     ├─ auth.ts
 │     ├─ berita.ts
+│     ├─ dosen.ts
 │     ├─ index.ts
+│     ├─ jadwal.ts
+│     ├─ kerja-sama.ts
 │     ├─ navigation.ts
+│     ├─ organisasi.ts
+│     ├─ profile.ts
 │     ├─ site.ts
-│     └─ stats.ts
+│     ├─ stats.ts
+│     └─ tendik.ts
 └─ tsconfig.json
 
 ```

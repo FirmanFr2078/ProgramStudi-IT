@@ -23,12 +23,13 @@ export const siteConfig = {
 }
 
 export const mainNav: SiteNavItem[] = [
+  { label: "Beranda", href: "/" },
   {
     label: "Profil",
     children: [
-      { label: "Profil Prodi", href: "/profil" },
-      { label: "Struktur Organisasi", href: "/organisasi" },
-      { label: "Kerja Sama", href: "/kerja-sama" },
+      { label: "Profil Prodi", href: "/profil/profil-prodi" },
+      { label: "Struktur Organisasi", href: "/profil/struktur-organisasi" },
+      { label: "Kerja Sama", href: "/profil/kerja-sama" },
     ],
   },
   {
@@ -50,18 +51,18 @@ export const mainNav: SiteNavItem[] = [
   {
     label: "Riset",
     children: [
-      { label: "Hasil Penelitian", href: "/penelitian" },
-      { label: "Hasil Pengabdian", href: "/penelitian/pengabdian" },
-      { label: "HKI", href: "/penelitian/hki" },
+      { label: "Hasil Penelitian", href: "/riset/penelitian" },
+      { label: "Hasil Pengabdian", href: "/riset/pengabdian" },
+      { label: "HKI", href: "/riset/hki" },
     ],
   },
   {
-  label: "Mahasiswa",
-  children: [
-    { label: "Prestasi", href: "/mahasiswa/prestasi" },
-    { label: "Organisasi Mahasiswa", href: "/mahasiswa/organisasi" },
-    { label: "Alumni", href: "/alumni" },   // baris baru
-  ],
+    label: "Mahasiswa",
+    children: [
+      { label: "Prestasi", href: "/mahasiswa/prestasi" },
+      { label: "Organisasi Mahasiswa", href: "/mahasiswa/organisasi" },
+      { label: "Alumni", href: "/mahasiswa/alumni" },
+    ],
   },
   {
     label: "Fasilitas",
@@ -75,10 +76,11 @@ export const mainNav: SiteNavItem[] = [
   {
     label: "Informasi",
     children: [
-      { label: "Berita", href: "/berita" },
-      { label: "Pengumuman", href: "/berita?kategori=pengumuman" },
-      { label: "Event Prodi", href: "/event" },
-      { label: "Info Pendaftaran", href: "/pendaftaran" },
+      { label: "Berita", href: "/informasi/berita" },
+      { label: "Pengumuman", href: "/informasi/berita?kategori=pengumuman" },
+      { label: "Event Prodi", href: "/informasi/event" },
+      { label: "Info Pendaftaran", href: "/informasi/pendaftaran" },
+      { label: "Kontak", href: "/informasi/kontak" },
     ],
   },
 ]
@@ -87,7 +89,7 @@ export const quickLinks: QuickLink[] = [
   {
     title: "Calon Mahasiswa",
     description: "Informasi pendaftaran, jalur masuk, dan biaya kuliah.",
-    href: "/pendaftaran",
+    href: "/informasi/pendaftaran",
     icon: GraduationCapIcon,
   },
   {
@@ -105,7 +107,7 @@ export const quickLinks: QuickLink[] = [
   {
     title: "Mitra & Alumni",
     description: "Kerja sama industri, kampus mitra, dan jejaring alumni.",
-    href: "/kerja-sama",
+    href: "/profil/kerja-sama",
     icon: HandshakeIcon,
   },
 ]
@@ -114,10 +116,10 @@ export const footerNav: FooterGroup[] = [
   {
     title: "Jelajahi",
     links: [
-      { label: "Profil Prodi", href: "/profil" },
+      { label: "Profil Prodi", href: "/profil/profil-prodi" },
       { label: "Dosen", href: "/sdm/dosen" },
       { label: "Kurikulum", href: "/pendidikan/kurikulum" },
-      { label: "Berita", href: "/berita" },
+      { label: "Berita", href: "/informasi/berita" },
     ],
   },
   {
@@ -126,7 +128,7 @@ export const footerNav: FooterGroup[] = [
       { label: "Jadwal", href: "/pendidikan/jadwal" },
       { label: "Kalender Akademik", href: "/pendidikan/kalender" },
       { label: "MBKM", href: "/pendidikan/mbkm" },
-      { label: "Penelitian", href: "/penelitian" },
+      { label: "Penelitian", href: "/riset/penelitian" },
     ],
   },
 ]

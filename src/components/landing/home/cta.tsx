@@ -33,7 +33,7 @@ export function Cta() {
 
         <Reveal delay={150} className="mt-2 flex flex-wrap justify-center gap-3">
           <Link
-            href="/pendaftaran"
+            href="/informasi/pendaftaran"
             className={cn(
               buttonVariants({ size: "lg" }),
               "glow h-11 rounded-full bg-[#2e1065] px-7 text-sm text-white hover:bg-[#3b0f85]"

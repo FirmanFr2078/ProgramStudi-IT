@@ -34,7 +34,7 @@ export async function LatestNews() {
           </h2>
         </div>
         <Link
-          href="/berita"
+          href="/informasi/berita"
           className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           Lihat semua
@@ -46,7 +46,7 @@ export async function LatestNews() {
         {/* Berita utama — besar */}
         <Reveal className="lg:col-span-2">
           <Link
-            href={`/berita/${utama.slug}`}
+            href={`/informasi/berita/${utama.slug}`}
             className="group relative flex h-full min-h-72 flex-col justify-end overflow-hidden rounded-2xl border p-6 transition-colors hover:border-lime"
             style={
               utama.gambar
@@ -91,7 +91,7 @@ export async function LatestNews() {
           {lainnya.map((b, i) => (
             <Reveal key={b.slug} delay={(i + 1) * 100} className="flex-1">
               <Link
-                href={`/berita/${b.slug}`}
+                href={`/informasi/berita/${b.slug}`}
                 className="group flex h-full flex-col justify-center rounded-2xl border bg-card p-5 transition-colors hover:border-lime"
               >
                 <span

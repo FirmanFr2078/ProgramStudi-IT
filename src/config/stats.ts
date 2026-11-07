@@ -6,7 +6,7 @@ export type StatItem = {
 
 export const prodiStats: StatItem[] = [
   { value: "500+", label: "Mahasiswa Aktif", href: "/mahasiswa/organisasi" },
-  { value: "1.200+", label: "Alumni", href: "/alumni" },
+  { value: "1.200+", label: "Alumni", href: "/mahasiswa/alumni" },
   { value: "25+", label: "Dosen", href: "/sdm/dosen" },
-  { value: "40+", label: "Mitra Industri", href: "/kerja-sama" },
+  { value: "40+", label: "Mitra Industri", href: "/profil/kerja-sama" },
 ]
