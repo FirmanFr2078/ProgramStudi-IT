@@ -101,7 +101,7 @@ function TunnelGrid() {
 
 export function Hero() {
   return (
-    <section className="scanlines relative isolate mx-auto flex h-[calc(100svh-6rem)] max-w-7xl flex-col items-center justify-center overflow-hidden px-4 sm:px-6">
+    <section className="scanlines relative isolate mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 sm:px-6 sm:pt-32 md:pb-20">
       {/* latar grid lorong */}
       <TunnelGrid />
 
@@ -205,7 +205,7 @@ export function Hero() {
             href="/profil"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "glow h-11 rounded-full bg-[#2e1065] px-6 text-sm text-white hover:bg-[#3b0f85]",
+              "glow h-11 rounded-full px-6 text-sm",
             )}
           >
             Kenali Prodi

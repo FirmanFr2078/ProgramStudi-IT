@@ -56,11 +56,12 @@ export const mainNav: SiteNavItem[] = [
     ],
   },
   {
-    label: "Mahasiswa",
-    children: [
-      { label: "Prestasi", href: "/mahasiswa/prestasi" },
-      { label: "Organisasi Mahasiswa", href: "/mahasiswa/organisasi" },
-    ],
+  label: "Mahasiswa",
+  children: [
+    { label: "Prestasi", href: "/mahasiswa/prestasi" },
+    { label: "Organisasi Mahasiswa", href: "/mahasiswa/organisasi" },
+    { label: "Alumni", href: "/alumni" },   // baris baru
+  ],
   },
   {
     label: "Fasilitas",

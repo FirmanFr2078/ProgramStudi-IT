@@ -56,56 +56,68 @@
 }
 
 :root {
-  /* 1. Palet mentah: 8 warna */
+  /* 1. Palet mentah */
   --c-black: #000000;
-  --c-violet: #7d39eb;
-  --c-lime: #c6ff33;
   --c-white: #ffffff;
+  --c-plum: #0d0c12;
+  --c-plum-card: #181422;
+  --c-plum-pop: #1e1a29;
+  --c-plum-muted: #221d2d;
+  --c-lilac: #d6c6f7;
+  --c-pearl: #f3ebff;
+  --c-ink: #15101d;
+  --c-lime: #c6ff33;
   --c-orange: #fb5607;
+  --c-violet: #7d39eb;
   --c-violet-alt: #8338ec;
   --c-charcoal: #212529;
-  --c-mist: #e9ecef;
+  --c-mist: #ece8f4;
 
   /* 2. Peran (semantic), nama bawaan shadcn */
-  --background: color-mix(in oklab, var(--c-black) 91%, var(--c-violet));
+  --background: var(--c-plum);
   --foreground: var(--c-mist);
-  --card: color-mix(in oklab, var(--c-black) 82%, var(--c-violet));
+  --card: var(--c-plum-card);
   --card-foreground: var(--c-mist);
-  --popover: color-mix(in oklab, var(--c-black) 78%, var(--c-violet));
+  --popover: var(--c-plum-pop);
   --popover-foreground: var(--c-mist);
-  --primary: var(--c-violet);
-  --primary-foreground: var(--c-white);
-  --secondary: var(--c-charcoal);
+  --primary: var(--c-lilac);
+  --primary-foreground: var(--c-ink);
+  --secondary: var(--c-plum-muted);
   --secondary-foreground: var(--c-mist);
-  --muted: color-mix(in oklab, var(--c-charcoal) 70%, var(--c-black));
-  --muted-foreground: color-mix(in oklab, var(--c-mist) 62%, transparent);
-  --accent: color-mix(in oklab, var(--c-violet) 22%, var(--background));
+  --muted: var(--c-plum-muted);
+  --muted-foreground: color-mix(in oklab, var(--c-mist) 60%, transparent);
+  --accent: color-mix(in oklab, var(--c-lilac) 10%, var(--background));
   --accent-foreground: var(--c-mist);
   --destructive: var(--c-orange);
-  --border: color-mix(in oklab, var(--c-mist) 12%, transparent);
-  --input: color-mix(in oklab, var(--c-mist) 18%, transparent);
+  --border: color-mix(in oklab, var(--c-lilac) 14%, transparent);
+  --input: color-mix(in oklab, var(--c-lilac) 20%, transparent);
   --ring: var(--c-lime);
 
-  --chart-1: var(--c-violet);
+  --chart-1: var(--c-lilac);
   --chart-2: var(--c-lime);
   --chart-3: var(--c-orange);
-  --chart-4: color-mix(in oklab, var(--c-violet) 38%, var(--c-white));
+  --chart-4: var(--c-violet);
   --chart-5: var(--c-mist);
 
   --radius: 0.875rem;
 
   --sidebar: var(--card);
   --sidebar-foreground: var(--c-mist);
-  --sidebar-primary: var(--c-violet);
-  --sidebar-primary-foreground: var(--c-white);
-  --sidebar-accent: color-mix(in oklab, var(--c-violet) 20%, var(--card));
+  --sidebar-primary: var(--c-lilac);
+  --sidebar-primary-foreground: var(--c-ink);
+  --sidebar-accent: color-mix(in oklab, var(--c-lilac) 10%, var(--card));
   --sidebar-accent-foreground: var(--c-mist);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--c-lime);
 
   /* tambahan */
-  --primary-hover: var(--c-violet-alt);
-  --text-accent: color-mix(in oklab, var(--c-violet) 38%, var(--c-white));
+  --primary-hover: color-mix(in oklab, var(--c-lilac) 70%, var(--c-white));
+  --text-accent: #c9b9ee;
+
+  /* tombol utama dengan border lime berputar */
+  --glow-fill: rgb(76, 67, 104);
+  --glow-fill-hover: rgb(106, 88, 168);
+  --glow-text: var(--c-pearl);
 }
 
 @layer base {
@@ -115,9 +127,9 @@
   body {
     @apply bg-background text-foreground;
     background-image: radial-gradient(
-      70% 45% at 50% -5%,
-      color-mix(in oklab, var(--c-violet) 28%, transparent),
-      transparent
+    70% 45% at 50% -5%,
+    color-mix(in oklab, var(--c-lilac) 9%, transparent),
+    transparent
     );
     background-repeat: no-repeat;
   }
@@ -141,17 +153,20 @@
     --ang: 360deg;
   }
 }
+
 .glow {
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
+  color: var(--glow-text);
   background:
-    linear-gradient(var(--primary), var(--primary)) padding-box,
-    conic-gradient(from var(--ang), transparent 0 62%, var(--c-lime) 82%, transparent 100%) border-box;
+    linear-gradient(var(--glow-fill), var(--glow-fill)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 58%, var(--c-lime) 82%, transparent 100%) border-box;
   animation: spin-ang 3.5s linear infinite;
 }
+
 .glow:hover {
   background:
-    linear-gradient(var(--primary-hover), var(--primary-hover)) padding-box,
-    conic-gradient(from var(--ang), transparent 0 62%, var(--c-lime) 82%, transparent 100%) border-box;
+    linear-gradient(var(--glow-fill-hover), var(--glow-fill-hover)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 58%, var(--c-lime) 82%, transparent 100%) border-box;
 }
 @media (prefers-reduced-motion: reduce) {
   .glow {
@@ -256,5 +271,8 @@
   .blink,
   .loadbar {
     animation: none;
+  }
+  .transition-all {
+    transition: none !important;
   }
 }

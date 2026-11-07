@@ -1,11 +1,17 @@
 import { Hero } from "@/components/landing/home/hero"
-import { QuickLinks } from "@/components/landing/home/quick-links"
+import { Stats } from "@/components/landing/home/stats"
+import { FocusAreas } from "@/components/landing/home/focus-areas"
+import { LatestNews } from "@/components/landing/home/latest-news"
+import { Cta } from "@/components/landing/home/cta"
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <QuickLinks />
+      <Stats />
+      <FocusAreas />
+      <LatestNews />
+      <Cta />
     </>
   )
 }
