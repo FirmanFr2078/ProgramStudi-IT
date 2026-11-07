@@ -1,13 +1,6 @@
 import type { Metadata } from "next"
 
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import { PageHeader } from "@/components/landing/page-header"
 import { DaySchedule } from "@/components/landing/pendidikan/jadwal/day-schedule"
 import { getJadwal } from "@/data/jadwal"
 
@@ -19,29 +12,21 @@ export default async function JadwalPage() {
   const jadwal = await getJadwal()
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Beranda</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Jadwal Kuliah</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <>
+      <PageHeader
+        eyebrow="Pendidikan"
+        title="Jadwal Kuliah"
+        description="Semester Ganjil 2026/2027 · Program Studi Teknik Informatika"
+        breadcrumbs={[
+          { label: "Beranda", href: "/" },
+          { label: "Pendidikan" },
+          { label: "Jadwal Kuliah" },
+        ]}
+      />
 
-      <h1 className="mt-4 font-heading text-3xl font-extrabold sm:text-4xl">
-        Jadwal Kuliah
-      </h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Semester Ganjil 2026/2027 · Program Studi Teknik Informatika
-      </p>
-
-      <div className="mt-10">
+      <section className="mx-auto max-w-5xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
         <DaySchedule items={jadwal} />
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

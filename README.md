@@ -24,7 +24,13 @@ web-prodi
 │  │  │  ├─ layout.tsx
 │  │  │  ├─ page.tsx
 │  │  │  ├─ pendidikan
-│  │  │  │  └─ jadwal
+│  │  │  │  ├─ jadwal
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ kalender
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ kurikulum
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ mbkm
 │  │  │  │     └─ page.tsx
 │  │  │  ├─ profil
 │  │  │  │  ├─ kerja-sama
@@ -32,6 +38,13 @@ web-prodi
 │  │  │  │  ├─ profil-prodi
 │  │  │  │  │  └─ page.tsx
 │  │  │  │  └─ struktur-organisasi
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ riset
+│  │  │  │  ├─ hki
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ penelitian
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ pengabdian
 │  │  │  │     └─ page.tsx
 │  │  │  └─ sdm
 │  │  │     ├─ dosen
@@ -51,6 +64,7 @@ web-prodi
 │  ├─ components
 │  │  ├─ app-sidebar.tsx
 │  │  ├─ landing
+│  │  │  ├─ dokumen-list.tsx
 │  │  │  ├─ footer.tsx
 │  │  │  ├─ header.tsx
 │  │  │  ├─ home
@@ -63,9 +77,18 @@ web-prodi
 │  │  │  ├─ informasi
 │  │  │  │  └─ contact-form.tsx
 │  │  │  ├─ mobile-nav.tsx
+│  │  │  ├─ page-header.tsx
 │  │  │  ├─ pendidikan
-│  │  │  │  └─ jadwal
-│  │  │  │     └─ day-schedule.tsx
+│  │  │  │  ├─ jadwal
+│  │  │  │  │  └─ day-schedule.tsx
+│  │  │  │  ├─ kalender
+│  │  │  │  │  └─ tanggal-penting.tsx
+│  │  │  │  ├─ kurikulum
+│  │  │  │  │  └─ semester-table.tsx
+│  │  │  │  └─ mbkm
+│  │  │  │     ├─ bentuk-kegiatan.tsx
+│  │  │  │     ├─ langkah-list.tsx
+│  │  │  │     └─ mitra-preview.tsx
 │  │  │  ├─ profil
 │  │  │  │  ├─ kerja-sama
 │  │  │  │  │  ├─ card.tsx
@@ -82,6 +105,8 @@ web-prodi
 │  │  │  │     ├─ tujuan.tsx
 │  │  │  │     └─ visi-misi.tsx
 │  │  │  ├─ reveal.tsx
+│  │  │  ├─ riset
+│  │  │  │  └─ riset-table.tsx
 │  │  │  └─ sdm
 │  │  │     ├─ dosen
 │  │  │     │  ├─ dosen-card.tsx
@@ -116,9 +141,15 @@ web-prodi
 │  ├─ data
 │  │  ├─ berita.ts
 │  │  ├─ dosen.ts
+│  │  ├─ hki.ts
 │  │  ├─ jadwal.ts
+│  │  ├─ kalender.ts
 │  │  ├─ kerja-sama.ts
+│  │  ├─ kurikulum.ts
+│  │  ├─ mbkm.ts
 │  │  ├─ organisasi.ts
+│  │  ├─ penelitian.ts
+│  │  ├─ pengabdian.ts
 │  │  ├─ profile.ts
 │  │  ├─ stats.ts
 │  │  └─ tendik.ts
@@ -132,13 +163,18 @@ web-prodi
 │  └─ types
 │     ├─ auth.ts
 │     ├─ berita.ts
+│     ├─ dokumen.ts
 │     ├─ dosen.ts
 │     ├─ index.ts
 │     ├─ jadwal.ts
+│     ├─ kalender.ts
 │     ├─ kerja-sama.ts
+│     ├─ kurikulum.ts
+│     ├─ mbkm.ts
 │     ├─ navigation.ts
 │     ├─ organisasi.ts
 │     ├─ profile.ts
+│     ├─ riset.ts
 │     ├─ site.ts
 │     ├─ stats.ts
 │     └─ tendik.ts
