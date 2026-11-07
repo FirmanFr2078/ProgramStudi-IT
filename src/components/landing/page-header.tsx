@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import Link from "next/link"
 
 import {
   Breadcrumb,
@@ -35,7 +36,9 @@ export function PageHeader({
                   {isLast ? (
                     <BreadcrumbPage>{c.label}</BreadcrumbPage>
                   ) : c.href ? (
-                    <BreadcrumbLink href={c.href}>{c.label}</BreadcrumbLink>
+                    <BreadcrumbLink render={<Link href={c.href} />}>
+                      {c.label}
+                    </BreadcrumbLink>
                   ) : (
                     <span>{c.label}</span>
                   )}

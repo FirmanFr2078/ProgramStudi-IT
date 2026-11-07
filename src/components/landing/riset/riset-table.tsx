@@ -53,7 +53,7 @@ export function RisetTable({
       </div>
 
       <div className="mt-4 overflow-x-auto rounded-xl border">
-        <table className="w-full min-w-[640px] text-left text-sm">
+        <table className="w-full min-w-160 text-left text-sm">
           <thead>
             <tr className="border-b bg-card text-xs text-muted-foreground uppercase">
               <th className="w-12 px-4 py-3 font-medium">No</th>

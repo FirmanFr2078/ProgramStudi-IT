@@ -71,6 +71,7 @@ export const mainNav: SiteNavItem[] = [
       { label: "Ruang Kelas", href: "/fasilitas/ruang-kelas" },
       { label: "Gedung", href: "/fasilitas/gedung" },
       { label: "Perpustakaan", href: "/fasilitas/perpustakaan" },
+      { label: "Sarana Administrasi", href: "/fasilitas/sarana-administrasi" },
     ],
   },
   {

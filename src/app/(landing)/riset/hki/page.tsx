@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 import { PageHeader } from "@/components/landing/page-header"
-import { RisetTable } from "@/components/landing/riset/riset-table"
+import { HkiTable } from "@/components/landing/riset/hki-table"
 import { getHki } from "@/data/hki"
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default async function HkiPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
-        <RisetTable items={data} labelJudul="Judul Karya" />
+        <HkiTable items={data} />
       </section>
     </>
   )

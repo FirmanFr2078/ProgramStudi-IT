@@ -18,10 +18,28 @@ web-prodi
 ├─ src
 │  ├─ app
 │  │  ├─ (landing)
+│  │  │  ├─ fasilitas
+│  │  │  │  ├─ gedung
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ laboratorium
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ perpustakaan
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ ruang-kelas
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ sarana-administrasi
+│  │  │  │     └─ page.tsx
 │  │  │  ├─ informasi
 │  │  │  │  └─ kontak
 │  │  │  │     └─ page.tsx
 │  │  │  ├─ layout.tsx
+│  │  │  ├─ mahasiswa
+│  │  │  │  ├─ alumni
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ organisasi
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ prestasi
+│  │  │  │     └─ page.tsx
 │  │  │  ├─ page.tsx
 │  │  │  ├─ pendidikan
 │  │  │  │  ├─ jadwal
@@ -65,6 +83,9 @@ web-prodi
 │  │  ├─ app-sidebar.tsx
 │  │  ├─ landing
 │  │  │  ├─ dokumen-list.tsx
+│  │  │  ├─ fasilitas
+│  │  │  │  ├─ card.tsx
+│  │  │  │  └─ grid.tsx
 │  │  │  ├─ footer.tsx
 │  │  │  ├─ header.tsx
 │  │  │  ├─ home
@@ -76,6 +97,14 @@ web-prodi
 │  │  │  │  └─ stats.tsx
 │  │  │  ├─ informasi
 │  │  │  │  └─ contact-form.tsx
+│  │  │  ├─ mahasiswa
+│  │  │  │  ├─ alumni
+│  │  │  │  │  ├─ summary.tsx
+│  │  │  │  │  └─ table.tsx
+│  │  │  │  └─ prestasi
+│  │  │  │     ├─ card.tsx
+│  │  │  │     ├─ filter.tsx
+│  │  │  │     └─ list.tsx
 │  │  │  ├─ mobile-nav.tsx
 │  │  │  ├─ page-header.tsx
 │  │  │  ├─ pendidikan
@@ -106,6 +135,7 @@ web-prodi
 │  │  │  │     └─ visi-misi.tsx
 │  │  │  ├─ reveal.tsx
 │  │  │  ├─ riset
+│  │  │  │  ├─ hki-table.tsx
 │  │  │  │  └─ riset-table.tsx
 │  │  │  └─ sdm
 │  │  │     ├─ dosen
@@ -136,11 +166,14 @@ web-prodi
 │  │  ├─ dashboard-nav.ts
 │  │  ├─ faq.ts
 │  │  ├─ focus-areas.ts
+│  │  ├─ organisasi-mahasiswa.ts
 │  │  ├─ site.ts
 │  │  └─ stats.ts
 │  ├─ data
+│  │  ├─ alumni.ts
 │  │  ├─ berita.ts
 │  │  ├─ dosen.ts
+│  │  ├─ fasilitas.ts
 │  │  ├─ hki.ts
 │  │  ├─ jadwal.ts
 │  │  ├─ kalender.ts
@@ -150,6 +183,7 @@ web-prodi
 │  │  ├─ organisasi.ts
 │  │  ├─ penelitian.ts
 │  │  ├─ pengabdian.ts
+│  │  ├─ prestasi.ts
 │  │  ├─ profile.ts
 │  │  ├─ stats.ts
 │  │  └─ tendik.ts
@@ -161,10 +195,13 @@ web-prodi
 │  │  ├─ session.ts
 │  │  └─ utils.ts
 │  └─ types
+│     ├─ alumni.ts
 │     ├─ auth.ts
 │     ├─ berita.ts
 │     ├─ dokumen.ts
 │     ├─ dosen.ts
+│     ├─ fasilitas.ts
+│     ├─ hki.ts
 │     ├─ index.ts
 │     ├─ jadwal.ts
 │     ├─ kalender.ts
@@ -173,6 +210,7 @@ web-prodi
 │     ├─ mbkm.ts
 │     ├─ navigation.ts
 │     ├─ organisasi.ts
+│     ├─ prestasi.ts
 │     ├─ profile.ts
 │     ├─ riset.ts
 │     ├─ site.ts
