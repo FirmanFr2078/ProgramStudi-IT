@@ -8,6 +8,20 @@ web-prodi
 ├─ package.json
 ├─ pnpm-lock.yaml
 ├─ pnpm-workspace.yaml
+├─ prisma
+│  ├─ generated
+│  │  ├─ browser.ts
+│  │  ├─ client.ts
+│  │  ├─ commonInputTypes.ts
+│  │  ├─ enums.ts
+│  │  ├─ internal
+│  │  │  ├─ class.ts
+│  │  │  ├─ prismaNamespace.ts
+│  │  │  └─ prismaNamespaceBrowser.ts
+│  │  ├─ models
+│  │  └─ models.ts
+│  └─ schema.prisma
+├─ prisma.config.ts
 ├─ public
 │  ├─ file.svg
 │  ├─ globe.svg
@@ -30,7 +44,17 @@ web-prodi
 │  │  │  │  └─ sarana-administrasi
 │  │  │  │     └─ page.tsx
 │  │  │  ├─ informasi
-│  │  │  │  └─ kontak
+│  │  │  │  ├─ event
+│  │  │  │  │  ├─ page.tsx
+│  │  │  │  │  └─ [slug]
+│  │  │  │  │     └─ page.tsx
+│  │  │  │  ├─ kabar
+│  │  │  │  │  ├─ page.tsx
+│  │  │  │  │  └─ [slug]
+│  │  │  │  │     └─ page.tsx
+│  │  │  │  ├─ kontak
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ pendaftaran
 │  │  │  │     └─ page.tsx
 │  │  │  ├─ layout.tsx
 │  │  │  ├─ mahasiswa
@@ -96,7 +120,18 @@ web-prodi
 │  │  │  │  ├─ latest-news.tsx
 │  │  │  │  └─ stats.tsx
 │  │  │  ├─ informasi
-│  │  │  │  └─ contact-form.tsx
+│  │  │  │  ├─ contact-form.tsx
+│  │  │  │  ├─ event
+│  │  │  │  │  ├─ card.tsx
+│  │  │  │  │  ├─ detail.tsx
+│  │  │  │  │  ├─ list-skeleton.tsx
+│  │  │  │  │  └─ list.tsx
+│  │  │  │  ├─ filter.tsx
+│  │  │  │  └─ kabar
+│  │  │  │     ├─ card.tsx
+│  │  │  │     ├─ detail.tsx
+│  │  │  │     ├─ list-skeleton.tsx
+│  │  │  │     └─ list.tsx
 │  │  │  ├─ mahasiswa
 │  │  │  │  ├─ alumni
 │  │  │  │  │  ├─ summary.tsx
@@ -171,16 +206,18 @@ web-prodi
 │  │  └─ stats.ts
 │  ├─ data
 │  │  ├─ alumni.ts
-│  │  ├─ berita.ts
 │  │  ├─ dosen.ts
+│  │  ├─ event.ts
 │  │  ├─ fasilitas.ts
 │  │  ├─ hki.ts
 │  │  ├─ jadwal.ts
+│  │  ├─ kabar.ts
 │  │  ├─ kalender.ts
 │  │  ├─ kerja-sama.ts
 │  │  ├─ kurikulum.ts
 │  │  ├─ mbkm.ts
 │  │  ├─ organisasi.ts
+│  │  ├─ pendaftaran.ts
 │  │  ├─ penelitian.ts
 │  │  ├─ pengabdian.ts
 │  │  ├─ prestasi.ts
@@ -192,24 +229,28 @@ web-prodi
 │  ├─ lib
 │  │  ├─ initials.ts
 │  │  ├─ permissions.ts
+│  │  ├─ prisma.ts
 │  │  ├─ session.ts
+│  │  ├─ storage.ts
 │  │  └─ utils.ts
 │  └─ types
 │     ├─ alumni.ts
 │     ├─ auth.ts
-│     ├─ berita.ts
 │     ├─ dokumen.ts
 │     ├─ dosen.ts
+│     ├─ event.ts
 │     ├─ fasilitas.ts
 │     ├─ hki.ts
 │     ├─ index.ts
 │     ├─ jadwal.ts
+│     ├─ kabar.ts
 │     ├─ kalender.ts
 │     ├─ kerja-sama.ts
 │     ├─ kurikulum.ts
 │     ├─ mbkm.ts
 │     ├─ navigation.ts
 │     ├─ organisasi.ts
+│     ├─ pendaftaran.ts
 │     ├─ prestasi.ts
 │     ├─ profile.ts
 │     ├─ riset.ts

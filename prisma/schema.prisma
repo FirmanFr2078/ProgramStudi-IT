@@ -1,0 +1,408 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================================
+// AUTH & PENGGUNA (Supabase Auth)
+// ============================================================
+
+enum Role {
+  admin
+  // role baru (mis. "editor") tambahkan di sini + izinnya di src/lib/permissions.ts
+}
+
+model tbl_profiles {
+  // Sama persis dengan auth.users.id Supabase -- BUKAN id baru yang digenerate
+  // di sini. Baris ini idealnya dibuat otomatis lewat trigger Supabase saat
+  // user baru sign up (belum dibuat triggernya -- catatan buat nanti).
+  id_profile String @id @db.Uuid
+  email      String @unique @db.VarChar(150)
+
+  // Diganti sendiri lewat halaman Pengaturan.
+  nama String  @db.VarChar(100)
+  foto String? @db.VarChar(255) // path bucket "images", folder "profil/"
+
+  role Role @default(admin)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+// ============================================================
+// KONTEN (Berita/Pengumuman & Event)
+// ============================================================
+
+enum KategoriKabar {
+  Berita
+  Pengumuman
+}
+
+model tbl_kabar {
+  id_kabar BigInt @id @default(autoincrement())
+
+  // Dipakai di URL /informasi/kabar/[slug]. Dibuat dari judul, boleh diedit manual.
+  slug      String        @unique @db.VarChar(150)
+  judul     String        @db.VarChar(200)
+  ringkasan String        @db.VarChar(300)
+  konten    String[] // satu String = satu paragraf, dirender sbg <p> terpisah
+  kategori  KategoriKabar
+  tanggal   DateTime      @db.Date
+  gambar    String?       @db.VarChar(255) // path bucket "images"
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+enum KategoriEvent {
+  Seminar
+  Workshop
+  Lomba
+  KuliahUmum @map("Kuliah Umum")
+  Lainnya
+}
+
+model tbl_event {
+  id_event BigInt @id @default(autoincrement())
+
+  slug            String        @unique @db.VarChar(150)
+  judul           String        @db.VarChar(200)
+  ringkasan       String        @db.VarChar(300)
+  konten          String[]
+  kategori        KategoriEvent
+  tanggal_mulai   DateTime      @db.Date
+  tanggal_selesai DateTime?     @db.Date // kosong = acara cuma 1 hari
+  waktu           String?       @db.VarChar(50) // mis. "09:00 - 12:00 WIB"
+  lokasi          String        @db.VarChar(200)
+  tautan_daftar   String?       @db.VarChar(255)
+  gambar          String?       @db.VarChar(255)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+// ============================================================
+// SDM (Dosen & Tendik)
+// ============================================================
+
+enum JabatanFungsional {
+  TenagaPengajar @map("Tenaga Pengajar")
+  AsistenAhli    @map("Asisten Ahli")
+  Lektor
+  LektorKepala   @map("Lektor Kepala")
+  GuruBesar      @map("Guru Besar")
+}
+
+model tbl_dosen {
+  id_dosen BigInt @id @default(autoincrement())
+
+  slug String @unique @db.VarChar(150)
+  nama String @db.VarChar(150) // termasuk gelar, mis. "Dr. Ahmad Fauzi, M.Kom."
+  nidn String @unique @db.VarChar(20)
+
+  jabatan_struktural String?           @db.VarChar(100) // kosong = dosen biasa, bukan error
+  jabatan_fungsional JabatanFungsional
+
+  // Riwayat pendidikan diratain jadi kolom langsung, BUKAN tabel terpisah --
+  // tiap dosen pasti maks 1 baris per jenjang (S1/S2/S3), jadi child table
+  // di sini cuma nambah JOIN tanpa manfaat nyata. S1 wajib, S2/S3 opsional.
+  pendidikan_s1_bidang String  @db.VarChar(100)
+  pendidikan_s1_kampus String  @db.VarChar(150)
+  pendidikan_s2_bidang String? @db.VarChar(100)
+  pendidikan_s2_kampus String? @db.VarChar(150)
+  pendidikan_s3_bidang String? @db.VarChar(100)
+  pendidikan_s3_kampus String? @db.VarChar(150)
+
+  bidang_keahlian String[]
+  mata_kuliah     String[] // nama mata kuliah yg diampu, bukan FK -- lihat catatan di atas
+
+  email          String  @unique @db.VarChar(150)
+  foto           String? @db.VarChar(255)
+  sinta          String? @db.VarChar(255)
+  google_scholar String? @db.VarChar(255)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+enum UnitKerja {
+  TataUsaha       @map("Tata Usaha")
+  LayananAkademik @map("Layanan Akademik")
+  Laboratorium
+  Perpustakaan
+  KeuanganUmum    @map("Keuangan & Umum")
+}
+
+model tbl_tendik {
+  id_tendik BigInt @id @default(autoincrement())
+
+  slug        String    @unique @db.VarChar(150)
+  nama        String    @db.VarChar(150)
+  jabatan     String    @db.VarChar(100) // mis. "Staf Administrasi Akademik"
+  unit_kerja  UnitKerja
+  tugas       String[]
+  lokasi      String    @db.VarChar(150) // mis. "Ruang Tata Usaha, Gedung A lt.1"
+  jam_layanan String    @db.VarChar(50)
+  pendidikan  String    @db.VarChar(150) // pendidikan terakhir, teks bebas
+  email       String    @unique @db.VarChar(150)
+  telepon     String?   @db.VarChar(20)
+  foto        String?   @db.VarChar(255)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+// ============================================================
+// MAHASISWA (Alumni & Prestasi)
+// ============================================================
+
+enum StatusKarier {
+  Bekerja
+  Wirausaha
+  MelanjutkanStudi @map("Melanjutkan Studi")
+  MencariKerja     @map("Mencari Kerja")
+}
+
+model tbl_alumni {
+  id_alumni     BigInt       @id @default(autoincrement())
+  nama          String       @db.VarChar(150)
+  nim           String       @unique @db.VarChar(30)
+  tahun_lulus   Int
+  status_karier StatusKarier
+  pekerjaan     String?      @db.VarChar(200) // posisi + instansi, satu baris teks
+}
+
+enum TingkatPrestasi {
+  Internasional
+  Nasional
+  Provinsi
+  Kampus
+}
+
+model tbl_prestasi {
+  id_prestasi   BigInt          @id @default(autoincrement())
+  judul         String          @db.VarChar(200) // nama lomba/kompetisi/hibah
+  penyelenggara String          @db.VarChar(200)
+  tingkat       TingkatPrestasi
+
+  // Bisa tim, lebih dari satu nama. Array cukup -- belum ada fitur yang
+  // butuh "cari semua prestasi yang pernah diikuti mahasiswa X".
+  mahasiswa String[]
+
+  peringkat  String  @db.VarChar(50) // "Juara 1", "Pendanaan Nasional", dst -- teks bebas
+  tahun      Int
+  pembimbing String? @db.VarChar(150)
+}
+
+// ============================================================
+// KERJA SAMA (Mitra)
+// ============================================================
+
+enum KategoriMitra {
+  DuniaUsahaIndustri @map("Dunia Usaha & Industri")
+  PerguruanTinggi    @map("Perguruan Tinggi")
+  PemerintahInstansi @map("Pemerintah & Instansi")
+  OrganisasiProfesi  @map("Organisasi Profesi")
+  MediaKomunitas     @map("Media & Komunitas")
+}
+
+model tbl_mitra {
+  id_mitra  BigInt        @id @default(autoincrement())
+  slug      String        @unique @db.VarChar(150)
+  nama      String        @db.VarChar(200)
+  kategori  KategoriMitra
+  ringkasan String        @db.VarChar(300)
+  lingkup   String[] // tag ringkas: "Magang", "Riset Bersama", dst
+  deskripsi String[] // paragraf lengkap, tampil di halaman detail
+  mulai     DateTime      @db.Date
+  berakhir  DateTime?     @db.Date // kosong = masih berjalan
+  pic       String?       @db.VarChar(150)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+// ============================================================
+// FASILITAS
+// ============================================================
+
+enum KategoriFasilitas {
+  Laboratorium
+  RuangKelas         @map("Ruang Kelas")
+  Gedung
+  Perpustakaan
+  SaranaAdministrasi @map("sarana administrasi")
+}
+
+model tbl_fasilitas {
+  id_fasilitas BigInt            @id @default(autoincrement())
+  slug         String            @unique @db.VarChar(150)
+  nama         String            @db.VarChar(200)
+  kategori     KategoriFasilitas
+  foto         String?           @db.VarChar(255)
+  lokasi       String            @db.VarChar(150) // mis. "Gedung A, Lantai 2"
+  deskripsi    String
+  kapasitas    Int? // jumlah orang/kursi -- ga semua kategori punya ini
+  fitur        String[]
+}
+
+// ============================================================
+// RISET (Penelitian & Pengabdian satu tabel, beda kolom `jenis`) & HKI
+// ============================================================
+
+enum JenisRiset {
+  Penelitian
+  Pengabdian
+}
+
+model tbl_riset {
+  id_riset    BigInt     @id @default(autoincrement())
+  jenis       JenisRiset
+  judul       String     @db.VarChar(250)
+  ketua       String     @db.VarChar(150)
+  anggota     String[]
+  tahun       Int
+  sumber_dana String     @db.VarChar(150)
+}
+
+enum JenisHki {
+  HakCipta       @map("Hak Cipta")
+  Paten
+  PatenSederhana @map("Paten Sederhana")
+  DesainIndustri @map("Desain Industri")
+  Merek
+}
+
+enum StatusHki {
+  Terdaftar
+  DalamProses @map("Dalam Proses")
+}
+
+model tbl_hki {
+  id_hki   BigInt    @id @default(autoincrement())
+  judul    String    @db.VarChar(250)
+  jenis    JenisHki
+  pencipta String[]
+  nomor    String    @unique @db.VarChar(100) // nomor pendaftaran/sertifikat
+  tahun    Int
+  status   StatusHki
+}
+
+// ============================================================
+// PENDIDIKAN (Jadwal, Kalender, Kurikulum, MBKM)
+// ============================================================
+
+enum Hari {
+  Senin
+  Selasa
+  Rabu
+  Kamis
+  Jumat
+}
+
+model tbl_jadwal {
+  id_jadwal   BigInt @id @default(autoincrement())
+  hari        Hari
+  jam_mulai   String @db.VarChar(5) // "07:00"
+  jam_selesai String @db.VarChar(5)
+  mata_kuliah String @db.VarChar(150) // teks bebas, bukan FK -- lihat catatan di atas
+  sks         Int
+  kelas       String @db.VarChar(20) // "TI 4A"
+  dosen       String @db.VarChar(150) // teks bebas, bukan FK -- lihat catatan di atas
+  ruang       String @db.VarChar(50)
+}
+
+model tbl_tanggal_penting {
+  id_tanggal BigInt    @id @default(autoincrement())
+  mulai      DateTime  @db.Date
+  selesai    DateTime? @db.Date // kalau berupa rentang
+  keterangan String    @db.VarChar(255)
+}
+
+enum JenisMataKuliah {
+  Wajib
+  Pilihan
+}
+
+model tbl_mata_kuliah {
+  id_mata_kuliah BigInt          @id @default(autoincrement())
+  kode           String          @unique @db.VarChar(20)
+  nama           String          @db.VarChar(150)
+  sks            Int
+  jenis          JenisMataKuliah
+  semester       Int // 1-8
+}
+
+model tbl_bentuk_kegiatan {
+  id_kegiatan BigInt @id @default(autoincrement())
+  nama        String @db.VarChar(150)
+  icon        String @db.VarChar(50) // nama ikon Lucide, di-resolve jadi komponen di client
+}
+
+model tbl_langkah_mbkm {
+  id_langkah BigInt @id @default(autoincrement())
+  judul      String @db.VarChar(150)
+  deskripsi  String
+  urutan     Int    @default(0)
+}
+
+enum ModulDokumen {
+  Kurikulum
+  Kalender
+  Mbkm
+}
+
+model tbl_dokumen {
+  id_dokumen BigInt       @id @default(autoincrement())
+  modul      ModulDokumen
+  label      String       @db.VarChar(150)
+  url        String       @db.VarChar(255) // path bucket "documents"
+  aktif      Boolean      @default(true)
+}
+
+// ============================================================
+// PROFIL PRODI (singleton -- termasuk struktur organisasi)
+// ============================================================
+
+model tbl_profil_prodi {
+  id_profil Int @id @default(1) // selalu 1 baris -- jangan buat baris kedua
+
+  sambutan_nama    String   @db.VarChar(150)
+  sambutan_jabatan String   @db.VarChar(100)
+  sambutan_isi     String[]
+
+  sejarah String[]
+
+  visi String
+  misi String[]
+
+  tujuan String[]
+
+  // {judul, deskripsi}[] -- cuma ditampilkan apa adanya di 1 halaman,
+  // ga butuh query/filter per-item, jadi Json lebih hemat dari tabel.
+  profil_lulusan Json
+
+  // {label, value}[] -- identitas prodi (akreditasi, SK pendirian, dst).
+  identitas Json
+
+  // {pimpinan_fakultas, ketua_prodi, sekretaris_prodi, koordinator[]} --
+  // statis, 1 halaman org chart. Daripada tabel terpisah, Json lebih hemat.
+  struktur_organisasi Json
+
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+// ============================================================
+// PENDAFTARAN
+// ============================================================
+
+model tbl_jalur_pendaftaran {
+  id_jalur  BigInt   @id @default(autoincrement())
+  nama      String   @db.VarChar(100)
+  deskripsi String
+  syarat    String[]
+}
