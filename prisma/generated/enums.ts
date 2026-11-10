@@ -46,15 +46,6 @@ export const JabatanFungsional = {
 export type JabatanFungsional = (typeof JabatanFungsional)[keyof typeof JabatanFungsional]
 
 
-export const Jenjang = {
-  S1: 'S1',
-  S2: 'S2',
-  S3: 'S3'
-} as const
-
-export type Jenjang = (typeof Jenjang)[keyof typeof Jenjang]
-
-
 export const UnitKerja = {
   TataUsaha: 'TataUsaha',
   LayananAkademik: 'LayananAkademik',
@@ -161,13 +152,3 @@ export const ModulDokumen = {
 } as const
 
 export type ModulDokumen = (typeof ModulDokumen)[keyof typeof ModulDokumen]
-
-
-export const JenisJabatan = {
-  PimpinanFakultas: 'PimpinanFakultas',
-  KetuaProdi: 'KetuaProdi',
-  SekretarisProdi: 'SekretarisProdi',
-  Koordinator: 'Koordinator'
-} as const
-
-export type JenisJabatan = (typeof JenisJabatan)[keyof typeof JenisJabatan]

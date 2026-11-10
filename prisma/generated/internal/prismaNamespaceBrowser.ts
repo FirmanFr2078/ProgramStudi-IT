@@ -51,31 +51,25 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Profile: 'Profile',
-  Kabar: 'Kabar',
-  Event: 'Event',
-  Dosen: 'Dosen',
-  DosenPendidikan: 'DosenPendidikan',
-  Tendik: 'Tendik',
-  Alumni: 'Alumni',
-  Prestasi: 'Prestasi',
-  PrestasiMahasiswa: 'PrestasiMahasiswa',
-  Mitra: 'Mitra',
-  MitraLingkup: 'MitraLingkup',
-  Fasilitas: 'Fasilitas',
-  FasilitasFitur: 'FasilitasFitur',
-  RisetItem: 'RisetItem',
-  RisetAnggota: 'RisetAnggota',
-  HkiItem: 'HkiItem',
-  JadwalItem: 'JadwalItem',
-  TanggalPenting: 'TanggalPenting',
-  MataKuliah: 'MataKuliah',
-  BentukKegiatan: 'BentukKegiatan',
-  LangkahMbkm: 'LangkahMbkm',
-  Dokumen: 'Dokumen',
-  ProgramProfile: 'ProgramProfile',
-  OrgPosition: 'OrgPosition',
-  JalurPendaftaran: 'JalurPendaftaran'
+  tbl_profiles: 'tbl_profiles',
+  tbl_kabar: 'tbl_kabar',
+  tbl_event: 'tbl_event',
+  tbl_dosen: 'tbl_dosen',
+  tbl_tendik: 'tbl_tendik',
+  tbl_alumni: 'tbl_alumni',
+  tbl_prestasi: 'tbl_prestasi',
+  tbl_mitra: 'tbl_mitra',
+  tbl_fasilitas: 'tbl_fasilitas',
+  tbl_riset: 'tbl_riset',
+  tbl_hki: 'tbl_hki',
+  tbl_jadwal: 'tbl_jadwal',
+  tbl_tanggal_penting: 'tbl_tanggal_penting',
+  tbl_mata_kuliah: 'tbl_mata_kuliah',
+  tbl_bentuk_kegiatan: 'tbl_bentuk_kegiatan',
+  tbl_langkah_mbkm: 'tbl_langkah_mbkm',
+  tbl_dokumen: 'tbl_dokumen',
+  tbl_profil_prodi: 'tbl_profil_prodi',
+  tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -94,21 +88,26 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const ProfileScalarFieldEnum = {
-  id: 'id',
+export const Tbl_profilesScalarFieldEnum = {
+  id_profile: 'id_profile',
+  username: 'username',
+  password: 'password',
   email: 'email',
   nama: 'nama',
   foto: 'foto',
   role: 'role',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  is_active: 'is_active',
+  session_version: 'session_version',
+  last_login_at: 'last_login_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+export type Tbl_profilesScalarFieldEnum = (typeof Tbl_profilesScalarFieldEnum)[keyof typeof Tbl_profilesScalarFieldEnum]
 
 
-export const KabarScalarFieldEnum = {
-  id: 'id',
+export const Tbl_kabarScalarFieldEnum = {
+  id_kabar: 'id_kabar',
   slug: 'slug',
   judul: 'judul',
   ringkasan: 'ringkasan',
@@ -116,190 +115,153 @@ export const KabarScalarFieldEnum = {
   kategori: 'kategori',
   tanggal: 'tanggal',
   gambar: 'gambar',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type KabarScalarFieldEnum = (typeof KabarScalarFieldEnum)[keyof typeof KabarScalarFieldEnum]
+export type Tbl_kabarScalarFieldEnum = (typeof Tbl_kabarScalarFieldEnum)[keyof typeof Tbl_kabarScalarFieldEnum]
 
 
-export const EventScalarFieldEnum = {
-  id: 'id',
+export const Tbl_eventScalarFieldEnum = {
+  id_event: 'id_event',
   slug: 'slug',
   judul: 'judul',
   ringkasan: 'ringkasan',
   konten: 'konten',
   kategori: 'kategori',
-  tanggalMulai: 'tanggalMulai',
-  tanggalSelesai: 'tanggalSelesai',
+  tanggal_mulai: 'tanggal_mulai',
+  tanggal_selesai: 'tanggal_selesai',
   waktu: 'waktu',
   lokasi: 'lokasi',
-  tautanDaftar: 'tautanDaftar',
+  tautan_daftar: 'tautan_daftar',
   gambar: 'gambar',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+export type Tbl_eventScalarFieldEnum = (typeof Tbl_eventScalarFieldEnum)[keyof typeof Tbl_eventScalarFieldEnum]
 
 
-export const DosenScalarFieldEnum = {
-  id: 'id',
+export const Tbl_dosenScalarFieldEnum = {
+  id_dosen: 'id_dosen',
   slug: 'slug',
   nama: 'nama',
   nidn: 'nidn',
-  jabatanStruktural: 'jabatanStruktural',
-  jabatanFungsional: 'jabatanFungsional',
-  bidangKeahlian: 'bidangKeahlian',
-  mataKuliah: 'mataKuliah',
+  jabatan_struktural: 'jabatan_struktural',
+  jabatan_fungsional: 'jabatan_fungsional',
+  pendidikan_s1_bidang: 'pendidikan_s1_bidang',
+  pendidikan_s1_kampus: 'pendidikan_s1_kampus',
+  pendidikan_s2_bidang: 'pendidikan_s2_bidang',
+  pendidikan_s2_kampus: 'pendidikan_s2_kampus',
+  pendidikan_s3_bidang: 'pendidikan_s3_bidang',
+  pendidikan_s3_kampus: 'pendidikan_s3_kampus',
+  bidang_keahlian: 'bidang_keahlian',
+  mata_kuliah: 'mata_kuliah',
   email: 'email',
   foto: 'foto',
   sinta: 'sinta',
-  googleScholar: 'googleScholar',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  google_scholar: 'google_scholar',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type DosenScalarFieldEnum = (typeof DosenScalarFieldEnum)[keyof typeof DosenScalarFieldEnum]
+export type Tbl_dosenScalarFieldEnum = (typeof Tbl_dosenScalarFieldEnum)[keyof typeof Tbl_dosenScalarFieldEnum]
 
 
-export const DosenPendidikanScalarFieldEnum = {
-  id: 'id',
-  dosenId: 'dosenId',
-  jenjang: 'jenjang',
-  bidang: 'bidang',
-  kampus: 'kampus'
-} as const
-
-export type DosenPendidikanScalarFieldEnum = (typeof DosenPendidikanScalarFieldEnum)[keyof typeof DosenPendidikanScalarFieldEnum]
-
-
-export const TendikScalarFieldEnum = {
-  id: 'id',
+export const Tbl_tendikScalarFieldEnum = {
+  id_tendik: 'id_tendik',
   slug: 'slug',
   nama: 'nama',
   jabatan: 'jabatan',
-  unitKerja: 'unitKerja',
+  unit_kerja: 'unit_kerja',
   tugas: 'tugas',
   lokasi: 'lokasi',
-  jamLayanan: 'jamLayanan',
+  jam_layanan: 'jam_layanan',
   pendidikan: 'pendidikan',
   email: 'email',
   telepon: 'telepon',
   foto: 'foto',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type TendikScalarFieldEnum = (typeof TendikScalarFieldEnum)[keyof typeof TendikScalarFieldEnum]
+export type Tbl_tendikScalarFieldEnum = (typeof Tbl_tendikScalarFieldEnum)[keyof typeof Tbl_tendikScalarFieldEnum]
 
 
-export const AlumniScalarFieldEnum = {
-  id: 'id',
+export const Tbl_alumniScalarFieldEnum = {
+  id_alumni: 'id_alumni',
   nama: 'nama',
   nim: 'nim',
-  tahunLulus: 'tahunLulus',
-  statusKarier: 'statusKarier',
+  tahun_lulus: 'tahun_lulus',
+  status_karier: 'status_karier',
   pekerjaan: 'pekerjaan'
 } as const
 
-export type AlumniScalarFieldEnum = (typeof AlumniScalarFieldEnum)[keyof typeof AlumniScalarFieldEnum]
+export type Tbl_alumniScalarFieldEnum = (typeof Tbl_alumniScalarFieldEnum)[keyof typeof Tbl_alumniScalarFieldEnum]
 
 
-export const PrestasiScalarFieldEnum = {
-  id: 'id',
+export const Tbl_prestasiScalarFieldEnum = {
+  id_prestasi: 'id_prestasi',
   judul: 'judul',
   penyelenggara: 'penyelenggara',
   tingkat: 'tingkat',
+  mahasiswa: 'mahasiswa',
   peringkat: 'peringkat',
   tahun: 'tahun',
   pembimbing: 'pembimbing'
 } as const
 
-export type PrestasiScalarFieldEnum = (typeof PrestasiScalarFieldEnum)[keyof typeof PrestasiScalarFieldEnum]
+export type Tbl_prestasiScalarFieldEnum = (typeof Tbl_prestasiScalarFieldEnum)[keyof typeof Tbl_prestasiScalarFieldEnum]
 
 
-export const PrestasiMahasiswaScalarFieldEnum = {
-  id: 'id',
-  prestasiId: 'prestasiId',
-  nama: 'nama'
-} as const
-
-export type PrestasiMahasiswaScalarFieldEnum = (typeof PrestasiMahasiswaScalarFieldEnum)[keyof typeof PrestasiMahasiswaScalarFieldEnum]
-
-
-export const MitraScalarFieldEnum = {
-  id: 'id',
+export const Tbl_mitraScalarFieldEnum = {
+  id_mitra: 'id_mitra',
   slug: 'slug',
   nama: 'nama',
   kategori: 'kategori',
   ringkasan: 'ringkasan',
+  lingkup: 'lingkup',
   deskripsi: 'deskripsi',
   mulai: 'mulai',
   berakhir: 'berakhir',
   pic: 'pic',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
-export type MitraScalarFieldEnum = (typeof MitraScalarFieldEnum)[keyof typeof MitraScalarFieldEnum]
+export type Tbl_mitraScalarFieldEnum = (typeof Tbl_mitraScalarFieldEnum)[keyof typeof Tbl_mitraScalarFieldEnum]
 
 
-export const MitraLingkupScalarFieldEnum = {
-  id: 'id',
-  mitraId: 'mitraId',
-  label: 'label'
-} as const
-
-export type MitraLingkupScalarFieldEnum = (typeof MitraLingkupScalarFieldEnum)[keyof typeof MitraLingkupScalarFieldEnum]
-
-
-export const FasilitasScalarFieldEnum = {
-  id: 'id',
+export const Tbl_fasilitasScalarFieldEnum = {
+  id_fasilitas: 'id_fasilitas',
   slug: 'slug',
   nama: 'nama',
   kategori: 'kategori',
   foto: 'foto',
   lokasi: 'lokasi',
   deskripsi: 'deskripsi',
-  kapasitas: 'kapasitas'
+  kapasitas: 'kapasitas',
+  fitur: 'fitur'
 } as const
 
-export type FasilitasScalarFieldEnum = (typeof FasilitasScalarFieldEnum)[keyof typeof FasilitasScalarFieldEnum]
+export type Tbl_fasilitasScalarFieldEnum = (typeof Tbl_fasilitasScalarFieldEnum)[keyof typeof Tbl_fasilitasScalarFieldEnum]
 
 
-export const FasilitasFiturScalarFieldEnum = {
-  id: 'id',
-  fasilitasId: 'fasilitasId',
-  label: 'label'
-} as const
-
-export type FasilitasFiturScalarFieldEnum = (typeof FasilitasFiturScalarFieldEnum)[keyof typeof FasilitasFiturScalarFieldEnum]
-
-
-export const RisetItemScalarFieldEnum = {
-  id: 'id',
+export const Tbl_risetScalarFieldEnum = {
+  id_riset: 'id_riset',
   jenis: 'jenis',
   judul: 'judul',
   ketua: 'ketua',
+  anggota: 'anggota',
   tahun: 'tahun',
-  sumberDana: 'sumberDana'
+  sumber_dana: 'sumber_dana'
 } as const
 
-export type RisetItemScalarFieldEnum = (typeof RisetItemScalarFieldEnum)[keyof typeof RisetItemScalarFieldEnum]
+export type Tbl_risetScalarFieldEnum = (typeof Tbl_risetScalarFieldEnum)[keyof typeof Tbl_risetScalarFieldEnum]
 
 
-export const RisetAnggotaScalarFieldEnum = {
-  id: 'id',
-  risetId: 'risetId',
-  nama: 'nama'
-} as const
-
-export type RisetAnggotaScalarFieldEnum = (typeof RisetAnggotaScalarFieldEnum)[keyof typeof RisetAnggotaScalarFieldEnum]
-
-
-export const HkiItemScalarFieldEnum = {
-  id: 'id',
+export const Tbl_hkiScalarFieldEnum = {
+  id_hki: 'id_hki',
   judul: 'judul',
   jenis: 'jenis',
   pencipta: 'pencipta',
@@ -308,36 +270,36 @@ export const HkiItemScalarFieldEnum = {
   status: 'status'
 } as const
 
-export type HkiItemScalarFieldEnum = (typeof HkiItemScalarFieldEnum)[keyof typeof HkiItemScalarFieldEnum]
+export type Tbl_hkiScalarFieldEnum = (typeof Tbl_hkiScalarFieldEnum)[keyof typeof Tbl_hkiScalarFieldEnum]
 
 
-export const JadwalItemScalarFieldEnum = {
-  id: 'id',
+export const Tbl_jadwalScalarFieldEnum = {
+  id_jadwal: 'id_jadwal',
   hari: 'hari',
-  jamMulai: 'jamMulai',
-  jamSelesai: 'jamSelesai',
-  mataKuliah: 'mataKuliah',
+  jam_mulai: 'jam_mulai',
+  jam_selesai: 'jam_selesai',
+  mata_kuliah: 'mata_kuliah',
   sks: 'sks',
   kelas: 'kelas',
   dosen: 'dosen',
   ruang: 'ruang'
 } as const
 
-export type JadwalItemScalarFieldEnum = (typeof JadwalItemScalarFieldEnum)[keyof typeof JadwalItemScalarFieldEnum]
+export type Tbl_jadwalScalarFieldEnum = (typeof Tbl_jadwalScalarFieldEnum)[keyof typeof Tbl_jadwalScalarFieldEnum]
 
 
-export const TanggalPentingScalarFieldEnum = {
-  id: 'id',
+export const Tbl_tanggal_pentingScalarFieldEnum = {
+  id_tanggal: 'id_tanggal',
   mulai: 'mulai',
   selesai: 'selesai',
   keterangan: 'keterangan'
 } as const
 
-export type TanggalPentingScalarFieldEnum = (typeof TanggalPentingScalarFieldEnum)[keyof typeof TanggalPentingScalarFieldEnum]
+export type Tbl_tanggal_pentingScalarFieldEnum = (typeof Tbl_tanggal_pentingScalarFieldEnum)[keyof typeof Tbl_tanggal_pentingScalarFieldEnum]
 
 
-export const MataKuliahScalarFieldEnum = {
-  id: 'id',
+export const Tbl_mata_kuliahScalarFieldEnum = {
+  id_mata_kuliah: 'id_mata_kuliah',
   kode: 'kode',
   nama: 'nama',
   sks: 'sks',
@@ -345,76 +307,65 @@ export const MataKuliahScalarFieldEnum = {
   semester: 'semester'
 } as const
 
-export type MataKuliahScalarFieldEnum = (typeof MataKuliahScalarFieldEnum)[keyof typeof MataKuliahScalarFieldEnum]
+export type Tbl_mata_kuliahScalarFieldEnum = (typeof Tbl_mata_kuliahScalarFieldEnum)[keyof typeof Tbl_mata_kuliahScalarFieldEnum]
 
 
-export const BentukKegiatanScalarFieldEnum = {
-  id: 'id',
+export const Tbl_bentuk_kegiatanScalarFieldEnum = {
+  id_kegiatan: 'id_kegiatan',
   nama: 'nama',
   icon: 'icon'
 } as const
 
-export type BentukKegiatanScalarFieldEnum = (typeof BentukKegiatanScalarFieldEnum)[keyof typeof BentukKegiatanScalarFieldEnum]
+export type Tbl_bentuk_kegiatanScalarFieldEnum = (typeof Tbl_bentuk_kegiatanScalarFieldEnum)[keyof typeof Tbl_bentuk_kegiatanScalarFieldEnum]
 
 
-export const LangkahMbkmScalarFieldEnum = {
-  id: 'id',
+export const Tbl_langkah_mbkmScalarFieldEnum = {
+  id_langkah: 'id_langkah',
   judul: 'judul',
   deskripsi: 'deskripsi',
   urutan: 'urutan'
 } as const
 
-export type LangkahMbkmScalarFieldEnum = (typeof LangkahMbkmScalarFieldEnum)[keyof typeof LangkahMbkmScalarFieldEnum]
+export type Tbl_langkah_mbkmScalarFieldEnum = (typeof Tbl_langkah_mbkmScalarFieldEnum)[keyof typeof Tbl_langkah_mbkmScalarFieldEnum]
 
 
-export const DokumenScalarFieldEnum = {
-  id: 'id',
+export const Tbl_dokumenScalarFieldEnum = {
+  id_dokumen: 'id_dokumen',
   modul: 'modul',
   label: 'label',
   url: 'url',
   aktif: 'aktif'
 } as const
 
-export type DokumenScalarFieldEnum = (typeof DokumenScalarFieldEnum)[keyof typeof DokumenScalarFieldEnum]
+export type Tbl_dokumenScalarFieldEnum = (typeof Tbl_dokumenScalarFieldEnum)[keyof typeof Tbl_dokumenScalarFieldEnum]
 
 
-export const ProgramProfileScalarFieldEnum = {
-  id: 'id',
-  sambutanNama: 'sambutanNama',
-  sambutanJabatan: 'sambutanJabatan',
-  sambutanIsi: 'sambutanIsi',
+export const Tbl_profil_prodiScalarFieldEnum = {
+  id_profil: 'id_profil',
+  sambutan_nama: 'sambutan_nama',
+  sambutan_jabatan: 'sambutan_jabatan',
+  sambutan_isi: 'sambutan_isi',
   sejarah: 'sejarah',
   visi: 'visi',
   misi: 'misi',
   tujuan: 'tujuan',
-  profilLulusan: 'profilLulusan',
+  profil_lulusan: 'profil_lulusan',
   identitas: 'identitas',
-  updatedAt: 'updatedAt'
+  struktur_organisasi: 'struktur_organisasi',
+  updated_at: 'updated_at'
 } as const
 
-export type ProgramProfileScalarFieldEnum = (typeof ProgramProfileScalarFieldEnum)[keyof typeof ProgramProfileScalarFieldEnum]
+export type Tbl_profil_prodiScalarFieldEnum = (typeof Tbl_profil_prodiScalarFieldEnum)[keyof typeof Tbl_profil_prodiScalarFieldEnum]
 
 
-export const OrgPositionScalarFieldEnum = {
-  id: 'id',
-  jenis: 'jenis',
-  jabatan: 'jabatan',
-  nama: 'nama',
-  tupoksi: 'tupoksi',
-  urutan: 'urutan'
-} as const
-
-export type OrgPositionScalarFieldEnum = (typeof OrgPositionScalarFieldEnum)[keyof typeof OrgPositionScalarFieldEnum]
-
-
-export const JalurPendaftaranScalarFieldEnum = {
-  id: 'id',
+export const Tbl_jalur_pendaftaranScalarFieldEnum = {
+  id_jalur: 'id_jalur',
   nama: 'nama',
   deskripsi: 'deskripsi',
   syarat: 'syarat'
 } as const
 
-export type JalurPendaftaranScalarFieldEnum = (typeof JalurPendaftaranScalarFieldEnum)[keyof typeof JalurPendaftaranScalarFieldEnum]
+export type Tbl_jalur_pendaftaranScalarFieldEnum = (typeof Tbl_jalur_pendaftaranScalarFieldEnum)[keyof typeof Tbl_jalur_pendaftaranScalarFieldEnum]
 
 
 export const SortOrder = {

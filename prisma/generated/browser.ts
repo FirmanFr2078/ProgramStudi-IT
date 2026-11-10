@@ -18,127 +18,97 @@ export { Prisma }
 export * as $Enums from './enums'
 export * from './enums';
 /**
- * Model Profile
+ * Model tbl_profiles
  * 
  */
-export type Profile = Prisma.ProfileModel
+export type tbl_profiles = Prisma.tbl_profilesModel
 /**
- * Model Kabar
+ * Model tbl_kabar
  * 
  */
-export type Kabar = Prisma.KabarModel
+export type tbl_kabar = Prisma.tbl_kabarModel
 /**
- * Model Event
+ * Model tbl_event
  * 
  */
-export type Event = Prisma.EventModel
+export type tbl_event = Prisma.tbl_eventModel
 /**
- * Model Dosen
+ * Model tbl_dosen
  * 
  */
-export type Dosen = Prisma.DosenModel
+export type tbl_dosen = Prisma.tbl_dosenModel
 /**
- * Model DosenPendidikan
+ * Model tbl_tendik
  * 
  */
-export type DosenPendidikan = Prisma.DosenPendidikanModel
+export type tbl_tendik = Prisma.tbl_tendikModel
 /**
- * Model Tendik
+ * Model tbl_alumni
  * 
  */
-export type Tendik = Prisma.TendikModel
+export type tbl_alumni = Prisma.tbl_alumniModel
 /**
- * Model Alumni
+ * Model tbl_prestasi
  * 
  */
-export type Alumni = Prisma.AlumniModel
+export type tbl_prestasi = Prisma.tbl_prestasiModel
 /**
- * Model Prestasi
+ * Model tbl_mitra
  * 
  */
-export type Prestasi = Prisma.PrestasiModel
+export type tbl_mitra = Prisma.tbl_mitraModel
 /**
- * Model PrestasiMahasiswa
+ * Model tbl_fasilitas
  * 
  */
-export type PrestasiMahasiswa = Prisma.PrestasiMahasiswaModel
+export type tbl_fasilitas = Prisma.tbl_fasilitasModel
 /**
- * Model Mitra
+ * Model tbl_riset
  * 
  */
-export type Mitra = Prisma.MitraModel
+export type tbl_riset = Prisma.tbl_risetModel
 /**
- * Model MitraLingkup
+ * Model tbl_hki
  * 
  */
-export type MitraLingkup = Prisma.MitraLingkupModel
+export type tbl_hki = Prisma.tbl_hkiModel
 /**
- * Model Fasilitas
+ * Model tbl_jadwal
  * 
  */
-export type Fasilitas = Prisma.FasilitasModel
+export type tbl_jadwal = Prisma.tbl_jadwalModel
 /**
- * Model FasilitasFitur
+ * Model tbl_tanggal_penting
  * 
  */
-export type FasilitasFitur = Prisma.FasilitasFiturModel
+export type tbl_tanggal_penting = Prisma.tbl_tanggal_pentingModel
 /**
- * Model RisetItem
+ * Model tbl_mata_kuliah
  * 
  */
-export type RisetItem = Prisma.RisetItemModel
+export type tbl_mata_kuliah = Prisma.tbl_mata_kuliahModel
 /**
- * Model RisetAnggota
+ * Model tbl_bentuk_kegiatan
  * 
  */
-export type RisetAnggota = Prisma.RisetAnggotaModel
+export type tbl_bentuk_kegiatan = Prisma.tbl_bentuk_kegiatanModel
 /**
- * Model HkiItem
+ * Model tbl_langkah_mbkm
  * 
  */
-export type HkiItem = Prisma.HkiItemModel
+export type tbl_langkah_mbkm = Prisma.tbl_langkah_mbkmModel
 /**
- * Model JadwalItem
+ * Model tbl_dokumen
  * 
  */
-export type JadwalItem = Prisma.JadwalItemModel
+export type tbl_dokumen = Prisma.tbl_dokumenModel
 /**
- * Model TanggalPenting
+ * Model tbl_profil_prodi
  * 
  */
-export type TanggalPenting = Prisma.TanggalPentingModel
+export type tbl_profil_prodi = Prisma.tbl_profil_prodiModel
 /**
- * Model MataKuliah
+ * Model tbl_jalur_pendaftaran
  * 
  */
-export type MataKuliah = Prisma.MataKuliahModel
-/**
- * Model BentukKegiatan
- * 
- */
-export type BentukKegiatan = Prisma.BentukKegiatanModel
-/**
- * Model LangkahMbkm
- * 
- */
-export type LangkahMbkm = Prisma.LangkahMbkmModel
-/**
- * Model Dokumen
- * 
- */
-export type Dokumen = Prisma.DokumenModel
-/**
- * Model ProgramProfile
- * 
- */
-export type ProgramProfile = Prisma.ProgramProfileModel
-/**
- * Model OrgPosition
- * 
- */
-export type OrgPosition = Prisma.OrgPositionModel
-/**
- * Model JalurPendaftaran
- * 
- */
-export type JalurPendaftaran = Prisma.JalurPendaftaranModel
+export type tbl_jalur_pendaftaran = Prisma.tbl_jalur_pendaftaranModel

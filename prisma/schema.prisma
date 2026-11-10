@@ -17,17 +17,21 @@ enum Role {
 }
 
 model tbl_profiles {
-  // Sama persis dengan auth.users.id Supabase -- BUKAN id baru yang digenerate
-  // di sini. Baris ini idealnya dibuat otomatis lewat trigger Supabase saat
-  // user baru sign up (belum dibuat triggernya -- catatan buat nanti).
-  id_profile String @id @db.Uuid
+  // Di-generate Prisma sendiri (uuid v4) — BUKAN lagi auth.users.id Supabase,
+  // karena kita ga pakai Supabase Auth. Komentar trigger lama sudah ga relevan.
+  id_profile String @id @default(uuid()) @db.Uuid
+  username   String @unique @db.VarChar(50) // selalu huruf kecil, dipaksa di client & server
+  password   String @db.VarChar(255) // bcryptjs hash, 12 rounds
   email      String @unique @db.VarChar(150)
 
-  // Diganti sendiri lewat halaman Pengaturan.
   nama String  @db.VarChar(100)
   foto String? @db.VarChar(255) // path bucket "images", folder "profil/"
 
   role Role @default(admin)
+
+  is_active       Boolean   @default(true)
+  session_version Int       @default(1) // naik tiap logout/ganti password -> revoke semua token lama
+  last_login_at   DateTime? @db.Timestamptz(6)
 
   created_at DateTime @default(now()) @db.Timestamptz(6)
   updated_at DateTime @updatedAt @db.Timestamptz(6)

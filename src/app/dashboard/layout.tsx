@@ -5,14 +5,23 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { getSessionUser } from "@/lib/session"
+import { requireAdminPage } from "@/lib/auth"
+import type { SessionUser } from "@/types"
 
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const user = await getSessionUser()
+  const authUser = await requireAdminPage()
+
+  const user: SessionUser = {
+    name: authUser.nama,
+    username: authUser.username,
+    email: authUser.email,
+    role: authUser.role,
+    avatar: authUser.foto ?? undefined,
+  }
 
   return (
     <SidebarProvider>
@@ -30,4 +39,4 @@ export default async function DashboardLayout({
       </SidebarInset>
     </SidebarProvider>
   )
-}
+} 

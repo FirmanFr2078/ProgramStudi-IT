@@ -19,8 +19,36 @@ web-prodi
 │  │  │  ├─ prismaNamespace.ts
 │  │  │  └─ prismaNamespaceBrowser.ts
 │  │  ├─ models
+│  │  │  ├─ tbl_alumni.ts
+│  │  │  ├─ tbl_bentuk_kegiatan.ts
+│  │  │  ├─ tbl_dokumen.ts
+│  │  │  ├─ tbl_dosen.ts
+│  │  │  ├─ tbl_event.ts
+│  │  │  ├─ tbl_fasilitas.ts
+│  │  │  ├─ tbl_hki.ts
+│  │  │  ├─ tbl_jadwal.ts
+│  │  │  ├─ tbl_jalur_pendaftaran.ts
+│  │  │  ├─ tbl_kabar.ts
+│  │  │  ├─ tbl_langkah_mbkm.ts
+│  │  │  ├─ tbl_mata_kuliah.ts
+│  │  │  ├─ tbl_mitra.ts
+│  │  │  ├─ tbl_prestasi.ts
+│  │  │  ├─ tbl_profiles.ts
+│  │  │  ├─ tbl_profil_prodi.ts
+│  │  │  ├─ tbl_riset.ts
+│  │  │  ├─ tbl_tanggal_penting.ts
+│  │  │  └─ tbl_tendik.ts
 │  │  └─ models.ts
-│  └─ schema.prisma
+│  ├─ migrations
+│  │  ├─ 20261108090640_init
+│  │  │  └─ migration.sql
+│  │  ├─ 20261108112355_add_tbl_profiles
+│  │  │  └─ migration.sql
+│  │  ├─ 20261108142246_rename_email_to_username
+│  │  │  └─ migration.sql
+│  │  └─ migration_lock.toml
+│  ├─ schema.prisma
+│  └─ seed.ts
 ├─ prisma.config.ts
 ├─ public
 │  ├─ file.svg
@@ -31,6 +59,9 @@ web-prodi
 ├─ README.md
 ├─ src
 │  ├─ app
+│  │  ├─ (auth)
+│  │  │  └─ login
+│  │  │     └─ page.tsx
 │  │  ├─ (landing)
 │  │  │  ├─ fasilitas
 │  │  │  │  ├─ gedung
@@ -97,6 +128,12 @@ web-prodi
 │  │  │        ├─ page.tsx
 │  │  │        └─ [slug]
 │  │  │           └─ page.tsx
+│  │  ├─ api
+│  │  │  └─ auth
+│  │  │     ├─ login
+│  │  │     │  └─ route.ts
+│  │  │     └─ logout
+│  │  │        └─ route.ts
 │  │  ├─ dashboard
 │  │  │  ├─ layout.tsx
 │  │  │  └─ page.tsx
@@ -105,6 +142,13 @@ web-prodi
 │  │  └─ layout.tsx
 │  ├─ components
 │  │  ├─ app-sidebar.tsx
+│  │  ├─ auth
+│  │  │  └─ login-form.tsx
+│  │  ├─ dashboard
+│  │  │  ├─ confirm-dialog.tsx
+│  │  │  ├─ data-table.tsx
+│  │  │  ├─ page-toolbar.tsx
+│  │  │  └─ stat-card.tsx
 │  │  ├─ landing
 │  │  │  ├─ dokumen-list.tsx
 │  │  │  ├─ fasilitas
@@ -184,17 +228,24 @@ web-prodi
 │  │  ├─ nav-user.tsx
 │  │  ├─ team-switcher.tsx
 │  │  └─ ui
+│  │     ├─ alert-dialog.tsx
 │  │     ├─ avatar.tsx
+│  │     ├─ badge.tsx
 │  │     ├─ breadcrumb.tsx
 │  │     ├─ button.tsx
 │  │     ├─ card.tsx
+│  │     ├─ checkbox.tsx
 │  │     ├─ collapsible.tsx
 │  │     ├─ dropdown-menu.tsx
 │  │     ├─ input.tsx
+│  │     ├─ label.tsx
+│  │     ├─ select.tsx
 │  │     ├─ separator.tsx
 │  │     ├─ sheet.tsx
 │  │     ├─ sidebar.tsx
 │  │     ├─ skeleton.tsx
+│  │     ├─ table.tsx
+│  │     ├─ textarea.tsx
 │  │     └─ tooltip.tsx
 │  ├─ config
 │  │  ├─ auth.ts
@@ -225,14 +276,21 @@ web-prodi
 │  │  ├─ stats.ts
 │  │  └─ tendik.ts
 │  ├─ hooks
-│  │  └─ use-mobile.ts
+│  │  ├─ auth
+│  │  │  ├─ use-login.ts
+│  │  │  └─ use-logout.ts
+│  │  ├─ use-mobile.ts
+│  │  ├─ use-pagination.ts
+│  │  └─ use-table-filter.ts
 │  ├─ lib
+│  │  ├─ auth.ts
 │  │  ├─ initials.ts
 │  │  ├─ permissions.ts
 │  │  ├─ prisma.ts
 │  │  ├─ session.ts
 │  │  ├─ storage.ts
 │  │  └─ utils.ts
+│  ├─ proxy.ts
 │  └─ types
 │     ├─ alumni.ts
 │     ├─ auth.ts
