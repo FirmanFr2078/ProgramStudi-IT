@@ -149,12 +149,16 @@ web-prodi
 │  │  ├─ globals.css
 │  │  └─ layout.tsx
 │  ├─ components
-│  │  ├─ app-sidebar.tsx
 │  │  ├─ auth
 │  │  │  └─ login-form.tsx
 │  │  ├─ dashboard
+│  │  │  ├─ app-sidebar.tsx
 │  │  │  ├─ confirm-dialog.tsx
+│  │  │  ├─ dashboard-card.tsx
 │  │  │  ├─ data-table.tsx
+│  │  │  ├─ managed-list.tsx
+│  │  │  ├─ nav-main.tsx
+│  │  │  ├─ nav-user.tsx
 │  │  │  ├─ page-toolbar.tsx
 │  │  │  └─ stat-card.tsx
 │  │  ├─ landing
@@ -231,9 +235,7 @@ web-prodi
 │  │  │     └─ tendik
 │  │  │        ├─ tendik-card.tsx
 │  │  │        └─ tendik-detail.tsx
-│  │  ├─ nav-main.tsx
 │  │  ├─ nav-projects.tsx
-│  │  ├─ nav-user.tsx
 │  │  ├─ team-switcher.tsx
 │  │  └─ ui
 │  │     ├─ alert-dialog.tsx
