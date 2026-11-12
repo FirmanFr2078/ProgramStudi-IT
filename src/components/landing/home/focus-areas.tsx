@@ -33,7 +33,7 @@ export function FocusAreas() {
             <Link
               href={href}
               className={cn(
-                "group flex h-full flex-col justify-between rounded-2xl border p-6 transition-all hover:border-lime",
+                "group flex h-full flex-col justify-between rounded-2xl border p-6 transition-all duration-200 hover:border-lime/70 hover:shadow-[0_0_20px_-3px_rgba(198,255,51,0.2)]",
                 featured ? "bg-card/90 border-lime/30" : "bg-card/50"
               )}
             >

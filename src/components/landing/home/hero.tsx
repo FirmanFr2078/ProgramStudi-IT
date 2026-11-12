@@ -22,7 +22,7 @@ export function Hero() {
         <Reveal>
           <Link
             href="/informasi/kabar"
-            className="group inline-flex max-w-[92vw] items-center gap-2.5 rounded-full border border-border bg-card/70 py-1.5 pr-4 pl-2 text-xs text-muted-foreground backdrop-blur-sm transition-colors hover:border-lime/40 hover:text-foreground"
+            className="group inline-flex max-w-[92vw] items-center gap-2.5 rounded-full border border-border bg-card/70 py-1.5 pr-4 pl-2 text-xs text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:border-lime/60 hover:shadow-[0_0_12px_-2px_rgba(198,255,51,0.2)] hover:text-foreground"
           >
             <span className="rounded-full bg-lime/15 px-2.5 py-0.5 text-[11px] font-semibold text-lime">
               Kabar
@@ -65,7 +65,7 @@ export function Hero() {
             href="/informasi/pendaftaran"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 rounded-full px-7 text-sm font-semibold",
+              "h-11 rounded-full px-7 text-sm font-semibold transition-all duration-200 hover:border-lime/50 hover:shadow-[0_0_14px_-2px_rgba(198,255,51,0.2)] hover:bg-card/80",
             )}
           >
             Info Pendaftaran

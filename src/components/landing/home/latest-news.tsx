@@ -38,7 +38,7 @@ export async function LatestNews() {
         <Reveal className="lg:col-span-2">
           <Link
             href={`/informasi/kabar/${utama.slug}`}
-            className="group relative flex h-full min-h-72 flex-col justify-end overflow-hidden rounded-2xl border p-6 transition-colors hover:border-lime"
+            className="group relative flex h-full min-h-72 flex-col justify-end overflow-hidden rounded-2xl border p-6 transition-all duration-200 hover:border-lime/70 hover:shadow-[0_0_20px_-3px_rgba(198,255,51,0.2)]"
             style={
               utama.gambar
                 ? {
@@ -83,7 +83,7 @@ export async function LatestNews() {
             <Reveal key={b.slug} delay={(i + 1) * 100} className="flex-1">
               <Link
                 href={`/informasi/kabar/${b.slug}`}
-                className="group flex h-full flex-col justify-center rounded-2xl border bg-card p-5 transition-colors hover:border-lime"
+                className="group flex h-full flex-col justify-center rounded-2xl border bg-card p-5 transition-all duration-200 hover:border-lime/70 hover:shadow-[0_0_20px_-3px_rgba(198,255,51,0.2)]"
               >
                 <span
                   className={cn(
