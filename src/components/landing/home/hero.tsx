@@ -189,7 +189,7 @@ export function Hero() {
           </p>
           <h1
             data-text={title}
-            className="glitch text-2xl leading-[0.95] font-extrabold tracking-tight whitespace-nowrap uppercase sm:text-4xl lg:text-5xl xl:text-6xl"
+            className="glitch text-2xl leading-[0.95] font-extrabold tracking-tight uppercase sm:whitespace-nowrap sm:text-4xl lg:text-5xl xl:text-6xl"
           >
             {title}
           </h1>

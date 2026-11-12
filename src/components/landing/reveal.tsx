@@ -24,7 +24,7 @@ export function Reveal({
           obs.unobserve(el)
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0 }
     )
     obs.observe(el)
     return () => obs.disconnect()
@@ -35,8 +35,8 @@ export function Reveal({
       ref={ref}
       style={{ transitionDelay: shown ? `${delay}ms` : "0ms" }}
       className={cn(
-        "transition-all duration-700 ease-out",
-        shown ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        "transition-all duration-500 ease-out",
+        shown ? "translate-y-0 opacity-100" : "translate-y-2 opacity-100",
         className
       )}
     >
