@@ -121,25 +121,31 @@
 }
 
 .light {
-  --background: #fbf9fe;
-  --foreground: #120e1c;
+  --background: #faf9fc;
+  --foreground: #0f0d15;
   --card: #ffffff;
-  --card-foreground: #120e1c;
+  --card-foreground: #0f0d15;
   --popover: #ffffff;
-  --popover-foreground: #120e1c;
-  --primary: #6d28d9;
+  --popover-foreground: #0f0d15;
+  --primary: #5b21b6;
   --primary-foreground: #ffffff;
-  --secondary: #ede7f6;
-  --secondary-foreground: #120e1c;
-  --muted: #f3eef9;
-  --muted-foreground: #5e586c;
+  --secondary: #f3effa;
+  --secondary-foreground: #0f0d15;
+  --muted: #f4f0fa;
+  --muted-foreground: #5e596d;
   --accent: #ece4f8;
-  --accent-foreground: #120e1c;
-  --border: #dfd7eb;
-  --input: #cfc4e0;
-  --ring: #6d28d9;
-  --c-mist: #120e1c;
+  --accent-foreground: #0f0d15;
+  --border: #e2dbe9;
+  --input: #d4cbde;
+  --ring: #5b21b6;
+  --c-mist: #0f0d15;
   --c-plum-card: #ffffff;
+  --c-lime: #16a34a;
+  --c-orange: #ea580c;
+  --c-lilac: #5b21b6;
+  --glow-fill: #5b21b6;
+  --glow-fill-hover: #4c1d95;
+  --glow-text: #ffffff;
 }
 
 @layer base {

@@ -41,7 +41,7 @@ export function MobileNav() {
             <div key={item.label} className="flex flex-col gap-1">
               {item.children ? (
                 <>
-                  <p className="mb-1 font-mono text-xs tracking-wider text-muted-foreground uppercase">
+                  <p className="mb-1 text-xs font-semibold tracking-wider text-primary uppercase">
                     {item.label}
                   </p>
                   {item.children.map((child) => (
@@ -49,7 +49,7 @@ export function MobileNav() {
                       key={child.href}
                       href={child.href}
                       onClick={close}
-                      className="rounded-lg px-2 py-2 text-sm hover:bg-accent"
+                      className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent"
                     >
                       {child.label}
                     </Link>
@@ -59,7 +59,7 @@ export function MobileNav() {
                 <Link
                   href={item.href ?? "#"}
                   onClick={close}
-                  className="rounded-lg px-2 py-2 text-sm hover:bg-accent"
+                  className="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent"
                 >
                   {item.label}
                 </Link>

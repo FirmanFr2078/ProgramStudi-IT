@@ -42,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${archivo.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${archivo.variable} light h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <TooltipProvider>{children}</TooltipProvider>
