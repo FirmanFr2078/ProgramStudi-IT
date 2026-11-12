@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowUpRightIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { getKabar } from "@/data/kabar"
@@ -15,23 +14,22 @@ export async function LatestNews() {
   return (
     <section
       id="kabar-terkini"
-      className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24"
+      className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
     >
       <Reveal className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <span className="text-xs font-semibold tracking-wider text-primary uppercase">
             Terkini
-          </p>
+          </span>
           <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
             Kabar Terbaru
           </h2>
         </div>
         <Link
           href="/informasi/kabar"
-          className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           Lihat semua
-          <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </Link>
       </Reveal>
 

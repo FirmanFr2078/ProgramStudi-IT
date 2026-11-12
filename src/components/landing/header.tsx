@@ -4,11 +4,8 @@ import { ChevronDownIcon, SearchIcon } from "lucide-react"
 import { MobileNav } from "@/components/landing/mobile-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { mainNav, siteConfig } from "@/config/site"
-import { getSiteStats } from "@/data/stats"
 
 export async function Header() {
-  const stats = await getSiteStats()
-
   return (
     <header className="fixed inset-x-0 top-3 z-40 px-3 sm:top-4 sm:px-4">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded-full border bg-background/60 pr-2 pl-4 shadow-lg shadow-black/30 backdrop-blur-xl">
@@ -60,19 +57,6 @@ export async function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div
-            className="hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs text-muted-foreground xl:flex"
-            title="Total pengunjung"
-          >
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-lime opacity-60" />
-              <span className="relative inline-flex size-2 rounded-full bg-lime" />
-            </span>
-            <span className="font-mono text-foreground">
-              {stats.visitorsTotal.toLocaleString("id-ID")}
-            </span>
-            pengunjung
-          </div>
           <Link
             href="/cari"
             aria-label="Cari"

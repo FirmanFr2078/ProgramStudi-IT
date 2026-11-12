@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ArrowUpRightIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { focusAreas } from "@/config/focus-areas"
@@ -9,63 +8,51 @@ export function FocusAreas() {
   return (
     <section
       id="bidang-minat"
-      className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24"
+      className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
     >
       <Reveal className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <span className="text-xs font-semibold tracking-wider text-primary uppercase">
             Bidang Minat
-          </p>
+          </span>
           <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-            Pilih Jalurmu
+            Pilih Jalur Minatmu
           </h2>
         </div>
         <Link
           href="/pendidikan/kurikulum"
-          className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
-          Lihat kurikulum
-          <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          Lihat kurikulum lengkap
         </Link>
       </Reveal>
 
-      <div className="mt-10 grid grid-cols-2 gap-4 md:mt-14 lg:grid-cols-4 lg:grid-rows-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
         {focusAreas.map(({ name, description, icon: Icon, href, featured }, i) => (
-          <Reveal
-            key={name}
-            delay={i * 80}
-            className={cn(
-              featured
-                ? "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2"
-                : "lg:col-span-1 lg:row-span-1"
-            )}
-          >
+          <Reveal key={name} delay={i * 60}>
             <Link
               href={href}
               className={cn(
-                "group relative flex h-full flex-col justify-end overflow-hidden rounded-2xl border bg-card p-6 transition-colors hover:border-lime",
-                featured ? "min-h-56" : "min-h-40"
+                "group flex h-full flex-col justify-between rounded-2xl border p-6 transition-all hover:border-lime",
+                featured ? "bg-card/90 border-lime/30" : "bg-card/50"
               )}
             >
-              <Icon
-                className={cn(
-                  "mb-4 text-lavender transition-colors group-hover:text-lime",
-                  featured ? "size-10" : "size-7"
-                )}
-              />
-              <h3
-                className={cn(
-                  "font-bold",
-                  featured ? "text-2xl" : "text-base"
-                )}
-              >
-                {name}
-              </h3>
-              {featured && (
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {description}
-                </p>
-              )}
+              <div>
+                <div className="flex items-center justify-between">
+                  <Icon className="size-8 text-lime transition-transform group-hover:scale-105" />
+                  {featured && (
+                    <span className="rounded-full bg-lime/10 px-2.5 py-0.5 text-[10px] font-semibold text-lime">
+                      Unggulan
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-foreground">
+                  {name}
+                </h3>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {description}
+              </p>
             </Link>
           </Reveal>
         ))}

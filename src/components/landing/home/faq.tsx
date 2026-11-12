@@ -12,12 +12,12 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 md:py-24"
+      className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 md:py-16"
     >
       <Reveal>
-        <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+        <span className="text-xs font-semibold tracking-wider text-primary uppercase">
           Pertanyaan Umum
-        </p>
+        </span>
         <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
           Masih Ada yang Ingin Ditanyakan?
         </h2>
