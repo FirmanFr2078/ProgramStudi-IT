@@ -17,6 +17,14 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    // Cek posisi awal di layar HP agar animasi langsung jalan dan tidak macet di opacity-0
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight) {
+      setShown(true)
+      return
+    }
+
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,7 +43,7 @@ export function Reveal({
       ref={ref}
       style={{ transitionDelay: shown ? `${delay}ms` : "0ms" }}
       className={cn(
-        "transition-all duration-500 ease-out",
+        "transition-all duration-700 ease-out",
         shown ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
         className
       )}
