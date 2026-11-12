@@ -24,8 +24,8 @@ export function Sambutan({ data }: { data: SambutanType }) {
           </div>
         </div>
 
-        <div className="relative pl-8">
-          <QuoteIcon className="absolute -top-2 left-0 size-8 text-lime/20" />
+        <div className="relative pl-6 sm:pl-8">
+          <QuoteIcon className="absolute -top-2 left-0 size-6 text-lime/20 sm:size-8" />
           <p className="mb-3 font-mono text-xs tracking-[0.35em] text-lavender uppercase">
             Sambutan
           </p>

@@ -31,10 +31,10 @@ export function Stats() {
               )}
             >
               <div className="flex items-baseline gap-1.5">
-                <span className="font-heading text-4xl font-extrabold sm:text-5xl">
+                <span className="font-heading text-3xl font-extrabold sm:text-4xl md:text-5xl">
                   {value}
                 </span>
-                <ArrowUpRightIcon className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-lime" />
+                <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-lime" />
               </div>
               <span className="text-sm text-muted-foreground">{label}</span>
             </Link>
