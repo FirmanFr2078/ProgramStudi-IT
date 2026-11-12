@@ -205,7 +205,19 @@
   mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 80%);
 }
 
+/* Ikon melayang */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 5deg)); }
+}
+.float {
+  animation: float-y var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .float {
+    animation: none;
+  }
   .transition-all {
     transition: none !important;
   }

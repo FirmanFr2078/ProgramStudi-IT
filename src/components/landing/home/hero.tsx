@@ -1,4 +1,13 @@
 import Link from "next/link";
+import {
+  BracesIcon,
+  CodeXmlIcon,
+  CpuIcon,
+  DatabaseIcon,
+  NetworkIcon,
+  ServerIcon,
+  ShieldCheckIcon,
+} from "lucide-react";
 import { cn } from "cn";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -7,16 +16,104 @@ import { siteConfig } from "@/config/site";
 
 const title = "Teknik Informatika";
 
+// Ikon melayang di sekitar hero (tampil di layar desktop/laptop)
+const floaters = [
+  { Icon: CpuIcon, pos: "left-[4%] top-[12%]", size: "size-16", tone: "text-lime", rot: "-8deg", dur: "7s", delay: "0s" },
+  { Icon: DatabaseIcon, pos: "left-[14%] top-[42%]", size: "size-12", tone: "text-lavender", rot: "6deg", dur: "5.5s", delay: "-1.5s" },
+  { Icon: CodeXmlIcon, pos: "left-[5%] top-[70%]", size: "size-14", tone: "text-lavender", rot: "-4deg", dur: "6.5s", delay: "-3s" },
+  { Icon: ShieldCheckIcon, pos: "right-[5%] top-[10%]", size: "size-14", tone: "text-lavender", rot: "9deg", dur: "6s", delay: "-2s" },
+  { Icon: NetworkIcon, pos: "right-[15%] top-[38%]", size: "size-16", tone: "text-lime", rot: "-6deg", dur: "7.5s", delay: "-4s" },
+  { Icon: BracesIcon, pos: "right-[4%] top-[64%]", size: "size-12", tone: "text-lavender", rot: "5deg", dur: "5s", delay: "-0.5s" },
+  { Icon: ServerIcon, pos: "right-[16%] top-[84%]", size: "size-14", tone: "text-lavender", rot: "-9deg", dur: "6.8s", delay: "-2.5s" },
+];
+
+const TUNNEL = {
+  perspective: 1200,
+  angle: 45,
+  cell: 24,
+  line: 0.08,
+  panelWidth: 46,
+};
+
+const fadeVertical =
+  "linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%)";
+const fadeHorizontal =
+  "linear-gradient(to right, transparent 0%, black 14%, black 36%, transparent 47%, transparent 53%, black 64%, black 86%, transparent 100%)";
+
+function TunnelPanel({ side }: { side: "left" | "right" }) {
+  const isLeft = side === "left";
+  return (
+    <div
+      className="absolute inset-y-0"
+      style={{
+        width: `${TUNNEL.panelWidth}%`,
+        left: isLeft ? 0 : `${100 - TUNNEL.panelWidth}%`,
+        transform: `rotateY(${isLeft ? TUNNEL.angle : -TUNNEL.angle}deg)`,
+        transformOrigin: isLeft ? "right center" : "left center",
+        backgroundImage: `linear-gradient(to right, rgba(255,255,255,${TUNNEL.line}) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,${TUNNEL.line}) 1px, transparent 1px)`,
+        backgroundSize: `${TUNNEL.cell}px ${TUNNEL.cell}px`,
+      }}
+    />
+  );
+}
+
+function TunnelGrid() {
+  return (
+    <div
+      aria-hidden
+      className="absolute inset-4 -z-10 overflow-hidden"
+      style={{ maskImage: fadeVertical, WebkitMaskImage: fadeVertical }}
+    >
+      <div
+        className="absolute inset-0"
+        style={{
+          perspective: `${TUNNEL.perspective}px`,
+          maskImage: fadeHorizontal,
+          WebkitMaskImage: fadeHorizontal,
+        }}
+      >
+        <TunnelPanel side="left" />
+        <TunnelPanel side="right" />
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   return (
-    <section className="relative isolate mx-auto flex max-w-6xl flex-col items-center justify-center px-4 pt-24 pb-14 text-center sm:px-6 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24">
-      {/* Latar focal point halus: pencahayaan lembut di belakang judul */}
+    <section className="relative isolate mx-auto flex min-h-[calc(100svh-6rem)] max-w-7xl flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-14 text-center sm:px-6 sm:pt-32 sm:pb-20 md:pt-36 md:pb-24">
+      {/* Latar grid lorong 3D perspektif */}
+      <TunnelGrid />
+
+      {/* Latar ambient glow halus di tengah */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-10 -z-10 flex justify-center overflow-hidden"
       >
         <div className="h-[28rem] w-[46rem] max-w-[90vw] rounded-full bg-lime/10 blur-[100px] dark:bg-lime/5" />
       </div>
+
+      {/* Ikon melayang di sekitar judul (muncul di desktop, aman dari mobile overflow) */}
+      {floaters.map(({ Icon, pos, size, tone, rot, dur, delay }) => (
+        <div
+          key={pos}
+          aria-hidden
+          className={cn(
+            "float absolute hidden items-center justify-center rounded-2xl border bg-card/60 shadow-lg backdrop-blur-sm lg:flex",
+            size,
+            pos,
+          )}
+          style={
+            {
+              "--rot": rot,
+              "--dur": dur,
+              "--delay": delay,
+            } as React.CSSProperties
+          }
+        >
+          <Icon className={cn("size-1/2", tone)} />
+        </div>
+      ))}
 
       <div className="relative z-10 flex max-w-4xl flex-col items-center gap-6">
         <Reveal>
