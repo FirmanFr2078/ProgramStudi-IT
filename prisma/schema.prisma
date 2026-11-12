@@ -33,8 +33,46 @@ model tbl_profiles {
   session_version Int       @default(1) // naik tiap logout/ganti password -> revoke semua token lama
   last_login_at   DateTime? @db.Timestamptz(6)
 
+  activity_logs tbl_activity_log[]
+  kabar_created tbl_kabar[]        @relation("KabarCreatedBy")
+  kabar_updated tbl_kabar[]        @relation("KabarUpdatedBy")
+
   created_at DateTime @default(now()) @db.Timestamptz(6)
   updated_at DateTime @updatedAt @db.Timestamptz(6)
+}
+
+enum ActivityAction {
+  create
+  update
+  delete
+  login
+  login_failed
+  logout
+  error
+  forbidden
+}
+
+model tbl_activity_log {
+  id_log BigInt @id @default(autoincrement())
+
+  actor_id       String?       @db.Uuid
+  actor          tbl_profiles? @relation(fields: [actor_id], references: [id_profile], onDelete: SetNull)
+  actor_nama     String?       @db.VarChar(100) // snapshot -- tetap kebaca walau akun dihapus
+  actor_username String?       @db.VarChar(50)
+
+  action    ActivityAction
+  entity    String?        @db.VarChar(50) // nama tabel/konteks terkait, null utk login/logout/error umum
+  entity_id String?        @db.VarChar(50) // String krn tipe PK beda2 (BigInt vs Uuid)
+
+  deskripsi String @db.VarChar(255)
+
+  data_lama Json? // snapshot sebelum perubahan
+  data_baru Json? // snapshot sesudah, atau detail error (message+stack)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([entity, entity_id])
+  @@index([actor_id])
 }
 
 // ============================================================
@@ -57,6 +95,12 @@ model tbl_kabar {
   kategori  KategoriKabar
   tanggal   DateTime      @db.Date
   gambar    String?       @db.VarChar(255) // path bucket "images"
+
+  created_by_id String?       @db.Uuid
+  created_by    tbl_profiles? @relation("KabarCreatedBy", fields: [created_by_id], references: [id_profile], onDelete: SetNull)
+
+  updated_by_id String?       @db.Uuid
+  updated_by    tbl_profiles? @relation("KabarUpdatedBy", fields: [updated_by_id], references: [id_profile], onDelete: SetNull)
 
   created_at DateTime @default(now()) @db.Timestamptz(6)
   updated_at DateTime @updatedAt @db.Timestamptz(6)

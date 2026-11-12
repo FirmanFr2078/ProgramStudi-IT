@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 
+import { logActivity } from "@/lib/activity-log"
 import { login, AuthError } from "@/lib/auth"
 
 export async function POST(request: Request) {
@@ -26,6 +27,11 @@ export async function POST(request: Request) {
     }
 
     console.error("[AUTH_LOGIN]", error)
+    await logActivity({
+      action: "error",
+      deskripsi: "Error tak terduga di /api/auth/login.",
+      dataBaru: { message: error instanceof Error ? error.message : String(error) },
+    })
     return response({ success: false, message: "Terjadi kesalahan pada server." }, 500)
   }
 }
