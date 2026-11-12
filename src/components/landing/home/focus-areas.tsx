@@ -29,14 +29,14 @@ export function FocusAreas() {
         </Link>
       </Reveal>
 
-      <div className="mt-10 grid grid-cols-2 gap-4 md:mt-14 lg:grid-cols-4 lg:grid-rows-2">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-14 lg:grid-cols-4 lg:grid-rows-2">
         {focusAreas.map(({ name, description, icon: Icon, href, featured }, i) => (
           <Reveal
             key={name}
             delay={i * 80}
             className={cn(
               featured
-                ? "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2"
+                ? "sm:col-span-2 sm:row-span-2 lg:col-span-2 lg:row-span-2"
                 : "lg:col-span-1 lg:row-span-1"
             )}
           >

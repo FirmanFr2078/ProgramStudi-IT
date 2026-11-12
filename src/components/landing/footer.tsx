@@ -68,7 +68,7 @@ export function Footer() {
       </div>
 
       <div className="border-t">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 text-xs text-muted-foreground sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:gap-4 sm:px-6">
           <p>
             © {siteConfig.copyrightYear} {siteConfig.fullName} ·{" "}
             {siteConfig.university}

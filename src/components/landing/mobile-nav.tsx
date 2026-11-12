@@ -49,7 +49,7 @@ export function MobileNav() {
                       key={child.href}
                       href={child.href}
                       onClick={close}
-                      className="rounded-lg px-2 py-2 text-sm hover:bg-accent"
+                      className="rounded-lg px-3 py-2.5 text-sm hover:bg-accent"
                     >
                       {child.label}
                     </Link>
@@ -59,7 +59,7 @@ export function MobileNav() {
                 <Link
                   href={item.href ?? "#"}
                   onClick={close}
-                  className="rounded-lg px-2 py-2 text-sm hover:bg-accent"
+                  className="rounded-lg px-3 py-2.5 text-sm hover:bg-accent"
                 >
                   {item.label}
                 </Link>
