@@ -6,50 +6,48 @@ import { Reveal } from "@/components/landing/reveal"
 
 export function Cta() {
   return (
-    <section className="relative isolate overflow-hidden px-4 py-20 text-center sm:px-6 md:py-28">
-      {/* latar — radial glow lilac tipis, beda dari background polos section lain */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -inset-x-20 -inset-y-10 -z-10"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 60% at 50% 40%, color-mix(in oklab, var(--c-lilac) 11%, transparent) 0%, color-mix(in oklab, var(--c-lilac) 4%, transparent) 55%, transparent 100%)",
-          filter: "blur(70px)",
-        }}
-      />
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+      <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/60 p-8 text-center sm:p-14 backdrop-blur-sm">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-primary/10 via-transparent to-transparent"
+        />
 
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-5">
-        <Reveal className="flex flex-col items-center gap-5">
-          <h2 className="font-heading text-3xl leading-tight font-extrabold sm:text-4xl md:text-5xl">
-            Siap Jadi Bagian dari{" "}
-            <span className="text-lime">Teknik Informatika</span>?
-          </h2>
-          <p className="max-w-md text-sm text-muted-foreground sm:text-base">
-            Bangun masa depanmu bersama kami: belajar, meneliti, dan berkarya
-            di tengah perkembangan teknologi yang terus bergerak cepat.
-          </p>
-        </Reveal>
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-5">
+          <Reveal className="flex flex-col items-center gap-4">
+            <span className="text-xs font-semibold tracking-wider text-primary uppercase">
+              Penerimaan Mahasiswa Baru
+            </span>
+            <h2 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
+              Siap Menjadi Bagian dari{" "}
+              <span className="text-lime">Teknik Informatika</span>?
+            </h2>
+            <p className="max-w-md text-sm text-muted-foreground sm:text-base">
+              Kembangkan potensi komputasi dan rekayasa perangkat lunakmu bersama kami di Universitas Islam Balitar.
+            </p>
+          </Reveal>
 
-        <Reveal delay={150} className="mt-2 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/informasi/pendaftaran"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "glow h-11 rounded-full bg-[#2e1065] px-7 text-sm text-white hover:bg-[#3b0f85]"
-            )}
-          >
-            Daftar Sekarang
-          </Link>
-          <Link
-            href="/informasi/kontak"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 rounded-full px-7 text-sm"
-            )}
-          >
-            Hubungi Kami
-          </Link>
-        </Reveal>
+          <Reveal delay={120} className="mt-3 flex flex-wrap justify-center gap-3.5">
+            <Link
+              href="/informasi/pendaftaran"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "h-12 rounded-xl px-8 text-sm font-semibold transition-all duration-200"
+              )}
+            >
+              Daftar Sekarang
+            </Link>
+            <Link
+              href="/informasi/kontak"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "h-12 rounded-xl border-border/80 bg-card/40 px-8 text-sm font-semibold text-foreground backdrop-blur-sm transition-all duration-200 hover:border-primary/50 hover:bg-card/80"
+              )}
+            >
+              Hubungi Layanan Akademik
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

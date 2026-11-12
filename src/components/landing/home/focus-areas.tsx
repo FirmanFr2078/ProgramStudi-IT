@@ -10,47 +10,50 @@ export function FocusAreas() {
       id="bidang-minat"
       className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
     >
-      <Reveal className="flex flex-wrap items-end justify-between gap-4">
+      <Reveal className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
           <span className="text-xs font-semibold tracking-wider text-primary uppercase">
-            Bidang Minat
+            Peminatan Akademik
           </span>
-          <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-            Pilih Jalur Minatmu
+          <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl md:text-4xl">
+            Bidang Minat & Keahlian
           </h2>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
+            Mulai semester 4–5, mahasiswa dapat memilih fokus peminatan sesuai minat karir dan arah riset teknologi.
+          </p>
         </div>
         <Link
           href="/pendidikan/kurikulum"
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          className="text-sm font-semibold text-primary transition-colors hover:text-foreground"
         >
-          Lihat kurikulum lengkap
+          Lihat Struktur Kurikulum →
         </Link>
       </Reveal>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {focusAreas.map(({ name, description, icon: Icon, href, featured }, i) => (
-          <Reveal key={name} delay={i * 60}>
+          <Reveal key={name} delay={i * 70}>
             <Link
               href={href}
               className={cn(
-                "group flex h-full flex-col justify-between rounded-2xl border p-6 transition-all duration-200 hover:border-lime/70 hover:shadow-[0_0_20px_-3px_rgba(198,255,51,0.2)]",
-                featured ? "bg-card/90 border-lime/30" : "bg-card/50"
+                "group relative flex h-full flex-col justify-between rounded-2xl border border-border/80 bg-card/40 p-6 backdrop-blur-sm transition-all duration-200 hover:border-lime/60 hover:bg-card/80 hover:shadow-lg hover:shadow-lime/5",
+                featured && "border-lime/30 bg-card/70"
               )}
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <Icon className="size-8 text-lime transition-transform group-hover:scale-105" />
-                  {featured && (
-                    <span className="rounded-full bg-lime/10 px-2.5 py-0.5 text-[10px] font-semibold text-lime">
-                      Unggulan
-                    </span>
-                  )}
+                  <span className="font-mono text-xs font-bold text-muted-foreground">
+                    0{i + 1}
+                  </span>
+                  <div className="flex size-10 items-center justify-center rounded-xl bg-lime/10 text-lime transition-transform duration-200 group-hover:scale-110">
+                    <Icon className="size-5" />
+                  </div>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">
+                <h3 className="mt-6 font-heading text-lg font-bold text-foreground transition-colors group-hover:text-lime">
                   {name}
                 </h3>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                 {description}
               </p>
             </Link>
