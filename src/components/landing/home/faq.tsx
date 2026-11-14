@@ -13,7 +13,7 @@ export function Faq() {
           <h2 className="mt-2 max-w-sm font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Hal yang sering ditanyakan.</h2>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Jawaban singkat untuk membantu calon mahasiswa mengenal cara belajar dan pilihan yang tersedia.</p>
         </Reveal>
-        <div className="divide-y divide-border border-y border-border">
+        <div className="mt-6 divide-y divide-border border-y border-border md:mt-10">
           {faqItems.map(({ question, answer }, i) => (
             <Reveal key={question} delay={i * 60}>
               <Collapsible className="group">
