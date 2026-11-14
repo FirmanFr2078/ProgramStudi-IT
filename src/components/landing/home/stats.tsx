@@ -13,8 +13,8 @@ export function Stats() {
           <div>
             <p className="text-sm font-medium text-muted-foreground">Prodi dalam angka</p>
             <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">Komunitas Teknik Informatika.</h2>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Data ringkas tentang mahasiswa, alumni, dosen, dan mitra prodi.</p>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">Data ringkas tentang mahasiswa, alumni, dosen, dan mitra prodi.</p>
         </div>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4">
           {prodiStats.map(({ value, label, href }, index) => (
