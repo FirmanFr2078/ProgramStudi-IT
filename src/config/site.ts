@@ -6,9 +6,9 @@ export const siteConfig = {
   faculty: "Fakultas Teknik dan Informatika",
   university: "Universitas Islam Balitar",
   tagline: "Belajar informatika, kami temani tiap langkahnya.",
-  address: "[Alamat kampus], Blitar, Jawa Timur",
-  email: "[email prodi]",
-  phone: "[nomor telepon]",
+  address: "JL. Imam Bonjol No. 14, JL. Majapahit No 2-4, Sananwetan, Kec. Sananwetan, Blitar, Jawa Timur",
+  email: "prodi@mail.com",
+  phone: "081234567890",
   copyrightYear: 2026,
   social: [
     { label: "Instagram", href: "#" },
