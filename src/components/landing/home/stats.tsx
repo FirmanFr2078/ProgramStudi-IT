@@ -18,9 +18,9 @@ export function Stats() {
         </div>
         <div className="grid grid-cols-2 divide-x divide-y divide-border border-l border-t border-border sm:grid-cols-4 sm:divide-y-0">
           {prodiStats.map(({ value, label, href }) => (
-            <Link key={href} href={href} className="group min-w-0 p-4 transition-colors hover:bg-accent/40 sm:p-5">
-              <p className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{value}</p>
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">{label}</p>
+            <Link key={href} href={href} className="group flex min-h-28 min-w-0 flex-col justify-between p-4 transition-colors hover:bg-accent/40 sm:min-h-32 sm:p-5">
+              <p className="font-heading text-3xl font-extrabold leading-none tracking-tight text-foreground sm:text-4xl">{value}</p>
+              <p className="mt-5 text-xs leading-snug text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">{label}</p>
             </Link>
           ))}
         </div>
