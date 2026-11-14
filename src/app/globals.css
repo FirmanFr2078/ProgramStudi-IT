@@ -149,9 +149,9 @@
 }
 
 .dark {
-  --background: #0f141a;
+  --background: #090d12;
   --foreground: #e8f1f5;
-  --card: #171e26;
+  --card: #131a22;
   --card-foreground: #e8f1f5;
   --popover: #1b242d;
   --popover-foreground: #e8f1f5;
@@ -191,6 +191,10 @@
   }
   html {
     @apply font-sans;
+  }
+
+  .dark body {
+    background-image: none;
   }
 
   h1, h2, h3, h4 {
