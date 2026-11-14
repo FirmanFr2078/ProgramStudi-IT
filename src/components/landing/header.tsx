@@ -35,18 +35,24 @@ export function Header() {
         <nav ref={navRef} aria-label="Menu utama" className="hidden items-center gap-1 lg:flex">
           {mainNav.map((item) =>
             item.children ? (
-              <div key={item.label} className="relative">
+              <div
+                key={item.label}
+                className="group relative"
+                onMouseEnter={() => setOpenMenu(item.label)}
+                onMouseLeave={() => setOpenMenu(null)}
+              >
                 <button
                   type="button"
                   aria-expanded={openMenu === item.label}
                   onClick={() => setOpenMenu((current) => current === item.label ? null : item.label)}
+                  onFocus={() => setOpenMenu(item.label)}
                   className="flex min-h-11 items-center gap-1 rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                 >
                   {item.label}
                   <ChevronDownIcon className={cn("size-3.5 transition-transform", openMenu === item.label && "rotate-180")} aria-hidden="true" />
                 </button>
                 {openMenu === item.label && (
-                  <div className="absolute top-full left-0 pt-2">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 before:absolute before:-top-2 before:left-0 before:h-2 before:w-full">
                     <ul className="min-w-56 rounded-lg border border-border bg-popover p-1 shadow-md">
                       {item.children.map((child) => (
                         <li key={child.href}>
