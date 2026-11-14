@@ -56,7 +56,7 @@ export function Header() {
                 </button>
                 {openMenu === item.label && (
                   <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
-                    <ul className="min-w-56 rounded-lg border border-border bg-popover p-1 shadow-md">
+                    <ul className="min-w-56 rounded-md border border-border bg-popover p-1 shadow-md">
                       {item.children.map((child) => (
                         <li key={child.href}>
                           <Link href={child.href} onClick={() => setOpenMenu(null)} className="block min-h-11 rounded-md px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{child.label}</Link>
@@ -73,11 +73,11 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Link href="/cari" aria-label="Cari" className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">
+          <Link href="/cari" aria-label="Cari" className="flex size-11 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">
             <SearchIcon className="size-4" aria-hidden="true" />
           </Link>
           <ThemeToggle />
-          <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "sm" }), "hidden min-h-11 rounded-lg px-4 text-xs font-semibold sm:inline-flex")}>Pendaftaran</Link>
+          <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "sm" }), "hidden min-h-11 rounded-md px-4 text-xs font-semibold sm:inline-flex")}>Pendaftaran</Link>
           <MobileNav />
         </div>
       </div>

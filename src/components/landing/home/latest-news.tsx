@@ -16,7 +16,7 @@ export async function LatestNews() {
           <p className="text-sm font-medium text-muted-foreground">Publikasi dan agenda</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Kabar terbaru.</h2>
         </div>
-        <Link href="/informasi/kabar" className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
+        <Link href="/informasi/kabar" className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
           Semua kabar
         </Link>
       </Reveal>

@@ -15,8 +15,8 @@ export function Cta() {
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">Lihat jalur pendaftaran atau hubungi layanan akademik untuk pertanyaan yang lebih spesifik.</p>
         </div>
         <div className="flex shrink-0 flex-wrap gap-3">
-          <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "lg" }), "group h-11 rounded-lg px-6")}>Informasi pendaftaran<ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></Link>
-          <Link href="/informasi/kontak" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 rounded-lg px-6")}>Hubungi prodi</Link>
+          <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "lg" }), "group h-11 rounded-md px-6")}>Informasi pendaftaran<ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></Link>
+          <Link href="/informasi/kontak" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-11 rounded-md px-6")}>Hubungi prodi</Link>
         </div>
       </Reveal>
     </section>
