@@ -51,7 +51,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? "Beralih ke mode terang" : "Beralih ke mode gelap"}
-      className="flex size-9 items-center justify-center rounded-xl border border-border/80 text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+      className="flex size-11 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
     >
       {isDark ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
     </button>
