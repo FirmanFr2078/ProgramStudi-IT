@@ -22,7 +22,7 @@ export function Faq() {
                   <ChevronDownIcon className="mr-1 size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-open:rotate-180 sm:mr-0" aria-hidden="true" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="overflow-hidden data-closed:hidden">
-                  <p className="pb-5 text-sm leading-relaxed text-muted-foreground">{answer}</p>
+                  <p className="px-3 pb-5 text-sm leading-relaxed text-muted-foreground sm:px-4">{answer}</p>
                 </CollapsibleContent>
               </Collapsible>
             </Reveal>
