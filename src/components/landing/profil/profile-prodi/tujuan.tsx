@@ -12,14 +12,12 @@ export function Tujuan({ items }: { items: string[] }) {
         </h2>
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-14">
+      <div className="mt-8 divide-y divide-border border-y border-border">
         {items.map((item, i) => (
           <Reveal key={i} delay={i * 80}>
-            <div className="flex h-full items-start gap-4 rounded-2xl border bg-card p-5">
-              <span className="font-heading text-2xl font-extrabold text-lime">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-sm text-muted-foreground sm:text-base">{item}</p>
+            <div className="grid gap-3 py-5 sm:grid-cols-[5rem_1fr] sm:items-start">
+              <span className="font-mono text-sm font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+              <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">{item}</p>
             </div>
           </Reveal>
         ))}

@@ -25,7 +25,7 @@ export default async function ProfilPage() {
       <PageHeader
         eyebrow="Profil"
         title="Profil Program Studi"
-        description="Mengenal lebih dekat Program Studi Teknik Informatika: sejarah, arah, dan lulusan yang kami siapkan."
+        description="Sejarah, arah pendidikan, profil lulusan, dan identitas Program Studi Teknik Informatika Universitas Islam Balitar."
         breadcrumbs={[
           { label: "Beranda", href: "/" },
           { label: "Profil" },

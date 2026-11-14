@@ -1,4 +1,4 @@
-import { QuoteIcon, UserIcon } from "lucide-react"
+import { UserIcon } from "lucide-react"
 
 import type { Sambutan as SambutanType } from "@/types"
 import { Reveal } from "@/components/landing/reveal"
@@ -15,13 +15,13 @@ export function Sambutan({ data }: { data: SambutanType }) {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <Reveal className="grid gap-8 rounded-3xl border bg-card p-6 sm:p-10 md:grid-cols-[auto_1fr] md:items-start">
+      <Reveal className="grid gap-8 border-y border-border py-8 sm:py-10 md:grid-cols-[15rem_1fr] md:gap-12 md:items-start">
         <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-3">
           <div
             aria-label="Foto Kepala Program Studi"
-            className="flex size-20 shrink-0 items-center justify-center rounded-2xl bg-lime/10 font-heading text-2xl font-extrabold text-lime"
+            className="flex size-16 shrink-0 items-center justify-center rounded-md bg-accent font-heading text-xl font-extrabold text-primary"
           >
-            {initials ? initials : <UserIcon className="size-8 text-lime/70" />}
+            {initials ? initials : <UserIcon className="size-7 text-primary/70" />}
           </div>
           <div className="md:mt-1">
             <p className="font-bold">{data.nama}</p>
@@ -29,8 +29,7 @@ export function Sambutan({ data }: { data: SambutanType }) {
           </div>
         </div>
 
-        <div className="relative pl-6 sm:pl-8">
-          <QuoteIcon className="absolute -top-2 left-0 size-6 text-lime/20 sm:size-8" />
+        <div>
           <span className="mb-3 inline-block text-xs font-semibold tracking-wider text-primary uppercase">
             Sambutan
           </span>

@@ -28,30 +28,18 @@ export function ProfilLulusan({ items }: { items: ProfilLulusanItem[] }) {
         </h2>
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+      <div className="mt-8 grid gap-x-8 sm:grid-cols-2">
         {items.map(({ judul, deskripsi }, i) => {
           const Icon = roleIcons[judul] ?? BriefcaseIcon
-          const isCore = i === 0
 
           return (
             <Reveal key={judul} delay={i * 80}>
-              <div
-                className={`flex h-full flex-col justify-between gap-4 rounded-2xl border p-6 transition-colors hover:border-lime ${
-                  isCore ? "bg-card/90 border-lime/30" : "bg-card/50"
-                }`}
-              >
+              <div className="group flex h-full gap-4 border-t border-border py-5 transition-colors hover:border-primary">
+                <Icon className="mt-1 size-5 shrink-0 text-primary" />
                 <div>
-                  <div className="flex items-center justify-between">
-                    <Icon className="size-7 text-lime" />
-                    {isCore && (
-                      <span className="rounded-full bg-lime/10 px-2 py-0.5 text-[10px] font-semibold text-lime">
-                        Utama
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="mt-4 font-bold">{judul}</h3>
+                  <h3 className="font-bold text-foreground">{judul}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{deskripsi}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">{deskripsi}</p>
               </div>
             </Reveal>
           )
