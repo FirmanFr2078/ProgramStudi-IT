@@ -28,11 +28,7 @@ export function Hero() {
         </div>
 
         <Reveal delay={120} className="border-l border-border pl-6 md:pl-8">
-          <div className="mb-7 border-l-2 border-primary bg-accent/45 px-4 py-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Program sarjana</p>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-foreground">Belajar komputasi, perangkat lunak, data, dan sistem secara terarah.</p>
-          </div>
-          <p className="text-sm font-semibold text-foreground">Ruang belajar</p>
+          <p className="text-sm font-semibold text-foreground">Program sarjana</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Kurikulum, praktik, dan pengalaman di luar kelas membantu mahasiswa memahami teori dan menerapkannya dalam pekerjaan.</p>
           <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">
             {facts.map(([label, value]) => (
