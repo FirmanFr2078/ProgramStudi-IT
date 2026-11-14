@@ -49,17 +49,17 @@ export function Header() {
                   aria-expanded={openMenu === item.label}
                   onClick={() => setOpenMenu((current) => current === item.label ? null : item.label)}
                   onFocus={() => setOpenMenu(item.label)}
-                  className="flex min-h-11 items-center gap-1 rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+                  className="flex min-h-11 items-center gap-1 rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                 >
                   {item.label}
                   <ChevronDownIcon className={cn("size-3.5 transition-transform", openMenu === item.label && "rotate-180")} aria-hidden="true" />
                 </button>
                 {openMenu === item.label && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 before:absolute before:-top-2 before:left-0 before:h-2 before:w-full">
+                  <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
                     <ul className="min-w-56 rounded-lg border border-border bg-popover p-1 shadow-md">
                       {item.children.map((child) => (
                         <li key={child.href}>
-                          <Link href={child.href} onClick={() => setOpenMenu(null)} className="block min-h-11 rounded-md px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{child.label}</Link>
+                          <Link href={child.href} onClick={() => setOpenMenu(null)} className="block min-h-11 rounded-md px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{child.label}</Link>
                         </li>
                       ))}
                     </ul>
@@ -67,7 +67,7 @@ export function Header() {
                 )}
               </div>
             ) : item.href ? (
-              <Link key={item.label} href={item.href} className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{item.label}</Link>
+              <Link key={item.label} href={item.href} className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{item.label}</Link>
             ) : null
           )}
         </nav>
