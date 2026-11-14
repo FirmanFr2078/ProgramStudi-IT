@@ -28,6 +28,10 @@ export function Hero() {
         </div>
 
         <Reveal delay={120} className="border-l border-border pl-6 md:pl-8">
+          <div className="relative mb-7 aspect-[16/8] overflow-hidden rounded-lg border border-border bg-accent">
+            <img src="https://placehold.co/960x480/dbeafe/174a7e?text=Laboratorium+Teknik+Informatika" alt="Placeholder laboratorium Teknik Informatika" className="h-full w-full object-cover" />
+            <span className="absolute bottom-3 left-3 bg-background/90 px-2 py-1 text-[11px] font-medium text-foreground">Ganti dengan foto fasilitas prodi</span>
+          </div>
           <p className="text-sm font-semibold text-foreground">Program sarjana</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Kurikulum, praktik, dan pengalaman di luar kelas membantu mahasiswa memahami teori dan menerapkannya dalam pekerjaan.</p>
           <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">
