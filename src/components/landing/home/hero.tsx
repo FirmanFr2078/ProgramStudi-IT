@@ -15,8 +15,8 @@ const facts = [
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-6 pt-8 sm:px-6 sm:pb-8 sm:pt-10 md:pb-10 md:pt-12">
-      <div className="grid w-full gap-10 md:grid-cols-[1.15fr_0.85fr] md:items-end md:gap-16">
+    <section className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-6xl items-center px-4 py-8 sm:px-6 sm:py-10 md:py-12">
+          <div className="grid w-full gap-10 md:grid-cols-[1.15fr_0.85fr] md:items-end md:gap-16">
         <div>
           <Reveal><p className="text-sm font-semibold text-primary">{siteConfig.faculty} · {siteConfig.university}</p></Reveal>
           <Reveal delay={60}><h1 className="mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-[3.5rem]">Teknik Informatika untuk membangun solusi yang berguna.</h1></Reveal>
