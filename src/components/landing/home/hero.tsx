@@ -15,15 +15,15 @@ const facts = [
 
 export function Hero() {
   return (
-    <section className="mx-auto flex min-h-[calc(100svh-11rem)] max-w-6xl items-center px-4 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 md:pb-12 md:pt-12">
+    <section className="mx-auto max-w-6xl px-4 pb-6 pt-8 sm:px-6 sm:pb-8 sm:pt-10 md:pb-10 md:pt-12">
       <div className="grid w-full gap-10 border-b border-border pb-8 md:grid-cols-[1.15fr_0.85fr] md:items-end md:gap-16 md:pb-10">
         <div>
           <Reveal><p className="text-sm font-semibold text-primary">{siteConfig.faculty} · {siteConfig.university}</p></Reveal>
           <Reveal delay={60}><h1 className="mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-[3.5rem]">Teknik Informatika untuk membangun solusi yang berguna.</h1></Reveal>
           <Reveal delay={120}><p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">Pelajari dasar komputasi, perangkat lunak, data, dan sistem dalam program sarjana yang dekat dengan kebutuhan masyarakat dan dunia kerja.</p></Reveal>
           <Reveal delay={180} className="mt-7 flex flex-wrap items-center gap-3">
-            <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "lg" }), "group h-11 rounded-lg px-5")}>Informasi pendaftaran<ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></Link>
-            <Link href="/profil/profil-prodi" className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">Profil prodi</Link>
+            <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "lg" }), "group h-11 rounded-md px-5")}>Informasi pendaftaran<ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></Link>
+            <Link href="/profil/profil-prodi" className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Profil prodi</Link>
           </Reveal>
         </div>
 
