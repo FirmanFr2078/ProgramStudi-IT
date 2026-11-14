@@ -1,7 +1,7 @@
 import type { FooterGroup, SiteNavItem } from "@/types"
 
 export const siteConfig = {
-  name: "Prodi TI", // nama sementara, ganti kapan saja
+  name: "Teknik Informatika",
   fullName: "Program Studi Teknik Informatika",
   faculty: "Fakultas Teknik dan Informatika",
   university: "Universitas Islam Balitar",

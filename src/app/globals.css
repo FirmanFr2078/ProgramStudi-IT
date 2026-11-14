@@ -121,30 +121,30 @@
 }
 
 .light {
-  --background: #faf9fc;
-  --foreground: #0f0d15;
+  --background: #f8fafc;
+  --foreground: #102a43;
   --card: #ffffff;
-  --card-foreground: #0f0d15;
+  --card-foreground: #102a43;
   --popover: #ffffff;
-  --popover-foreground: #0f0d15;
-  --primary: #5b21b6;
+  --popover-foreground: #102a43;
+  --primary: #174a7e;
   --primary-foreground: #ffffff;
-  --secondary: #f3effa;
-  --secondary-foreground: #0f0d15;
-  --muted: #f4f0fa;
-  --muted-foreground: #5e596d;
-  --accent: #ece4f8;
-  --accent-foreground: #0f0d15;
-  --border: #e2dbe9;
-  --input: #d4cbde;
-  --ring: #5b21b6;
-  --c-mist: #0f0d15;
+  --secondary: #eaf3fb;
+  --secondary-foreground: #102a43;
+  --muted: #f1f6fa;
+  --muted-foreground: #526579;
+  --accent: #dbeafe;
+  --accent-foreground: #102a43;
+  --border: #d7e2ec;
+  --input: #c3d2df;
+  --ring: #2563a6;
+  --c-mist: #102a43;
   --c-plum-card: #ffffff;
-  --c-lime: #16a34a;
-  --c-orange: #ea580c;
-  --c-lilac: #5b21b6;
-  --glow-fill: #5b21b6;
-  --glow-fill-hover: #4c1d95;
+  --c-lime: #2563a6;
+  --c-orange: #c2410c;
+  --c-lilac: #2563a6;
+  --glow-fill: #174a7e;
+  --glow-fill-hover: #123a63;
   --glow-text: #ffffff;
 }
 
