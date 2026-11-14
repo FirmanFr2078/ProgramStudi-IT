@@ -19,7 +19,7 @@ export function Hero() {
       <div className="grid gap-10 border-b border-border pb-10 md:grid-cols-[1.15fr_0.85fr] md:items-end md:gap-16 md:pb-12">
         <div>
           <Reveal><p className="text-sm font-semibold text-primary">{siteConfig.faculty} · {siteConfig.university}</p></Reveal>
-          <Reveal delay={60}><h1 className="mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-[1.02] tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl">Teknik Informatika untuk membangun solusi yang berguna.</h1></Reveal>
+          <Reveal delay={60}><h1 className="mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-[1.04] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-[3.5rem]">Teknik Informatika untuk membangun solusi yang berguna.</h1></Reveal>
           <Reveal delay={120}><p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">Pelajari dasar komputasi, perangkat lunak, data, dan sistem dalam program sarjana yang dekat dengan kebutuhan masyarakat dan dunia kerja.</p></Reveal>
           <Reveal delay={180} className="mt-7 flex flex-wrap items-center gap-3">
             <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "lg" }), "group h-11 rounded-lg px-5")}>Informasi pendaftaran<ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></Link>
