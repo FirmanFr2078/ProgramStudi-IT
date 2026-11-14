@@ -17,9 +17,9 @@ export function Faq() {
           {faqItems.map(({ question, answer }, i) => (
             <Reveal key={question} delay={i * 60}>
               <Collapsible className="group">
-                <CollapsibleTrigger className="flex min-h-14 w-full items-center justify-between gap-4 text-left text-sm font-semibold text-foreground transition-colors hover:text-primary sm:text-base">
-                  <span>{question}</span>
-                  <ChevronDownIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-open:rotate-180" />
+                <CollapsibleTrigger className="flex min-h-14 w-full items-center justify-between gap-4 px-3 text-left text-sm font-semibold text-foreground transition-colors hover:text-primary sm:px-4 sm:text-base">
+                  <span className="min-w-0">{question}</span>
+                  <ChevronDownIcon className="mr-1 size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-open:rotate-180 sm:mr-0" aria-hidden="true" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="overflow-hidden data-closed:hidden">
                   <p className="pb-5 text-sm leading-relaxed text-muted-foreground">{answer}</p>
