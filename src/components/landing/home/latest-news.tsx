@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowUpRightIcon } from "lucide-react"
 
 import { getKabar } from "@/data/kabar"
 import { Reveal } from "@/components/landing/reveal"
@@ -29,7 +30,10 @@ export async function LatestNews() {
                 <h3 className="font-heading text-lg font-bold text-foreground transition-colors group-hover:text-primary">{item.judul}</h3>
                 <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{item.ringkasan}</p>
               </div>
-              <span className="text-sm text-muted-foreground transition-colors group-hover:text-foreground">Baca</span>
+              <span className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+                Buka kabar
+                <ArrowUpRightIcon className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
             </Link>
           </Reveal>
         ))}

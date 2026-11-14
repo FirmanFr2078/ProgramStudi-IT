@@ -7,10 +7,10 @@ import { Reveal } from "@/components/landing/reveal"
 import { siteConfig } from "@/config/site"
 
 const facts = [
-  ["Gelar", "S.Kom"],
-  ["Beban studi", "144 SKS"],
-  ["Model belajar", "MBKM & magang"],
-  ["Lingkungan", "Laboratorium terpadu"],
+  ["Kualifikasi", "Sarjana Komputer"],
+  ["Struktur studi", "144 SKS"],
+  ["Pengalaman", "MBKM dan magang"],
+  ["Fasilitas", "Laboratorium pembelajaran"],
 ]
 
 export function Hero() {
@@ -25,12 +25,12 @@ export function Hero() {
           </Reveal>
           <Reveal delay={60}>
             <h1 className="max-w-3xl font-heading text-4xl leading-[1.02] font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl">
-              Teknik Informatika untuk membangun solusi yang berguna.
+              Tempat mahasiswa belajar merancang teknologi yang bermanfaat.
             </h1>
           </Reveal>
           <Reveal delay={120}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Program sarjana yang mempertemukan fondasi komputasi, rekayasa perangkat lunak, dan kebutuhan nyata masyarakat serta industri.
+              Belajar dari dasar komputasi sampai pengembangan perangkat lunak, data, dan sistem yang dekat dengan kebutuhan masyarakat serta dunia kerja.
             </p>
           </Reveal>
           <Reveal delay={180} className="mt-8 flex flex-wrap items-center gap-3">
@@ -45,16 +45,16 @@ export function Hero() {
               href="/profil/profil-prodi"
               className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
-              Kenali program studi
+              Lihat profil prodi
             </Link>
           </Reveal>
         </div>
 
         <Reveal delay={120} className="flex items-end">
           <div className="w-full border-l-2 border-primary pl-6 md:pl-8">
-            <p className="text-sm font-semibold text-foreground">Ruang belajar yang terarah</p>
+            <p className="text-sm font-semibold text-foreground">Yang akan kamu temui di sini</p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Kurikulum, dosen, fasilitas, dan pengalaman di luar kelas disusun untuk membantu mahasiswa bergerak dari konsep menuju karya yang dapat dipertanggungjawabkan.
+              Perkuliahan yang menghubungkan teori, latihan, proyek, dan pengalaman kerja agar setiap tahap belajar punya arah yang jelas.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-border pt-6">
               {facts.map(([label, value]) => (
