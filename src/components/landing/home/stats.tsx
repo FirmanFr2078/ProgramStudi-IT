@@ -5,43 +5,26 @@ import { Reveal } from "@/components/landing/reveal"
 
 export function Stats() {
   return (
-    <section
-      id="prodi-dalam-angka"
-      className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
-    >
-      <div className="rounded-3xl border border-border/80 bg-card/40 p-6 sm:p-10 backdrop-blur-sm">
-        <Reveal className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
-          <div>
-            <span className="text-xs font-semibold tracking-wider text-primary uppercase">
-              Prodi dalam Angka
-            </span>
-            <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-              Teknik Informatika Hari Ini
-            </h2>
-          </div>
-          <p className="text-xs text-muted-foreground/80">
-            *Indikator akademik, alumni, dan jejaring aktif prodi.
+    <section id="prodi-dalam-angka" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
+      <Reveal className="grid gap-8 border-y border-border py-8 md:grid-cols-[0.8fr_1.2fr] md:gap-16 md:py-10">
+        <div>
+          <p className="text-sm font-medium text-muted-foreground">Prodi dalam angka</p>
+          <h2 className="mt-2 max-w-sm font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+            Gambaran singkat komunitas kami.
+          </h2>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            Angka berikut adalah indikator yang tersedia dari data prodi dan dapat berkembang seiring pembaruan akademik.
           </p>
-        </Reveal>
-
-        <div className="mt-8 grid grid-cols-2 gap-6 border-t border-border/80 pt-8 sm:grid-cols-4 sm:gap-8">
-          {prodiStats.map(({ value, label, href }, i) => (
-            <Reveal key={href} delay={i * 80}>
-              <Link
-                href={href}
-                className="group flex flex-col gap-1.5 transition-colors"
-              >
-                <span className="font-heading text-3xl font-extrabold tracking-tight text-foreground transition-colors group-hover:text-lime sm:text-4xl md:text-5xl">
-                  {value}
-                </span>
-                <span className="text-xs text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">
-                  {label}
-                </span>
-              </Link>
-            </Reveal>
+        </div>
+        <div className="grid grid-cols-2 divide-x divide-y divide-border border-l border-t border-border sm:grid-cols-4 sm:divide-y-0">
+          {prodiStats.map(({ value, label, href }) => (
+            <Link key={href} href={href} className="group min-w-0 p-4 transition-colors hover:bg-accent/40 sm:p-5">
+              <p className="font-heading text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{value}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">{label}</p>
+            </Link>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }
