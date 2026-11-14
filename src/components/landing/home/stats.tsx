@@ -7,7 +7,7 @@ import { cn } from "cn"
 
 export function Stats() {
   return (
-    <section id="prodi-dalam-angka" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-12 sm:px-6 md:py-16">
+    <section id="prodi-dalam-angka" className="mx-auto max-w-6xl scroll-mt-24 px-4 pb-8 pt-12 sm:px-6 sm:pb-10 md:pb-12">
       <Reveal className="border-y border-border py-8 sm:py-10">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
           <div>
