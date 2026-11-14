@@ -7,12 +7,12 @@ export function Footer() {
   const primaryLinks = footerNav.flatMap((group) => group.links).slice(0, 8)
 
   return (
-    <footer className="border-t border-border bg-muted/30">
+    <footer className="border-t border-border bg-muted/40">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_0.8fr] md:gap-16">
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-md bg-primary font-heading text-sm font-black text-primary-foreground">TI</span>
+              <span className="flex size-9 items-center justify-center rounded-md bg-primary font-mono text-xs font-bold text-primary-foreground">&lt;/&gt;</span>
               <span className="font-heading text-base font-extrabold tracking-tight text-foreground">{siteConfig.name}</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">{siteConfig.faculty}<br />{siteConfig.university}</p>
