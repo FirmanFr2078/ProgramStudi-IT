@@ -8,7 +8,7 @@ export function Tujuan({ items }: { items: string[] }) {
           Tujuan
         </span>
         <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
-          Tujuan Program Studi
+          Tujuan program studi
         </h2>
       </Reveal>
 

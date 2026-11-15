@@ -24,7 +24,7 @@ export function ProfilLulusan({ items }: { items: ProfilLulusanItem[] }) {
           Lulusan
         </span>
         <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
-          Jadi Apa Setelah Lulus?
+          Jadi apa setelah lulus?
         </h2>
       </Reveal>
 

@@ -11,7 +11,7 @@ export function Identitas({ items }: { items: IdentitasItem[] }) {
           Identitas
         </span>
         <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
-          Identitas Program Studi
+          Identitas program studi
         </h2>
       </Reveal>
 

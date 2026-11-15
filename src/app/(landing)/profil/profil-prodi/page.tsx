@@ -38,11 +38,11 @@ export default async function ProfilPage() {
 
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16">
         <Reveal>
-          <span className="text-xs font-semibold tracking-wider text-primary uppercase">
+          <span className="text-sm font-medium text-primary">
             Sejarah
           </span>
-          <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-            Perjalanan Kami
+          <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+            Perjalanan kami
           </h2>
         </Reveal>
         <Reveal delay={100} className="mt-6 flex flex-col gap-4 border-l-2 border-border pl-5">
