@@ -36,12 +36,12 @@ const contactItems: ContactItem[] = [
 
 function ContactCard({ icon: Icon, label, value, href }: ContactItem) {
   const className =
-    "group flex items-start gap-3 rounded-2xl border bg-card p-5 transition-colors hover:border-lime"
+    "group flex items-start gap-3 rounded-xl border border-black/10 bg-card p-5 transition-colors hover:border-primary/40 dark:border-white/12"
   const content = (
     <>
-      <Icon className="mt-0.5 size-5 shrink-0 text-lime" />
+      <Icon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
       <div>
-        <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
+        <p className="text-sm font-medium text-primary">
           {label}
         </p>
         <p className="mt-1 text-sm">{value}</p>
@@ -63,10 +63,10 @@ export default function KontakPage() {
     <>
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-4 sm:px-6">
         <Reveal>
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="text-sm font-medium text-primary">
             Kontak
           </p>
-          <h1 className="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">
+          <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
             Hubungi Kami
           </h1>
           <p className="mt-3 max-w-xl text-sm text-muted-foreground sm:text-base">
@@ -83,12 +83,12 @@ export default function KontakPage() {
           ))}
 
           {siteConfig.social.length > 0 && (
-            <div className="flex gap-3 rounded-2xl border bg-card p-5">
+            <div className="flex gap-3 rounded-xl border border-black/10 bg-card p-5 dark:border-white/12">
               {siteConfig.social.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="rounded-full border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-lime hover:text-foreground"
+                  className="rounded-full border border-black/10 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground dark:border-white/12"
                 >
                   {s.label}
                 </a>
