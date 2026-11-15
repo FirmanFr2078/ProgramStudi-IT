@@ -9,7 +9,7 @@ export function Faq() {
     <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
       <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
         <Reveal>
-          <p className="text-sm font-medium text-muted-foreground">Tanya jawab</p>
+          <p className="text-sm font-medium text-primary">Tanya jawab</p>
           <h2 className="mt-2 max-w-sm font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Hal yang sering ditanyakan.</h2>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Jawaban singkat untuk membantu calon mahasiswa mengenal cara belajar dan pilihan yang tersedia.</p>
         </Reveal>

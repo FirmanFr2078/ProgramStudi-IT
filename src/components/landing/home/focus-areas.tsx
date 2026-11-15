@@ -7,7 +7,7 @@ export function FocusAreas() {
   return (
     <section id="bidang-minat" className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6 sm:pb-14 md:pb-16">
       <Reveal className="max-w-2xl">
-        <p className="text-sm font-medium text-muted-foreground">Bidang minat dan keahlian</p>
+        <p className="text-sm font-medium text-primary">Bidang minat dan keahlian</p>
         <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Belajar dari fondasi, memilih arah.</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
           Peminatan membantu mahasiswa menghubungkan mata kuliah, proyek, dan rencana karir tanpa membatasi kemungkinan untuk terus mengeksplorasi.
