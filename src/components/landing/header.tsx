@@ -5,9 +5,8 @@ import Link from "next/link"
 import { ChevronDownIcon, SearchIcon } from "lucide-react"
 
 import { MobileNav } from "@/components/landing/mobile-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+
 import { mainNav, siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
 import { cn } from "cn"
 
 export function Header() {
@@ -25,18 +24,15 @@ export function Header() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background">
-      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-3 rounded-full border border-black/8 bg-background px-3 sm:px-4 dark:border-white/12">
         <Link href="/" className="flex min-w-0 items-center gap-3">
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-primary font-mono text-xs font-bold text-primary-foreground">&lt;/&gt;</span>
-          <span className="flex min-w-0 flex-col">
-            <span className="truncate font-heading text-sm font-extrabold leading-tight tracking-tight text-foreground sm:text-base">{siteConfig.name}</span>
-            <span className="hidden text-[10px] leading-tight text-muted-foreground sm:block">Universitas Islam Balitar</span>
-          </span>
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary font-mono text-xs font-bold text-primary-foreground">&lt;/&gt;</span>
+          <span className="truncate font-heading text-sm font-extrabold leading-tight tracking-tight text-foreground sm:text-base">{siteConfig.name}</span>
         </Link>
 
         <nav ref={navRef} aria-label="Menu utama" className="hidden items-center gap-1 lg:flex">
-          {mainNav.filter((item) => ["Beranda", "Profil", "Pendidikan", "Mahasiswa", "Informasi"].includes(item.label)).map((item) =>
+          {mainNav.map((item) =>
             item.children ? (
               <div
                 key={item.label}
@@ -73,11 +69,15 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Link href="/cari" aria-label="Cari" className="flex size-11 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">
+          {/* TODO: ganti angka statis ini dengan prop dari server component setelah penghitung kunjungan nyata tersedia. */}
+          <p className="hidden text-xs text-muted-foreground lg:block">12.480 pengunjung</p>
+          <span className="hidden h-4 w-px bg-black/8 lg:block dark:bg-white/12" aria-hidden="true" />
+
+          <Link href="/cari" className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:border-white/12">
             <SearchIcon className="size-4" aria-hidden="true" />
+            <span>Cari</span>
           </Link>
-          <ThemeToggle />
-          <Link href="/informasi/pendaftaran" className={cn(buttonVariants({ size: "sm" }), "hidden min-h-11 rounded-md px-4 text-xs font-semibold sm:inline-flex")}>Pendaftaran</Link>
+
           <MobileNav />
         </div>
       </div>
