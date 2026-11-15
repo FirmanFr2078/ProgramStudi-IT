@@ -127,7 +127,7 @@
   --card-foreground: #17324a;
   --popover: #ffffff;
   --popover-foreground: #17324a;
-  --primary: #2f80b7;
+  --primary: #245b8f;
   --primary-foreground: #ffffff;
   --secondary: #e9f5fa;
   --secondary-foreground: #17324a;
@@ -137,7 +137,7 @@
   --accent-foreground: #17324a;
   --border: #d2e3eb;
   --input: #bcd4df;
-  --ring: #2f80b7;
+  --ring: #245b8f;
   --c-mist: #17324a;
   --c-plum-card: #ffffff;
   --c-lime: #2f80b7;
@@ -149,14 +149,14 @@
 }
 
 .dark {
-  --background: #090d12;
+  --background: #000000;
   --foreground: #e8f1f5;
   --card: #131a22;
   --card-foreground: #e8f1f5;
   --popover: #1b242d;
   --popover-foreground: #e8f1f5;
-  --primary: #8bd3f2;
-  --primary-foreground: #0f141a;
+  --primary: #87ceeb;
+  --primary-foreground: #10202a;
   --secondary: #202a34;
   --secondary-foreground: #e8f1f5;
   --muted: #1a222b;
@@ -174,6 +174,86 @@
   --glow-fill: #8bd3f2;
   --glow-fill-hover: #b2e5fa;
   --glow-text: #0f141a;
+}
+
+/* Hero animations restored from upstream */
+@property --ang {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes glitch-a {
+  0%, 86%, 94%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+  87% { opacity: 1; transform: translate(-5px, 0); clip-path: inset(8% 0 62% 0); }
+  89% { opacity: 1; transform: translate(4px, 0); clip-path: inset(55% 0 15% 0); }
+  91% { opacity: 1; transform: translate(-3px, 1px); clip-path: inset(30% 0 42% 0); }
+}
+
+@keyframes glitch-b {
+  0%, 87%, 95%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+  88% { opacity: 1; transform: translate(5px, 0); clip-path: inset(40% 0 35% 0); }
+  90% { opacity: 1; transform: translate(-4px, 0); clip-path: inset(12% 0 68% 0); }
+  92% { opacity: 1; transform: translate(3px, -1px); clip-path: inset(62% 0 10% 0); }
+}
+
+.glitch {
+  position: relative;
+  text-shadow: -2px 0 color-mix(in oklab, var(--c-orange) 60%, transparent), 2px 0 color-mix(in oklab, var(--c-violet-alt) 70%, transparent);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.glitch::before { color: var(--c-orange); animation: glitch-a 4.5s infinite steps(1); }
+.glitch::after { color: var(--c-violet-alt); animation: glitch-b 4.5s infinite steps(1); }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 5deg)); }
+}
+
+.float { animation: float-y var(--dur, 6s) ease-in-out var(--delay, 0s) infinite; }
+
+@keyframes blink {
+  0%, 44%, 56%, 100% { opacity: 0.9; }
+  50% { opacity: 0; }
+  70% { opacity: 0.2; }
+}
+
+.blink { animation: blink var(--dur, 3s) steps(1) var(--delay, 0s) infinite; }
+
+@keyframes loadbar {
+  0% { width: 6%; }
+  40% { width: 55%; }
+  70% { width: 72%; }
+  100% { width: 100%; }
+}
+
+.loadbar { animation: loadbar 3.2s steps(8) infinite; }
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, color-mix(in oklab, var(--c-black) 40%, transparent) 3px 4px);
+  opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after,
+  .float,
+  .blink,
+  .loadbar { animation: none; }
 }
 
 @layer base {
