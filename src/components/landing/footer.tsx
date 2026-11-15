@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_0.8fr] md:gap-16">
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-md bg-primary font-mono text-xs font-bold text-primary-foreground">&lt;/&gt;</span>
+              <span className="flex size-9 items-center justify-center rounded-full bg-primary font-mono text-xs font-bold text-primary-foreground">&lt;/&gt;</span>
               <span className="font-heading text-base font-extrabold tracking-tight text-foreground">{siteConfig.name}</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">{siteConfig.faculty}<br />{siteConfig.university}</p>
