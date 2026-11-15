@@ -30,7 +30,7 @@ export function Sambutan({ data }: { data: SambutanType }) {
         </div>
 
         <div>
-          <span className="mb-3 inline-block text-xs font-semibold tracking-wider text-primary uppercase">
+          <span className="mb-3 inline-block text-sm font-medium text-primary">
             Sambutan
           </span>
           <div className="flex flex-col gap-4">

@@ -20,11 +20,11 @@ export function ProfilLulusan({ items }: { items: ProfilLulusanItem[] }) {
   return (
     <section id="profil-lulusan" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
       <Reveal>
-        <span className="text-xs font-semibold tracking-wider text-primary uppercase">
+        <span className="text-sm font-medium text-primary">
           Lulusan
         </span>
-        <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-          Prospek Karir Lulusan
+        <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+          Jadi Apa Setelah Lulus?
         </h2>
       </Reveal>
 
