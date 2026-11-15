@@ -54,11 +54,11 @@ export function PageHeader({
 
       <Reveal>
         {showEyebrow && (
-          <span className="mt-4 inline-block text-xs font-semibold tracking-wider text-primary uppercase">
+          <span className="mt-4 inline-block text-sm font-medium text-primary">
             {eyebrow}
           </span>
         )}
-        <h1 className="mt-4 font-sans text-3xl font-extrabold tracking-[-0.025em] sm:text-4xl">
+        <h1 className="mt-4 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
           {title}
         </h1>
         {description && (
