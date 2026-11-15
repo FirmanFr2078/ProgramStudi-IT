@@ -14,10 +14,10 @@ import { getTendikBySlug } from "@/data/tendik"
 import { getInitials } from "@/lib/initials"
 
 const pillLink =
-  "flex items-center gap-1.5 rounded-full border px-3 py-1.5 transition-colors hover:border-lime hover:text-lime"
+  "flex items-center gap-1.5 rounded-full border border-black/10 px-3 py-1.5 transition-colors hover:border-primary/40 hover:text-foreground dark:border-white/12"
 
 const label =
-  "font-mono text-xs tracking-[0.35em] text-lavender uppercase"
+  "text-sm font-medium text-primary"
 
 export async function TendikDetail({
   params,
@@ -40,17 +40,17 @@ export async function TendikDetail({
                 className="object-top"
               />
             )}
-            <AvatarFallback className="bg-accent font-heading text-2xl font-bold text-lavender">
+            <AvatarFallback className="bg-accent font-heading text-2xl font-bold text-muted-foreground">
               {getInitials(tendik.nama)}
             </AvatarFallback>
           </Avatar>
           <div>
             <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
-              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs text-lavender">
+              <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs text-muted-foreground">
                 {tendik.unitKerja}
               </span>
             </div>
-            <h1 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
+            <h1 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
               {tendik.nama}
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
@@ -61,45 +61,45 @@ export async function TendikDetail({
       </section>
 
       <section className="mx-auto grid max-w-4xl gap-4 px-4 py-10 sm:px-6 md:grid-cols-2">
-        <Reveal className="rounded-2xl border bg-card p-6 md:col-span-2">
+        <Reveal className="rounded-xl border border-black/10 bg-card p-6 md:col-span-2 dark:border-white/12">
           <p className={label}>Tugas & Layanan</p>
           <ul className="mt-4 flex flex-col gap-2.5">
             {tendik.tugas.map((t) => (
               <li key={t} className="flex gap-3 text-sm">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-lime" />
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 {t}
               </li>
             ))}
           </ul>
         </Reveal>
 
-        <Reveal delay={80} className="rounded-2xl border bg-card p-6">
+        <Reveal delay={80} className="rounded-xl border border-black/10 bg-card p-6 dark:border-white/12">
           <p className={label}>Ruang & Jam Layanan</p>
           <ul className="mt-4 flex flex-col gap-3 text-sm">
             <li className="flex gap-3">
-              <MapPinIcon className="mt-0.5 size-4 shrink-0 text-lavender" />
+              <MapPinIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {tendik.lokasi}
             </li>
             <li className="flex gap-3">
-              <ClockIcon className="mt-0.5 size-4 shrink-0 text-lavender" />
+              <ClockIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               {tendik.jamLayanan}
             </li>
           </ul>
         </Reveal>
 
-        <Reveal delay={160} className="rounded-2xl border bg-card p-6">
+        <Reveal delay={160} className="rounded-xl border border-black/10 bg-card p-6 dark:border-white/12">
           <p className={label}>Pendidikan Terakhir</p>
           <p className="mt-4 flex gap-3 text-sm">
-            <GraduationCapIcon className="mt-0.5 size-4 shrink-0 text-lavender" />
+            <GraduationCapIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
             {tendik.pendidikan}
           </p>
         </Reveal>
 
-        <Reveal delay={240} className="rounded-2xl border bg-card p-6 md:col-span-2">
+        <Reveal delay={240} className="rounded-xl border border-black/10 bg-card p-6 md:col-span-2 dark:border-white/12">
           <p className={label}>Kontak</p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm">
             <a href={`mailto:${tendik.email}`} className={pillLink}>
-              <MailIcon className="size-3.5" />
+              <MailIcon className="size-3.5" aria-hidden="true" />
               {tendik.email}
             </a>
             {tendik.telepon && (
@@ -107,7 +107,7 @@ export async function TendikDetail({
                 href={`tel:${tendik.telepon.replace(/[^\d+]/g, "")}`}
                 className={pillLink}
               >
-                <PhoneIcon className="size-3.5" />
+                <PhoneIcon className="size-3.5" aria-hidden="true" />
                 {tendik.telepon}
               </a>
             )}
