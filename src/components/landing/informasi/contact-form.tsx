@@ -67,7 +67,7 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" size="lg" className="glow mt-1 w-fit rounded-full px-6">
+      <Button type="submit" size="lg" className="mt-1 w-fit rounded-md px-6">
         Kirim Pesan
       </Button>
     </form>

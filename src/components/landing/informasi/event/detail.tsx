@@ -50,7 +50,7 @@ export async function EventDetail({
             href={event.tautanDaftar}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(buttonVariants({ size: "lg" }), "glow mt-6 rounded-full")}
+            className={cn(buttonVariants({ size: "lg" }), "mt-6 rounded-md")}
           >
             Daftar Sekarang
           </a>
