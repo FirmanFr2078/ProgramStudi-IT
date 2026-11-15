@@ -9,8 +9,8 @@ import type { Alumni } from "@/types"
 const PER_PAGE = 15
 
 const statusStyle: Record<string, string> = {
-  Bekerja: "bg-lime/10 text-lime",
-  Wirausaha: "bg-lavender/10 text-lavender",
+  Bekerja: "bg-primary/10 text-primary",
+  Wirausaha: "bg-muted text-muted-foreground",
   "Melanjutkan Studi": "bg-accent text-foreground",
   "Mencari Kerja": "bg-accent text-muted-foreground",
 }

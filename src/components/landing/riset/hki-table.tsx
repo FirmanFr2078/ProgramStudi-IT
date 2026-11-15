@@ -91,7 +91,7 @@ export function HkiTable({ items }: { items: HkiItem[] }) {
                   <span
                     className={
                       item.status === "Terdaftar"
-                        ? "rounded-full bg-lime/10 px-2 py-0.5 text-xs text-lime"
+                        ? "rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary"
                         : "rounded-full bg-accent px-2 py-0.5 text-xs text-muted-foreground"
                     }
                   >
