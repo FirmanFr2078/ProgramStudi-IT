@@ -39,7 +39,7 @@ export function OrgChartCanvas({ data }: { data: StrukturOrganisasi }) {
 
   return (
     <div className="relative mt-10 overflow-hidden border border-border bg-muted/20" aria-label="Bagan organisasi yang dapat diperbesar dan digeser">
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1 border border-border bg-background p-1">
+      <div className="absolute top-3 right-3 z-10 hidden items-center gap-1 border border-border bg-background p-1 sm:flex">
         <button type="button" aria-label="Perkecil bagan" onClick={() => zoom(-0.1)} className="flex size-9 items-center justify-center text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"><MinusIcon className="size-4" /></button>
         <button type="button" aria-label="Kembalikan ukuran bagan" onClick={reset} className="flex size-9 items-center justify-center text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"><RotateCcwIcon className="size-4" /></button>
         <button type="button" aria-label="Perbesar bagan" onClick={() => zoom(0.1)} className="flex size-9 items-center justify-center text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"><PlusIcon className="size-4" /></button>
@@ -50,7 +50,11 @@ export function OrgChartCanvas({ data }: { data: StrukturOrganisasi }) {
         tabIndex={0}
         aria-label="Bagan organisasi, gunakan tombol panah untuk menggeser"
         className={`min-h-[28rem] overflow-auto touch-none p-6 outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset sm:min-h-[32rem] sm:p-12 ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
-        onWheel={(event) => { event.preventDefault(); zoom(event.deltaY > 0 ? -0.1 : 0.1) }}
+        onWheel={(event) => {
+          if (!window.matchMedia("(min-width: 640px)").matches) return
+          event.preventDefault()
+          zoom(event.deltaY > 0 ? -0.1 : 0.1)
+        }}
         onPointerDown={(event) => { setDragging(true); start.current = { x: event.clientX - offset.x, y: event.clientY - offset.y }; event.currentTarget.setPointerCapture(event.pointerId) }}
         onPointerMove={(event) => { if (dragging) setOffset({ x: event.clientX - start.current.x, y: event.clientY - start.current.y }) }}
         onPointerUp={() => setDragging(false)}
@@ -91,7 +95,10 @@ export function OrgChartCanvas({ data }: { data: StrukturOrganisasi }) {
           </div>
         </div>
       </div>
-      <p className="border-t border-border px-4 py-2 text-xs text-muted-foreground">Geser bagan dengan tarik, scroll, atau tombol panah. Gunakan kontrol kanan untuk memperbesar.</p>
+      <p className="border-t border-border px-4 py-2 text-xs text-muted-foreground">
+        Geser bagan dengan tarik atau tombol panah.
+        <span className="hidden sm:inline"> Gunakan kontrol kanan untuk memperbesar.</span>
+      </p>
     </div>
   )
 }
