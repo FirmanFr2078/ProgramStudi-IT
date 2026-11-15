@@ -2,7 +2,7 @@ import type { ProgramProfile } from "@/types"
 
 const dummy: ProgramProfile = {
   sambutan: {
-    nama: "[Nama Ketua Program Studi]",
+    nama: "Sri Lestanti, S.Kom., M.T.",
     jabatan: "Ketua Program Studi Teknik Informatika",
     isi: [
       "Selamat datang di Program Studi Teknik Informatika, Universitas Islam Balitar. Kami percaya bahwa dunia teknologi informasi bergerak sangat cepat, dan tugas kami adalah menyiapkan mahasiswa tidak hanya menguasai teori, tetapi juga siap menghadapi persoalan nyata di industri.",
