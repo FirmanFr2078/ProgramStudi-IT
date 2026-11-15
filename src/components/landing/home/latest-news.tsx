@@ -13,7 +13,7 @@ export async function LatestNews() {
     <section id="kabar-terkini" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
       <Reveal className="flex flex-col justify-between gap-4 border-b border-border pb-6 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-medium text-primary">Publikasi dan agenda</p>
+          <p className="text-sm font-medium text-primary">Terkini</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Kabar terbaru.</h2>
         </div>
         <Link href="/informasi/kabar" className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
