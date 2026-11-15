@@ -11,7 +11,7 @@ export async function LatestNews() {
 
   return (
     <section id="kabar-terkini" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-      <Reveal className="flex flex-col justify-between gap-4 border-b border-border pb-6 sm:flex-row sm:items-end">
+      <Reveal className="flex flex-row items-end justify-between gap-4 border-b border-border pb-6">
         <div>
           <p className="text-sm font-medium text-primary">Terkini</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Kabar terbaru.</h2>
