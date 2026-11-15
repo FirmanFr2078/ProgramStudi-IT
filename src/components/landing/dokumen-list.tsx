@@ -11,16 +11,16 @@ export function DokumenList({ items }: { items: Dokumen[] }) {
         <li
           key={d.id}
           className={cn(
-            "flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-card p-4",
-            d.aktif && "border-lime/60"
+            "flex flex-wrap items-center justify-between gap-3 rounded-xl border border-black/10 bg-card p-4 dark:border-white/12",
+            d.aktif && "border-primary/40"
           )}
         >
           <div>
             <p className="font-semibold">{d.label}</p>
             {d.aktif && (
-              <span className="mt-1 inline-block rounded-full bg-lime/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lime uppercase">
-                Tahun Aktif
-              </span>
+              <span className="mt-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[11px] text-primary">
+                              Tahun Aktif
+                            </span>
             )}
           </div>
           <a
@@ -32,7 +32,7 @@ export function DokumenList({ items }: { items: Dokumen[] }) {
               "gap-1.5"
             )}
           >
-            <DownloadIcon className="size-3.5" />
+            <DownloadIcon className="size-3.5" aria-hidden="true" />
             Unduh
           </a>
         </li>

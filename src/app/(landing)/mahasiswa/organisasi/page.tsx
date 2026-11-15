@@ -9,7 +9,7 @@ import { buttonVariants } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: "Organisasi Mahasiswa",
-  description: `${himaprodi.nama} (${himaprodi.singkatan}) — wadah kemahasiswaan Program Studi Teknik Informatika.`,
+  description: `${himaprodi.nama} (${himaprodi.singkatan}), wadah kemahasiswaan Program Studi Teknik Informatika.`,
 }
 
 export default function OrganisasiMahasiswaPage() {
@@ -27,16 +27,16 @@ export default function OrganisasiMahasiswaPage() {
       />
 
       <section className="mx-auto max-w-3xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
-        <Reveal className="flex flex-col items-center gap-5 rounded-3xl border bg-card p-8 text-center sm:p-10">
-          <div className="flex size-16 items-center justify-center rounded-2xl bg-lime/10 text-lime">
-            <UsersIcon className="size-8" />
+        <Reveal className="flex flex-col items-center gap-5 rounded-xl border border-black/10 bg-card p-8 text-center sm:p-10 dark:border-white/12">
+          <div className="flex size-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+            <UsersIcon className="size-8" aria-hidden="true" />
           </div>
 
           <div>
-            <p className="font-mono text-xs tracking-wider text-lavender uppercase">
+            <p className="text-sm font-medium text-primary">
               {himaprodi.singkatan}
             </p>
-            <h2 className="mt-1 font-heading text-xl font-extrabold sm:text-2xl">
+            <h2 className="mt-1 font-heading text-xl font-extrabold tracking-tight sm:text-2xl">
               {himaprodi.nama}
             </h2>
           </div>
@@ -48,7 +48,7 @@ export default function OrganisasiMahasiswaPage() {
           <ul className="flex flex-col gap-2 text-left text-sm text-muted-foreground">
             {himaprodi.kegiatan.map((k) => (
               <li key={k} className="flex gap-2">
-                <span className="mt-1.5 size-1 shrink-0 rounded-full bg-lime" />
+                <span className="mt-1.5 size-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 <span>{k}</span>
               </li>
             ))}
