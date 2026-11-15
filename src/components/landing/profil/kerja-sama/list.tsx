@@ -26,7 +26,7 @@ export function KerjaSamaList({ data }: { data: Mitra[] }) {
         <KategoriFilter kategoris={kategoris} active={active} onChange={setActive} />
       </Reveal>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {filtered.map((mitra, i) => (
           <Reveal key={mitra.slug} delay={i * 60}>
             <MitraCard mitra={mitra} onDetail={setSelected} />

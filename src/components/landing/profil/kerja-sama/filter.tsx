@@ -14,22 +14,32 @@ export function KategoriFilter({
   const options = ["Semua", ...kategoris]
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {options.map((opt) => (
-        <button
-          key={opt}
-          type="button"
-          onClick={() => onChange(opt)}
-          className={cn(
-            "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors sm:text-sm",
-            active === opt
-              ? "border-lime bg-lime/10 text-lime"
-              : "text-muted-foreground hover:border-lime/40 hover:text-foreground"
-          )}
-        >
-          {opt}
-        </button>
-      ))}
+    <div className="flex flex-wrap gap-x-6 gap-y-1 border-b border-black/10 dark:border-white/12">
+      {options.map((opt) => {
+        const isActive = active === opt
+        return (
+          <button
+            key={opt}
+            type="button"
+            onClick={() => onChange(opt)}
+            aria-current={isActive ? "true" : undefined}
+            className={cn(
+              "relative pb-3 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+              isActive
+                ? "font-medium text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            {opt}
+            <span
+              className={cn(
+                "absolute inset-x-0 bottom-0 h-0.5 transition-colors",
+                isActive ? "bg-primary" : "bg-transparent"
+              )}
+            />
+          </button>
+        )
+      })}
     </div>
   )
 }
