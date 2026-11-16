@@ -3,6 +3,8 @@
 web-prodi
 ├─ AGENTS.md
 ├─ components.json
+├─ docs
+│  └─ kabar-block-editor.md
 ├─ eslint.config.mjs
 ├─ next.config.ts
 ├─ package.json
@@ -51,6 +53,10 @@ web-prodi
 │  │  │  └─ migration.sql
 │  │  ├─ 20261112054837_add_activity_log
 │  │  │  └─ migration.sql
+│  │  ├─ 20261114064409_kabar_content_editor
+│  │  │  └─ migration.sql
+│  │  ├─ 20261114140425_add_dosen_attribution
+│  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
 │  └─ seed.ts
@@ -62,89 +68,57 @@ web-prodi
 │  ├─ vercel.svg
 │  └─ window.svg
 ├─ README.md
-├─ scripts
-│  ├─ debug-login.ts
-│  └─ delete-user.ts
 ├─ src
 │  ├─ app
 │  │  ├─ (auth)
+│  │  │  ├─ layout.tsx
 │  │  │  └─ login
 │  │  │     └─ page.tsx
 │  │  ├─ (landing)
-│  │  │  ├─ fasilitas
-│  │  │  │  ├─ gedung
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ laboratorium
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ perpustakaan
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ ruang-kelas
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ sarana-administrasi
-│  │  │  │     └─ page.tsx
-│  │  │  ├─ informasi
-│  │  │  │  ├─ event
-│  │  │  │  │  ├─ page.tsx
-│  │  │  │  │  └─ [slug]
-│  │  │  │  │     └─ page.tsx
-│  │  │  │  ├─ kabar
-│  │  │  │  │  ├─ page.tsx
-│  │  │  │  │  └─ [slug]
-│  │  │  │  │     └─ page.tsx
-│  │  │  │  ├─ kontak
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ pendaftaran
-│  │  │  │     └─ page.tsx
-│  │  │  ├─ layout.tsx
-│  │  │  ├─ mahasiswa
-│  │  │  │  ├─ alumni
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ organisasi
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ prestasi
-│  │  │  │     └─ page.tsx
-│  │  │  ├─ page.tsx
-│  │  │  ├─ pendidikan
-│  │  │  │  ├─ jadwal
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ kalender
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ kurikulum
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ mbkm
-│  │  │  │     └─ page.tsx
-│  │  │  ├─ profil
-│  │  │  │  ├─ kerja-sama
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ profil-prodi
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ struktur-organisasi
-│  │  │  │     └─ page.tsx
-│  │  │  ├─ riset
-│  │  │  │  ├─ hki
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  ├─ penelitian
-│  │  │  │  │  └─ page.tsx
-│  │  │  │  └─ pengabdian
-│  │  │  │     └─ page.tsx
-│  │  │  └─ sdm
-│  │  │     ├─ dosen
-│  │  │     │  ├─ page.tsx
-│  │  │     │  └─ [slug]
-│  │  │     │     └─ page.tsx
-│  │  │     └─ tendik
-│  │  │        ├─ page.tsx
-│  │  │        └─ [slug]
-│  │  │           └─ page.tsx
-│  │  ├─ api
-│  │  │  └─ auth
-│  │  │     ├─ login
-│  │  │     │  └─ route.ts
-│  │  │     └─ logout
-│  │  │        └─ route.ts
-│  │  ├─ dashboard
 │  │  │  ├─ layout.tsx
 │  │  │  └─ page.tsx
+│  │  ├─ api
+│  │  │  ├─ auth
+│  │  │  │  ├─ login
+│  │  │  │  │  └─ route.ts
+│  │  │  │  └─ logout
+│  │  │  │     └─ route.ts
+│  │  │  └─ dashboard
+│  │  │     ├─ kabar
+│  │  │     │  ├─ route.ts
+│  │  │     │  ├─ upload
+│  │  │     │  │  └─ route.ts
+│  │  │     │  └─ [id]
+│  │  │     │     └─ route.ts
+│  │  │     ├─ profil
+│  │  │     │  └─ route.ts
+│  │  │     └─ sdm
+│  │  │        └─ dosen
+│  │  │           ├─ route.ts
+│  │  │           ├─ upload
+│  │  │           │  └─ route.ts
+│  │  │           └─ [id]
+│  │  │              └─ route.ts
+│  │  ├─ dashboard
+│  │  │  ├─ kabar
+│  │  │  │  ├─ page.tsx
+│  │  │  │  ├─ tambah
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  └─ [id]
+│  │  │  │     └─ edit
+│  │  │  │        └─ page.tsx
+│  │  │  ├─ layout.tsx
+│  │  │  ├─ page.tsx
+│  │  │  ├─ profil
+│  │  │  │  └─ page.tsx
+│  │  │  └─ sdm
+│  │  │     └─ dosen
+│  │  │        ├─ page.tsx
+│  │  │        ├─ tambah
+│  │  │        │  └─ page.tsx
+│  │  │        └─ [id]
+│  │  │           └─ edit
+│  │  │              └─ page.tsx
 │  │  ├─ favicon.ico
 │  │  ├─ globals.css
 │  │  └─ layout.tsx
@@ -153,19 +127,28 @@ web-prodi
 │  │  │  └─ login-form.tsx
 │  │  ├─ dashboard
 │  │  │  ├─ app-sidebar.tsx
-│  │  │  ├─ confirm-dialog.tsx
-│  │  │  ├─ dashboard-card.tsx
-│  │  │  ├─ data-table.tsx
-│  │  │  ├─ managed-list.tsx
+│  │  │  ├─ kabar
+│  │  │  │  ├─ kabar-form.tsx
+│  │  │  │  └─ kabar-list-view.tsx
 │  │  │  ├─ nav-main.tsx
 │  │  │  ├─ nav-user.tsx
-│  │  │  ├─ page-toolbar.tsx
-│  │  │  └─ stat-card.tsx
+│  │  │  ├─ profil
+│  │  │  │  └─ profil-form.tsx
+│  │  │  ├─ sdm
+│  │  │  │  ├─ dosen-form.tsx
+│  │  │  │  └─ dosen-list-view.tsx
+│  │  │  └─ shared
+│  │  │     ├─ confirm-dialog.tsx
+│  │  │     ├─ form-field.tsx
+│  │  │     ├─ resource-card
+│  │  │     │  ├─ card-footer-row.tsx
+│  │  │     │  ├─ resource-card-media.tsx
+│  │  │     │  └─ resource-card.tsx
+│  │  │     ├─ resource-list.tsx
+│  │  │     ├─ stat-card.tsx
+│  │  │     └─ tag-input.tsx
 │  │  ├─ landing
 │  │  │  ├─ dokumen-list.tsx
-│  │  │  ├─ fasilitas
-│  │  │  │  ├─ card.tsx
-│  │  │  │  └─ grid.tsx
 │  │  │  ├─ footer.tsx
 │  │  │  ├─ header.tsx
 │  │  │  ├─ home
@@ -175,66 +158,9 @@ web-prodi
 │  │  │  │  ├─ hero.tsx
 │  │  │  │  ├─ latest-news.tsx
 │  │  │  │  └─ stats.tsx
-│  │  │  ├─ informasi
-│  │  │  │  ├─ contact-form.tsx
-│  │  │  │  ├─ event
-│  │  │  │  │  ├─ card.tsx
-│  │  │  │  │  ├─ detail.tsx
-│  │  │  │  │  ├─ list-skeleton.tsx
-│  │  │  │  │  └─ list.tsx
-│  │  │  │  ├─ filter.tsx
-│  │  │  │  └─ kabar
-│  │  │  │     ├─ card.tsx
-│  │  │  │     ├─ detail.tsx
-│  │  │  │     ├─ list-skeleton.tsx
-│  │  │  │     └─ list.tsx
-│  │  │  ├─ mahasiswa
-│  │  │  │  ├─ alumni
-│  │  │  │  │  ├─ summary.tsx
-│  │  │  │  │  └─ table.tsx
-│  │  │  │  └─ prestasi
-│  │  │  │     ├─ card.tsx
-│  │  │  │     ├─ filter.tsx
-│  │  │  │     └─ list.tsx
 │  │  │  ├─ mobile-nav.tsx
 │  │  │  ├─ page-header.tsx
-│  │  │  ├─ pendidikan
-│  │  │  │  ├─ jadwal
-│  │  │  │  │  └─ day-schedule.tsx
-│  │  │  │  ├─ kalender
-│  │  │  │  │  └─ tanggal-penting.tsx
-│  │  │  │  ├─ kurikulum
-│  │  │  │  │  └─ semester-table.tsx
-│  │  │  │  └─ mbkm
-│  │  │  │     ├─ bentuk-kegiatan.tsx
-│  │  │  │     ├─ langkah-list.tsx
-│  │  │  │     └─ mitra-preview.tsx
-│  │  │  ├─ profil
-│  │  │  │  ├─ kerja-sama
-│  │  │  │  │  ├─ card.tsx
-│  │  │  │  │  ├─ detail-sheet.tsx
-│  │  │  │  │  ├─ filter.tsx
-│  │  │  │  │  └─ list.tsx
-│  │  │  │  ├─ organisasi
-│  │  │  │  │  ├─ org-chart.tsx
-│  │  │  │  │  └─ tupoksi.tsx
-│  │  │  │  └─ profile-prodi
-│  │  │  │     ├─ identitas.tsx
-│  │  │  │     ├─ profil-lulusan.tsx
-│  │  │  │     ├─ sambutan.tsx
-│  │  │  │     ├─ tujuan.tsx
-│  │  │  │     └─ visi-misi.tsx
-│  │  │  ├─ reveal.tsx
-│  │  │  ├─ riset
-│  │  │  │  ├─ hki-table.tsx
-│  │  │  │  └─ riset-table.tsx
-│  │  │  └─ sdm
-│  │  │     ├─ dosen
-│  │  │     │  ├─ dosen-card.tsx
-│  │  │     │  └─ dosen-detail.tsx
-│  │  │     └─ tendik
-│  │  │        ├─ tendik-card.tsx
-│  │  │        └─ tendik-detail.tsx
+│  │  │  └─ reveal.tsx
 │  │  ├─ nav-projects.tsx
 │  │  ├─ team-switcher.tsx
 │  │  └─ ui
@@ -246,6 +172,7 @@ web-prodi
 │  │     ├─ card.tsx
 │  │     ├─ checkbox.tsx
 │  │     ├─ collapsible.tsx
+│  │     ├─ dialog.tsx
 │  │     ├─ dropdown-menu.tsx
 │  │     ├─ input.tsx
 │  │     ├─ label.tsx
@@ -266,39 +193,40 @@ web-prodi
 │  │  ├─ site.ts
 │  │  └─ stats.ts
 │  ├─ data
-│  │  ├─ alumni.ts
-│  │  ├─ dosen.ts
-│  │  ├─ event.ts
-│  │  ├─ fasilitas.ts
-│  │  ├─ hki.ts
-│  │  ├─ jadwal.ts
 │  │  ├─ kabar.ts
-│  │  ├─ kalender.ts
-│  │  ├─ kerja-sama.ts
-│  │  ├─ kurikulum.ts
-│  │  ├─ mbkm.ts
-│  │  ├─ organisasi.ts
-│  │  ├─ pendaftaran.ts
-│  │  ├─ penelitian.ts
-│  │  ├─ pengabdian.ts
-│  │  ├─ prestasi.ts
-│  │  ├─ profile.ts
-│  │  ├─ stats.ts
-│  │  └─ tendik.ts
+│  │  └─ stats.ts
+│  ├─ database
+│  │  ├─ dosen.ts
+│  │  ├─ kabar.ts
+│  │  └─ profil.ts
 │  ├─ hooks
 │  │  ├─ auth
 │  │  │  ├─ use-login.ts
 │  │  │  └─ use-logout.ts
+│  │  ├─ dashboard
+│  │  │  ├─ kabar
+│  │  │  │  ├─ use-kabar-form.ts
+│  │  │  │  └─ use-kabar-list.ts
+│  │  │  ├─ profil
+│  │  │  │  └─ use-profil-form.ts
+│  │  │  └─ sdm
+│  │  │     ├─ use-dosen-form.ts
+│  │  │     └─ use-dosen-list.ts
 │  │  ├─ use-mobile.ts
 │  │  ├─ use-pagination.ts
 │  │  └─ use-table-filter.ts
 │  ├─ lib
 │  │  ├─ activity-log.ts
+│  │  ├─ api-response.ts
 │  │  ├─ auth.ts
+│  │  ├─ authorship.ts
+│  │  ├─ ids.ts
+│  │  ├─ image-upload-handlers.ts
 │  │  ├─ initials.ts
 │  │  ├─ permissions.ts
 │  │  ├─ prisma.ts
 │  │  ├─ session.ts
+│  │  ├─ slug.ts
 │  │  ├─ storage.ts
 │  │  └─ utils.ts
 │  ├─ proxy.ts
@@ -321,7 +249,7 @@ web-prodi
 │     ├─ organisasi.ts
 │     ├─ pendaftaran.ts
 │     ├─ prestasi.ts
-│     ├─ profile.ts
+│     ├─ profil.ts
 │     ├─ riset.ts
 │     ├─ site.ts
 │     ├─ stats.ts

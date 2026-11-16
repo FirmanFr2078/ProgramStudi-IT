@@ -41,7 +41,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* warna tambahan: text-lime, border-lime, bg-warn, text-lavender */
+  /* warna tambahan dashboard: text-lime, border-lime, bg-warn, text-lavender */
   --color-lime: var(--c-lime);
   --color-warn: var(--c-orange);
   --color-lavender: var(--text-accent);
@@ -56,7 +56,86 @@
 }
 
 :root {
-  /* 1. Palet mentah */
+  --radius: 0.875rem; /* satu-satunya hal yang genuinely netral, bukan warna */
+
+  --font-jakarta: "Plus Jakarta Sans Variable", sans-serif;
+  --font-archivo: "Archivo Variable", sans-serif;
+  --font-dash-sans: "Inter Variable", sans-serif;
+}
+
+/* ============ DASHBOARD ============ */
+html:has(.theme-dashboard),
+.theme-dashboard,
+.dash-portal {
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-plum: #070922; /* dasar latar */
+  --c-plum-card: #121429; /* card */
+  --c-plum-pop: #15152c; /* popover / panel */
+  --c-plum-muted: #191b32; /* muted, item aktif */
+  --c-lilac: #7965ee; /* aksen utama (tombol) */
+  --c-pearl: #f4f3ff;
+  --c-ink: #070922;
+  --c-lime: #b6a6fd; /* aksen terang: cincin fokus, glow */
+  --c-orange: #ff5470;
+  --c-violet: #7b57ef;
+  --c-violet-alt: #c6b6fd;
+  --c-mist: #ecedff; /* teks utama */
+
+  /* khusus kerangka dashboard (disampel dari template) */
+  --shell-glow: #4a3d68;
+  --shell-sidebar: #0e0e26;
+  --shell-item: #191b32;
+  --shell-user: #202135;
+  --shell-line: #1f213a;
+  --shell-muted: #8a87a8;
+
+  --background: var(--c-plum);
+  --foreground: var(--c-mist);
+  --card: var(--c-plum-card);
+  --card-foreground: var(--c-mist);
+  --popover: var(--c-plum-pop);
+  --popover-foreground: var(--c-mist);
+  --primary: var(--c-lilac);
+  --primary-foreground: var(--c-white);
+  --secondary: var(--c-plum-muted);
+  --secondary-foreground: var(--c-mist);
+  --muted: var(--c-plum-muted);
+  --muted-foreground: var(--shell-muted);
+  --accent: var(--shell-item);
+  --accent-foreground: var(--c-white);
+  --destructive: var(--c-orange);
+  --border: rgb(255 255 255 / 0.05);
+  --input: rgb(255 255 255 / 0.1);
+  --ring: var(--c-lime);
+
+  --chart-1: var(--c-lilac);
+  --chart-2: var(--c-lime);
+  --chart-3: var(--c-orange);
+  --chart-4: var(--c-violet-alt);
+  --chart-5: var(--c-mist);
+
+  --sidebar: var(--shell-sidebar);
+  --sidebar-foreground: var(--c-mist);
+  --sidebar-primary: var(--c-lilac);
+  --sidebar-primary-foreground: var(--c-white);
+  --sidebar-accent: var(--shell-item);
+  --sidebar-accent-foreground: var(--c-white);
+  --sidebar-border: var(--shell-line);
+  --sidebar-ring: var(--c-lime);
+
+  --primary-hover: color-mix(in oklab, var(--c-lilac) 75%, var(--c-white));
+  --text-accent: #b9a8ff;
+
+  --glow-fill: rgb(52, 40, 110);
+  --glow-fill-hover: rgb(72, 56, 148);
+  --glow-text: var(--c-pearl);
+}
+
+
+/* ============ LANDING ============ */
+html:has(.theme-landing),
+.theme-landing {
   --c-black: #000000;
   --c-white: #ffffff;
   --c-plum: #0d0c12;
@@ -70,10 +149,8 @@
   --c-orange: #fb5607;
   --c-violet: #7d39eb;
   --c-violet-alt: #8338ec;
-  --c-charcoal: #212529;
   --c-mist: #ece8f4;
 
-  /* 2. Peran (semantic), nama bawaan shadcn */
   --background: var(--c-plum);
   --foreground: var(--c-mist);
   --card: var(--c-plum-card);
@@ -93,14 +170,6 @@
   --input: color-mix(in oklab, var(--c-lilac) 20%, transparent);
   --ring: var(--c-lime);
 
-  --chart-1: var(--c-lilac);
-  --chart-2: var(--c-lime);
-  --chart-3: var(--c-orange);
-  --chart-4: var(--c-violet);
-  --chart-5: var(--c-mist);
-
-  --radius: 0.875rem;
-
   --sidebar: var(--card);
   --sidebar-foreground: var(--c-mist);
   --sidebar-primary: var(--c-lilac);
@@ -110,11 +179,9 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--c-lime);
 
-  /* tambahan */
   --primary-hover: color-mix(in oklab, var(--c-lilac) 70%, var(--c-white));
   --text-accent: #c9b9ee;
 
-  /* tombol utama dengan border lime berputar */
   --glow-fill: rgb(76, 67, 104);
   --glow-fill-hover: rgb(106, 88, 168);
   --glow-text: var(--c-pearl);
@@ -124,17 +191,13 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-    background-image: radial-gradient(
-    70% 45% at 50% -5%,
-    color-mix(in oklab, var(--c-lilac) 9%, transparent),
-    transparent
-    );
-    background-repeat: no-repeat;
-  }
   html {
     @apply font-sans;
+  }
+  body {
+    /* fallback netral — tidak bergantung pada variabel tema apa pun,
+       cuma jaga-jaga sebelum/di luar .theme-dashboard atau .theme-landing */
+    background-color: #000;
   }
 
   h1, h2, h3, h4 {
@@ -142,7 +205,22 @@
   }
 }
 
-/* Border lime yang berputar, untuk tombol utama: <Button className="glow"> */
+/* Pengecatan warna dasar tiap lingkungan — dulu ini nempel di `body`,
+   sekarang dipindah ke sini supaya ikut --background/--foreground/--c-lilac
+   milik masing-masing tema, bukan terpaku ke satu warna saja. */
+.theme-dashboard,
+.theme-landing {
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image: radial-gradient(
+    70% 45% at 50% -5%,
+    color-mix(in oklab, var(--c-lilac) 9%, transparent),
+    transparent
+  );
+  background-repeat: no-repeat;
+}
+
+/* Border lime berputar — dipakai dashboard & landing, otomatis ikut tema aktif */
 @property --ang {
   syntax: "<angle>";
   inherits: false;
@@ -275,4 +353,67 @@
   .transition-all {
     transition: none !important;
   }
+}
+
+/* ===== Dashboard shell (scoped ke .dash-bg, landing tidak kena) ===== */
+.dash-bg {
+  min-height: 100svh;
+  background-image: radial-gradient(
+    in oklab 61% 60% at 70% 0%,
+    var(--shell-glow) 0%,
+    color-mix(in oklab, var(--shell-glow) 78%, transparent) 22%,
+    color-mix(in oklab, var(--shell-glow) 52%, transparent) 37%,
+    color-mix(in oklab, var(--shell-glow) 31%, transparent) 52%,
+    color-mix(in oklab, var(--shell-glow) 15%, transparent) 68%,
+    color-mix(in oklab, var(--shell-glow) 6%, transparent) 83%,
+    transparent 100%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Header: tanpa garis bawah, glow menyambung seperti template */
+.dash-bg header {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Judul putih murni; di layer base supaya class utility masih bisa menimpa */
+@layer base {
+  .dash-bg :where(h1, h2) {
+    color: #fefeff;
+  }
+}
+
+/* Dashboard tampil seperti zoom 90%. Landing tidak kena karena .dash-bg hanya ada di dashboard */
+html:has(.dash-bg) {
+  font-size: 93%;
+}
+
+.dash-bg [data-slot="card"] {
+  background: linear-gradient(180deg, #1a1c33 0%, #0e0e26 100%);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.04),
+    inset 0 1px 0 rgb(255 255 255 / 0.07);
+}
+
+.theme-dashboard .glow,
+.theme-dashboard .glow:hover {
+  background:
+    linear-gradient(90deg, #5654e5, #7a55f0 50%, #5853f5) padding-box,
+    linear-gradient(90deg, #5654e5, #7a55f0 50%, #5853f5) border-box;
+  animation: none;
+}
+.theme-dashboard .glow:hover {
+  filter: brightness(1.1);
+}
+
+/* Font khusus dashboard (landing tidak kena) */
+html:has(.theme-dashboard),
+.theme-dashboard,
+.dash-portal {
+  --font-geist-sans: var(--font-dash-sans);
+  --font-jakarta: var(--font-dash-sans);
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  font-family: var(--font-dash-sans), ui-sans-serif, system-ui, sans-serif;
 }

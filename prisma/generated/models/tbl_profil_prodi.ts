@@ -36,24 +36,18 @@ export type Tbl_profil_prodiSumAggregateOutputType = {
 
 export type Tbl_profil_prodiMinAggregateOutputType = {
   id_profil: number | null
-  sambutan_nama: string | null
-  sambutan_jabatan: string | null
   visi: string | null
   updated_at: Date | null
 }
 
 export type Tbl_profil_prodiMaxAggregateOutputType = {
   id_profil: number | null
-  sambutan_nama: string | null
-  sambutan_jabatan: string | null
   visi: string | null
   updated_at: Date | null
 }
 
 export type Tbl_profil_prodiCountAggregateOutputType = {
   id_profil: number
-  sambutan_nama: number
-  sambutan_jabatan: number
   sambutan_isi: number
   sejarah: number
   visi: number
@@ -77,24 +71,18 @@ export type Tbl_profil_prodiSumAggregateInputType = {
 
 export type Tbl_profil_prodiMinAggregateInputType = {
   id_profil?: true
-  sambutan_nama?: true
-  sambutan_jabatan?: true
   visi?: true
   updated_at?: true
 }
 
 export type Tbl_profil_prodiMaxAggregateInputType = {
   id_profil?: true
-  sambutan_nama?: true
-  sambutan_jabatan?: true
   visi?: true
   updated_at?: true
 }
 
 export type Tbl_profil_prodiCountAggregateInputType = {
   id_profil?: true
-  sambutan_nama?: true
-  sambutan_jabatan?: true
   sambutan_isi?: true
   sejarah?: true
   visi?: true
@@ -195,8 +183,6 @@ export type tbl_profil_prodiGroupByArgs<ExtArgs extends runtime.Types.Extensions
 
 export type Tbl_profil_prodiGroupByOutputType = {
   id_profil: number
-  sambutan_nama: string
-  sambutan_jabatan: string
   sambutan_isi: string[]
   sejarah: string[]
   visi: string
@@ -233,8 +219,6 @@ export type tbl_profil_prodiWhereInput = {
   OR?: Prisma.tbl_profil_prodiWhereInput[]
   NOT?: Prisma.tbl_profil_prodiWhereInput | Prisma.tbl_profil_prodiWhereInput[]
   id_profil?: Prisma.IntFilter<"tbl_profil_prodi"> | number
-  sambutan_nama?: Prisma.StringFilter<"tbl_profil_prodi"> | string
-  sambutan_jabatan?: Prisma.StringFilter<"tbl_profil_prodi"> | string
   sambutan_isi?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   sejarah?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   visi?: Prisma.StringFilter<"tbl_profil_prodi"> | string
@@ -248,8 +232,6 @@ export type tbl_profil_prodiWhereInput = {
 
 export type tbl_profil_prodiOrderByWithRelationInput = {
   id_profil?: Prisma.SortOrder
-  sambutan_nama?: Prisma.SortOrder
-  sambutan_jabatan?: Prisma.SortOrder
   sambutan_isi?: Prisma.SortOrder
   sejarah?: Prisma.SortOrder
   visi?: Prisma.SortOrder
@@ -266,8 +248,6 @@ export type tbl_profil_prodiWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.tbl_profil_prodiWhereInput | Prisma.tbl_profil_prodiWhereInput[]
   OR?: Prisma.tbl_profil_prodiWhereInput[]
   NOT?: Prisma.tbl_profil_prodiWhereInput | Prisma.tbl_profil_prodiWhereInput[]
-  sambutan_nama?: Prisma.StringFilter<"tbl_profil_prodi"> | string
-  sambutan_jabatan?: Prisma.StringFilter<"tbl_profil_prodi"> | string
   sambutan_isi?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   sejarah?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   visi?: Prisma.StringFilter<"tbl_profil_prodi"> | string
@@ -281,8 +261,6 @@ export type tbl_profil_prodiWhereUniqueInput = Prisma.AtLeast<{
 
 export type tbl_profil_prodiOrderByWithAggregationInput = {
   id_profil?: Prisma.SortOrder
-  sambutan_nama?: Prisma.SortOrder
-  sambutan_jabatan?: Prisma.SortOrder
   sambutan_isi?: Prisma.SortOrder
   sejarah?: Prisma.SortOrder
   visi?: Prisma.SortOrder
@@ -304,8 +282,6 @@ export type tbl_profil_prodiScalarWhereWithAggregatesInput = {
   OR?: Prisma.tbl_profil_prodiScalarWhereWithAggregatesInput[]
   NOT?: Prisma.tbl_profil_prodiScalarWhereWithAggregatesInput | Prisma.tbl_profil_prodiScalarWhereWithAggregatesInput[]
   id_profil?: Prisma.IntWithAggregatesFilter<"tbl_profil_prodi"> | number
-  sambutan_nama?: Prisma.StringWithAggregatesFilter<"tbl_profil_prodi"> | string
-  sambutan_jabatan?: Prisma.StringWithAggregatesFilter<"tbl_profil_prodi"> | string
   sambutan_isi?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   sejarah?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   visi?: Prisma.StringWithAggregatesFilter<"tbl_profil_prodi"> | string
@@ -319,8 +295,6 @@ export type tbl_profil_prodiScalarWhereWithAggregatesInput = {
 
 export type tbl_profil_prodiCreateInput = {
   id_profil?: number
-  sambutan_nama: string
-  sambutan_jabatan: string
   sambutan_isi?: Prisma.tbl_profil_prodiCreatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiCreatesejarahInput | string[]
   visi: string
@@ -334,8 +308,6 @@ export type tbl_profil_prodiCreateInput = {
 
 export type tbl_profil_prodiUncheckedCreateInput = {
   id_profil?: number
-  sambutan_nama: string
-  sambutan_jabatan: string
   sambutan_isi?: Prisma.tbl_profil_prodiCreatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiCreatesejarahInput | string[]
   visi: string
@@ -349,8 +321,6 @@ export type tbl_profil_prodiUncheckedCreateInput = {
 
 export type tbl_profil_prodiUpdateInput = {
   id_profil?: Prisma.IntFieldUpdateOperationsInput | number
-  sambutan_nama?: Prisma.StringFieldUpdateOperationsInput | string
-  sambutan_jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   sambutan_isi?: Prisma.tbl_profil_prodiUpdatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiUpdatesejarahInput | string[]
   visi?: Prisma.StringFieldUpdateOperationsInput | string
@@ -364,8 +334,6 @@ export type tbl_profil_prodiUpdateInput = {
 
 export type tbl_profil_prodiUncheckedUpdateInput = {
   id_profil?: Prisma.IntFieldUpdateOperationsInput | number
-  sambutan_nama?: Prisma.StringFieldUpdateOperationsInput | string
-  sambutan_jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   sambutan_isi?: Prisma.tbl_profil_prodiUpdatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiUpdatesejarahInput | string[]
   visi?: Prisma.StringFieldUpdateOperationsInput | string
@@ -379,8 +347,6 @@ export type tbl_profil_prodiUncheckedUpdateInput = {
 
 export type tbl_profil_prodiCreateManyInput = {
   id_profil?: number
-  sambutan_nama: string
-  sambutan_jabatan: string
   sambutan_isi?: Prisma.tbl_profil_prodiCreatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiCreatesejarahInput | string[]
   visi: string
@@ -394,8 +360,6 @@ export type tbl_profil_prodiCreateManyInput = {
 
 export type tbl_profil_prodiUpdateManyMutationInput = {
   id_profil?: Prisma.IntFieldUpdateOperationsInput | number
-  sambutan_nama?: Prisma.StringFieldUpdateOperationsInput | string
-  sambutan_jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   sambutan_isi?: Prisma.tbl_profil_prodiUpdatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiUpdatesejarahInput | string[]
   visi?: Prisma.StringFieldUpdateOperationsInput | string
@@ -409,8 +373,6 @@ export type tbl_profil_prodiUpdateManyMutationInput = {
 
 export type tbl_profil_prodiUncheckedUpdateManyInput = {
   id_profil?: Prisma.IntFieldUpdateOperationsInput | number
-  sambutan_nama?: Prisma.StringFieldUpdateOperationsInput | string
-  sambutan_jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   sambutan_isi?: Prisma.tbl_profil_prodiUpdatesambutan_isiInput | string[]
   sejarah?: Prisma.tbl_profil_prodiUpdatesejarahInput | string[]
   visi?: Prisma.StringFieldUpdateOperationsInput | string
@@ -424,8 +386,6 @@ export type tbl_profil_prodiUncheckedUpdateManyInput = {
 
 export type tbl_profil_prodiCountOrderByAggregateInput = {
   id_profil?: Prisma.SortOrder
-  sambutan_nama?: Prisma.SortOrder
-  sambutan_jabatan?: Prisma.SortOrder
   sambutan_isi?: Prisma.SortOrder
   sejarah?: Prisma.SortOrder
   visi?: Prisma.SortOrder
@@ -443,16 +403,12 @@ export type tbl_profil_prodiAvgOrderByAggregateInput = {
 
 export type tbl_profil_prodiMaxOrderByAggregateInput = {
   id_profil?: Prisma.SortOrder
-  sambutan_nama?: Prisma.SortOrder
-  sambutan_jabatan?: Prisma.SortOrder
   visi?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type tbl_profil_prodiMinOrderByAggregateInput = {
   id_profil?: Prisma.SortOrder
-  sambutan_nama?: Prisma.SortOrder
-  sambutan_jabatan?: Prisma.SortOrder
   visi?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -501,8 +457,6 @@ export type tbl_profil_prodiUpdatetujuanInput = {
 
 export type tbl_profil_prodiSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_profil?: boolean
-  sambutan_nama?: boolean
-  sambutan_jabatan?: boolean
   sambutan_isi?: boolean
   sejarah?: boolean
   visi?: boolean
@@ -516,8 +470,6 @@ export type tbl_profil_prodiSelect<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type tbl_profil_prodiSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_profil?: boolean
-  sambutan_nama?: boolean
-  sambutan_jabatan?: boolean
   sambutan_isi?: boolean
   sejarah?: boolean
   visi?: boolean
@@ -531,8 +483,6 @@ export type tbl_profil_prodiSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
 
 export type tbl_profil_prodiSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_profil?: boolean
-  sambutan_nama?: boolean
-  sambutan_jabatan?: boolean
   sambutan_isi?: boolean
   sejarah?: boolean
   visi?: boolean
@@ -546,8 +496,6 @@ export type tbl_profil_prodiSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
 
 export type tbl_profil_prodiSelectScalar = {
   id_profil?: boolean
-  sambutan_nama?: boolean
-  sambutan_jabatan?: boolean
   sambutan_isi?: boolean
   sejarah?: boolean
   visi?: boolean
@@ -559,15 +507,13 @@ export type tbl_profil_prodiSelectScalar = {
   updated_at?: boolean
 }
 
-export type tbl_profil_prodiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_profil" | "sambutan_nama" | "sambutan_jabatan" | "sambutan_isi" | "sejarah" | "visi" | "misi" | "tujuan" | "profil_lulusan" | "identitas" | "struktur_organisasi" | "updated_at", ExtArgs["result"]["tbl_profil_prodi"]>
+export type tbl_profil_prodiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_profil" | "sambutan_isi" | "sejarah" | "visi" | "misi" | "tujuan" | "profil_lulusan" | "identitas" | "struktur_organisasi" | "updated_at", ExtArgs["result"]["tbl_profil_prodi"]>
 
 export type $tbl_profil_prodiPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_profil_prodi"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_profil: number
-    sambutan_nama: string
-    sambutan_jabatan: string
     sambutan_isi: string[]
     sejarah: string[]
     visi: string
@@ -1001,8 +947,6 @@ export interface Prisma__tbl_profil_prodiClient<T, Null = never, ExtArgs extends
  */
 export interface tbl_profil_prodiFieldRefs {
   readonly id_profil: Prisma.FieldRef<"tbl_profil_prodi", 'Int'>
-  readonly sambutan_nama: Prisma.FieldRef<"tbl_profil_prodi", 'String'>
-  readonly sambutan_jabatan: Prisma.FieldRef<"tbl_profil_prodi", 'String'>
   readonly sambutan_isi: Prisma.FieldRef<"tbl_profil_prodi", 'String[]'>
   readonly sejarah: Prisma.FieldRef<"tbl_profil_prodi", 'String[]'>
   readonly visi: Prisma.FieldRef<"tbl_profil_prodi", 'String'>

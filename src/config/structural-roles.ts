@@ -1,0 +1,1 @@
+export const KETUA_PROGRAM_STUDI = "Ketua Program Studi" as const

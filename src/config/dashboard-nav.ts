@@ -1,15 +1,26 @@
 import {
+  BookOpenIcon,
+  BookUserIcon,
+  BriefcaseIcon,
   Building2Icon,
+  CalendarClockIcon,
   CalendarDaysIcon,
+  CalendarIcon,
+  ClipboardListIcon,
   FlaskConicalIcon,
-  GraduationCapIcon,
   HandshakeIcon,
+  HeartHandshakeIcon,
   LayoutDashboardIcon,
+  NetworkIcon,
   NewspaperIcon,
+  RouteIcon,
   SettingsIcon,
+  ShieldCheckIcon,
   TrophyIcon,
+  UserCheckIcon,
   UserCogIcon,
-  UsersIcon,
+  UserRoundIcon,
+  UsersRoundIcon,
 } from "lucide-react"
 import type { NavGroup } from "@/types"
 
@@ -19,26 +30,52 @@ export const navGroups: NavGroup[] = [
     items: [{ title: "Ringkasan", url: "/dashboard", icon: LayoutDashboardIcon }],
   },
   {
-    label: "Konten",
-    items: [
-      { title: "Berita & Pengumuman", url: "/dashboard/berita", icon: NewspaperIcon, permission: "berita:manage" },
-      { title: "Event Prodi", url: "/dashboard/event", icon: CalendarDaysIcon, permission: "event:manage" },
-    ],
-  },
-  {
-    label: "Akademik",
-    items: [
-      { title: "Dosen & Tendik", url: "/dashboard/sdm", icon: UsersIcon, permission: "sdm:manage" },
-      { title: "Pendidikan", url: "/dashboard/pendidikan", icon: GraduationCapIcon, permission: "pendidikan:manage" },
-      { title: "Penelitian & HKI", url: "/dashboard/penelitian", icon: FlaskConicalIcon, permission: "penelitian:manage" },
-      { title: "Mahasiswa", url: "/dashboard/mahasiswa", icon: TrophyIcon, permission: "mahasiswa:manage" },
-    ],
-  },
-  {
     label: "Lembaga",
     items: [
+      { title: "Profil", url: "/dashboard/profil", icon: BookUserIcon, permission: "profil:manage" },
+      { title: "Struktur", url: "/dashboard/profil/struktur", icon: NetworkIcon, permission: "profil:manage" },
       { title: "Kerja Sama", url: "/dashboard/kerja-sama", icon: HandshakeIcon, permission: "kerja-sama:manage" },
       { title: "Fasilitas", url: "/dashboard/fasilitas", icon: Building2Icon, permission: "fasilitas:manage" },
+    ],
+  },
+  {
+    label: "Informasi",
+    items: [
+      { title: "Kabar", url: "/dashboard/kabar", icon: NewspaperIcon, permission: "berita:manage" },
+      { title: "Acara", url: "/dashboard/acara", icon: CalendarDaysIcon, permission: "event:manage" },
+      { title: "Pendaftaran", url: "/dashboard/pendaftaran", icon: ClipboardListIcon, permission: "pendaftaran:manage" },
+    ],
+  },
+  {
+    label: "Pendidikan",
+    items: [
+      { title: "Jadwal", url: "/dashboard/pendidikan/jadwal", icon: CalendarClockIcon, permission: "pendidikan:manage" },
+      { title: "Kalender", url: "/dashboard/pendidikan/kalender", icon: CalendarIcon, permission: "pendidikan:manage" },
+      { title: "Kurikulum", url: "/dashboard/pendidikan/kurikulum", icon: BookOpenIcon, permission: "pendidikan:manage" },
+      { title: "MBKM", url: "/dashboard/pendidikan/mbkm", icon: RouteIcon, permission: "pendidikan:manage" },
+    ],
+  },
+  {
+    label: "SDM",
+    items: [
+      { title: "Dosen", url: "/dashboard/sdm/dosen", icon: UserRoundIcon, permission: "sdm:manage" },
+      { title: "Tenaga Kependidikan", url: "/dashboard/sdm/tendik", icon: BriefcaseIcon, permission: "sdm:manage" },
+    ],
+  },
+  {
+    label: "Riset",
+    items: [
+      { title: "Penelitian", url: "/dashboard/riset/penelitian", icon: FlaskConicalIcon, permission: "penelitian:manage" },
+      { title: "Pengabdian", url: "/dashboard/riset/pengabdian", icon: HeartHandshakeIcon, permission: "penelitian:manage" },
+      { title: "HKI", url: "/dashboard/hki", icon: ShieldCheckIcon, permission: "penelitian:manage" },
+    ],
+  },
+  {
+    label: "Mahasiswa",
+    items: [
+      { title: "Prestasi", url: "/dashboard/mahasiswa/prestasi", icon: TrophyIcon, permission: "mahasiswa:manage" },
+      { title: "Alumni", url: "/dashboard/mahasiswa/alumni", icon: UserCheckIcon, permission: "mahasiswa:manage" },
+      { title: "Himaprodi", url: "/dashboard/mahasiswa/himaprodi", icon: UsersRoundIcon, permission: "mahasiswa:manage" },
     ],
   },
   {

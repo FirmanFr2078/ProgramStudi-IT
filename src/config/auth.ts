@@ -12,4 +12,6 @@ export const PERMISSIONS = [
   "mahasiswa:manage",
   "pengguna:manage",
   "pengaturan:manage",
+  "profil:manage",
+  "pendaftaran:manage",
 ] as const

@@ -8,6 +8,7 @@ import {
 import { requireAdminPage } from "@/lib/auth"
 import type { SessionUser } from "@/types"
 
+
 export default async function DashboardLayout({
   children,
 }: {
@@ -24,19 +25,21 @@ export default async function DashboardLayout({
   }
 
   return (
-    <SidebarProvider>
-      <AppSidebar user={user} />
-      <SidebarInset>
-        <header className="flex h-14 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-vertical:h-4 data-vertical:self-auto"
-          />
-          <span className="text-sm text-muted-foreground">Dashboard Prodi</span>
-        </header>
-        <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">{children}</div>
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="theme-dashboard dash-bg">
+      <SidebarProvider>
+        <AppSidebar user={user} />
+        <SidebarInset className="bg-transparent!">
+          <header className="flex h-14 shrink-0 items-center gap-2 border-b px-4">
+            <SidebarTrigger className="-ml-1 text-(--shell-muted) hover:text-white" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-vertical:h-4 data-vertical:self-auto"
+            />
+            <span className="text-sm text-(--shell-muted)">Dashboard Prodi</span>
+          </header>
+          <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">{children}</div>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
   )
-} 
+}

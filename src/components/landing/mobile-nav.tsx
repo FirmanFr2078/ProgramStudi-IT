@@ -32,7 +32,7 @@ export function MobileNav() {
       >
         <MenuIcon />
       </SheetTrigger>
-      <SheetContent side="right" className="overflow-y-auto">
+      <SheetContent side="right" className="theme-landing overflow-y-auto">
         <SheetHeader>
           <SheetTitle>{siteConfig.name}</SheetTitle>
         </SheetHeader>

@@ -222,7 +222,7 @@ export type Tbl_kabarGroupByOutputType = {
   slug: string
   judul: string
   ringkasan: string
-  konten: string[]
+  konten: runtime.JsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date
   gambar: string | null
@@ -260,7 +260,7 @@ export type tbl_kabarWhereInput = {
   slug?: Prisma.StringFilter<"tbl_kabar"> | string
   judul?: Prisma.StringFilter<"tbl_kabar"> | string
   ringkasan?: Prisma.StringFilter<"tbl_kabar"> | string
-  konten?: Prisma.StringNullableListFilter<"tbl_kabar">
+  konten?: Prisma.JsonFilter<"tbl_kabar">
   kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
@@ -297,7 +297,7 @@ export type tbl_kabarWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.tbl_kabarWhereInput | Prisma.tbl_kabarWhereInput[]
   judul?: Prisma.StringFilter<"tbl_kabar"> | string
   ringkasan?: Prisma.StringFilter<"tbl_kabar"> | string
-  konten?: Prisma.StringNullableListFilter<"tbl_kabar">
+  konten?: Prisma.JsonFilter<"tbl_kabar">
   kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
@@ -337,7 +337,7 @@ export type tbl_kabarScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"tbl_kabar"> | string
   judul?: Prisma.StringWithAggregatesFilter<"tbl_kabar"> | string
   ringkasan?: Prisma.StringWithAggregatesFilter<"tbl_kabar"> | string
-  konten?: Prisma.StringNullableListFilter<"tbl_kabar">
+  konten?: Prisma.JsonWithAggregatesFilter<"tbl_kabar">
   kategori?: Prisma.EnumKategoriKabarWithAggregatesFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeWithAggregatesFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableWithAggregatesFilter<"tbl_kabar"> | string | null
@@ -352,7 +352,7 @@ export type tbl_kabarCreateInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -367,7 +367,7 @@ export type tbl_kabarUncheckedCreateInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -382,7 +382,7 @@ export type tbl_kabarUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -397,7 +397,7 @@ export type tbl_kabarUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -412,7 +412,7 @@ export type tbl_kabarCreateManyInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -427,7 +427,7 @@ export type tbl_kabarUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -440,7 +440,7 @@ export type tbl_kabarUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -458,14 +458,6 @@ export type Tbl_kabarListRelationFilter = {
 
 export type tbl_kabarOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type StringNullableListFilter<$PrismaModel = never> = {
-  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
-  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
-  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  isEmpty?: boolean
 }
 
 export type tbl_kabarCountOrderByAggregateInput = {
@@ -603,15 +595,6 @@ export type tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput = {
   deleteMany?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
 }
 
-export type tbl_kabarCreatekontenInput = {
-  set: string[]
-}
-
-export type tbl_kabarUpdatekontenInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
 export type EnumKategoriKabarFieldUpdateOperationsInput = {
   set?: $Enums.KategoriKabar
 }
@@ -621,7 +604,7 @@ export type tbl_kabarCreateWithoutCreated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -635,7 +618,7 @@ export type tbl_kabarUncheckedCreateWithoutCreated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -659,7 +642,7 @@ export type tbl_kabarCreateWithoutUpdated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -673,7 +656,7 @@ export type tbl_kabarUncheckedCreateWithoutUpdated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -716,7 +699,7 @@ export type tbl_kabarScalarWhereInput = {
   slug?: Prisma.StringFilter<"tbl_kabar"> | string
   judul?: Prisma.StringFilter<"tbl_kabar"> | string
   ringkasan?: Prisma.StringFilter<"tbl_kabar"> | string
-  konten?: Prisma.StringNullableListFilter<"tbl_kabar">
+  konten?: Prisma.JsonFilter<"tbl_kabar">
   kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
@@ -747,7 +730,7 @@ export type tbl_kabarCreateManyCreated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -761,7 +744,7 @@ export type tbl_kabarCreateManyUpdated_byInput = {
   slug: string
   judul: string
   ringkasan: string
-  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  konten: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
@@ -775,7 +758,7 @@ export type tbl_kabarUpdateWithoutCreated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -789,7 +772,7 @@ export type tbl_kabarUncheckedUpdateWithoutCreated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -803,7 +786,7 @@ export type tbl_kabarUncheckedUpdateManyWithoutCreated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -817,7 +800,7 @@ export type tbl_kabarUpdateWithoutUpdated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -831,7 +814,7 @@ export type tbl_kabarUncheckedUpdateWithoutUpdated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -845,7 +828,7 @@ export type tbl_kabarUncheckedUpdateManyWithoutUpdated_byInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   judul?: Prisma.StringFieldUpdateOperationsInput | string
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  konten?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -947,7 +930,7 @@ export type $tbl_kabarPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     slug: string
     judul: string
     ringkasan: string
-    konten: string[]
+    konten: runtime.JsonValue
     kategori: $Enums.KategoriKabar
     tanggal: Date
     gambar: string | null
@@ -1384,7 +1367,7 @@ export interface tbl_kabarFieldRefs {
   readonly slug: Prisma.FieldRef<"tbl_kabar", 'String'>
   readonly judul: Prisma.FieldRef<"tbl_kabar", 'String'>
   readonly ringkasan: Prisma.FieldRef<"tbl_kabar", 'String'>
-  readonly konten: Prisma.FieldRef<"tbl_kabar", 'String[]'>
+  readonly konten: Prisma.FieldRef<"tbl_kabar", 'Json'>
   readonly kategori: Prisma.FieldRef<"tbl_kabar", 'KategoriKabar'>
   readonly tanggal: Prisma.FieldRef<"tbl_kabar", 'DateTime'>
   readonly gambar: Prisma.FieldRef<"tbl_kabar", 'String'>

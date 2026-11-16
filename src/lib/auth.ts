@@ -1,5 +1,6 @@
 import "server-only"
 
+import { cache } from "react"
 import bcrypt from "bcryptjs"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
@@ -148,18 +149,23 @@ async function readSession() {
   }
 }
 
-export async function requireAdmin(): Promise<AuthenticatedUser> {
+export const requireAdmin = cache(async (): Promise<AuthenticatedUser> => {
   const session = await readSession()
-  if (!session) throw new AuthError("UNAUTHENTICATED", "Silakan login kembali.")
 
-  const user = await prisma.tbl_profiles.findUnique({ where: { id_profile: session.userId } })
+  if (!session) {
+    throw new AuthError("UNAUTHENTICATED", "Silakan login kembali.")
+  }
+
+  const user = await prisma.tbl_profiles.findUnique({
+    where: { id_profile: session.userId },
+  })
 
   if (!user || !user.is_active || user.session_version !== session.sessionVersion) {
     throw new AuthError("UNAUTHENTICATED", "Sesi sudah tidak berlaku. Silakan login kembali.")
   }
 
   return toAuthenticatedUser(user)
-}
+})
 
 export async function requireAdminPage(): Promise<AuthenticatedUser> {
   try {

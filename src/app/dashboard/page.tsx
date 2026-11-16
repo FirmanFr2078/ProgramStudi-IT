@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = { title: "Ringkasan" }
 
 const stats = [
-  { label: "Berita", value: "[00]" },
+  { label: "Kabar", value: "[00]" },
   { label: "Dosen", value: "[00]" },
   { label: "Event mendatang", value: "[00]" },
 ]
@@ -25,7 +25,7 @@ export default function DashboardPage() {
             Kelola konten website Program Studi Teknik Informatika.
           </p>
         </div>
-        <Button className="glow">Tambah berita</Button>
+        <Button className="glow">Tambah Kabar</Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">

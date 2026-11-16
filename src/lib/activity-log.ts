@@ -42,3 +42,25 @@ export async function logActivity(input: LogActivityInput): Promise<void> {
     console.error("[ACTIVITY_LOG]", error)
   }
 }
+
+/**
+ * Ubah row Prisma mentah jadi bentuk yang aman buat kolom Json (data_lama/
+ * data_baru) -- BigInt & Date nggak bisa di-JSON.stringify langsung (bakal
+ * crash saat Prisma nyimpen ke kolom Json), jadi dikonversi ke string dulu
+ * di sini. Dipakai tiap src/database/<entitas>.ts sebelum nyimpen snapshot
+ * before/after ke log, biar fix-nya 1 tempat, bukan ditulis ulang per modul.
+ */
+export function toJsonSafe(value: unknown): unknown {
+  if (value === null || value === undefined) return null
+  if (typeof value === "bigint") return value.toString()
+  if (value instanceof Date) return value.toISOString()
+  if (Array.isArray(value)) return value.map(toJsonSafe)
+  if (typeof value === "object") {
+    const result: Record<string, unknown> = {}
+    for (const [key, val] of Object.entries(value as Record<string, unknown>)) {
+      result[key] = toJsonSafe(val)
+    }
+    return result
+  }
+  return value
+}

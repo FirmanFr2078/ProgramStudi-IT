@@ -181,6 +181,8 @@ export const Tbl_dosenScalarFieldEnum = {
   foto: 'foto',
   sinta: 'sinta',
   google_scholar: 'google_scholar',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -362,8 +364,6 @@ export type Tbl_dokumenScalarFieldEnum = (typeof Tbl_dokumenScalarFieldEnum)[key
 
 export const Tbl_profil_prodiScalarFieldEnum = {
   id_profil: 'id_profil',
-  sambutan_nama: 'sambutan_nama',
-  sambutan_jabatan: 'sambutan_jabatan',
   sambutan_isi: 'sambutan_isi',
   sejarah: 'sejarah',
   visi: 'visi',

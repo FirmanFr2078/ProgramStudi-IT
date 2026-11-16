@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { TerminalSquareIcon } from "lucide-react"
+import * as React from "react";
+import Link from "next/link";
+import { TerminalSquareIcon } from "lucide-react";
 
-import { NavMain } from "@/components/dashboard/nav-main"
-import { NavUser } from "@/components/dashboard/nav-user"
+import { NavMain } from "@/components/dashboard/nav-main";
+import { NavUser } from "@/components/dashboard/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -15,10 +15,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import { navGroups } from "@/config/dashboard-nav"
-import { can } from "@/lib/permissions"
-import type { SessionUser } from "@/types"
+} from "@/components/ui/sidebar";
+import { navGroups } from "@/config/dashboard-nav";
+import { can } from "@/lib/permissions";
+import type { SessionUser } from "@/types";
 
 export function AppSidebar({
   user,
@@ -29,10 +29,10 @@ export function AppSidebar({
     .map((group) => ({
       ...group,
       items: group.items.filter(
-        (item) => !item.permission || can(user.role, item.permission)
+        (item) => !item.permission || can(user.role, item.permission),
       ),
     }))
-    .filter((group) => group.items.length > 0)
+    .filter((group) => group.items.length > 0);
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -40,12 +40,14 @@ export function AppSidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" render={<Link href="/dashboard" />}>
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-lime text-black">
+              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-linear-to-br from-primary/30 to-transparent text-(--c-violet-alt) ring-1 ring-inset ring-white/10">
                 <TerminalSquareIcon className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">Prodi TI</span>
-                <span className="truncate text-xs text-muted-foreground">
+                <span className="truncate font-semibold text-white">
+                  Prodi TI
+                </span>
+                <span className="truncate text-xs text-(--shell-muted)">
                   Universitas Islam Balitar
                 </span>
               </div>
@@ -61,5 +63,5 @@ export function AppSidebar({
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

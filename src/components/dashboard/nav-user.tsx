@@ -35,11 +35,13 @@ export function NavUser({ user }: { user: SessionUser }) {
     <>
       <Avatar>
         {user.avatar && <AvatarImage src={user.avatar} alt={user.name} />}
-        <AvatarFallback>{initials}</AvatarFallback>
+        <AvatarFallback className="bg-(--c-violet)/30 text-white">
+          {initials}
+        </AvatarFallback>
       </Avatar>
       <div className="grid flex-1 text-left text-sm leading-tight">
-        <span className="truncate font-medium">{user.name}</span>
-        <span className="truncate text-xs text-muted-foreground">
+        <span className="truncate font-medium text-white">{user.name}</span>
+        <span className="truncate text-xs text-(--shell-muted)">
           {user.email}
         </span>
       </div>
@@ -52,14 +54,17 @@ export function NavUser({ user }: { user: SessionUser }) {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <SidebarMenuButton size="lg" className="aria-expanded:bg-muted" />
+              <SidebarMenuButton
+                size="lg"
+                className="bg-(--shell-user) transition-colors duration-200 hover:bg-(--shell-user)/70 aria-expanded:bg-(--shell-user)/70"
+              />
             }
           >
             {identity}
-            <ChevronsUpDownIcon className="ml-auto size-4" />
+            <ChevronsUpDownIcon className="ml-auto size-4 text-(--shell-muted)" />
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-fit min-w-56"
+            className="dash-portal w-fit min-w-56 ring-white/10"
             side={isMobile ? "bottom" : "right"}
             align="end"
             sideOffset={4}
