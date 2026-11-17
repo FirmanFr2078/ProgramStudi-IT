@@ -73,9 +73,9 @@ export function Header() {
           <p className="hidden text-xs text-muted-foreground lg:block">12.480 pengunjung</p>
           <span className="hidden h-4 w-px bg-black/8 lg:block dark:bg-white/12" aria-hidden="true" />
 
-          <Link href="/cari" className="flex h-11 items-center gap-2 rounded-full border border-black/8 px-4 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 dark:border-white/12">
+          <Link href="/cari" aria-label="Cari" className="flex size-11 items-center justify-center rounded-full border border-black/8 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 xl:w-auto xl:justify-start xl:gap-2 xl:px-4 dark:border-white/12">
             <SearchIcon className="size-4" aria-hidden="true" />
-            <span>Cari</span>
+            <span className="hidden xl:inline">Cari</span>
           </Link>
 
           <MobileNav />
