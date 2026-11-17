@@ -35,8 +35,8 @@ const contactItems: ContactItem[] = [
 ]
 
 function ContactCard({ icon: Icon, label, value, href }: ContactItem) {
-  const className =
-    "group flex items-start gap-3 rounded-xl border border-black/10 bg-card p-5 transition-colors hover:border-primary/40 dark:border-white/12"
+  const base =
+    "flex items-start gap-3 rounded-xl border border-black/10 bg-card p-5 dark:border-white/12"
   const content = (
     <>
       <Icon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
@@ -50,11 +50,14 @@ function ContactCard({ icon: Icon, label, value, href }: ContactItem) {
   )
 
   return href ? (
-    <a href={href} className={className}>
+    <a
+      href={href}
+      className={`${base} transition-colors hover:border-primary/40`}
+    >
       {content}
     </a>
   ) : (
-    <div className={className}>{content}</div>
+    <div className={base}>{content}</div>
   )
 }
 
@@ -83,17 +86,17 @@ export default function KontakPage() {
           ))}
 
           {siteConfig.social.length > 0 && (
-            <div className="flex gap-3 rounded-xl border border-black/10 bg-card p-5 dark:border-white/12">
-              {siteConfig.social.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  className="rounded-full border border-black/10 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground dark:border-white/12"
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
+            <div className="flex flex-wrap gap-3 rounded-xl border border-black/10 bg-card p-5 dark:border-white/12">
+                          {siteConfig.social.map((s) => (
+                            <a
+                              key={s.label}
+                              href={s.href}
+                              className="inline-flex min-h-11 items-center rounded-full border border-black/10 px-4 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground dark:border-white/12"
+                            >
+                              {s.label}
+                            </a>
+                          ))}
+                        </div>
           )}
         </Reveal>
 

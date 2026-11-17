@@ -24,11 +24,11 @@ export function KategoriFilter({
             onClick={() => onChange(opt)}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "relative pb-3 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
-              isActive
-                ? "font-medium text-foreground"
-                : "text-muted-foreground hover:text-foreground"
-            )}
+                          "relative min-h-11 pt-2 pb-4 text-sm transition-colors focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none",
+                          isActive
+                            ? "font-medium text-foreground"
+                            : "text-muted-foreground hover:text-foreground"
+                        )}
           >
             {opt}
             <span

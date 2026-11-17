@@ -11,21 +11,17 @@ export function KabarCard({ kabar }: { kabar: Kabar }) {
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-card transition-colors hover:border-primary/40 dark:border-white/12"
     >
       <div
-        className="h-36 w-full"
-        style={
-          kabar.gambar
-            ? {
-                backgroundImage: `url(${kabar.gambar})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+              className="h-36 w-full bg-muted"
+              style={
+                kabar.gambar
+                  ? {
+                      backgroundImage: `url(${kabar.gambar})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }
+                  : undefined
               }
-            : {
-                backgroundImage:
-                  "radial-gradient(60% 60% at 30% 20%, color-mix(in oklab, var(--c-lilac) 16%, transparent), transparent)",
-                backgroundColor: "var(--accent)",
-              }
-        }
-      />
+            />
       <div className="flex flex-1 flex-col gap-2 p-5">
         <span
           className={cn(
