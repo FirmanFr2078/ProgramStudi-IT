@@ -24,8 +24,10 @@ export default async function JadwalPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-5xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
-        <DaySchedule items={jadwal} />
+      <section className="mx-auto max-w-6xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
+        <div className="max-w-3xl">
+          <DaySchedule items={jadwal} />
+        </div>
       </section>
     </>
   )
