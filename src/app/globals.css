@@ -282,29 +282,6 @@
   }
 }
 
-/* Tombol utama dengan border tajam & glow halus (bebas pixelated) */
-.glow {
-  position: relative;
-  isolation: isolate;
-  color: var(--glow-text);
-  background: var(--glow-fill);
-  border: 1px solid color-mix(in oklab, var(--c-lime) 45%, transparent);
-  box-shadow: 0 0 14px -2px color-mix(in oklab, var(--c-lime) 20%, transparent);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glow:hover {
-  background: var(--glow-fill-hover);
-  border-color: color-mix(in oklab, var(--c-lime) 80%, transparent);
-  box-shadow: 0 0 22px -1px color-mix(in oklab, var(--c-lime) 35%, transparent);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .glow {
-    transition: none;
-  }
-}
-
 /* Latar grid halus */
 .bg-grid {
   background-image:

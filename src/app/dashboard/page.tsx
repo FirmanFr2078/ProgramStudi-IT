@@ -25,7 +25,7 @@ export default function DashboardPage() {
             Kelola konten website Program Studi Teknik Informatika.
           </p>
         </div>
-        <Button className="glow">Tambah berita</Button>
+        <Button>Tambah berita</Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">

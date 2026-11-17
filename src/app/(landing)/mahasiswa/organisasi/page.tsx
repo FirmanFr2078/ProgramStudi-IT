@@ -59,9 +59,9 @@ export default function OrganisasiMahasiswaPage() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              buttonVariants({ size: "lg" }),
-              "glow mt-2 gap-1.5 rounded-full px-6 text-sm"
-            )}
+                          buttonVariants({ size: "lg" }),
+                          "mt-2 gap-1.5 px-6 text-sm"
+                        )}
           >
             Kunjungi Website Himaprodi
             <ArrowUpRightIcon className="size-4" />
