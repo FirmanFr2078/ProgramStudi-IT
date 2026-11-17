@@ -7,7 +7,7 @@ import { FasilitasGrid } from "@/components/landing/fasilitas/grid"
 export const metadata: Metadata = {
   title: "Gedung",
   description:
-    "Gedung Program Studi Teknik Informatika Universitas Islam Balitar — jaringan, pemrograman, dan multimedia.",
+    "Gedung Program Studi Teknik Informatika Universitas Islam Balitar: ruang kelas, laboratorium, dan sarana administrasi.",
 }
 
 export default async function GedungPage() {

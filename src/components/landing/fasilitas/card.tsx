@@ -27,27 +27,18 @@ export function FasilitasCard({ item }: { item: Fasilitas }) {
 
         <p className="text-sm text-muted-foreground">{item.deskripsi}</p>
 
-        <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-2">
-          {item.kapasitas && (
-            <span className="flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary">
-              <UsersIcon className="size-3" aria-hidden="true" />
-              {item.kapasitas} orang
-            </span>
-          )}
-          {item.fitur.slice(0, 3).map((f) => (
-            <span
-              key={f}
-              className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground"
-            >
-              {f}
-            </span>
-          ))}
-          {item.fitur.length > 3 && (
-            <span className="rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
-              +{item.fitur.length - 3}
-            </span>
-          )}
-        </div>
+        <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 text-xs">
+                  {item.kapasitas && (
+                    <span className="flex items-center gap-1 text-primary">
+                      <UsersIcon className="size-3" aria-hidden="true" />
+                      {item.kapasitas} orang
+                    </span>
+                  )}
+                  <span className="text-muted-foreground">
+                    {item.fitur.slice(0, 3).join(" · ")}
+                    {item.fitur.length > 3 && ` · +${item.fitur.length - 3} lainnya`}
+                  </span>
+                </div>
       </div>
     </article>
   )
