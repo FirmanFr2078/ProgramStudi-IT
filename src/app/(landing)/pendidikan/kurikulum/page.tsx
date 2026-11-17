@@ -39,7 +39,7 @@ export default async function KurikulumPage() {
               key={name}
               className="flex items-start gap-4 rounded-xl border bg-card p-5"
             >
-              <Icon className="mt-0.5 size-6 shrink-0 text-lavender" />
+              <Icon className="mt-0.5 size-6 shrink-0 text-primary" />
               <div>
                 <h3 className="font-semibold">{name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
