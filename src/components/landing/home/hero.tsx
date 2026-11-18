@@ -211,7 +211,7 @@ export function Hero() {
             href="/profil/profil-prodi"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "h-11 rounded-md px-6 text-sm",
+              "rounded-md px-6 text-sm",
             )}
           >
             Kenali Prodi
@@ -220,7 +220,7 @@ export function Hero() {
             href="/informasi/pendaftaran"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 rounded-md px-6 text-sm",
+              "rounded-md px-6 text-sm",
             )}
           >
             Info Pendaftaran
