@@ -18,7 +18,7 @@ export function FasilitasCard({ item }: { item: Fasilitas }) {
 
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div>
-          <h3 className="font-bold">{item.nama}</h3>
+          <h3 className="font-heading text-base leading-snug font-bold">{item.nama}</h3>
           <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
             <MapPinIcon className="size-3.5 shrink-0" aria-hidden="true" />
             {item.lokasi}
