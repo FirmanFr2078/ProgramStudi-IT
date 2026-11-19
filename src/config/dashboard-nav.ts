@@ -33,7 +33,7 @@ export const navGroups: NavGroup[] = [
     label: "Lembaga",
     items: [
       { title: "Profil", url: "/dashboard/profil", icon: BookUserIcon, permission: "profil:manage" },
-      { title: "Struktur", url: "/dashboard/profil/struktur", icon: NetworkIcon, permission: "profil:manage" },
+      { title: "Struktur", url: "/dashboard/struktur", icon: NetworkIcon, permission: "struktur:manage" },
       { title: "Kerja Sama", url: "/dashboard/kerja-sama", icon: HandshakeIcon, permission: "kerja-sama:manage" },
       { title: "Fasilitas", url: "/dashboard/fasilitas", icon: Building2Icon, permission: "fasilitas:manage" },
     ],

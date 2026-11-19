@@ -141,3 +141,13 @@ export type tbl_profil_prodi = Prisma.tbl_profil_prodiModel
  * 
  */
 export type tbl_jalur_pendaftaran = Prisma.tbl_jalur_pendaftaranModel
+/**
+ * Model tbl_struktur_posisi
+ * 
+ */
+export type tbl_struktur_posisi = Prisma.tbl_struktur_posisiModel
+/**
+ * Model tbl_struktur_tupoksi
+ * 
+ */
+export type tbl_struktur_tupoksi = Prisma.tbl_struktur_tupoksiModel

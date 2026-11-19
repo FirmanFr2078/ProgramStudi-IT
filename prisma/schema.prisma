@@ -169,6 +169,7 @@ model tbl_dosen {
 
   bidang_keahlian String[]
   mata_kuliah     String[] // nama mata kuliah yg diampu, bukan FK -- lihat catatan di atas
+  struktur_posisi tbl_struktur_posisi[]
 
   email          String  @unique @db.VarChar(150)
   foto           String? @db.VarChar(255)
@@ -441,10 +442,6 @@ model tbl_profil_prodi {
   // {label, value}[] -- identitas prodi (akreditasi, SK pendirian, dst).
   identitas Json
 
-  // {pimpinan_fakultas, ketua_prodi, sekretaris_prodi, koordinator[]} --
-  // statis, 1 halaman org chart. Daripada tabel terpisah, Json lebih hemat.
-  struktur_organisasi Json
-
   updated_at DateTime @updatedAt @db.Timestamptz(6)
 }
 
@@ -457,4 +454,53 @@ model tbl_jalur_pendaftaran {
   nama      String   @db.VarChar(100)
   deskripsi String
   syarat    String[]
+}
+
+// ============================================================
+// STRUKTUR ORGANISASI (board bebas posisi — terpisah dari profil prodi)
+// ============================================================
+
+model tbl_struktur_posisi {
+  id_posisi BigInt @id @default(autoincrement())
+
+  // Self-relation: satu baris bisa punya banyak anak, tapi cuma 1 atasan.
+  // onDelete Cascade di sini artinya hapus 1 node otomatis ikut hapus
+  // SELURUH turunannya sampai level paling bawah -- Postgres yang
+  // nanganin perambatannya, ga perlu query rekursif manual di kode.
+  parent_id BigInt?
+  parent    tbl_struktur_posisi?  @relation("StrukturHierarki", fields: [parent_id], references: [id_posisi], onDelete: Cascade)
+  children  tbl_struktur_posisi[] @relation("StrukturHierarki")
+
+  jabatan String  @db.VarChar(100) // selalu manual, lepas dari jabatan_struktural di tbl_dosen
+  nama    String? @db.VarChar(150) // cuma kepake kalau dosen_id kosong (mode custom)
+
+  // dosen_id null = mode custom. SetNull (bukan Cascade) supaya kalau
+  // data dosennya dihapus di modul SDM, kotak strukturnya ga ikut raib --
+  // cuma "turun mode" jadi custom tanpa nama/foto.
+  dosen_id BigInt?
+  dosen    tbl_dosen? @relation(fields: [dosen_id], references: [id_dosen], onDelete: SetNull)
+
+  urutan Int @default(0) // urutan antar-sibling, dipake pas insert kiri/kanan
+  pos_x  Int @default(0) // koordinat canvas -- hasil drag manual admin, bukan hasil hitung ulang tiap render
+  pos_y  Int @default(0)
+
+  tupoksi tbl_struktur_tupoksi[]
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([parent_id])
+  @@index([dosen_id])
+}
+
+model tbl_struktur_tupoksi {
+  id_tupoksi BigInt @id @default(autoincrement())
+
+  posisi_id BigInt              
+  posisi    tbl_struktur_posisi @relation(fields: [posisi_id], references: [id_posisi], onDelete: Cascade)
+
+  isi    String @db.VarChar(300)
+  urutan Int    @default(0)
+
+  @@index([posisi_id])
 }

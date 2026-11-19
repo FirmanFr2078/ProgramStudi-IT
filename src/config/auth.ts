@@ -14,4 +14,5 @@ export const PERMISSIONS = [
   "pengaturan:manage",
   "profil:manage",
   "pendaftaran:manage",
+  "struktur:manage", // tambahan
 ] as const

@@ -416,7 +416,9 @@ export const ModelName = {
   tbl_langkah_mbkm: 'tbl_langkah_mbkm',
   tbl_dokumen: 'tbl_dokumen',
   tbl_profil_prodi: 'tbl_profil_prodi',
-  tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran'
+  tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran',
+  tbl_struktur_posisi: 'tbl_struktur_posisi',
+  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -432,7 +434,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tbl_profiles" | "tbl_activity_log" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_mitra" | "tbl_fasilitas" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran"
+    modelProps: "tbl_profiles" | "tbl_activity_log" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_mitra" | "tbl_fasilitas" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran" | "tbl_struktur_posisi" | "tbl_struktur_tupoksi"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1916,6 +1918,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    tbl_struktur_posisi: {
+      payload: Prisma.$tbl_struktur_posisiPayload<ExtArgs>
+      fields: Prisma.tbl_struktur_posisiFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_struktur_posisiFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_struktur_posisiFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_struktur_posisiFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_struktur_posisiFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_struktur_posisiFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_struktur_posisiCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_struktur_posisiCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_struktur_posisiCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_struktur_posisiDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        update: {
+          args: Prisma.tbl_struktur_posisiUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_struktur_posisiDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_struktur_posisiUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_struktur_posisiUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_struktur_posisiUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_posisiPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_struktur_posisiAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_struktur_posisi>
+        }
+        groupBy: {
+          args: Prisma.tbl_struktur_posisiGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_struktur_posisiGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_struktur_posisiCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_struktur_posisiCountAggregateOutputType> | number
+        }
+      }
+    }
+    tbl_struktur_tupoksi: {
+      payload: Prisma.$tbl_struktur_tupoksiPayload<ExtArgs>
+      fields: Prisma.tbl_struktur_tupoksiFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_struktur_tupoksiFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_struktur_tupoksiFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_struktur_tupoksiFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_struktur_tupoksiFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_struktur_tupoksiFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_struktur_tupoksiCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_struktur_tupoksiCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_struktur_tupoksiCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_struktur_tupoksiDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        update: {
+          args: Prisma.tbl_struktur_tupoksiUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_struktur_tupoksiDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_struktur_tupoksiUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_struktur_tupoksiUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_struktur_tupoksiUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_struktur_tupoksiPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_struktur_tupoksiAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_struktur_tupoksi>
+        }
+        groupBy: {
+          args: Prisma.tbl_struktur_tupoksiGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_struktur_tupoksiGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_struktur_tupoksiCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_struktur_tupoksiCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2237,7 +2387,6 @@ export const Tbl_profil_prodiScalarFieldEnum = {
   tujuan: 'tujuan',
   profil_lulusan: 'profil_lulusan',
   identitas: 'identitas',
-  struktur_organisasi: 'struktur_organisasi',
   updated_at: 'updated_at'
 } as const
 
@@ -2252,6 +2401,32 @@ export const Tbl_jalur_pendaftaranScalarFieldEnum = {
 } as const
 
 export type Tbl_jalur_pendaftaranScalarFieldEnum = (typeof Tbl_jalur_pendaftaranScalarFieldEnum)[keyof typeof Tbl_jalur_pendaftaranScalarFieldEnum]
+
+
+export const Tbl_struktur_posisiScalarFieldEnum = {
+  id_posisi: 'id_posisi',
+  parent_id: 'parent_id',
+  jabatan: 'jabatan',
+  nama: 'nama',
+  dosen_id: 'dosen_id',
+  urutan: 'urutan',
+  pos_x: 'pos_x',
+  pos_y: 'pos_y',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_struktur_posisiScalarFieldEnum = (typeof Tbl_struktur_posisiScalarFieldEnum)[keyof typeof Tbl_struktur_posisiScalarFieldEnum]
+
+
+export const Tbl_struktur_tupoksiScalarFieldEnum = {
+  id_tupoksi: 'id_tupoksi',
+  posisi_id: 'posisi_id',
+  isi: 'isi',
+  urutan: 'urutan'
+} as const
+
+export type Tbl_struktur_tupoksiScalarFieldEnum = (typeof Tbl_struktur_tupoksiScalarFieldEnum)[keyof typeof Tbl_struktur_tupoksiScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2793,6 +2968,8 @@ export type GlobalOmitConfig = {
   tbl_dokumen?: Prisma.tbl_dokumenOmit
   tbl_profil_prodi?: Prisma.tbl_profil_prodiOmit
   tbl_jalur_pendaftaran?: Prisma.tbl_jalur_pendaftaranOmit
+  tbl_struktur_posisi?: Prisma.tbl_struktur_posisiOmit
+  tbl_struktur_tupoksi?: Prisma.tbl_struktur_tupoksiOmit
 }
 
 /* Types for Logging */

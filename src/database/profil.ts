@@ -18,13 +18,6 @@ import type {
 const ENTITY = "tbl_profil_prodi"
 const SINGLETON_ID = 1
 
-const DEFAULT_STRUKTUR_ORGANISASI = {
-  pimpinanFakultas: null,
-  ketuaProdi: null,
-  sekretarisProdi: null,
-  koordinator: [],
-} satisfies Prisma.InputJsonValue
-
 export class ProfilProdiValidationError extends Error {
   constructor(
     public readonly errors: Record<string, string[]>,
@@ -166,7 +159,6 @@ export async function saveProfilProdi(
     create: {
       id_profil: SINGLETON_ID,
       ...toRowData(input),
-      struktur_organisasi: DEFAULT_STRUKTUR_ORGANISASI,
     },
     update: toRowData(input),
   })

@@ -70,7 +70,9 @@ export const ModelName = {
   tbl_langkah_mbkm: 'tbl_langkah_mbkm',
   tbl_dokumen: 'tbl_dokumen',
   tbl_profil_prodi: 'tbl_profil_prodi',
-  tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran'
+  tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran',
+  tbl_struktur_posisi: 'tbl_struktur_posisi',
+  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -371,7 +373,6 @@ export const Tbl_profil_prodiScalarFieldEnum = {
   tujuan: 'tujuan',
   profil_lulusan: 'profil_lulusan',
   identitas: 'identitas',
-  struktur_organisasi: 'struktur_organisasi',
   updated_at: 'updated_at'
 } as const
 
@@ -386,6 +387,32 @@ export const Tbl_jalur_pendaftaranScalarFieldEnum = {
 } as const
 
 export type Tbl_jalur_pendaftaranScalarFieldEnum = (typeof Tbl_jalur_pendaftaranScalarFieldEnum)[keyof typeof Tbl_jalur_pendaftaranScalarFieldEnum]
+
+
+export const Tbl_struktur_posisiScalarFieldEnum = {
+  id_posisi: 'id_posisi',
+  parent_id: 'parent_id',
+  jabatan: 'jabatan',
+  nama: 'nama',
+  dosen_id: 'dosen_id',
+  urutan: 'urutan',
+  pos_x: 'pos_x',
+  pos_y: 'pos_y',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_struktur_posisiScalarFieldEnum = (typeof Tbl_struktur_posisiScalarFieldEnum)[keyof typeof Tbl_struktur_posisiScalarFieldEnum]
+
+
+export const Tbl_struktur_tupoksiScalarFieldEnum = {
+  id_tupoksi: 'id_tupoksi',
+  posisi_id: 'posisi_id',
+  isi: 'isi',
+  urutan: 'urutan'
+} as const
+
+export type Tbl_struktur_tupoksiScalarFieldEnum = (typeof Tbl_struktur_tupoksiScalarFieldEnum)[keyof typeof Tbl_struktur_tupoksiScalarFieldEnum]
 
 
 export const SortOrder = {

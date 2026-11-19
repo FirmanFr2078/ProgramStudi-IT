@@ -55,7 +55,6 @@ export type Tbl_profil_prodiCountAggregateOutputType = {
   tujuan: number
   profil_lulusan: number
   identitas: number
-  struktur_organisasi: number
   updated_at: number
   _all: number
 }
@@ -90,7 +89,6 @@ export type Tbl_profil_prodiCountAggregateInputType = {
   tujuan?: true
   profil_lulusan?: true
   identitas?: true
-  struktur_organisasi?: true
   updated_at?: true
   _all?: true
 }
@@ -190,7 +188,6 @@ export type Tbl_profil_prodiGroupByOutputType = {
   tujuan: string[]
   profil_lulusan: runtime.JsonValue
   identitas: runtime.JsonValue
-  struktur_organisasi: runtime.JsonValue
   updated_at: Date
   _count: Tbl_profil_prodiCountAggregateOutputType | null
   _avg: Tbl_profil_prodiAvgAggregateOutputType | null
@@ -226,7 +223,6 @@ export type tbl_profil_prodiWhereInput = {
   tujuan?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   profil_lulusan?: Prisma.JsonFilter<"tbl_profil_prodi">
   identitas?: Prisma.JsonFilter<"tbl_profil_prodi">
-  struktur_organisasi?: Prisma.JsonFilter<"tbl_profil_prodi">
   updated_at?: Prisma.DateTimeFilter<"tbl_profil_prodi"> | Date | string
 }
 
@@ -239,7 +235,6 @@ export type tbl_profil_prodiOrderByWithRelationInput = {
   tujuan?: Prisma.SortOrder
   profil_lulusan?: Prisma.SortOrder
   identitas?: Prisma.SortOrder
-  struktur_organisasi?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
@@ -255,7 +250,6 @@ export type tbl_profil_prodiWhereUniqueInput = Prisma.AtLeast<{
   tujuan?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   profil_lulusan?: Prisma.JsonFilter<"tbl_profil_prodi">
   identitas?: Prisma.JsonFilter<"tbl_profil_prodi">
-  struktur_organisasi?: Prisma.JsonFilter<"tbl_profil_prodi">
   updated_at?: Prisma.DateTimeFilter<"tbl_profil_prodi"> | Date | string
 }, "id_profil">
 
@@ -268,7 +262,6 @@ export type tbl_profil_prodiOrderByWithAggregationInput = {
   tujuan?: Prisma.SortOrder
   profil_lulusan?: Prisma.SortOrder
   identitas?: Prisma.SortOrder
-  struktur_organisasi?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.tbl_profil_prodiCountOrderByAggregateInput
   _avg?: Prisma.tbl_profil_prodiAvgOrderByAggregateInput
@@ -289,7 +282,6 @@ export type tbl_profil_prodiScalarWhereWithAggregatesInput = {
   tujuan?: Prisma.StringNullableListFilter<"tbl_profil_prodi">
   profil_lulusan?: Prisma.JsonWithAggregatesFilter<"tbl_profil_prodi">
   identitas?: Prisma.JsonWithAggregatesFilter<"tbl_profil_prodi">
-  struktur_organisasi?: Prisma.JsonWithAggregatesFilter<"tbl_profil_prodi">
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_profil_prodi"> | Date | string
 }
 
@@ -302,7 +294,6 @@ export type tbl_profil_prodiCreateInput = {
   tujuan?: Prisma.tbl_profil_prodiCreatetujuanInput | string[]
   profil_lulusan: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Date | string
 }
 
@@ -315,7 +306,6 @@ export type tbl_profil_prodiUncheckedCreateInput = {
   tujuan?: Prisma.tbl_profil_prodiCreatetujuanInput | string[]
   profil_lulusan: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Date | string
 }
 
@@ -328,7 +318,6 @@ export type tbl_profil_prodiUpdateInput = {
   tujuan?: Prisma.tbl_profil_prodiUpdatetujuanInput | string[]
   profil_lulusan?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -341,7 +330,6 @@ export type tbl_profil_prodiUncheckedUpdateInput = {
   tujuan?: Prisma.tbl_profil_prodiUpdatetujuanInput | string[]
   profil_lulusan?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -354,7 +342,6 @@ export type tbl_profil_prodiCreateManyInput = {
   tujuan?: Prisma.tbl_profil_prodiCreatetujuanInput | string[]
   profil_lulusan: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Date | string
 }
 
@@ -367,7 +354,6 @@ export type tbl_profil_prodiUpdateManyMutationInput = {
   tujuan?: Prisma.tbl_profil_prodiUpdatetujuanInput | string[]
   profil_lulusan?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -380,7 +366,6 @@ export type tbl_profil_prodiUncheckedUpdateManyInput = {
   tujuan?: Prisma.tbl_profil_prodiUpdatetujuanInput | string[]
   profil_lulusan?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   identitas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
-  struktur_organisasi?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -393,7 +378,6 @@ export type tbl_profil_prodiCountOrderByAggregateInput = {
   tujuan?: Prisma.SortOrder
   profil_lulusan?: Prisma.SortOrder
   identitas?: Prisma.SortOrder
-  struktur_organisasi?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
@@ -464,7 +448,6 @@ export type tbl_profil_prodiSelect<ExtArgs extends runtime.Types.Extensions.Inte
   tujuan?: boolean
   profil_lulusan?: boolean
   identitas?: boolean
-  struktur_organisasi?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["tbl_profil_prodi"]>
 
@@ -477,7 +460,6 @@ export type tbl_profil_prodiSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   tujuan?: boolean
   profil_lulusan?: boolean
   identitas?: boolean
-  struktur_organisasi?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["tbl_profil_prodi"]>
 
@@ -490,7 +472,6 @@ export type tbl_profil_prodiSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   tujuan?: boolean
   profil_lulusan?: boolean
   identitas?: boolean
-  struktur_organisasi?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["tbl_profil_prodi"]>
 
@@ -503,11 +484,10 @@ export type tbl_profil_prodiSelectScalar = {
   tujuan?: boolean
   profil_lulusan?: boolean
   identitas?: boolean
-  struktur_organisasi?: boolean
   updated_at?: boolean
 }
 
-export type tbl_profil_prodiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_profil" | "sambutan_isi" | "sejarah" | "visi" | "misi" | "tujuan" | "profil_lulusan" | "identitas" | "struktur_organisasi" | "updated_at", ExtArgs["result"]["tbl_profil_prodi"]>
+export type tbl_profil_prodiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_profil" | "sambutan_isi" | "sejarah" | "visi" | "misi" | "tujuan" | "profil_lulusan" | "identitas" | "updated_at", ExtArgs["result"]["tbl_profil_prodi"]>
 
 export type $tbl_profil_prodiPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_profil_prodi"
@@ -521,7 +501,6 @@ export type $tbl_profil_prodiPayload<ExtArgs extends runtime.Types.Extensions.In
     tujuan: string[]
     profil_lulusan: runtime.JsonValue
     identitas: runtime.JsonValue
-    struktur_organisasi: runtime.JsonValue
     updated_at: Date
   }, ExtArgs["result"]["tbl_profil_prodi"]>
   composites: {}
@@ -954,7 +933,6 @@ export interface tbl_profil_prodiFieldRefs {
   readonly tujuan: Prisma.FieldRef<"tbl_profil_prodi", 'String[]'>
   readonly profil_lulusan: Prisma.FieldRef<"tbl_profil_prodi", 'Json'>
   readonly identitas: Prisma.FieldRef<"tbl_profil_prodi", 'Json'>
-  readonly struktur_organisasi: Prisma.FieldRef<"tbl_profil_prodi", 'Json'>
   readonly updated_at: Prisma.FieldRef<"tbl_profil_prodi", 'DateTime'>
 }
     

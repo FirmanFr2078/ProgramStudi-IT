@@ -39,6 +39,8 @@ web-prodi
 │  │  │  ├─ tbl_profiles.ts
 │  │  │  ├─ tbl_profil_prodi.ts
 │  │  │  ├─ tbl_riset.ts
+│  │  │  ├─ tbl_struktur_posisi.ts
+│  │  │  ├─ tbl_struktur_tupoksi.ts
 │  │  │  ├─ tbl_tanggal_penting.ts
 │  │  │  └─ tbl_tendik.ts
 │  │  └─ models.ts
@@ -56,6 +58,12 @@ web-prodi
 │  │  ├─ 20261114064409_kabar_content_editor
 │  │  │  └─ migration.sql
 │  │  ├─ 20261114140425_add_dosen_attribution
+│  │  │  └─ migration.sql
+│  │  ├─ 20261115045345_link_sambutan_ke_dosen
+│  │  │  └─ migration.sql
+│  │  ├─ 20261116000000_derive_sambutan_from_kaprodi
+│  │  │  └─ migration.sql
+│  │  ├─ 20261116024614_add_struktur_organisasi
 │  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
@@ -92,11 +100,22 @@ web-prodi
 │  │  │     │     └─ route.ts
 │  │  │     ├─ profil
 │  │  │     │  └─ route.ts
-│  │  │     └─ sdm
-│  │  │        └─ dosen
+│  │  │     ├─ sdm
+│  │  │     │  └─ dosen
+│  │  │     │     ├─ route.ts
+│  │  │     │     ├─ upload
+│  │  │     │     │  └─ route.ts
+│  │  │     │     └─ [id]
+│  │  │     │        └─ route.ts
+│  │  │     └─ struktur
+│  │  │        ├─ posisi
+│  │  │        │  ├─ route.ts
+│  │  │        │  └─ [id]
+│  │  │        │     ├─ posisi
+│  │  │        │     │  └─ route.ts
+│  │  │        │     └─ route.ts
+│  │  │        └─ tupoksi
 │  │  │           ├─ route.ts
-│  │  │           ├─ upload
-│  │  │           │  └─ route.ts
 │  │  │           └─ [id]
 │  │  │              └─ route.ts
 │  │  ├─ dashboard
@@ -111,14 +130,16 @@ web-prodi
 │  │  │  ├─ page.tsx
 │  │  │  ├─ profil
 │  │  │  │  └─ page.tsx
-│  │  │  └─ sdm
-│  │  │     └─ dosen
-│  │  │        ├─ page.tsx
-│  │  │        ├─ tambah
-│  │  │        │  └─ page.tsx
-│  │  │        └─ [id]
-│  │  │           └─ edit
-│  │  │              └─ page.tsx
+│  │  │  ├─ sdm
+│  │  │  │  └─ dosen
+│  │  │  │     ├─ page.tsx
+│  │  │  │     ├─ tambah
+│  │  │  │     │  └─ page.tsx
+│  │  │  │     └─ [id]
+│  │  │  │        └─ edit
+│  │  │  │           └─ page.tsx
+│  │  │  └─ struktur
+│  │  │     └─ page.tsx
 │  │  ├─ favicon.ico
 │  │  ├─ globals.css
 │  │  └─ layout.tsx
@@ -133,20 +154,27 @@ web-prodi
 │  │  │  ├─ nav-main.tsx
 │  │  │  ├─ nav-user.tsx
 │  │  │  ├─ profil
+│  │  │  │  ├─ ketua-prodi-preview.tsx
 │  │  │  │  └─ profil-form.tsx
 │  │  │  ├─ sdm
 │  │  │  │  ├─ dosen-form.tsx
 │  │  │  │  └─ dosen-list-view.tsx
-│  │  │  └─ shared
-│  │  │     ├─ confirm-dialog.tsx
-│  │  │     ├─ form-field.tsx
-│  │  │     ├─ resource-card
-│  │  │     │  ├─ card-footer-row.tsx
-│  │  │     │  ├─ resource-card-media.tsx
-│  │  │     │  └─ resource-card.tsx
-│  │  │     ├─ resource-list.tsx
-│  │  │     ├─ stat-card.tsx
-│  │  │     └─ tag-input.tsx
+│  │  │  ├─ shared
+│  │  │  │  ├─ confirm-dialog.tsx
+│  │  │  │  ├─ form-field.tsx
+│  │  │  │  ├─ resource-card
+│  │  │  │  │  ├─ card-footer-row.tsx
+│  │  │  │  │  ├─ resource-card-media.tsx
+│  │  │  │  │  └─ resource-card.tsx
+│  │  │  │  ├─ resource-list.tsx
+│  │  │  │  ├─ stat-card.tsx
+│  │  │  │  └─ tag-input.tsx
+│  │  │  └─ struktur
+│  │  │     ├─ posisi-dialog.tsx
+│  │  │     ├─ posisi-node.tsx
+│  │  │     ├─ struktur-board.tsx
+│  │  │     ├─ tupoksi-card.tsx
+│  │  │     └─ tupoksi-section.tsx
 │  │  ├─ landing
 │  │  │  ├─ dokumen-list.tsx
 │  │  │  ├─ footer.tsx
@@ -191,14 +219,16 @@ web-prodi
 │  │  ├─ focus-areas.ts
 │  │  ├─ organisasi-mahasiswa.ts
 │  │  ├─ site.ts
-│  │  └─ stats.ts
+│  │  ├─ stats.ts
+│  │  └─ structural-roles.ts
 │  ├─ data
 │  │  ├─ kabar.ts
 │  │  └─ stats.ts
 │  ├─ database
 │  │  ├─ dosen.ts
 │  │  ├─ kabar.ts
-│  │  └─ profil.ts
+│  │  ├─ profil.ts
+│  │  └─ struktur.ts
 │  ├─ hooks
 │  │  ├─ auth
 │  │  │  ├─ use-login.ts
@@ -209,9 +239,11 @@ web-prodi
 │  │  │  │  └─ use-kabar-list.ts
 │  │  │  ├─ profil
 │  │  │  │  └─ use-profil-form.ts
-│  │  │  └─ sdm
-│  │  │     ├─ use-dosen-form.ts
-│  │  │     └─ use-dosen-list.ts
+│  │  │  ├─ sdm
+│  │  │  │  ├─ use-dosen-form.ts
+│  │  │  │  └─ use-dosen-list.ts
+│  │  │  └─ struktur
+│  │  │     └─ use-struktur-board.ts
 │  │  ├─ use-mobile.ts
 │  │  ├─ use-pagination.ts
 │  │  └─ use-table-filter.ts
@@ -246,13 +278,13 @@ web-prodi
 │     ├─ kurikulum.ts
 │     ├─ mbkm.ts
 │     ├─ navigation.ts
-│     ├─ organisasi.ts
 │     ├─ pendaftaran.ts
 │     ├─ prestasi.ts
 │     ├─ profil.ts
 │     ├─ riset.ts
 │     ├─ site.ts
 │     ├─ stats.ts
+│     ├─ struktur.ts
 │     └─ tendik.ts
 └─ tsconfig.json
 
