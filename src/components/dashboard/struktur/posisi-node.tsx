@@ -30,6 +30,7 @@ function ArahButton({
         event.stopPropagation()
         onClick()
       }}
+      title={`Tambah posisi ${arah}`}
       className={cn(
         "absolute z-10 flex size-6 items-center justify-center rounded-full border bg-background text-muted-foreground opacity-0 shadow-sm transition-opacity hover:text-primary group-hover:opacity-100",
         className,
@@ -47,10 +48,12 @@ export function PosisiNode({ data }: { data: PosisiNodeData }) {
 
   return (
     <div className="group relative">
-      {!posisi.isRoot && (
+      {/* Atas & bawah selalu ada -- termasuk buat Kaprodi. Kiri/kanan cuma buat
+          posisi selain Kaprodi (Kaprodi itu unik, nggak butuh "sejajar"). */}
+      <ArahButton arah="atas" className="-top-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "atas")} />
+      <ArahButton arah="bawah" className="-bottom-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "bawah")} />
+      {!posisi.isKaprodi && (
         <>
-          <ArahButton arah="atas" className="-top-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "atas")} />
-          <ArahButton arah="bawah" className="-bottom-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "bawah")} />
           <ArahButton arah="kiri" className="top-1/2 -left-3 -translate-y-1/2" onClick={() => onArah(posisi.id, "kiri")} />
           <ArahButton arah="kanan" className="top-1/2 -right-3 -translate-y-1/2" onClick={() => onArah(posisi.id, "kanan")} />
         </>
@@ -64,7 +67,7 @@ export function PosisiNode({ data }: { data: PosisiNodeData }) {
         onClick={() => onEdit(posisi.id)}
         className={cn(
           "flex w-56 items-center gap-3 rounded-xl border bg-card px-3 py-2.5 text-left shadow-sm transition-colors hover:border-primary/50",
-          posisi.isRoot && "border-primary/60 bg-primary/5",
+          posisi.isKaprodi && "border-primary/60 bg-primary/5",
         )}
       >
         <Avatar className="size-10 shrink-0 border">

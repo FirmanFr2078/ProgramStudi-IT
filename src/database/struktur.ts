@@ -19,11 +19,8 @@ import { STRUKTUR_TUPOKSI_MAX_ITEMS } from "@/types"
 
 const ENTITY = "tbl_struktur_posisi"
 const TUPOKSI_ENTITY = "tbl_struktur_tupoksi"
-const ROOT_JABATAN_DEFAULT = "Ketua Program Studi"
+const KAPRODI_JABATAN_DEFAULT = "Ketua Program Studi"
 
-// Jarak default antar node pas ditambah lewat tombol (+) -- bukan hasil
-// auto-layout yang dihitung ulang tiap render, cuma titik awal. Admin tetap
-// bebas geser manual sesudahnya, posisinya kesimpen permanen di pos_x/pos_y.
 const GAP_X = 260
 const GAP_Y = 180
 
@@ -60,21 +57,36 @@ function toStrukturPosisiAdmin(row: PosisiRow): StrukturPosisiAdmin {
     urutan: row.urutan,
     posX: row.pos_x,
     posY: row.pos_y,
-    isRoot: row.parent_id === null,
+    isKaprodi: row.is_kaprodi,
     tupoksi: row.tupoksi.map((item) => ({ id: String(item.id_tupoksi), isi: item.isi, urutan: item.urutan })),
   }
 }
 
-async function ensureRoot() {
-  const existing = await prisma.tbl_struktur_posisi.findFirst({ where: { parent_id: null } })
-  if (existing) return existing
+/**
+ * Kartu Kaprodi itu satu-satunya node yang dilindungi (nggak bisa dihapus,
+ * jabatan terkunci) -- ditandai lewat is_kaprodi, BUKAN lagi "siapa pun yang
+ * parent_id-nya null". Soalnya begitu ada kartu ditambah "atas" dia (mis.
+ * Dekan), si Dekan itu yang jadi paling atas secara posisi, tapi Kaprodi
+ * tetap yang dilindungi.
+ */
+async function ensureKaprodi() {
+  const flagged = await prisma.tbl_struktur_posisi.findFirst({ where: { is_kaprodi: true } })
+  if (flagged) return flagged
+
+  // Migrasi data lama (sebelum ada flag ini): root lama ditentukan dari parent_id null.
+  const legacyRoot = await prisma.tbl_struktur_posisi.findFirst({ where: { parent_id: null } })
+  if (legacyRoot) {
+    return prisma.tbl_struktur_posisi.update({
+      where: { id_posisi: legacyRoot.id_posisi },
+      data: { is_kaprodi: true },
+    })
+  }
 
   return prisma.tbl_struktur_posisi.create({
-    data: { jabatan: ROOT_JABATAN_DEFAULT, urutan: 0, pos_x: 0, pos_y: 0 },
+    data: { jabatan: KAPRODI_JABATAN_DEFAULT, is_kaprodi: true, urutan: 0, pos_x: 0, pos_y: 0 },
   })
 }
 
-/** BFS turunan 1 node, dipakai pas insert "atas" buat geser seluruh subtree ke bawah. */
 async function collectDescendantIds(rootId: bigint): Promise<bigint[]> {
   const ids: bigint[] = []
   let frontier = [rootId]
@@ -92,7 +104,6 @@ async function collectDescendantIds(rootId: bigint): Promise<bigint[]> {
   return ids
 }
 
-/** Geser sibling dari urutan tertentu ke bawah (urutan+1, pos_x+GAP_X), buat kasih ruang node baru. */
 async function shiftSiblingsFrom(parentId: bigint, fromUrutan: number, excludeId?: bigint) {
   const siblings = await prisma.tbl_struktur_posisi.findMany({
     where: {
@@ -115,7 +126,7 @@ async function shiftSiblingsFrom(parentId: bigint, fromUrutan: number, excludeId
 // ============================================================
 
 export async function getStrukturTreeAdmin(): Promise<StrukturPosisiAdmin[]> {
-  await ensureRoot()
+  await ensureKaprodi()
 
   const rows = await prisma.tbl_struktur_posisi.findMany({
     include: POSISI_ADMIN_INCLUDE,
@@ -141,16 +152,14 @@ export async function createPosisi(
   const dosenRelation = dosenId ? { connect: { id_dosen: dosenId } } : undefined
 
   if (input.arah === "atas") {
-    if (reference.parent_id === null) {
-      throw new StrukturError("Node teratas tidak bisa ditambah atasan.")
-    }
-
+    // Sengaja TIDAK ada guard "reference.parent_id === null" di sini -- kartu
+    // Kaprodi boleh ditambah atasan walau dia lagi jadi node paling atas.
     const newRow = await prisma.tbl_struktur_posisi.create({
       data: {
         jabatan: input.jabatan,
         nama: dosenId ? null : input.nama,
         dosen: dosenRelation,
-        parent: { connect: { id_posisi: reference.parent_id } },
+        parent: reference.parent_id !== null ? { connect: { id_posisi: reference.parent_id } } : undefined,
         urutan: reference.urutan,
         pos_x: reference.pos_x,
         pos_y: reference.pos_y,
@@ -196,9 +205,10 @@ export async function createPosisi(
       pos_y: reference.pos_y + GAP_Y,
     }
   } else {
-    // kiri / kanan -- butuh parent yang sama, root ga punya sejajar
+    // kiri / kanan -- tetap butuh parent yang sama, node yang belum punya
+    // atasan ("Dekan" paling atas, misalnya) emang belum bisa disejajarkan.
     if (reference.parent_id === null) {
-      throw new StrukturError("Node teratas tidak punya posisi sejajar.")
+      throw new StrukturError("Posisi ini belum punya atasan, jadi belum bisa ditambah sejajar.")
     }
 
     if (input.arah === "kiri") {
@@ -252,10 +262,13 @@ export async function updatePosisi(
   const before = await prisma.tbl_struktur_posisi.findUniqueOrThrow({ where: { id_posisi: id } })
   const dosenId = input.dosenId ? parseBigIntId(input.dosenId) : null
 
+  // Jabatan kartu Kaprodi terkunci -- apa pun yang dikirim, tetap dipaksa default-nya.
+  const jabatan = before.is_kaprodi ? KAPRODI_JABATAN_DEFAULT : input.jabatan
+
   const row = await prisma.tbl_struktur_posisi.update({
     where: { id_posisi: id },
     data: {
-      jabatan: input.jabatan,
+      jabatan,
       nama: dosenId ? null : input.nama,
       dosen: dosenId ? { connect: { id_dosen: dosenId } } : { disconnect: true },
     },
@@ -275,7 +288,6 @@ export async function updatePosisi(
   return toStrukturPosisiAdmin(row)
 }
 
-/** Drag reposition -- sengaja TIDAK dicatat ke activity log (noise UI, bukan perubahan data). */
 export async function movePosisi(id: bigint, input: StrukturPosisiPositionInput): Promise<void> {
   await prisma.tbl_struktur_posisi.update({
     where: { id_posisi: id },
@@ -285,11 +297,10 @@ export async function movePosisi(id: bigint, input: StrukturPosisiPositionInput)
 
 export async function deletePosisi(id: bigint, actor: Actor): Promise<void> {
   const before = await prisma.tbl_struktur_posisi.findUniqueOrThrow({ where: { id_posisi: id } })
-  if (before.parent_id === null) {
-    throw new StrukturError("Node Ketua Program Studi (root) tidak bisa dihapus.")
+  if (before.is_kaprodi) {
+    throw new StrukturError("Posisi Ketua Program Studi tidak bisa dihapus.")
   }
 
-  // onDelete: Cascade di schema yang nanganin hapus seluruh turunan + tupoksi-nya.
   await prisma.tbl_struktur_posisi.delete({ where: { id_posisi: id } })
 
   await logEntityMutation({

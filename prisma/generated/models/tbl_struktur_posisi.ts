@@ -46,6 +46,7 @@ export type Tbl_struktur_posisiSumAggregateOutputType = {
 
 export type Tbl_struktur_posisiMinAggregateOutputType = {
   id_posisi: bigint | null
+  is_kaprodi: boolean | null
   parent_id: bigint | null
   jabatan: string | null
   nama: string | null
@@ -59,6 +60,7 @@ export type Tbl_struktur_posisiMinAggregateOutputType = {
 
 export type Tbl_struktur_posisiMaxAggregateOutputType = {
   id_posisi: bigint | null
+  is_kaprodi: boolean | null
   parent_id: bigint | null
   jabatan: string | null
   nama: string | null
@@ -72,6 +74,7 @@ export type Tbl_struktur_posisiMaxAggregateOutputType = {
 
 export type Tbl_struktur_posisiCountAggregateOutputType = {
   id_posisi: number
+  is_kaprodi: number
   parent_id: number
   jabatan: number
   nama: number
@@ -105,6 +108,7 @@ export type Tbl_struktur_posisiSumAggregateInputType = {
 
 export type Tbl_struktur_posisiMinAggregateInputType = {
   id_posisi?: true
+  is_kaprodi?: true
   parent_id?: true
   jabatan?: true
   nama?: true
@@ -118,6 +122,7 @@ export type Tbl_struktur_posisiMinAggregateInputType = {
 
 export type Tbl_struktur_posisiMaxAggregateInputType = {
   id_posisi?: true
+  is_kaprodi?: true
   parent_id?: true
   jabatan?: true
   nama?: true
@@ -131,6 +136,7 @@ export type Tbl_struktur_posisiMaxAggregateInputType = {
 
 export type Tbl_struktur_posisiCountAggregateInputType = {
   id_posisi?: true
+  is_kaprodi?: true
   parent_id?: true
   jabatan?: true
   nama?: true
@@ -231,6 +237,7 @@ export type tbl_struktur_posisiGroupByArgs<ExtArgs extends runtime.Types.Extensi
 
 export type Tbl_struktur_posisiGroupByOutputType = {
   id_posisi: bigint
+  is_kaprodi: boolean
   parent_id: bigint | null
   jabatan: string
   nama: string | null
@@ -267,6 +274,7 @@ export type tbl_struktur_posisiWhereInput = {
   OR?: Prisma.tbl_struktur_posisiWhereInput[]
   NOT?: Prisma.tbl_struktur_posisiWhereInput | Prisma.tbl_struktur_posisiWhereInput[]
   id_posisi?: Prisma.BigIntFilter<"tbl_struktur_posisi"> | bigint | number
+  is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
@@ -284,6 +292,7 @@ export type tbl_struktur_posisiWhereInput = {
 
 export type tbl_struktur_posisiOrderByWithRelationInput = {
   id_posisi?: Prisma.SortOrder
+  is_kaprodi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrderInput | Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -304,6 +313,7 @@ export type tbl_struktur_posisiWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.tbl_struktur_posisiWhereInput | Prisma.tbl_struktur_posisiWhereInput[]
   OR?: Prisma.tbl_struktur_posisiWhereInput[]
   NOT?: Prisma.tbl_struktur_posisiWhereInput | Prisma.tbl_struktur_posisiWhereInput[]
+  is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
@@ -321,6 +331,7 @@ export type tbl_struktur_posisiWhereUniqueInput = Prisma.AtLeast<{
 
 export type tbl_struktur_posisiOrderByWithAggregationInput = {
   id_posisi?: Prisma.SortOrder
+  is_kaprodi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrderInput | Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -342,6 +353,7 @@ export type tbl_struktur_posisiScalarWhereWithAggregatesInput = {
   OR?: Prisma.tbl_struktur_posisiScalarWhereWithAggregatesInput[]
   NOT?: Prisma.tbl_struktur_posisiScalarWhereWithAggregatesInput | Prisma.tbl_struktur_posisiScalarWhereWithAggregatesInput[]
   id_posisi?: Prisma.BigIntWithAggregatesFilter<"tbl_struktur_posisi"> | bigint | number
+  is_kaprodi?: Prisma.BoolWithAggregatesFilter<"tbl_struktur_posisi"> | boolean
   parent_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringWithAggregatesFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableWithAggregatesFilter<"tbl_struktur_posisi"> | string | null
@@ -355,6 +367,7 @@ export type tbl_struktur_posisiScalarWhereWithAggregatesInput = {
 
 export type tbl_struktur_posisiCreateInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   urutan?: number
@@ -370,6 +383,7 @@ export type tbl_struktur_posisiCreateInput = {
 
 export type tbl_struktur_posisiUncheckedCreateInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -385,6 +399,7 @@ export type tbl_struktur_posisiUncheckedCreateInput = {
 
 export type tbl_struktur_posisiUpdateInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -400,6 +415,7 @@ export type tbl_struktur_posisiUpdateInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -415,6 +431,7 @@ export type tbl_struktur_posisiUncheckedUpdateInput = {
 
 export type tbl_struktur_posisiCreateManyInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -428,6 +445,7 @@ export type tbl_struktur_posisiCreateManyInput = {
 
 export type tbl_struktur_posisiUpdateManyMutationInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -439,6 +457,7 @@ export type tbl_struktur_posisiUpdateManyMutationInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateManyInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -467,6 +486,7 @@ export type Tbl_struktur_posisiNullableScalarRelationFilter = {
 
 export type tbl_struktur_posisiCountOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
+  is_kaprodi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
@@ -489,6 +509,7 @@ export type tbl_struktur_posisiAvgOrderByAggregateInput = {
 
 export type tbl_struktur_posisiMaxOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
+  is_kaprodi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
@@ -502,6 +523,7 @@ export type tbl_struktur_posisiMaxOrderByAggregateInput = {
 
 export type tbl_struktur_posisiMinOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
+  is_kaprodi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
@@ -651,6 +673,7 @@ export type tbl_struktur_posisiUpdateOneRequiredWithoutTupoksiNestedInput = {
 
 export type tbl_struktur_posisiCreateWithoutDosenInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   urutan?: number
@@ -665,6 +688,7 @@ export type tbl_struktur_posisiCreateWithoutDosenInput = {
 
 export type tbl_struktur_posisiUncheckedCreateWithoutDosenInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -708,6 +732,7 @@ export type tbl_struktur_posisiScalarWhereInput = {
   OR?: Prisma.tbl_struktur_posisiScalarWhereInput[]
   NOT?: Prisma.tbl_struktur_posisiScalarWhereInput | Prisma.tbl_struktur_posisiScalarWhereInput[]
   id_posisi?: Prisma.BigIntFilter<"tbl_struktur_posisi"> | bigint | number
+  is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
@@ -721,6 +746,7 @@ export type tbl_struktur_posisiScalarWhereInput = {
 
 export type tbl_struktur_posisiCreateWithoutChildrenInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   urutan?: number
@@ -735,6 +761,7 @@ export type tbl_struktur_posisiCreateWithoutChildrenInput = {
 
 export type tbl_struktur_posisiUncheckedCreateWithoutChildrenInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -754,6 +781,7 @@ export type tbl_struktur_posisiCreateOrConnectWithoutChildrenInput = {
 
 export type tbl_struktur_posisiCreateWithoutParentInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   urutan?: number
@@ -768,6 +796,7 @@ export type tbl_struktur_posisiCreateWithoutParentInput = {
 
 export type tbl_struktur_posisiUncheckedCreateWithoutParentInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
@@ -803,6 +832,7 @@ export type tbl_struktur_posisiUpdateToOneWithWhereWithoutChildrenInput = {
 
 export type tbl_struktur_posisiUpdateWithoutChildrenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -817,6 +847,7 @@ export type tbl_struktur_posisiUpdateWithoutChildrenInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateWithoutChildrenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -847,6 +878,7 @@ export type tbl_struktur_posisiUpdateManyWithWhereWithoutParentInput = {
 
 export type tbl_struktur_posisiCreateWithoutTupoksiInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   urutan?: number
@@ -861,6 +893,7 @@ export type tbl_struktur_posisiCreateWithoutTupoksiInput = {
 
 export type tbl_struktur_posisiUncheckedCreateWithoutTupoksiInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -891,6 +924,7 @@ export type tbl_struktur_posisiUpdateToOneWithWhereWithoutTupoksiInput = {
 
 export type tbl_struktur_posisiUpdateWithoutTupoksiInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -905,6 +939,7 @@ export type tbl_struktur_posisiUpdateWithoutTupoksiInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateWithoutTupoksiInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -919,6 +954,7 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutTupoksiInput = {
 
 export type tbl_struktur_posisiCreateManyDosenInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
@@ -931,6 +967,7 @@ export type tbl_struktur_posisiCreateManyDosenInput = {
 
 export type tbl_struktur_posisiUpdateWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -945,6 +982,7 @@ export type tbl_struktur_posisiUpdateWithoutDosenInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -959,6 +997,7 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutDosenInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateManyWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -971,6 +1010,7 @@ export type tbl_struktur_posisiUncheckedUpdateManyWithoutDosenInput = {
 
 export type tbl_struktur_posisiCreateManyParentInput = {
   id_posisi?: bigint | number
+  is_kaprodi?: boolean
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
@@ -983,6 +1023,7 @@ export type tbl_struktur_posisiCreateManyParentInput = {
 
 export type tbl_struktur_posisiUpdateWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
@@ -997,6 +1038,7 @@ export type tbl_struktur_posisiUpdateWithoutParentInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -1011,6 +1053,7 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutParentInput = {
 
 export type tbl_struktur_posisiUncheckedUpdateManyWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -1063,6 +1106,7 @@ export type Tbl_struktur_posisiCountOutputTypeCountTupoksiArgs<ExtArgs extends r
 
 export type tbl_struktur_posisiSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
+  is_kaprodi?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
@@ -1081,6 +1125,7 @@ export type tbl_struktur_posisiSelect<ExtArgs extends runtime.Types.Extensions.I
 
 export type tbl_struktur_posisiSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
+  is_kaprodi?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
@@ -1096,6 +1141,7 @@ export type tbl_struktur_posisiSelectCreateManyAndReturn<ExtArgs extends runtime
 
 export type tbl_struktur_posisiSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
+  is_kaprodi?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
@@ -1111,6 +1157,7 @@ export type tbl_struktur_posisiSelectUpdateManyAndReturn<ExtArgs extends runtime
 
 export type tbl_struktur_posisiSelectScalar = {
   id_posisi?: boolean
+  is_kaprodi?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
@@ -1122,7 +1169,7 @@ export type tbl_struktur_posisiSelectScalar = {
   updated_at?: boolean
 }
 
-export type tbl_struktur_posisiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_posisi" | "parent_id" | "jabatan" | "nama" | "dosen_id" | "urutan" | "pos_x" | "pos_y" | "created_at" | "updated_at", ExtArgs["result"]["tbl_struktur_posisi"]>
+export type tbl_struktur_posisiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_posisi" | "is_kaprodi" | "parent_id" | "jabatan" | "nama" | "dosen_id" | "urutan" | "pos_x" | "pos_y" | "created_at" | "updated_at", ExtArgs["result"]["tbl_struktur_posisi"]>
 export type tbl_struktur_posisiInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   parent?: boolean | Prisma.tbl_struktur_posisi$parentArgs<ExtArgs>
   children?: boolean | Prisma.tbl_struktur_posisi$childrenArgs<ExtArgs>
@@ -1149,6 +1196,7 @@ export type $tbl_struktur_posisiPayload<ExtArgs extends runtime.Types.Extensions
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_posisi: bigint
+    is_kaprodi: boolean
     parent_id: bigint | null
     jabatan: string
     nama: string | null
@@ -1586,6 +1634,7 @@ export interface Prisma__tbl_struktur_posisiClient<T, Null = never, ExtArgs exte
  */
 export interface tbl_struktur_posisiFieldRefs {
   readonly id_posisi: Prisma.FieldRef<"tbl_struktur_posisi", 'BigInt'>
+  readonly is_kaprodi: Prisma.FieldRef<"tbl_struktur_posisi", 'Boolean'>
   readonly parent_id: Prisma.FieldRef<"tbl_struktur_posisi", 'BigInt'>
   readonly jabatan: Prisma.FieldRef<"tbl_struktur_posisi", 'String'>
   readonly nama: Prisma.FieldRef<"tbl_struktur_posisi", 'String'>

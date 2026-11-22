@@ -62,7 +62,7 @@ export type StrukturPosisiAdmin = {
   id: string
   parentId: string | null
   jabatan: string
-  nama: string | null // dipakai kalau dosenId null (mode custom)
+  nama: string | null
   dosenId: string | null
   dosenNama: string | null
   dosenNidn: string | null
@@ -70,7 +70,7 @@ export type StrukturPosisiAdmin = {
   urutan: number
   posX: number
   posY: number
-  isRoot: boolean
+  isKaprodi: boolean // ganti dari isRoot -- sekarang berdasarkan flag, bukan parent_id null
   tupoksi: StrukturTupoksiAdmin[]
 }
 

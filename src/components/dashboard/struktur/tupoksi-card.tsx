@@ -15,23 +15,17 @@ export function TupoksiCard({
   onDelete,
 }: {
   posisi: StrukturPosisiAdmin
-  onAdd: (posisiId: string, isi: string) => Promise<unknown>
-  onUpdate: (id: string, isi: string) => Promise<unknown>
-  onDelete: (id: string) => Promise<void>
+  onAdd: (posisiId: string, isi: string) => void
+  onUpdate: (id: string, isi: string) => void
+  onDelete: (id: string) => void
 }) {
   const [draft, setDraft] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  async function handleAdd() {
+  function handleAdd() {
     const isi = draft.trim()
-    if (!isi || isSubmitting) return
-    setIsSubmitting(true)
-    try {
-      await onAdd(posisi.id, isi)
-      setDraft("")
-    } finally {
-      setIsSubmitting(false)
-    }
+    if (!isi) return
+    onAdd(posisi.id, isi)
+    setDraft("")
   }
 
   return (
@@ -55,13 +49,13 @@ export function TupoksiCard({
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 event.preventDefault()
-                void handleAdd()
+                handleAdd()
               }
             }}
             placeholder="Tambah poin tupoksi..."
             className="h-8"
           />
-          <Button type="button" size="icon-sm" variant="outline" disabled={isSubmitting || !draft.trim()} onClick={handleAdd}>
+          <Button type="button" size="icon-sm" variant="outline" disabled={!draft.trim()} onClick={handleAdd}>
             <PlusIcon />
           </Button>
         </div>
@@ -78,8 +72,8 @@ function TupoksiRow({
 }: {
   id: string
   isi: string
-  onUpdate: (id: string, isi: string) => Promise<unknown>
-  onDelete: (id: string) => Promise<void>
+  onUpdate: (id: string, isi: string) => void
+  onDelete: (id: string) => void
 }) {
   const [value, setValue] = useState(isi)
 
@@ -90,11 +84,11 @@ function TupoksiRow({
         value={value}
         onChange={(event) => setValue(event.target.value)}
         onBlur={() => {
-          if (value.trim() && value.trim() !== isi) void onUpdate(id, value.trim())
+          if (value.trim() && value.trim() !== isi) onUpdate(id, value.trim())
         }}
         className="h-8 flex-1 border-transparent bg-transparent px-2 shadow-none hover:border-input focus-visible:border-ring"
       />
-      <Button type="button" size="icon-sm" variant="ghost" onClick={() => void onDelete(id)}>
+      <Button type="button" size="icon-sm" variant="ghost" onClick={() => onDelete(id)}>
         <Trash2Icon className="text-muted-foreground" />
       </Button>
     </li>

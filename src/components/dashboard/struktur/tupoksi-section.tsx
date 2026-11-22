@@ -30,9 +30,9 @@ export function TupoksiSection({
   onDelete,
 }: {
   posisi: StrukturPosisiAdmin[]
-  onAdd: (posisiId: string, isi: string) => Promise<unknown>
-  onUpdate: (id: string, isi: string) => Promise<unknown>
-  onDelete: (id: string) => Promise<void>
+  onAdd: (posisiId: string, isi: string) => void
+  onUpdate: (id: string, isi: string) => void
+  onDelete: (id: string) => void
 }) {
   const ordered = sortByHierarchy(posisi)
 

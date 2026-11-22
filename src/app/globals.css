@@ -329,6 +329,14 @@ html:has(.theme-landing),
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 80%);
 }
+
+.bg-grid-board {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 .scanlines::after {
   content: "";
   position: absolute;

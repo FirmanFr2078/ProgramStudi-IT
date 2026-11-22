@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { KETUA_PROGRAM_STUDI } from "@/config/structural-roles"
 import type { DialogState } from "@/hooks/dashboard/struktur/use-struktur-board"
 import type { DosenAdmin, StrukturPosisiAdmin } from "@/types"
 
@@ -30,8 +31,6 @@ function countDescendants(all: StrukturPosisiAdmin[], id: string): number {
   return children.reduce((sum, child) => sum + 1 + countDescendants(all, child.id), 0)
 }
 
-// Isi form & logic submit dipisah ke sini -- lazy init dari props, TANPA effect.
-// Parent yang nentuin kapan komponen ini harus "reset" lewat prop `key`.
 function PosisiForm({
   dialog,
   editing,
@@ -51,16 +50,21 @@ function PosisiForm({
   onDeletePosisi: (id: string) => void
   onClose: () => void
 }) {
-  const [values, setValues] = useState<FormValues>(() =>
-    dialog.mode === "edit" ? toFormValues(editing) : EMPTY,
-  )
+  const isKaprodi = editing?.isKaprodi ?? false
+  const [values, setValues] = useState<FormValues>(() => (dialog.mode === "edit" ? toFormValues(editing) : EMPTY))
 
   const title =
     dialog.mode === "create" ? `Tambah posisi (${ARAH_LABEL[dialog.arah]})` : `Ubah posisi${editing ? ` — ${editing.jabatan}` : ""}`
 
+  // Kaprodi: dosen yang bisa dipilih dibatasi cuma yang di SDM udah ditandai
+  // jabatan struktural "Ketua Program Studi" -- biar nggak salah pilih orang.
+  const availableDosen = isKaprodi
+    ? dosenOptions.filter((dosen) => dosen.jabatanStruktural === KETUA_PROGRAM_STUDI)
+    : dosenOptions
+
   function handleSubmit() {
     onSubmit({
-      jabatan: values.jabatan.trim(),
+      jabatan: isKaprodi ? KETUA_PROGRAM_STUDI : values.jabatan.trim(),
       dosenId: values.sumber === "dosen" ? values.dosenId : null,
       nama: values.sumber === "custom" ? values.nama.trim() || null : null,
     })
@@ -114,13 +118,18 @@ function PosisiForm({
                 <SelectValue placeholder="Pilih dosen" />
               </SelectTrigger>
               <SelectContent>
-                {dosenOptions.map((dosen) => (
+                {availableDosen.map((dosen) => (
                   <SelectItem key={dosen.id} value={dosen.id}>
                     {dosen.nama} — {dosen.nidn}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
+            {isKaprodi && availableDosen.length === 0 && (
+              <p className="text-xs text-muted-foreground">
+                Belum ada dosen yang ditandai Ketua &quout;Program Studi&rquout; di halaman SDM &gt; Dosen. Tandai dulu di sana, atau pakai mode Custom.
+              </p>
+            )}
           </div>
         ) : (
           <div className="space-y-1.5">
@@ -138,15 +147,17 @@ function PosisiForm({
           <Label htmlFor="posisi-jabatan">Jabatan</Label>
           <Input
             id="posisi-jabatan"
-            value={values.jabatan}
+            value={isKaprodi ? KETUA_PROGRAM_STUDI : values.jabatan}
+            disabled={isKaprodi}
             onChange={(event) => setValues((prev) => ({ ...prev, jabatan: event.target.value }))}
             placeholder='Misal: "Koordinator PKL"'
           />
+          {isKaprodi && <p className="text-xs text-muted-foreground">Jabatan Ketua Program Studi nggak bisa diubah di sini.</p>}
         </div>
       </div>
 
       <DialogFooter className="justify-between sm:justify-between">
-        {dialog.mode === "edit" && editing && !editing.isRoot ? (
+        {dialog.mode === "edit" && editing && !editing.isKaprodi ? (
           <Button type="button" variant="destructive" onClick={handleDelete}>
             Hapus posisi
           </Button>
@@ -156,7 +167,7 @@ function PosisiForm({
 
         <Button
           type="button"
-          disabled={isSaving || !values.jabatan.trim() || (values.sumber === "dosen" && !values.dosenId)}
+          disabled={isSaving || (!isKaprodi && !values.jabatan.trim()) || (values.sumber === "dosen" && !values.dosenId)}
           onClick={handleSubmit}
         >
           {isSaving ? "Menyimpan..." : "Simpan"}
@@ -186,10 +197,12 @@ export function PosisiDialog({
   const editing = dialog.mode === "edit" ? posisi.find((item) => item.id === dialog.posisiId) : undefined
   const isOpen = dialog.mode !== "closed"
 
-  // Key berubah tiap kali target dialog beda -> React remount PosisiForm,
-  // state form kebentuk ulang dari awal. Ga ada effect yang nyetel state.
   const formKey =
-    dialog.mode === "edit" ? `edit-${dialog.posisiId}` : dialog.mode === "create" ? `create-${dialog.referenceId}-${dialog.arah}` : "closed"
+    dialog.mode === "edit"
+      ? `edit-${dialog.posisiId}`
+      : dialog.mode === "create"
+        ? `create-${dialog.referenceId}-${dialog.arah}`
+        : "closed"
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>

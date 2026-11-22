@@ -462,6 +462,7 @@ model tbl_jalur_pendaftaran {
 
 model tbl_struktur_posisi {
   id_posisi BigInt @id @default(autoincrement())
+  is_kaprodi Boolean @default(false)
 
   // Self-relation: satu baris bisa punya banyak anak, tapi cuma 1 atasan.
   // onDelete Cascade di sini artinya hapus 1 node otomatis ikut hapus

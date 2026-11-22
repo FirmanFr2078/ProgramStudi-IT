@@ -2405,6 +2405,7 @@ export type Tbl_jalur_pendaftaranScalarFieldEnum = (typeof Tbl_jalur_pendaftaran
 
 export const Tbl_struktur_posisiScalarFieldEnum = {
   id_posisi: 'id_posisi',
+  is_kaprodi: 'is_kaprodi',
   parent_id: 'parent_id',
   jabatan: 'jabatan',
   nama: 'nama',
