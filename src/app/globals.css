@@ -183,6 +183,34 @@
   initial-value: 0deg;
 }
 
+@keyframes spin-ang {
+  to {
+    --ang: 360deg;
+  }
+}
+
+/* Border lime yang berputar, untuk tombol utama dashboard: <Button className="glow"> */
+.glow {
+  border: 1px solid transparent;
+  color: var(--glow-text);
+  background:
+    linear-gradient(var(--glow-fill), var(--glow-fill)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 58%, var(--c-lime) 82%, transparent 100%) border-box;
+  animation: spin-ang 3.5s linear infinite;
+}
+
+.glow:hover {
+  background:
+    linear-gradient(var(--glow-fill-hover), var(--glow-fill-hover)) padding-box,
+    conic-gradient(from var(--ang), transparent 0 58%, var(--c-lime) 82%, transparent 100%) border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+}
+
 @keyframes glitch-a {
   0%, 86%, 94%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
   87% { opacity: 1; transform: translate(-5px, 0); clip-path: inset(8% 0 62% 0); }
