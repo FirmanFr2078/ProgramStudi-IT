@@ -52,7 +52,7 @@ export function Header() {
                 </button>
                 {openMenu === item.label && (
                   <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
-                    <ul className="min-w-56 rounded-md border border-border bg-popover p-1 shadow-md">
+                    <ul className="min-w-56 rounded-lg border border-border bg-popover p-1 shadow-md">
                       {item.children.map((child) => (
                         <li key={child.href}>
                           <Link href={child.href} onClick={() => setOpenMenu(null)} className="block min-h-11 rounded-md px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{child.label}</Link>
@@ -63,7 +63,7 @@ export function Header() {
                 )}
               </div>
             ) : item.href ? (
-              <Link key={item.label} href={item.href} className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{item.label}</Link>
+              <Link key={item.label} href={item.href} className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">{item.label}</Link>
             ) : null
           )}
         </nav>
