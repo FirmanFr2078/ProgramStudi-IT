@@ -272,6 +272,9 @@ export type tbl_profilesWhereInput = {
   last_login_at?: Prisma.DateTimeNullableFilter<"tbl_profiles"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_profiles"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_profiles"> | Date | string
+  activity_logs?: Prisma.Tbl_activity_logListRelationFilter
+  kabar_created?: Prisma.Tbl_kabarListRelationFilter
+  kabar_updated?: Prisma.Tbl_kabarListRelationFilter
 }
 
 export type tbl_profilesOrderByWithRelationInput = {
@@ -287,6 +290,9 @@ export type tbl_profilesOrderByWithRelationInput = {
   last_login_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  activity_logs?: Prisma.tbl_activity_logOrderByRelationAggregateInput
+  kabar_created?: Prisma.tbl_kabarOrderByRelationAggregateInput
+  kabar_updated?: Prisma.tbl_kabarOrderByRelationAggregateInput
 }
 
 export type tbl_profilesWhereUniqueInput = Prisma.AtLeast<{
@@ -305,6 +311,9 @@ export type tbl_profilesWhereUniqueInput = Prisma.AtLeast<{
   last_login_at?: Prisma.DateTimeNullableFilter<"tbl_profiles"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_profiles"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_profiles"> | Date | string
+  activity_logs?: Prisma.Tbl_activity_logListRelationFilter
+  kabar_created?: Prisma.Tbl_kabarListRelationFilter
+  kabar_updated?: Prisma.Tbl_kabarListRelationFilter
 }, "id_profile" | "username" | "email">
 
 export type tbl_profilesOrderByWithAggregationInput = {
@@ -358,6 +367,9 @@ export type tbl_profilesCreateInput = {
   last_login_at?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateInput = {
@@ -373,6 +385,9 @@ export type tbl_profilesUncheckedCreateInput = {
   last_login_at?: Date | string | null
   created_at?: Date | string
   updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUpdateInput = {
@@ -388,6 +403,9 @@ export type tbl_profilesUpdateInput = {
   last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateInput = {
@@ -403,6 +421,9 @@ export type tbl_profilesUncheckedUpdateInput = {
   last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateManyInput = {
@@ -503,6 +524,11 @@ export type tbl_profilesSumOrderByAggregateInput = {
   session_version?: Prisma.SortOrder
 }
 
+export type Tbl_profilesNullableScalarRelationFilter = {
+  is?: Prisma.tbl_profilesWhereInput | null
+  isNot?: Prisma.tbl_profilesWhereInput | null
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -535,6 +561,353 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type tbl_profilesCreateNestedOneWithoutActivity_logsInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedCreateWithoutActivity_logsInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutActivity_logsInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesUpdateOneWithoutActivity_logsNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedCreateWithoutActivity_logsInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutActivity_logsInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutActivity_logsInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutActivity_logsInput, Prisma.tbl_profilesUpdateWithoutActivity_logsInput>, Prisma.tbl_profilesUncheckedUpdateWithoutActivity_logsInput>
+}
+
+export type tbl_profilesCreateNestedOneWithoutKabar_createdInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_createdInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKabar_createdInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesCreateNestedOneWithoutKabar_updatedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_updatedInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKabar_updatedInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesUpdateOneWithoutKabar_createdNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_createdInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKabar_createdInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutKabar_createdInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutKabar_createdInput, Prisma.tbl_profilesUpdateWithoutKabar_createdInput>, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_createdInput>
+}
+
+export type tbl_profilesUpdateOneWithoutKabar_updatedNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_updatedInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKabar_updatedInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutKabar_updatedInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutKabar_updatedInput, Prisma.tbl_profilesUpdateWithoutKabar_updatedInput>, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_updatedInput>
+}
+
+export type tbl_profilesCreateWithoutActivity_logsInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutActivity_logsInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutActivity_logsInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedCreateWithoutActivity_logsInput>
+}
+
+export type tbl_profilesUpsertWithoutActivity_logsInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedUpdateWithoutActivity_logsInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedCreateWithoutActivity_logsInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutActivity_logsInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutActivity_logsInput, Prisma.tbl_profilesUncheckedUpdateWithoutActivity_logsInput>
+}
+
+export type tbl_profilesUpdateWithoutActivity_logsInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutActivity_logsInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesCreateWithoutKabar_createdInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutKabar_createdInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutKabar_createdInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_createdInput>
+}
+
+export type tbl_profilesCreateWithoutKabar_updatedInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutKabar_updatedInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutKabar_updatedInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_updatedInput>
+}
+
+export type tbl_profilesUpsertWithoutKabar_createdInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_createdInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_createdInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutKabar_createdInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKabar_createdInput, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_createdInput>
+}
+
+export type tbl_profilesUpdateWithoutKabar_createdInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutKabar_createdInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUpsertWithoutKabar_updatedInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_updatedInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutKabar_updatedInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutKabar_updatedInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKabar_updatedInput, Prisma.tbl_profilesUncheckedUpdateWithoutKabar_updatedInput>
+}
+
+export type tbl_profilesUpdateWithoutKabar_updatedInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutKabar_updatedInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+}
+
+
+/**
+ * Count Type Tbl_profilesCountOutputType
+ */
+
+export type Tbl_profilesCountOutputType = {
+  activity_logs: number
+  kabar_created: number
+  kabar_updated: number
+}
+
+export type Tbl_profilesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  activity_logs?: boolean | Tbl_profilesCountOutputTypeCountActivity_logsArgs
+  kabar_created?: boolean | Tbl_profilesCountOutputTypeCountKabar_createdArgs
+  kabar_updated?: boolean | Tbl_profilesCountOutputTypeCountKabar_updatedArgs
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Tbl_profilesCountOutputType
+   */
+  select?: Prisma.Tbl_profilesCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountActivity_logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_activity_logWhereInput
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountKabar_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kabarWhereInput
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountKabar_updatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kabarWhereInput
+}
 
 
 export type tbl_profilesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -550,6 +923,10 @@ export type tbl_profilesSelect<ExtArgs extends runtime.Types.Extensions.Internal
   last_login_at?: boolean
   created_at?: boolean
   updated_at?: boolean
+  activity_logs?: boolean | Prisma.tbl_profiles$activity_logsArgs<ExtArgs>
+  kabar_created?: boolean | Prisma.tbl_profiles$kabar_createdArgs<ExtArgs>
+  kabar_updated?: boolean | Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_profilesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_profiles"]>
 
 export type tbl_profilesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -598,10 +975,22 @@ export type tbl_profilesSelectScalar = {
 }
 
 export type tbl_profilesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_profile" | "username" | "password" | "email" | "nama" | "foto" | "role" | "is_active" | "session_version" | "last_login_at" | "created_at" | "updated_at", ExtArgs["result"]["tbl_profiles"]>
+export type tbl_profilesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  activity_logs?: boolean | Prisma.tbl_profiles$activity_logsArgs<ExtArgs>
+  kabar_created?: boolean | Prisma.tbl_profiles$kabar_createdArgs<ExtArgs>
+  kabar_updated?: boolean | Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_profilesCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type tbl_profilesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type tbl_profilesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $tbl_profilesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_profiles"
-  objects: {}
+  objects: {
+    activity_logs: Prisma.$tbl_activity_logPayload<ExtArgs>[]
+    kabar_created: Prisma.$tbl_kabarPayload<ExtArgs>[]
+    kabar_updated: Prisma.$tbl_kabarPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_profile: string
     username: string
@@ -1009,6 +1398,9 @@ readonly fields: tbl_profilesFieldRefs;
  */
 export interface Prisma__tbl_profilesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  activity_logs<T extends Prisma.tbl_profiles$activity_logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$activity_logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_activity_logPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kabar_created<T extends Prisma.tbl_profiles$kabar_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kabar_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kabarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kabar_updated<T extends Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kabarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1067,6 +1459,10 @@ export type tbl_profilesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_profiles to fetch.
    */
   where: Prisma.tbl_profilesWhereUniqueInput
@@ -1085,6 +1481,10 @@ export type tbl_profilesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Exte
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_profiles to fetch.
    */
   where: Prisma.tbl_profilesWhereUniqueInput
@@ -1102,6 +1502,10 @@ export type tbl_profilesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.I
    * Omit specific fields from the tbl_profiles
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
   /**
    * Filter, which tbl_profiles to fetch.
    */
@@ -1151,6 +1555,10 @@ export type tbl_profilesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Exten
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_profiles to fetch.
    */
   where?: Prisma.tbl_profilesWhereInput
@@ -1198,6 +1606,10 @@ export type tbl_profilesFindManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the tbl_profiles
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
   /**
    * Filter, which tbl_profiles to fetch.
    */
@@ -1247,6 +1659,10 @@ export type tbl_profilesCreateArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * The data needed to create a tbl_profiles.
    */
   data: Prisma.XOR<Prisma.tbl_profilesCreateInput, Prisma.tbl_profilesUncheckedCreateInput>
@@ -1294,6 +1710,10 @@ export type tbl_profilesUpdateArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the tbl_profiles
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
   /**
    * The data needed to update a tbl_profiles.
    */
@@ -1361,6 +1781,10 @@ export type tbl_profilesUpsertArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * The filter to search for the tbl_profiles to update in case it exists.
    */
   where: Prisma.tbl_profilesWhereUniqueInput
@@ -1387,6 +1811,10 @@ export type tbl_profilesDeleteArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  /**
    * Filter which tbl_profiles to delete.
    */
   where: Prisma.tbl_profilesWhereUniqueInput
@@ -1407,6 +1835,78 @@ export type tbl_profilesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
+ * tbl_profiles.activity_logs
+ */
+export type tbl_profiles$activity_logsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_activity_log
+   */
+  select?: Prisma.tbl_activity_logSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_activity_log
+   */
+  omit?: Prisma.tbl_activity_logOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_activity_logInclude<ExtArgs> | null
+  where?: Prisma.tbl_activity_logWhereInput
+  orderBy?: Prisma.tbl_activity_logOrderByWithRelationInput | Prisma.tbl_activity_logOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_activity_logWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_activity_logScalarFieldEnum | Prisma.Tbl_activity_logScalarFieldEnum[]
+}
+
+/**
+ * tbl_profiles.kabar_created
+ */
+export type tbl_profiles$kabar_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kabar
+   */
+  select?: Prisma.tbl_kabarSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kabar
+   */
+  omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  where?: Prisma.tbl_kabarWhereInput
+  orderBy?: Prisma.tbl_kabarOrderByWithRelationInput | Prisma.tbl_kabarOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kabarWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kabarScalarFieldEnum | Prisma.Tbl_kabarScalarFieldEnum[]
+}
+
+/**
+ * tbl_profiles.kabar_updated
+ */
+export type tbl_profiles$kabar_updatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kabar
+   */
+  select?: Prisma.tbl_kabarSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kabar
+   */
+  omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  where?: Prisma.tbl_kabarWhereInput
+  orderBy?: Prisma.tbl_kabarOrderByWithRelationInput | Prisma.tbl_kabarOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kabarWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kabarScalarFieldEnum | Prisma.Tbl_kabarScalarFieldEnum[]
+}
+
+/**
  * tbl_profiles without action
  */
 export type tbl_profilesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1418,4 +1918,8 @@ export type tbl_profilesDefaultArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the tbl_profiles
    */
   omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
 }

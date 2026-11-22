@@ -42,6 +42,8 @@ export type Tbl_kabarMinAggregateOutputType = {
   kategori: $Enums.KategoriKabar | null
   tanggal: Date | null
   gambar: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -54,6 +56,8 @@ export type Tbl_kabarMaxAggregateOutputType = {
   kategori: $Enums.KategoriKabar | null
   tanggal: Date | null
   gambar: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -67,6 +71,8 @@ export type Tbl_kabarCountAggregateOutputType = {
   kategori: number
   tanggal: number
   gambar: number
+  created_by_id: number
+  updated_by_id: number
   created_at: number
   updated_at: number
   _all: number
@@ -89,6 +95,8 @@ export type Tbl_kabarMinAggregateInputType = {
   kategori?: true
   tanggal?: true
   gambar?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -101,6 +109,8 @@ export type Tbl_kabarMaxAggregateInputType = {
   kategori?: true
   tanggal?: true
   gambar?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -114,6 +124,8 @@ export type Tbl_kabarCountAggregateInputType = {
   kategori?: true
   tanggal?: true
   gambar?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -214,6 +226,8 @@ export type Tbl_kabarGroupByOutputType = {
   kategori: $Enums.KategoriKabar
   tanggal: Date
   gambar: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date
   updated_at: Date
   _count: Tbl_kabarCountAggregateOutputType | null
@@ -250,8 +264,12 @@ export type tbl_kabarWhereInput = {
   kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }
 
 export type tbl_kabarOrderByWithRelationInput = {
@@ -263,8 +281,12 @@ export type tbl_kabarOrderByWithRelationInput = {
   kategori?: Prisma.SortOrder
   tanggal?: Prisma.SortOrder
   gambar?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  created_by?: Prisma.tbl_profilesOrderByWithRelationInput
+  updated_by?: Prisma.tbl_profilesOrderByWithRelationInput
 }
 
 export type tbl_kabarWhereUniqueInput = Prisma.AtLeast<{
@@ -279,8 +301,12 @@ export type tbl_kabarWhereUniqueInput = Prisma.AtLeast<{
   kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }, "id_kabar" | "slug">
 
 export type tbl_kabarOrderByWithAggregationInput = {
@@ -292,6 +318,8 @@ export type tbl_kabarOrderByWithAggregationInput = {
   kategori?: Prisma.SortOrder
   tanggal?: Prisma.SortOrder
   gambar?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.tbl_kabarCountOrderByAggregateInput
@@ -313,6 +341,8 @@ export type tbl_kabarScalarWhereWithAggregatesInput = {
   kategori?: Prisma.EnumKategoriKabarWithAggregatesFilter<"tbl_kabar"> | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeWithAggregatesFilter<"tbl_kabar"> | Date | string
   gambar?: Prisma.StringNullableWithAggregatesFilter<"tbl_kabar"> | string | null
+  created_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_kabar"> | string | null
+  updated_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_kabar"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_kabar"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_kabar"> | Date | string
 }
@@ -328,6 +358,8 @@ export type tbl_kabarCreateInput = {
   gambar?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutKabar_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutKabar_updatedInput
 }
 
 export type tbl_kabarUncheckedCreateInput = {
@@ -339,6 +371,8 @@ export type tbl_kabarUncheckedCreateInput = {
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -354,6 +388,8 @@ export type tbl_kabarUpdateInput = {
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutKabar_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutKabar_updatedNestedInput
 }
 
 export type tbl_kabarUncheckedUpdateInput = {
@@ -365,6 +401,8 @@ export type tbl_kabarUncheckedUpdateInput = {
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -378,6 +416,8 @@ export type tbl_kabarCreateManyInput = {
   kategori: $Enums.KategoriKabar
   tanggal: Date | string
   gambar?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -404,8 +444,20 @@ export type tbl_kabarUncheckedUpdateManyInput = {
   kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
   tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type Tbl_kabarListRelationFilter = {
+  every?: Prisma.tbl_kabarWhereInput
+  some?: Prisma.tbl_kabarWhereInput
+  none?: Prisma.tbl_kabarWhereInput
+}
+
+export type tbl_kabarOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type StringNullableListFilter<$PrismaModel = never> = {
@@ -425,6 +477,8 @@ export type tbl_kabarCountOrderByAggregateInput = {
   kategori?: Prisma.SortOrder
   tanggal?: Prisma.SortOrder
   gambar?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -441,6 +495,8 @@ export type tbl_kabarMaxOrderByAggregateInput = {
   kategori?: Prisma.SortOrder
   tanggal?: Prisma.SortOrder
   gambar?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -453,6 +509,8 @@ export type tbl_kabarMinOrderByAggregateInput = {
   kategori?: Prisma.SortOrder
   tanggal?: Prisma.SortOrder
   gambar?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -461,16 +519,92 @@ export type tbl_kabarSumOrderByAggregateInput = {
   id_kabar?: Prisma.SortOrder
 }
 
-export type tbl_kabarCreatekontenInput = {
-  set: string[]
+export type tbl_kabarCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_kabarCreateWithoutCreated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
 }
 
-export type BigIntFieldUpdateOperationsInput = {
-  set?: bigint | number
-  increment?: bigint | number
-  decrement?: bigint | number
-  multiply?: bigint | number
-  divide?: bigint | number
+export type tbl_kabarCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_kabarCreateWithoutUpdated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+}
+
+export type tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_kabarCreateWithoutCreated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+}
+
+export type tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_kabarCreateWithoutUpdated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+}
+
+export type tbl_kabarUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_kabarCreateWithoutCreated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_kabarUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_kabarUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  disconnect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  delete?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  update?: Prisma.tbl_kabarUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_kabarUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_kabarUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_kabarUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+}
+
+export type tbl_kabarUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_kabarCreateWithoutUpdated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_kabarUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_kabarUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  disconnect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  delete?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  update?: Prisma.tbl_kabarUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_kabarUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_kabarUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_kabarUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+}
+
+export type tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_kabarCreateWithoutCreated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_kabarUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_kabarUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  disconnect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  delete?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  update?: Prisma.tbl_kabarUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_kabarUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_kabarUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_kabarUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+}
+
+export type tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_kabarCreateWithoutUpdated_byInput[] | Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_kabarCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_kabarUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_kabarUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_kabarCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  disconnect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  delete?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  connect?: Prisma.tbl_kabarWhereUniqueInput | Prisma.tbl_kabarWhereUniqueInput[]
+  update?: Prisma.tbl_kabarUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_kabarUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_kabarUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_kabarUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+}
+
+export type tbl_kabarCreatekontenInput = {
+  set: string[]
 }
 
 export type tbl_kabarUpdatekontenInput = {
@@ -480,6 +614,244 @@ export type tbl_kabarUpdatekontenInput = {
 
 export type EnumKategoriKabarFieldUpdateOperationsInput = {
   set?: $Enums.KategoriKabar
+}
+
+export type tbl_kabarCreateWithoutCreated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutKabar_updatedInput
+}
+
+export type tbl_kabarUncheckedCreateWithoutCreated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_kabarCreateOrConnectWithoutCreated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_kabarCreateManyCreated_byInputEnvelope = {
+  data: Prisma.tbl_kabarCreateManyCreated_byInput | Prisma.tbl_kabarCreateManyCreated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_kabarCreateWithoutUpdated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutKabar_createdInput
+}
+
+export type tbl_kabarUncheckedCreateWithoutUpdated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_kabarCreateOrConnectWithoutUpdated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_kabarCreateManyUpdated_byInputEnvelope = {
+  data: Prisma.tbl_kabarCreateManyUpdated_byInput | Prisma.tbl_kabarCreateManyUpdated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_kabarUpsertWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_kabarUpdateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedUpdateWithoutCreated_byInput>
+  create: Prisma.XOR<Prisma.tbl_kabarCreateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_kabarUpdateWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_kabarUpdateWithoutCreated_byInput, Prisma.tbl_kabarUncheckedUpdateWithoutCreated_byInput>
+}
+
+export type tbl_kabarUpdateManyWithWhereWithoutCreated_byInput = {
+  where: Prisma.tbl_kabarScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_kabarUpdateManyMutationInput, Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byInput>
+}
+
+export type tbl_kabarScalarWhereInput = {
+  AND?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+  OR?: Prisma.tbl_kabarScalarWhereInput[]
+  NOT?: Prisma.tbl_kabarScalarWhereInput | Prisma.tbl_kabarScalarWhereInput[]
+  id_kabar?: Prisma.BigIntFilter<"tbl_kabar"> | bigint | number
+  slug?: Prisma.StringFilter<"tbl_kabar"> | string
+  judul?: Prisma.StringFilter<"tbl_kabar"> | string
+  ringkasan?: Prisma.StringFilter<"tbl_kabar"> | string
+  konten?: Prisma.StringNullableListFilter<"tbl_kabar">
+  kategori?: Prisma.EnumKategoriKabarFilter<"tbl_kabar"> | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
+  gambar?: Prisma.StringNullableFilter<"tbl_kabar"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_kabar"> | string | null
+  created_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"tbl_kabar"> | Date | string
+}
+
+export type tbl_kabarUpsertWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_kabarUpdateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedUpdateWithoutUpdated_byInput>
+  create: Prisma.XOR<Prisma.tbl_kabarCreateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_kabarUpdateWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_kabarWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_kabarUpdateWithoutUpdated_byInput, Prisma.tbl_kabarUncheckedUpdateWithoutUpdated_byInput>
+}
+
+export type tbl_kabarUpdateManyWithWhereWithoutUpdated_byInput = {
+  where: Prisma.tbl_kabarScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_kabarUpdateManyMutationInput, Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byInput>
+}
+
+export type tbl_kabarCreateManyCreated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_kabarCreateManyUpdated_byInput = {
+  id_kabar?: bigint | number
+  slug: string
+  judul: string
+  ringkasan: string
+  konten?: Prisma.tbl_kabarCreatekontenInput | string[]
+  kategori: $Enums.KategoriKabar
+  tanggal: Date | string
+  gambar?: string | null
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_kabarUpdateWithoutCreated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutKabar_updatedNestedInput
+}
+
+export type tbl_kabarUncheckedUpdateWithoutCreated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_kabarUncheckedUpdateManyWithoutCreated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_kabarUpdateWithoutUpdated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutKabar_createdNestedInput
+}
+
+export type tbl_kabarUncheckedUpdateWithoutUpdated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_kabarUncheckedUpdateManyWithoutUpdated_byInput = {
+  id_kabar?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  konten?: Prisma.tbl_kabarUpdatekontenInput | string[]
+  kategori?: Prisma.EnumKategoriKabarFieldUpdateOperationsInput | $Enums.KategoriKabar
+  tanggal?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gambar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -493,8 +865,12 @@ export type tbl_kabarSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   kategori?: boolean
   tanggal?: boolean
   gambar?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_kabar"]>
 
 export type tbl_kabarSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -506,8 +882,12 @@ export type tbl_kabarSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   kategori?: boolean
   tanggal?: boolean
   gambar?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_kabar"]>
 
 export type tbl_kabarSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -519,8 +899,12 @@ export type tbl_kabarSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   kategori?: boolean
   tanggal?: boolean
   gambar?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_kabar"]>
 
 export type tbl_kabarSelectScalar = {
@@ -532,15 +916,32 @@ export type tbl_kabarSelectScalar = {
   kategori?: boolean
   tanggal?: boolean
   gambar?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type tbl_kabarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_kabar" | "slug" | "judul" | "ringkasan" | "konten" | "kategori" | "tanggal" | "gambar" | "created_at" | "updated_at", ExtArgs["result"]["tbl_kabar"]>
+export type tbl_kabarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_kabar" | "slug" | "judul" | "ringkasan" | "konten" | "kategori" | "tanggal" | "gambar" | "created_by_id" | "updated_by_id" | "created_at" | "updated_at", ExtArgs["result"]["tbl_kabar"]>
+export type tbl_kabarInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
+}
+export type tbl_kabarIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
+}
+export type tbl_kabarIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  created_by?: boolean | Prisma.tbl_kabar$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_kabar$updated_byArgs<ExtArgs>
+}
 
 export type $tbl_kabarPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_kabar"
-  objects: {}
+  objects: {
+    created_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+    updated_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_kabar: bigint
     slug: string
@@ -550,6 +951,8 @@ export type $tbl_kabarPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     kategori: $Enums.KategoriKabar
     tanggal: Date
     gambar: string | null
+    created_by_id: string | null
+    updated_by_id: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["tbl_kabar"]>
@@ -946,6 +1349,8 @@ readonly fields: tbl_kabarFieldRefs;
  */
 export interface Prisma__tbl_kabarClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  created_by<T extends Prisma.tbl_kabar$created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kabar$created_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  updated_by<T extends Prisma.tbl_kabar$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kabar$updated_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -983,6 +1388,8 @@ export interface tbl_kabarFieldRefs {
   readonly kategori: Prisma.FieldRef<"tbl_kabar", 'KategoriKabar'>
   readonly tanggal: Prisma.FieldRef<"tbl_kabar", 'DateTime'>
   readonly gambar: Prisma.FieldRef<"tbl_kabar", 'String'>
+  readonly created_by_id: Prisma.FieldRef<"tbl_kabar", 'String'>
+  readonly updated_by_id: Prisma.FieldRef<"tbl_kabar", 'String'>
   readonly created_at: Prisma.FieldRef<"tbl_kabar", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"tbl_kabar", 'DateTime'>
 }
@@ -1002,6 +1409,10 @@ export type tbl_kabarFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_kabar to fetch.
    */
   where: Prisma.tbl_kabarWhereUniqueInput
@@ -1020,6 +1431,10 @@ export type tbl_kabarFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensi
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_kabar to fetch.
    */
   where: Prisma.tbl_kabarWhereUniqueInput
@@ -1037,6 +1452,10 @@ export type tbl_kabarFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the tbl_kabar
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
   /**
    * Filter, which tbl_kabar to fetch.
    */
@@ -1086,6 +1505,10 @@ export type tbl_kabarFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_kabar to fetch.
    */
   where?: Prisma.tbl_kabarWhereInput
@@ -1133,6 +1556,10 @@ export type tbl_kabarFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the tbl_kabar
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
   /**
    * Filter, which tbl_kabars to fetch.
    */
@@ -1182,6 +1609,10 @@ export type tbl_kabarCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  /**
    * The data needed to create a tbl_kabar.
    */
   data: Prisma.XOR<Prisma.tbl_kabarCreateInput, Prisma.tbl_kabarUncheckedCreateInput>
@@ -1215,6 +1646,10 @@ export type tbl_kabarCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    */
   data: Prisma.tbl_kabarCreateManyInput | Prisma.tbl_kabarCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1229,6 +1664,10 @@ export type tbl_kabarUpdateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the tbl_kabar
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
   /**
    * The data needed to update a tbl_kabar.
    */
@@ -1281,6 +1720,10 @@ export type tbl_kabarUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * Limit how many tbl_kabars to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1295,6 +1738,10 @@ export type tbl_kabarUpsertArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the tbl_kabar
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
   /**
    * The filter to search for the tbl_kabar to update in case it exists.
    */
@@ -1322,6 +1769,10 @@ export type tbl_kabarDeleteArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
+  /**
    * Filter which tbl_kabar to delete.
    */
   where: Prisma.tbl_kabarWhereUniqueInput
@@ -1342,6 +1793,44 @@ export type tbl_kabarDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
+ * tbl_kabar.created_by
+ */
+export type tbl_kabar$created_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
+ * tbl_kabar.updated_by
+ */
+export type tbl_kabar$updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
  * tbl_kabar without action
  */
 export type tbl_kabarDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1353,4 +1842,8 @@ export type tbl_kabarDefaultArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the tbl_kabar
    */
   omit?: Prisma.tbl_kabarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kabarInclude<ExtArgs> | null
 }

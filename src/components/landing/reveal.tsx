@@ -17,6 +17,14 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    // Cek posisi awal di layar HP agar animasi langsung jalan dan tidak macet di opacity-0
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight) {
+      setShown(true)
+      return
+    }
+
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -24,7 +32,7 @@ export function Reveal({
           obs.unobserve(el)
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0 }
+      { threshold: 0 }
     )
     obs.observe(el)
     return () => obs.disconnect()

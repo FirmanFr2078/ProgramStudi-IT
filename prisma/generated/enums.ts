@@ -16,6 +16,20 @@ export const Role = {
 export type Role = (typeof Role)[keyof typeof Role]
 
 
+export const ActivityAction = {
+  create: 'create',
+  update: 'update',
+  delete: 'delete',
+  login: 'login',
+  login_failed: 'login_failed',
+  logout: 'logout',
+  error: 'error',
+  forbidden: 'forbidden'
+} as const
+
+export type ActivityAction = (typeof ActivityAction)[keyof typeof ActivityAction]
+
+
 export const KategoriKabar = {
   Berita: 'Berita',
   Pengumuman: 'Pengumuman'

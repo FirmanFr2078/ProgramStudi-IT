@@ -9,6 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/tbl_profiles'
+export type * from './models/tbl_activity_log'
 export type * from './models/tbl_kabar'
 export type * from './models/tbl_event'
 export type * from './models/tbl_dosen'

@@ -23,6 +23,11 @@ export * from './enums';
  */
 export type tbl_profiles = Prisma.tbl_profilesModel
 /**
+ * Model tbl_activity_log
+ * 
+ */
+export type tbl_activity_log = Prisma.tbl_activity_logModel
+/**
  * Model tbl_kabar
  * 
  */

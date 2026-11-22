@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
+import { logActivity } from "@/lib/activity-log"
+import { can } from "@/lib/permissions"
 import { prisma } from "@/lib/prisma"
 import {
   AUTH_SESSION_COOKIE,
@@ -12,6 +14,7 @@ import {
   createSessionToken,
   verifySessionToken,
 } from "@/lib/session"
+import type { Permission } from "@/types"
 
 export type AuthenticatedUser = {
   id: string
@@ -24,7 +27,7 @@ export type AuthenticatedUser = {
 
 export class AuthError extends Error {
   constructor(
-    public readonly code: "INVALID_CREDENTIALS" | "ACCOUNT_DISABLED" | "UNAUTHENTICATED",
+    public readonly code: "INVALID_CREDENTIALS" | "ACCOUNT_DISABLED" | "UNAUTHENTICATED" | "FORBIDDEN",
     message: string
   ) {
     super(message)
@@ -32,8 +35,6 @@ export class AuthError extends Error {
   }
 }
 
-// password / session_version / is_active SENGAJA ga ikut ke sini —
-// batas data penting yang ga boleh nyampe ke client.
 function toAuthenticatedUser(user: {
   id_profile: string
   nama: string
@@ -45,18 +46,32 @@ function toAuthenticatedUser(user: {
 }
 
 export async function login(username: string, password: string) {
-  // Defense in depth -- client udah maksa lowercase, tapi server ga boleh
-  // percaya itu doang (bisa aja request ditembak langsung lewat Postman).
   const normalizedUsername = username.trim().toLowerCase()
 
   const user = await prisma.tbl_profiles.findUnique({ where: { username: normalizedUsername } })
   const isPasswordValid = user ? await bcrypt.compare(password, user.password) : false
 
   if (!user || !isPasswordValid) {
+    await logActivity({
+      action: "login_failed",
+      actorId: user?.id_profile ?? null,
+      actorNama: user?.nama ?? null,
+      actorUsername: user?.username ?? normalizedUsername,
+      deskripsi: user
+        ? `Login gagal untuk "${normalizedUsername}" — password salah.`
+        : `Login gagal — username "${normalizedUsername}" tidak ditemukan.`,
+    })
     throw new AuthError("INVALID_CREDENTIALS", "Username atau password salah.")
   }
 
   if (!user.is_active) {
+    await logActivity({
+      action: "login_failed",
+      actorId: user.id_profile,
+      actorNama: user.nama,
+      actorUsername: user.username,
+      deskripsi: `Login gagal untuk "${user.username}" — akun nonaktif.`,
+    })
     throw new AuthError("ACCOUNT_DISABLED", "Akun ini telah dinonaktifkan.")
   }
 
@@ -80,6 +95,14 @@ export async function login(username: string, password: string) {
     data: { last_login_at: new Date() },
   })
 
+  await logActivity({
+    action: "login",
+    actorId: user.id_profile,
+    actorNama: user.nama,
+    actorUsername: user.username,
+    deskripsi: `"${user.username}" login ke dashboard.`,
+  })
+
   return toAuthenticatedUser(user)
 }
 
@@ -88,9 +111,18 @@ export async function logout() {
   const cookieStore = await cookies()
 
   if (session) {
-    await prisma.tbl_profiles.update({
+    const updated = await prisma.tbl_profiles.update({
       where: { id_profile: session.userId },
       data: { session_version: { increment: 1 } },
+      select: { nama: true, username: true },
+    })
+
+    await logActivity({
+      action: "logout",
+      actorId: session.userId,
+      actorNama: updated.nama,
+      actorUsername: updated.username,
+      deskripsi: `"${updated.username}" logout dari dashboard.`,
     })
   }
 
@@ -116,10 +148,6 @@ async function readSession() {
   }
 }
 
-/**
- * Lapis 2 — wajib jadi baris pertama di SETIAP Server Action / Server
- * Component yang nyentuh data. Selalu query ulang ke database.
- */
 export async function requireAdmin(): Promise<AuthenticatedUser> {
   const session = await readSession()
   if (!session) throw new AuthError("UNAUTHENTICATED", "Silakan login kembali.")
@@ -133,17 +161,52 @@ export async function requireAdmin(): Promise<AuthenticatedUser> {
   return toAuthenticatedUser(user)
 }
 
-/**
- * Pembungkus requireAdmin() buat Server Component/page.
- * requireAdmin() tetap jadi sumber kebenaran (lapis 2), fungsi ini cuma
- * nangkep AuthError-nya dan redirect ke /login, biar page ga crash.
- */
 export async function requireAdminPage(): Promise<AuthenticatedUser> {
   try {
     return await requireAdmin()
   } catch (error) {
     if (error instanceof AuthError) {
       redirect("/login")
+    }
+    throw error
+  }
+}
+
+/**
+ * Lapis enforcement permission -- wajib dipakai di tiap server action/API
+ * route yang MUTASI data (create/update/delete), ganti requireAdmin() polos.
+ * Gagal karena ga punya izin -> tercatat sbg 'forbidden', beda dari
+ * 'login_failed' (soal autentikasi) dan 'error' (soal bug/crash).
+ */
+export async function requirePermission(permission: Permission): Promise<AuthenticatedUser> {
+  const user = await requireAdmin()
+
+  if (!can(user.role, permission)) {
+    await logActivity({
+      action: "forbidden",
+      actorId: user.id,
+      actorNama: user.nama,
+      actorUsername: user.username,
+      entity: permission,
+      deskripsi: `"${user.username}" mencoba akses "${permission}" tanpa izin.`,
+    })
+    throw new AuthError("FORBIDDEN", "Kamu tidak punya izin untuk aksi ini.")
+  }
+
+  return user
+}
+
+/**
+ * Versi requirePermission() buat Server Component/page.tsx. Beda dari
+ * requireAdminPage(): belum login -> /login, sudah login tapi ga berhak
+ * -> /dashboard (sesinya tetap valid, cuma ga berhak di situ).
+ */
+export async function requirePermissionPage(permission: Permission): Promise<AuthenticatedUser> {
+  try {
+    return await requirePermission(permission)
+  } catch (error) {
+    if (error instanceof AuthError) {
+      redirect(error.code === "FORBIDDEN" ? "/dashboard" : "/login")
     }
     throw error
   }

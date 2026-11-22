@@ -398,6 +398,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   tbl_profiles: 'tbl_profiles',
+  tbl_activity_log: 'tbl_activity_log',
   tbl_kabar: 'tbl_kabar',
   tbl_event: 'tbl_event',
   tbl_dosen: 'tbl_dosen',
@@ -431,7 +432,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tbl_profiles" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_mitra" | "tbl_fasilitas" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran"
+    modelProps: "tbl_profiles" | "tbl_activity_log" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_mitra" | "tbl_fasilitas" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -506,6 +507,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.tbl_profilesCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.Tbl_profilesCountAggregateOutputType> | number
+        }
+      }
+    }
+    tbl_activity_log: {
+      payload: Prisma.$tbl_activity_logPayload<ExtArgs>
+      fields: Prisma.tbl_activity_logFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_activity_logFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_activity_logFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_activity_logFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_activity_logFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_activity_logFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_activity_logCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_activity_logCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_activity_logCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_activity_logDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        update: {
+          args: Prisma.tbl_activity_logUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_activity_logDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_activity_logUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_activity_logUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_activity_logUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_activity_logPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_activity_logAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_activity_log>
+        }
+        groupBy: {
+          args: Prisma.tbl_activity_logGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_activity_logGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_activity_logCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_activity_logCountAggregateOutputType> | number
         }
       }
     }
@@ -1898,6 +1973,23 @@ export const Tbl_profilesScalarFieldEnum = {
 export type Tbl_profilesScalarFieldEnum = (typeof Tbl_profilesScalarFieldEnum)[keyof typeof Tbl_profilesScalarFieldEnum]
 
 
+export const Tbl_activity_logScalarFieldEnum = {
+  id_log: 'id_log',
+  actor_id: 'actor_id',
+  actor_nama: 'actor_nama',
+  actor_username: 'actor_username',
+  action: 'action',
+  entity: 'entity',
+  entity_id: 'entity_id',
+  deskripsi: 'deskripsi',
+  data_lama: 'data_lama',
+  data_baru: 'data_baru',
+  created_at: 'created_at'
+} as const
+
+export type Tbl_activity_logScalarFieldEnum = (typeof Tbl_activity_logScalarFieldEnum)[keyof typeof Tbl_activity_logScalarFieldEnum]
+
+
 export const Tbl_kabarScalarFieldEnum = {
   id_kabar: 'id_kabar',
   slug: 'slug',
@@ -1907,6 +1999,8 @@ export const Tbl_kabarScalarFieldEnum = {
   kategori: 'kategori',
   tanggal: 'tanggal',
   gambar: 'gambar',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2168,6 +2262,14 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
 export const JsonNullValueInput = {
   JsonNull: JsonNull
 } as const
@@ -2280,6 +2382,34 @@ export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'BigInt[]'
  */
 export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ActivityAction'
+ */
+export type EnumActivityActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActivityAction'>
+    
+
+
+/**
+ * Reference to a field of type 'ActivityAction[]'
+ */
+export type ListEnumActivityActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActivityAction[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -2480,20 +2610,6 @@ export type ListEnumModulDokumenFieldRefInput<$PrismaModel> = FieldRefInputType<
 
 
 /**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2658,6 +2774,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   tbl_profiles?: Prisma.tbl_profilesOmit
+  tbl_activity_log?: Prisma.tbl_activity_logOmit
   tbl_kabar?: Prisma.tbl_kabarOmit
   tbl_event?: Prisma.tbl_eventOmit
   tbl_dosen?: Prisma.tbl_dosenOmit

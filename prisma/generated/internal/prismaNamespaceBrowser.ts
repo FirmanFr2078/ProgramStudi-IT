@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   tbl_profiles: 'tbl_profiles',
+  tbl_activity_log: 'tbl_activity_log',
   tbl_kabar: 'tbl_kabar',
   tbl_event: 'tbl_event',
   tbl_dosen: 'tbl_dosen',
@@ -106,6 +107,23 @@ export const Tbl_profilesScalarFieldEnum = {
 export type Tbl_profilesScalarFieldEnum = (typeof Tbl_profilesScalarFieldEnum)[keyof typeof Tbl_profilesScalarFieldEnum]
 
 
+export const Tbl_activity_logScalarFieldEnum = {
+  id_log: 'id_log',
+  actor_id: 'actor_id',
+  actor_nama: 'actor_nama',
+  actor_username: 'actor_username',
+  action: 'action',
+  entity: 'entity',
+  entity_id: 'entity_id',
+  deskripsi: 'deskripsi',
+  data_lama: 'data_lama',
+  data_baru: 'data_baru',
+  created_at: 'created_at'
+} as const
+
+export type Tbl_activity_logScalarFieldEnum = (typeof Tbl_activity_logScalarFieldEnum)[keyof typeof Tbl_activity_logScalarFieldEnum]
+
+
 export const Tbl_kabarScalarFieldEnum = {
   id_kabar: 'id_kabar',
   slug: 'slug',
@@ -115,6 +133,8 @@ export const Tbl_kabarScalarFieldEnum = {
   kategori: 'kategori',
   tanggal: 'tanggal',
   gambar: 'gambar',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -374,6 +394,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const JsonNullValueInput = {

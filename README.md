@@ -19,6 +19,7 @@ web-prodi
 │  │  │  ├─ prismaNamespace.ts
 │  │  │  └─ prismaNamespaceBrowser.ts
 │  │  ├─ models
+│  │  │  ├─ tbl_activity_log.ts
 │  │  │  ├─ tbl_alumni.ts
 │  │  │  ├─ tbl_bentuk_kegiatan.ts
 │  │  │  ├─ tbl_dokumen.ts
@@ -46,6 +47,10 @@ web-prodi
 │  │  │  └─ migration.sql
 │  │  ├─ 20261108142246_rename_email_to_username
 │  │  │  └─ migration.sql
+│  │  ├─ 20261112045720_add_activity_log_and_kabar_authorship
+│  │  │  └─ migration.sql
+│  │  ├─ 20261112054837_add_activity_log
+│  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
 │  └─ seed.ts
@@ -57,6 +62,9 @@ web-prodi
 │  ├─ vercel.svg
 │  └─ window.svg
 ├─ README.md
+├─ scripts
+│  ├─ debug-login.ts
+│  └─ delete-user.ts
 ├─ src
 │  ├─ app
 │  │  ├─ (auth)
@@ -141,12 +149,16 @@ web-prodi
 │  │  ├─ globals.css
 │  │  └─ layout.tsx
 │  ├─ components
-│  │  ├─ app-sidebar.tsx
 │  │  ├─ auth
 │  │  │  └─ login-form.tsx
 │  │  ├─ dashboard
+│  │  │  ├─ app-sidebar.tsx
 │  │  │  ├─ confirm-dialog.tsx
+│  │  │  ├─ dashboard-card.tsx
 │  │  │  ├─ data-table.tsx
+│  │  │  ├─ managed-list.tsx
+│  │  │  ├─ nav-main.tsx
+│  │  │  ├─ nav-user.tsx
 │  │  │  ├─ page-toolbar.tsx
 │  │  │  └─ stat-card.tsx
 │  │  ├─ landing
@@ -223,9 +235,7 @@ web-prodi
 │  │  │     └─ tendik
 │  │  │        ├─ tendik-card.tsx
 │  │  │        └─ tendik-detail.tsx
-│  │  ├─ nav-main.tsx
 │  │  ├─ nav-projects.tsx
-│  │  ├─ nav-user.tsx
 │  │  ├─ team-switcher.tsx
 │  │  └─ ui
 │  │     ├─ alert-dialog.tsx
@@ -283,6 +293,7 @@ web-prodi
 │  │  ├─ use-pagination.ts
 │  │  └─ use-table-filter.ts
 │  ├─ lib
+│  │  ├─ activity-log.ts
 │  │  ├─ auth.ts
 │  │  ├─ initials.ts
 │  │  ├─ permissions.ts
