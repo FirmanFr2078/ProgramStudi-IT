@@ -166,3 +166,12 @@ export const ModulDokumen = {
 } as const
 
 export type ModulDokumen = (typeof ModulDokumen)[keyof typeof ModulDokumen]
+
+
+export const JalurSambung = {
+  lurus: 'lurus',
+  kiri: 'kiri',
+  kanan: 'kanan'
+} as const
+
+export type JalurSambung = (typeof JalurSambung)[keyof typeof JalurSambung]

@@ -65,6 +65,14 @@ web-prodi
 │  │  │  └─ migration.sql
 │  │  ├─ 20261116024614_add_struktur_organisasi
 │  │  │  └─ migration.sql
+│  │  ├─ 20261119083039_struktur_tandai_kaprodi
+│  │  │  └─ migration.sql
+│  │  ├─ 20261122080911_struktur_jalur_dan_hapus_fleksibel
+│  │  │  └─ migration.sql
+│  │  ├─ 20261122141013_struktur_layout_otomatis
+│  │  │  └─ migration.sql
+│  │  ├─ 20261123000000_struktur_level
+│  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
 │  └─ seed.ts
@@ -108,16 +116,7 @@ web-prodi
 │  │  │     │     └─ [id]
 │  │  │     │        └─ route.ts
 │  │  │     └─ struktur
-│  │  │        ├─ posisi
-│  │  │        │  ├─ route.ts
-│  │  │        │  └─ [id]
-│  │  │        │     ├─ posisi
-│  │  │        │     │  └─ route.ts
-│  │  │        │     └─ route.ts
-│  │  │        └─ tupoksi
-│  │  │           ├─ route.ts
-│  │  │           └─ [id]
-│  │  │              └─ route.ts
+│  │  │        └─ route.ts
 │  │  ├─ dashboard
 │  │  │  ├─ kabar
 │  │  │  │  ├─ page.tsx
@@ -173,6 +172,7 @@ web-prodi
 │  │  │     ├─ posisi-dialog.tsx
 │  │  │     ├─ posisi-node.tsx
 │  │  │     ├─ struktur-board.tsx
+│  │  │     ├─ struktur-canvas.tsx
 │  │  │     ├─ tupoksi-card.tsx
 │  │  │     └─ tupoksi-section.tsx
 │  │  ├─ landing
@@ -260,6 +260,7 @@ web-prodi
 │  │  ├─ session.ts
 │  │  ├─ slug.ts
 │  │  ├─ storage.ts
+│  │  ├─ struktur-tree.ts
 │  │  └─ utils.ts
 │  ├─ proxy.ts
 │  └─ types
@@ -286,6 +287,7 @@ web-prodi
 │     ├─ stats.ts
 │     ├─ struktur.ts
 │     └─ tendik.ts
-└─ tsconfig.json
+├─ tsconfig.json
+└─ web prodi.zip
 
 ```

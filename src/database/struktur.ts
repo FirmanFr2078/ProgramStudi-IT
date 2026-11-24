@@ -2,27 +2,16 @@ import "server-only"
 
 import type { Prisma } from "@generated/client"
 
+import { KETUA_PROGRAM_STUDI } from "@/config/structural-roles"
 import { logEntityMutation, type Actor } from "@/lib/authorship"
 import { parseBigIntId } from "@/lib/ids"
 import { prisma } from "@/lib/prisma"
 import { getPublicUrl } from "@/lib/storage"
-import type {
-  StrukturPosisiAdmin,
-  StrukturPosisiCreateInput,
-  StrukturPosisiPositionInput,
-  StrukturPosisiUpdateInput,
-  StrukturTupoksiAdmin,
-  StrukturTupoksiInput,
-  StrukturTupoksiUpdateInput,
-} from "@/types"
-import { STRUKTUR_TUPOKSI_MAX_ITEMS } from "@/types"
+import { normalizeStruktur, validateStruktur } from "@/lib/struktur-tree"
+import type { KaprodiInvalid, StrukturPosisiAdmin, StrukturSaveInput } from "@/types"
 
 const ENTITY = "tbl_struktur_posisi"
-const TUPOKSI_ENTITY = "tbl_struktur_tupoksi"
-const KAPRODI_JABATAN_DEFAULT = "Ketua Program Studi"
-
-const GAP_X = 260
-const GAP_Y = 180
+const REAL_ID = /^\d+$/
 
 export class StrukturError extends Error {
   constructor(message: string) {
@@ -38,42 +27,64 @@ const POSISI_ADMIN_INCLUDE = {
 
 type PosisiRow = Prisma.tbl_struktur_posisiGetPayload<{ include: typeof POSISI_ADMIN_INCLUDE }>
 
+type DosenCard = { id_dosen: bigint; nama: string; nidn: string; foto: string | null }
+
 function resolveFoto(value: string | null): string | null {
   if (!value) return null
   if (/^https?:\/\//i.test(value)) return value
   return getPublicUrl("images", value) ?? value
 }
 
-function toStrukturPosisiAdmin(row: PosisiRow): StrukturPosisiAdmin {
+/**
+ * Kartu Kaprodi TIDAK menyimpan dosen sendiri: datanya selalu diambil langsung
+ * dari modul Dosen (jabatan_struktural = "Ketua Program Studi"). Kalau tidak
+ * ada atau lebih dari satu dosen yang ditandai, kartu menampilkan status
+ * "invalid" supaya admin memperbaikinya di menu Dosen.
+ */
+function toStrukturPosisiAdmin(row: PosisiRow, kaprodiDosen: DosenCard[]): StrukturPosisiAdmin {
+  const isKaprodi = row.is_kaprodi
+  const kaprodiInvalid: KaprodiInvalid = !isKaprodi
+    ? null
+    : kaprodiDosen.length === 0
+      ? "kosong"
+      : kaprodiDosen.length > 1
+        ? "ganda"
+        : null
+
+  const dosen: DosenCard | null = isKaprodi ? (kaprodiDosen.length === 1 ? kaprodiDosen[0] : null) : row.dosen
+
   return {
     id: String(row.id_posisi),
     parentId: row.parent_id !== null ? String(row.parent_id) : null,
-    jabatan: row.jabatan,
-    nama: row.dosen ? null : row.nama,
-    dosenId: row.dosen_id !== null ? String(row.dosen_id) : null,
-    dosenNama: row.dosen?.nama ?? null,
-    dosenNidn: row.dosen?.nidn ?? null,
-    dosenFoto: row.dosen ? resolveFoto(row.dosen.foto) : null,
+    jabatan: isKaprodi ? KETUA_PROGRAM_STUDI : row.jabatan,
+    nama: dosen || isKaprodi ? null : row.nama,
+    dosenId: dosen ? String(dosen.id_dosen) : null,
+    dosenNama: dosen?.nama ?? null,
+    dosenNidn: dosen?.nidn ?? null,
+    dosenFoto: dosen ? resolveFoto(dosen.foto) : null,
+    level: row.level,
+    jalur: row.jalur_sambung,
     urutan: row.urutan,
-    posX: row.pos_x,
-    posY: row.pos_y,
-    isKaprodi: row.is_kaprodi,
-    tupoksi: row.tupoksi.map((item) => ({ id: String(item.id_tupoksi), isi: item.isi, urutan: item.urutan })),
+    jarakKosong: row.jarak_kosong,
+    isKaprodi,
+    kaprodiInvalid,
+    tupoksi: row.tupoksi.map((item) => ({
+      id: String(item.id_tupoksi),
+      isi: item.isi,
+      urutan: item.urutan,
+    })),
   }
 }
 
 /**
- * Kartu Kaprodi itu satu-satunya node yang dilindungi (nggak bisa dihapus,
- * jabatan terkunci) -- ditandai lewat is_kaprodi, BUKAN lagi "siapa pun yang
- * parent_id-nya null". Soalnya begitu ada kartu ditambah "atas" dia (mis.
- * Dekan), si Dekan itu yang jadi paling atas secara posisi, tapi Kaprodi
- * tetap yang dilindungi.
+ * Kartu Kaprodi dilindungi lewat flag is_kaprodi (bukan "siapa pun yang paling
+ * atas"), karena Kaprodi boleh punya atasan (Dekan, Rektor, dst.).
  */
 async function ensureKaprodi() {
   const flagged = await prisma.tbl_struktur_posisi.findFirst({ where: { is_kaprodi: true } })
   if (flagged) return flagged
 
-  // Migrasi data lama (sebelum ada flag ini): root lama ditentukan dari parent_id null.
+  // Data lama (sebelum ada flag): posisi tanpa atasan dianggap Kaprodi.
   const legacyRoot = await prisma.tbl_struktur_posisi.findFirst({ where: { parent_id: null } })
   if (legacyRoot) {
     return prisma.tbl_struktur_posisi.update({
@@ -83,42 +94,8 @@ async function ensureKaprodi() {
   }
 
   return prisma.tbl_struktur_posisi.create({
-    data: { jabatan: KAPRODI_JABATAN_DEFAULT, is_kaprodi: true, urutan: 0, pos_x: 0, pos_y: 0 },
+    data: { jabatan: KETUA_PROGRAM_STUDI, is_kaprodi: true, jalur_sambung: "lurus", level: 1, urutan: 0, jarak_kosong: 0 },
   })
-}
-
-async function collectDescendantIds(rootId: bigint): Promise<bigint[]> {
-  const ids: bigint[] = []
-  let frontier = [rootId]
-
-  while (frontier.length > 0) {
-    const children = await prisma.tbl_struktur_posisi.findMany({
-      where: { parent_id: { in: frontier } },
-      select: { id_posisi: true },
-    })
-    const childIds = children.map((child) => child.id_posisi)
-    ids.push(...childIds)
-    frontier = childIds
-  }
-
-  return ids
-}
-
-async function shiftSiblingsFrom(parentId: bigint, fromUrutan: number, excludeId?: bigint) {
-  const siblings = await prisma.tbl_struktur_posisi.findMany({
-    where: {
-      parent_id: parentId,
-      urutan: { gte: fromUrutan },
-      ...(excludeId !== undefined ? { NOT: { id_posisi: excludeId } } : {}),
-    },
-  })
-
-  for (const sibling of siblings) {
-    await prisma.tbl_struktur_posisi.update({
-      where: { id_posisi: sibling.id_posisi },
-      data: { urutan: sibling.urutan + 1, pos_x: sibling.pos_x + GAP_X },
-    })
-  }
 }
 
 // ============================================================
@@ -128,252 +105,169 @@ async function shiftSiblingsFrom(parentId: bigint, fromUrutan: number, excludeId
 export async function getStrukturTreeAdmin(): Promise<StrukturPosisiAdmin[]> {
   await ensureKaprodi()
 
-  const rows = await prisma.tbl_struktur_posisi.findMany({
-    include: POSISI_ADMIN_INCLUDE,
-    orderBy: [{ parent_id: "asc" }, { urutan: "asc" }],
-  })
-
-  return rows.map(toStrukturPosisiAdmin)
-}
-
-// ============================================================
-// MUTASI -- POSISI
-// ============================================================
-
-export async function createPosisi(
-  input: StrukturPosisiCreateInput,
-  actor: Actor,
-): Promise<StrukturPosisiAdmin> {
-  const referenceId = parseBigIntId(input.referenceId)
-  const reference = await prisma.tbl_struktur_posisi.findUnique({ where: { id_posisi: referenceId } })
-  if (!reference) throw new StrukturError("Node acuan tidak ditemukan.")
-
-  const dosenId = input.dosenId ? parseBigIntId(input.dosenId) : null
-  const dosenRelation = dosenId ? { connect: { id_dosen: dosenId } } : undefined
-
-  if (input.arah === "atas") {
-    // Sengaja TIDAK ada guard "reference.parent_id === null" di sini -- kartu
-    // Kaprodi boleh ditambah atasan walau dia lagi jadi node paling atas.
-    const newRow = await prisma.tbl_struktur_posisi.create({
-      data: {
-        jabatan: input.jabatan,
-        nama: dosenId ? null : input.nama,
-        dosen: dosenRelation,
-        parent: reference.parent_id !== null ? { connect: { id_posisi: reference.parent_id } } : undefined,
-        urutan: reference.urutan,
-        pos_x: reference.pos_x,
-        pos_y: reference.pos_y,
-      },
+  const [rows, kaprodiDosen] = await Promise.all([
+    prisma.tbl_struktur_posisi.findMany({
       include: POSISI_ADMIN_INCLUDE,
-    })
+      orderBy: { id_posisi: "asc" },
+    }),
+    prisma.tbl_dosen.findMany({
+      where: { jabatan_struktural: KETUA_PROGRAM_STUDI },
+      select: { id_dosen: true, nama: true, nidn: true, foto: true },
+      orderBy: { id_dosen: "asc" },
+      take: 2, // cukup untuk membedakan 0 / 1 / lebih dari 1
+    }),
+  ])
 
-    const descendantIds = await collectDescendantIds(reference.id_posisi)
-    await prisma.tbl_struktur_posisi.update({
-      where: { id_posisi: reference.id_posisi },
-      data: { parent_id: newRow.id_posisi, pos_y: reference.pos_y + GAP_Y },
-    })
-    if (descendantIds.length > 0) {
-      await prisma.tbl_struktur_posisi.updateMany({
-        where: { id_posisi: { in: descendantIds } },
-        data: { pos_y: { increment: GAP_Y } },
-      })
-    }
-
-    await logEntityMutation({
-      actor,
-      action: "create",
-      entity: ENTITY,
-      entityId: newRow.id_posisi,
-      deskripsi: `${actor.nama} menambahkan posisi "${newRow.jabatan}" di atas "${reference.jabatan}".`,
-      dataBaru: input,
-    })
-
-    return toStrukturPosisiAdmin(newRow)
-  }
-
-  let data: Prisma.tbl_struktur_posisiCreateInput
-
-  if (input.arah === "bawah") {
-    const siblingCount = await prisma.tbl_struktur_posisi.count({ where: { parent_id: reference.id_posisi } })
-    data = {
-      jabatan: input.jabatan,
-      nama: dosenId ? null : input.nama,
-      dosen: dosenRelation,
-      parent: { connect: { id_posisi: reference.id_posisi } },
-      urutan: siblingCount,
-      pos_x: reference.pos_x + siblingCount * GAP_X,
-      pos_y: reference.pos_y + GAP_Y,
-    }
-  } else {
-    // kiri / kanan -- tetap butuh parent yang sama, node yang belum punya
-    // atasan ("Dekan" paling atas, misalnya) emang belum bisa disejajarkan.
-    if (reference.parent_id === null) {
-      throw new StrukturError("Posisi ini belum punya atasan, jadi belum bisa ditambah sejajar.")
-    }
-
-    if (input.arah === "kiri") {
-      await shiftSiblingsFrom(reference.parent_id, reference.urutan, reference.id_posisi)
-      await prisma.tbl_struktur_posisi.update({
-        where: { id_posisi: reference.id_posisi },
-        data: { urutan: reference.urutan + 1, pos_x: reference.pos_x + GAP_X },
-      })
-      data = {
-        jabatan: input.jabatan,
-        nama: dosenId ? null : input.nama,
-        dosen: dosenRelation,
-        parent: { connect: { id_posisi: reference.parent_id } },
-        urutan: reference.urutan,
-        pos_x: reference.pos_x,
-        pos_y: reference.pos_y,
-      }
-    } else {
-      await shiftSiblingsFrom(reference.parent_id, reference.urutan + 1)
-      data = {
-        jabatan: input.jabatan,
-        nama: dosenId ? null : input.nama,
-        dosen: dosenRelation,
-        parent: { connect: { id_posisi: reference.parent_id } },
-        urutan: reference.urutan + 1,
-        pos_x: reference.pos_x + GAP_X,
-        pos_y: reference.pos_y,
-      }
-    }
-  }
-
-  const row = await prisma.tbl_struktur_posisi.create({ data, include: POSISI_ADMIN_INCLUDE })
-
-  await logEntityMutation({
-    actor,
-    action: "create",
-    entity: ENTITY,
-    entityId: row.id_posisi,
-    deskripsi: `${actor.nama} menambahkan posisi "${row.jabatan}".`,
-    dataBaru: input,
-  })
-
-  return toStrukturPosisiAdmin(row)
+  return normalizeStruktur(rows.map((row) => toStrukturPosisiAdmin(row, kaprodiDosen)))
 }
 
-export async function updatePosisi(
-  id: bigint,
-  input: StrukturPosisiUpdateInput,
+// ============================================================
+// SIMPAN -- seluruh struktur sekaligus, dalam satu transaksi
+// ============================================================
+
+export async function saveStrukturTree(
+  input: StrukturSaveInput,
   actor: Actor,
-): Promise<StrukturPosisiAdmin> {
-  const before = await prisma.tbl_struktur_posisi.findUniqueOrThrow({ where: { id_posisi: id } })
-  const dosenId = input.dosenId ? parseBigIntId(input.dosenId) : null
+): Promise<StrukturPosisiAdmin[]> {
+  const kaprodiRow = await ensureKaprodi()
 
-  // Jabatan kartu Kaprodi terkunci -- apa pun yang dikirim, tetap dipaksa default-nya.
-  const jabatan = before.is_kaprodi ? KAPRODI_JABATAN_DEFAULT : input.jabatan
+  // Dirapikan ulang di server supaya apa pun yang dikirim klien tetap konsisten.
+  const posisi = normalizeStruktur(input.posisi.map((item) => ({ ...item })))
 
-  const row = await prisma.tbl_struktur_posisi.update({
-    where: { id_posisi: id },
-    data: {
-      jabatan,
-      nama: dosenId ? null : input.nama,
-      dosen: dosenId ? { connect: { id_dosen: dosenId } } : { disconnect: true },
+  const problem = validateStruktur(posisi)
+  if (problem) throw new StrukturError(problem)
+
+  const kaprodiClient = posisi.find((item) => item.isKaprodi)
+  if (!kaprodiClient || kaprodiClient.id !== String(kaprodiRow.id_posisi)) {
+    throw new StrukturError("Posisi Ketua Program Studi tidak valid. Muat ulang halaman lalu coba lagi.")
+  }
+
+  const existing = await prisma.tbl_struktur_posisi.findMany({ select: { id_posisi: true } })
+  const existingIds = new Set(existing.map((row) => String(row.id_posisi)))
+
+  for (const item of posisi) {
+    if (REAL_ID.test(item.id) && !existingIds.has(item.id)) {
+      throw new StrukturError("Ada posisi yang sudah tidak ada di server. Muat ulang halaman lalu coba lagi.")
+    }
+  }
+
+  const dosenIds = [
+    ...new Set(posisi.filter((item) => !item.isKaprodi && item.dosenId).map((item) => item.dosenId as string)),
+  ]
+  if (dosenIds.length > 0) {
+    const found = await prisma.tbl_dosen.findMany({
+      where: { id_dosen: { in: dosenIds.map((value) => parseBigIntId(value)) } },
+      select: { id_dosen: true },
+    })
+    if (found.length !== dosenIds.length) {
+      throw new StrukturError("Ada dosen yang dipilih sudah tidak ada. Muat ulang halaman lalu coba lagi.")
+    }
+  }
+
+  const idMap = new Map<string, bigint>() // id dari klien -> id sebenarnya di database
+
+  await prisma.$transaction(
+    async (tx) => {
+      // 1. Buat posisi baru dulu (atasan diisi di langkah berikutnya).
+      for (const item of posisi) {
+        if (REAL_ID.test(item.id)) {
+          idMap.set(item.id, BigInt(item.id))
+          continue
+        }
+
+        const created = await tx.tbl_struktur_posisi.create({
+          data: {
+            jabatan: item.jabatan,
+            jalur_sambung: item.jalur,
+            level: item.level,
+            urutan: item.urutan,
+            jarak_kosong: item.jarakKosong,
+          },
+        })
+        idMap.set(item.id, created.id_posisi)
+      }
+
+      // 2. Isi atasan, jalur, level, dan data tiap posisi.
+      for (const item of posisi) {
+        const realId = idMap.get(item.id) as bigint
+        const dosenId = !item.isKaprodi && item.dosenId ? parseBigIntId(item.dosenId) : null
+
+        await tx.tbl_struktur_posisi.update({
+          where: { id_posisi: realId },
+          data: {
+            parent_id: item.parentId ? (idMap.get(item.parentId) as bigint) : null,
+            jabatan: item.isKaprodi ? KETUA_PROGRAM_STUDI : item.jabatan,
+            nama: item.isKaprodi || dosenId ? null : item.nama,
+            dosen_id: dosenId,
+            jalur_sambung: item.jalur,
+            level: item.level,
+            urutan: item.urutan,
+            jarak_kosong: item.jarakKosong,
+          },
+        })
+      }
+
+      // 3. Hapus posisi yang sudah tidak ada. Sebelumnya semua posisi yang
+      //    dipertahankan sudah dipindah atasannya, jadi cascade hanya kena
+      //    posisi yang memang dihapus.
+      const kept = new Set([...idMap.values()].map((value) => String(value)))
+      const removed = existing.filter((row) => !kept.has(String(row.id_posisi))).map((row) => row.id_posisi)
+      if (removed.length > 0) {
+        await tx.tbl_struktur_posisi.deleteMany({ where: { id_posisi: { in: removed } } })
+      }
+
+      // 4. Tupoksi: perbarui yang sudah ada, tambah yang baru, hapus yang hilang.
+      const existingTupoksi = await tx.tbl_struktur_tupoksi.findMany({
+        where: { posisi_id: { in: [...idMap.values()] } },
+      })
+      const tupoksiById = new Map(existingTupoksi.map((row) => [String(row.id_tupoksi), row]))
+      const referenced = new Set<string>()
+
+      for (const item of posisi) {
+        const posisiId = idMap.get(item.id) as bigint
+
+        for (let index = 0; index < item.tupoksi.length; index += 1) {
+          const entry = item.tupoksi[index]
+          const known = entry.id && REAL_ID.test(entry.id) ? tupoksiById.get(entry.id) : undefined
+
+          if (known && known.posisi_id === posisiId) {
+            referenced.add(String(known.id_tupoksi))
+            if (known.isi !== entry.isi || known.urutan !== index) {
+              await tx.tbl_struktur_tupoksi.update({
+                where: { id_tupoksi: known.id_tupoksi },
+                data: { isi: entry.isi, urutan: index },
+              })
+            }
+          } else {
+            await tx.tbl_struktur_tupoksi.create({
+              data: { posisi_id: posisiId, isi: entry.isi, urutan: index },
+            })
+          }
+        }
+      }
+
+      const stale = existingTupoksi.filter((row) => !referenced.has(String(row.id_tupoksi))).map((row) => row.id_tupoksi)
+      if (stale.length > 0) {
+        await tx.tbl_struktur_tupoksi.deleteMany({ where: { id_tupoksi: { in: stale } } })
+      }
     },
-    include: POSISI_ADMIN_INCLUDE,
-  })
+    { timeout: 30_000, maxWait: 10_000 },
+  )
 
   await logEntityMutation({
     actor,
     action: "update",
     entity: ENTITY,
-    entityId: row.id_posisi,
-    deskripsi: `${actor.nama} mengubah posisi "${row.jabatan}".`,
-    dataLama: before,
-    dataBaru: input,
+    entityId: kaprodiRow.id_posisi,
+    deskripsi: `${actor.nama} menyimpan struktur organisasi (${posisi.length} posisi).`,
+    dataBaru: posisi.map((item) => ({
+      id: item.id,
+      parentId: item.parentId,
+      jabatan: item.jabatan,
+      level: item.level,
+      jalur: item.jalur,
+    })),
   })
 
-  return toStrukturPosisiAdmin(row)
-}
-
-export async function movePosisi(id: bigint, input: StrukturPosisiPositionInput): Promise<void> {
-  await prisma.tbl_struktur_posisi.update({
-    where: { id_posisi: id },
-    data: { pos_x: input.posX, pos_y: input.posY },
-  })
-}
-
-export async function deletePosisi(id: bigint, actor: Actor): Promise<void> {
-  const before = await prisma.tbl_struktur_posisi.findUniqueOrThrow({ where: { id_posisi: id } })
-  if (before.is_kaprodi) {
-    throw new StrukturError("Posisi Ketua Program Studi tidak bisa dihapus.")
-  }
-
-  await prisma.tbl_struktur_posisi.delete({ where: { id_posisi: id } })
-
-  await logEntityMutation({
-    actor,
-    action: "delete",
-    entity: ENTITY,
-    entityId: id,
-    deskripsi: `${actor.nama} menghapus posisi "${before.jabatan}" beserta turunannya.`,
-    dataLama: before,
-  })
-}
-
-// ============================================================
-// MUTASI -- TUPOKSI
-// ============================================================
-
-export async function createTupoksi(input: StrukturTupoksiInput, actor: Actor): Promise<StrukturTupoksiAdmin> {
-  const posisiId = parseBigIntId(input.posisiId)
-  const posisi = await prisma.tbl_struktur_posisi.findUnique({ where: { id_posisi: posisiId } })
-  if (!posisi) throw new StrukturError("Posisi tidak ditemukan.")
-
-  const count = await prisma.tbl_struktur_tupoksi.count({ where: { posisi_id: posisiId } })
-  if (count >= STRUKTUR_TUPOKSI_MAX_ITEMS) {
-    throw new StrukturError(`Tupoksi untuk satu posisi maksimal ${STRUKTUR_TUPOKSI_MAX_ITEMS} poin.`)
-  }
-
-  const row = await prisma.tbl_struktur_tupoksi.create({
-    data: { posisi_id: posisiId, isi: input.isi, urutan: count },
-  })
-
-  await logEntityMutation({
-    actor,
-    action: "create",
-    entity: TUPOKSI_ENTITY,
-    entityId: row.id_tupoksi,
-    deskripsi: `${actor.nama} menambahkan poin tupoksi pada "${posisi.jabatan}".`,
-    dataBaru: input,
-  })
-
-  return { id: String(row.id_tupoksi), isi: row.isi, urutan: row.urutan }
-}
-
-export async function updateTupoksi(
-  id: bigint,
-  input: StrukturTupoksiUpdateInput,
-  actor: Actor,
-): Promise<StrukturTupoksiAdmin> {
-  const before = await prisma.tbl_struktur_tupoksi.findUniqueOrThrow({ where: { id_tupoksi: id } })
-  const row = await prisma.tbl_struktur_tupoksi.update({ where: { id_tupoksi: id }, data: { isi: input.isi } })
-
-  await logEntityMutation({
-    actor,
-    action: "update",
-    entity: TUPOKSI_ENTITY,
-    entityId: row.id_tupoksi,
-    deskripsi: `${actor.nama} mengubah poin tupoksi.`,
-    dataLama: before,
-    dataBaru: input,
-  })
-
-  return { id: String(row.id_tupoksi), isi: row.isi, urutan: row.urutan }
-}
-
-export async function deleteTupoksi(id: bigint, actor: Actor): Promise<void> {
-  const before = await prisma.tbl_struktur_tupoksi.findUniqueOrThrow({ where: { id_tupoksi: id } })
-  await prisma.tbl_struktur_tupoksi.delete({ where: { id_tupoksi: id } })
-
-  await logEntityMutation({
-    actor,
-    action: "delete",
-    entity: TUPOKSI_ENTITY,
-    entityId: id,
-    deskripsi: `${actor.nama} menghapus poin tupoksi.`,
-    dataLama: before,
-  })
+  return getStrukturTreeAdmin()
 }

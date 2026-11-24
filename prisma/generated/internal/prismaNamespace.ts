@@ -2406,13 +2406,14 @@ export type Tbl_jalur_pendaftaranScalarFieldEnum = (typeof Tbl_jalur_pendaftaran
 export const Tbl_struktur_posisiScalarFieldEnum = {
   id_posisi: 'id_posisi',
   is_kaprodi: 'is_kaprodi',
+  jalur_sambung: 'jalur_sambung',
   parent_id: 'parent_id',
   jabatan: 'jabatan',
   nama: 'nama',
   dosen_id: 'dosen_id',
+  level: 'level',
+  jarak_kosong: 'jarak_kosong',
   urutan: 'urutan',
-  pos_x: 'pos_x',
-  pos_y: 'pos_y',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2782,6 +2783,20 @@ export type EnumModulDokumenFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'ModulDokumen[]'
  */
 export type ListEnumModulDokumenFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ModulDokumen[]'>
+    
+
+
+/**
+ * Reference to a field of type 'JalurSambung'
+ */
+export type EnumJalurSambungFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JalurSambung'>
+    
+
+
+/**
+ * Reference to a field of type 'JalurSambung[]'
+ */
+export type ListEnumJalurSambungFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JalurSambung[]'>
     
 
 

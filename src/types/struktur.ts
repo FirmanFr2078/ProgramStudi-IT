@@ -1,14 +1,17 @@
 import { z } from "zod"
 
-export const STRUKTUR_ARAH = ["atas", "bawah", "kiri", "kanan"] as const
-export type StrukturArah = (typeof STRUKTUR_ARAH)[number]
+import type { Jalur } from "@/lib/struktur-tree"
+
+export const JALUR_SAMBUNG = ["lurus", "kiri", "kanan"] as const
+export type JalurSambung = Jalur
 
 export const STRUKTUR_TUPOKSI_MAX_ITEMS = 20
+export const STRUKTUR_MAX_POSISI = 200
+export const STRUKTUR_MAX_JARAK_KOSONG = 20
 
 const requiredText = (max: number, label: string) =>
   z.string().trim().min(1, `${label} wajib diisi`).max(max, `${label} maksimal ${max} karakter`)
 
-/** Teks opsional: "" / null / undefined semuanya jadi null. */
 const optionalText = (max: number, label: string) =>
   z
     .string()
@@ -27,36 +30,21 @@ const optionalIdRef = z
   .transform((value) => (value ? value : null))
 
 // ============================================================
-// POSISI
+// BACA (dashboard)
 // ============================================================
-
-export const strukturPosisiCreateSchema = z.object({
-  referenceId: z.string().trim().min(1, "Node acuan wajib diisi"),
-  arah: z.enum(STRUKTUR_ARAH, { message: "Arah tidak valid" }),
-  jabatan: requiredText(100, "Jabatan"),
-  dosenId: optionalIdRef,
-  nama: optionalText(150, "Nama"),
-})
-export type StrukturPosisiCreateInput = z.infer<typeof strukturPosisiCreateSchema>
-
-export const strukturPosisiUpdateSchema = z.object({
-  jabatan: requiredText(100, "Jabatan"),
-  dosenId: optionalIdRef,
-  nama: optionalText(150, "Nama"),
-})
-export type StrukturPosisiUpdateInput = z.infer<typeof strukturPosisiUpdateSchema>
-
-export const strukturPosisiPositionSchema = z.object({
-  posX: z.number().int(),
-  posY: z.number().int(),
-})
-export type StrukturPosisiPositionInput = z.infer<typeof strukturPosisiPositionSchema>
 
 export type StrukturTupoksiAdmin = {
   id: string
   isi: string
   urutan: number
 }
+
+/**
+ * Status data Kaprodi yang diambil dari modul Dosen (jabatan struktural
+ * "Ketua Program Studi"): null = valid (tepat satu dosen), "kosong" = belum
+ * ada dosen yang ditandai, "ganda" = lebih dari satu dosen ditandai.
+ */
+export type KaprodiInvalid = "kosong" | "ganda" | null
 
 export type StrukturPosisiAdmin = {
   id: string
@@ -67,24 +55,48 @@ export type StrukturPosisiAdmin = {
   dosenNama: string | null
   dosenNidn: string | null
   dosenFoto: string | null
+  /** Baris (level) di bawah atasannya, mulai dari 1. */
+  level: number
+  jalur: JalurSambung
+  /** Urutan kiri -> kanan di dalam grup jalur yang sama. */
   urutan: number
-  posX: number
-  posY: number
-  isKaprodi: boolean // ganti dari isRoot -- sekarang berdasarkan flag, bukan parent_id null
+  /** BARU — jumlah baris kosong (skip) sebelum baris ini. Hanya berarti di mode "tembus". */
+  jarakKosong: number
+  isKaprodi: boolean
+  /** Hanya terisi untuk kartu Kaprodi. */
+  kaprodiInvalid: KaprodiInvalid
   tupoksi: StrukturTupoksiAdmin[]
 }
 
 // ============================================================
-// TUPOKSI
+// SIMPAN (satu kali, seluruh struktur)
 // ============================================================
 
-export const strukturTupoksiInputSchema = z.object({
-  posisiId: z.string().trim().min(1, "Posisi wajib diisi"),
-  isi: requiredText(300, "Isi tupoksi"),
+export const strukturSaveSchema = z.object({
+  posisi: z
+    .array(
+      z.object({
+        id: z.string().trim().min(1).max(64),
+        parentId: z.string().trim().min(1).max(64).nullable(),
+        jabatan: requiredText(100, "Jabatan"),
+        nama: optionalText(150, "Nama"),
+        dosenId: optionalIdRef,
+        level: z.number().int().min(1).max(50),
+        jalur: z.enum(JALUR_SAMBUNG),
+        urutan: z.number().int().min(0).max(500),
+        jarakKosong: z.number().int().min(0).max(STRUKTUR_MAX_JARAK_KOSONG).default(0),
+        isKaprodi: z.boolean(),
+        tupoksi: z
+          .array(
+            z.object({
+              id: z.string().trim().min(1).max(64).nullable().optional(),
+              isi: requiredText(300, "Isi tupoksi"),
+            }),
+          )
+          .max(STRUKTUR_TUPOKSI_MAX_ITEMS, `Tupoksi maksimal ${STRUKTUR_TUPOKSI_MAX_ITEMS} poin per posisi`),
+      }),
+    )
+    .min(1, "Struktur kosong")
+    .max(STRUKTUR_MAX_POSISI, `Posisi maksimal ${STRUKTUR_MAX_POSISI}`),
 })
-export type StrukturTupoksiInput = z.infer<typeof strukturTupoksiInputSchema>
-
-export const strukturTupoksiUpdateSchema = z.object({
-  isi: requiredText(300, "Isi tupoksi"),
-})
-export type StrukturTupoksiUpdateInput = z.infer<typeof strukturTupoksiUpdateSchema>
+export type StrukturSaveInput = z.infer<typeof strukturSaveSchema>

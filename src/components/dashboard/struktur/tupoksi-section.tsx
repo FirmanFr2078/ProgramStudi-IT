@@ -1,24 +1,20 @@
 "use client"
 
+import { childrenOf } from "@/lib/struktur-tree"
 import type { StrukturPosisiAdmin } from "@/types"
 import { TupoksiCard } from "./tupoksi-card"
 
+/** Urutan sesuai susunan di bagan: atasan dulu, lalu bawahannya baris demi baris, kiri ke kanan. */
 function sortByHierarchy(posisi: StrukturPosisiAdmin[]): StrukturPosisiAdmin[] {
-  const byParent = new Map<string | null, StrukturPosisiAdmin[]>()
-  for (const item of posisi) {
-    const list = byParent.get(item.parentId) ?? []
-    list.push(item)
-    byParent.set(item.parentId, list)
-  }
-  for (const list of byParent.values()) list.sort((a, b) => a.urutan - b.urutan)
-
   const result: StrukturPosisiAdmin[] = []
+
   function visit(parentId: string | null) {
-    for (const item of byParent.get(parentId) ?? []) {
+    for (const item of childrenOf(posisi, parentId)) {
       result.push(item)
       visit(item.id)
     }
   }
+
   visit(null)
   return result
 }

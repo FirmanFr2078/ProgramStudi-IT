@@ -657,6 +657,13 @@ export type EnumModulDokumenWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumModulDokumenFilter<$PrismaModel>
 }
 
+export type EnumJalurSambungFilter<$PrismaModel = never> = {
+  equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
+  in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel> | $Enums.JalurSambung
+}
+
 export type BigIntNullableFilter<$PrismaModel = never> = {
   equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
   in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
@@ -666,6 +673,16 @@ export type BigIntNullableFilter<$PrismaModel = never> = {
   gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
   gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
   not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type EnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
+  in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJalurSambungWithAggregatesFilter<$PrismaModel> | $Enums.JalurSambung
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
 }
 
 export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -1282,6 +1299,13 @@ export type NestedEnumModulDokumenWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumModulDokumenFilter<$PrismaModel>
 }
 
+export type NestedEnumJalurSambungFilter<$PrismaModel = never> = {
+  equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
+  in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel> | $Enums.JalurSambung
+}
+
 export type NestedBigIntNullableFilter<$PrismaModel = never> = {
   equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
   in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
@@ -1291,6 +1315,16 @@ export type NestedBigIntNullableFilter<$PrismaModel = never> = {
   gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
   gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
   not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type NestedEnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
+  in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJalurSambungWithAggregatesFilter<$PrismaModel> | $Enums.JalurSambung
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
 }
 
 export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {

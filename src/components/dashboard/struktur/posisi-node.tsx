@@ -1,28 +1,23 @@
 "use client"
 
-import { Handle, Position } from "@xyflow/react"
-import { PlusIcon } from "lucide-react"
+import { PlusIcon, UserIcon } from "lucide-react"
 import { cn } from "cn"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import type { CreateTarget } from "@/hooks/dashboard/struktur/use-struktur-board"
 import { getInitials } from "@/lib/initials"
-import type { StrukturArah, StrukturPosisiAdmin } from "@/types"
+import type { StrukturPosisiAdmin } from "@/types"
 
-export type PosisiNodeData = {
+type Props = {
   posisi: StrukturPosisiAdmin
-  onEdit: (id: string) => void
-  onArah: (id: string, arah: StrukturArah) => void
+  hasChildren: boolean
+  readOnly?: boolean
+  onEdit?: (id: string) => void
+  onCreate?: (target: CreateTarget) => void
 }
 
-function ArahButton({
-  arah,
-  className,
-  onClick,
-}: {
-  arah: StrukturArah
-  className: string
-  onClick: () => void
-}) {
+/** (+) di tepi kartu: kotak putus-putus kecil, sengaja beda bentuk dari (+) bulat di garis. */
+function CardPlus({ label, className, onClick }: { label: string; className: string; onClick: () => void }) {
   return (
     <button
       type="button"
@@ -30,44 +25,75 @@ function ArahButton({
         event.stopPropagation()
         onClick()
       }}
-      title={`Tambah posisi ${arah}`}
+      title={label}
+      aria-label={label}
       className={cn(
-        "absolute z-10 flex size-6 items-center justify-center rounded-full border bg-background text-muted-foreground opacity-0 shadow-sm transition-opacity hover:text-primary group-hover:opacity-100",
+        "absolute z-10 flex size-5 items-center justify-center rounded-md border border-dashed bg-background text-muted-foreground opacity-0 shadow-sm transition-opacity hover:text-primary focus-visible:opacity-100 group-hover:opacity-100",
         className,
       )}
-      aria-label={`Tambah posisi ${arah}`}
     >
-      <PlusIcon className="size-3.5" />
+      <PlusIcon className="size-3" />
     </button>
   )
 }
 
-export function PosisiNode({ data }: { data: PosisiNodeData }) {
-  const { posisi, onEdit, onArah } = data
+function kaprodiMessage(posisi: StrukturPosisiAdmin): string | null {
+  if (posisi.kaprodiInvalid === "kosong") return "Invalid data jabatan Kaprodi"
+  if (posisi.kaprodiInvalid === "ganda") return "Invalid: lebih dari satu Kaprodi"
+  return null
+}
+
+export function PosisiNode({ posisi, hasChildren, readOnly = false, onEdit, onCreate }: Props) {
   const namaTampil = posisi.dosenId ? posisi.dosenNama : posisi.nama
+  const invalidMessage = posisi.isKaprodi ? kaprodiMessage(posisi) : null
+  const isRoot = posisi.parentId === null
 
   return (
-    <div className="group relative">
-      {/* Atas & bawah selalu ada -- termasuk buat Kaprodi. Kiri/kanan cuma buat
-          posisi selain Kaprodi (Kaprodi itu unik, nggak butuh "sejajar"). */}
-      <ArahButton arah="atas" className="-top-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "atas")} />
-      <ArahButton arah="bawah" className="-bottom-3 left-1/2 -translate-x-1/2" onClick={() => onArah(posisi.id, "bawah")} />
-      {!posisi.isKaprodi && (
+    <div className="group relative h-full w-full">
+      {!readOnly && onCreate && (
         <>
-          <ArahButton arah="kiri" className="top-1/2 -left-3 -translate-y-1/2" onClick={() => onArah(posisi.id, "kiri")} />
-          <ArahButton arah="kanan" className="top-1/2 -right-3 -translate-y-1/2" onClick={() => onArah(posisi.id, "kanan")} />
+          {/* Atas: hanya untuk posisi paling atas -- di posisi lain sudah ada garis dari atasannya. */}
+          {isRoot && (
+            <CardPlus
+              label="Tambah atasan"
+              className="-top-2.5 left-1/2 -translate-x-1/2"
+              onClick={() => onCreate({ kind: "above", referenceId: posisi.id })}
+            />
+          )}
+          {/* Bawah: hanya kalau belum punya bawahan -- kalau sudah, garisnya sudah ada. */}
+          {!hasChildren && (
+            <CardPlus
+              label="Tambah bawahan"
+              className="-bottom-2.5 left-1/2 -translate-x-1/2"
+              onClick={() => onCreate({ kind: "child", parentId: posisi.id })}
+            />
+          )}
+          {/* Kiri/kanan: setara (satu baris). Kaprodi tidak punya, dan posisi paling atas belum punya atasan. */}
+          {!posisi.isKaprodi && !isRoot && (
+            <>
+              <CardPlus
+                label="Tambah setara di kiri"
+                className="top-1/2 -left-2.5 -translate-y-1/2"
+                onClick={() => onCreate({ kind: "side", referenceId: posisi.id, side: "kiri" })}
+              />
+              <CardPlus
+                label="Tambah setara di kanan"
+                className="top-1/2 -right-2.5 -translate-y-1/2"
+                onClick={() => onCreate({ kind: "side", referenceId: posisi.id, side: "kanan" })}
+              />
+            </>
+          )}
         </>
       )}
 
-      <Handle type="target" position={Position.Top} className="opacity-0" />
-      <Handle type="source" position={Position.Bottom} className="opacity-0" />
-
       <button
         type="button"
-        onClick={() => onEdit(posisi.id)}
+        disabled={readOnly}
+        onClick={() => onEdit?.(posisi.id)}
         className={cn(
-          "flex w-56 items-center gap-3 rounded-xl border bg-card px-3 py-2.5 text-left shadow-sm transition-colors hover:border-primary/50",
+          "flex h-full w-full items-center gap-3 rounded-xl border bg-card px-3 text-left shadow-sm transition-colors enabled:hover:border-primary/50 disabled:cursor-default",
           posisi.isKaprodi && "border-primary/60 bg-primary/5",
+          invalidMessage && "border-destructive/50 bg-destructive/5",
         )}
       >
         <Avatar className="size-10 shrink-0 border">
@@ -75,16 +101,26 @@ export function PosisiNode({ data }: { data: PosisiNodeData }) {
             <AvatarImage src={posisi.dosenFoto} alt={namaTampil ?? posisi.jabatan} className="object-cover object-top" />
           )}
           <AvatarFallback className="text-xs font-semibold">
-            {namaTampil ? getInitials(namaTampil) : "?"}
+            {invalidMessage ? (
+              <UserIcon className="size-4 text-muted-foreground" />
+            ) : namaTampil ? (
+              getInitials(namaTampil)
+            ) : (
+              "?"
+            )}
           </AvatarFallback>
         </Avatar>
 
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold text-foreground">{posisi.jabatan}</p>
-          <p className="truncate text-xs text-muted-foreground">
-            {namaTampil ?? "Belum diisi"}
-            {posisi.dosenNidn && <span> · NIDN: {posisi.dosenNidn}</span>}
-          </p>
+          {invalidMessage ? (
+            <p className="truncate text-xs font-medium text-destructive">{invalidMessage}</p>
+          ) : (
+            <p className="truncate text-xs text-muted-foreground">
+              {namaTampil ?? "Belum diisi"}
+              {posisi.dosenNidn && <span> · NIDN: {posisi.dosenNidn}</span>}
+            </p>
+          )}
         </div>
       </button>
     </div>

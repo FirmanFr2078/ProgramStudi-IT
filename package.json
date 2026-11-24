@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit"
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint",
+  "lint:fix": "eslint --fix",
+  "typecheck": "next typegen && tsc --noEmit",
+  "check": "pnpm typecheck && pnpm lint"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

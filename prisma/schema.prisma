@@ -460,30 +460,31 @@ model tbl_jalur_pendaftaran {
 // STRUKTUR ORGANISASI (board bebas posisi — terpisah dari profil prodi)
 // ============================================================
 
-model tbl_struktur_posisi {
-  id_posisi BigInt @id @default(autoincrement())
-  is_kaprodi Boolean @default(false)
+enum JalurSambung {
+  lurus
+  kiri
+  kanan
+}
 
-  // Self-relation: satu baris bisa punya banyak anak, tapi cuma 1 atasan.
-  // onDelete Cascade di sini artinya hapus 1 node otomatis ikut hapus
-  // SELURUH turunannya sampai level paling bawah -- Postgres yang
-  // nanganin perambatannya, ga perlu query rekursif manual di kode.
+model tbl_struktur_posisi {
+  id_posisi     BigInt       @id @default(autoincrement())
+  is_kaprodi    Boolean      @default(false)
+  jalur_sambung JalurSambung @default(lurus)
+
   parent_id BigInt?
   parent    tbl_struktur_posisi?  @relation("StrukturHierarki", fields: [parent_id], references: [id_posisi], onDelete: Cascade)
   children  tbl_struktur_posisi[] @relation("StrukturHierarki")
 
-  jabatan String  @db.VarChar(100) // selalu manual, lepas dari jabatan_struktural di tbl_dosen
-  nama    String? @db.VarChar(150) // cuma kepake kalau dosen_id kosong (mode custom)
+  jabatan String  @db.VarChar(100)
+  nama    String? @db.VarChar(150)
 
-  // dosen_id null = mode custom. SetNull (bukan Cascade) supaya kalau
-  // data dosennya dihapus di modul SDM, kotak strukturnya ga ikut raib --
-  // cuma "turun mode" jadi custom tanpa nama/foto.
   dosen_id BigInt?
   dosen    tbl_dosen? @relation(fields: [dosen_id], references: [id_dosen], onDelete: SetNull)
 
-  urutan Int @default(0) // urutan antar-sibling, dipake pas insert kiri/kanan
-  pos_x  Int @default(0) // koordinat canvas -- hasil drag manual admin, bukan hasil hitung ulang tiap render
-  pos_y  Int @default(0)
+  level        Int @default(1) // baris bawahan di bawah atasannya (1, 2, 3, ...)
+  jarak_kosong Int @default(0) // BARU — jumlah baris kosong yang di-skip sebelum baris ini (khusus mode "tembus")
+
+  urutan Int @default(0)
 
   tupoksi tbl_struktur_tupoksi[]
 

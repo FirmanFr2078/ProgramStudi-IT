@@ -30,30 +30,31 @@ export type Tbl_struktur_posisiAvgAggregateOutputType = {
   id_posisi: number | null
   parent_id: number | null
   dosen_id: number | null
+  level: number | null
+  jarak_kosong: number | null
   urutan: number | null
-  pos_x: number | null
-  pos_y: number | null
 }
 
 export type Tbl_struktur_posisiSumAggregateOutputType = {
   id_posisi: bigint | null
   parent_id: bigint | null
   dosen_id: bigint | null
+  level: number | null
+  jarak_kosong: number | null
   urutan: number | null
-  pos_x: number | null
-  pos_y: number | null
 }
 
 export type Tbl_struktur_posisiMinAggregateOutputType = {
   id_posisi: bigint | null
   is_kaprodi: boolean | null
+  jalur_sambung: $Enums.JalurSambung | null
   parent_id: bigint | null
   jabatan: string | null
   nama: string | null
   dosen_id: bigint | null
+  level: number | null
+  jarak_kosong: number | null
   urutan: number | null
-  pos_x: number | null
-  pos_y: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -61,13 +62,14 @@ export type Tbl_struktur_posisiMinAggregateOutputType = {
 export type Tbl_struktur_posisiMaxAggregateOutputType = {
   id_posisi: bigint | null
   is_kaprodi: boolean | null
+  jalur_sambung: $Enums.JalurSambung | null
   parent_id: bigint | null
   jabatan: string | null
   nama: string | null
   dosen_id: bigint | null
+  level: number | null
+  jarak_kosong: number | null
   urutan: number | null
-  pos_x: number | null
-  pos_y: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -75,13 +77,14 @@ export type Tbl_struktur_posisiMaxAggregateOutputType = {
 export type Tbl_struktur_posisiCountAggregateOutputType = {
   id_posisi: number
   is_kaprodi: number
+  jalur_sambung: number
   parent_id: number
   jabatan: number
   nama: number
   dosen_id: number
+  level: number
+  jarak_kosong: number
   urutan: number
-  pos_x: number
-  pos_y: number
   created_at: number
   updated_at: number
   _all: number
@@ -92,30 +95,31 @@ export type Tbl_struktur_posisiAvgAggregateInputType = {
   id_posisi?: true
   parent_id?: true
   dosen_id?: true
+  level?: true
+  jarak_kosong?: true
   urutan?: true
-  pos_x?: true
-  pos_y?: true
 }
 
 export type Tbl_struktur_posisiSumAggregateInputType = {
   id_posisi?: true
   parent_id?: true
   dosen_id?: true
+  level?: true
+  jarak_kosong?: true
   urutan?: true
-  pos_x?: true
-  pos_y?: true
 }
 
 export type Tbl_struktur_posisiMinAggregateInputType = {
   id_posisi?: true
   is_kaprodi?: true
+  jalur_sambung?: true
   parent_id?: true
   jabatan?: true
   nama?: true
   dosen_id?: true
+  level?: true
+  jarak_kosong?: true
   urutan?: true
-  pos_x?: true
-  pos_y?: true
   created_at?: true
   updated_at?: true
 }
@@ -123,13 +127,14 @@ export type Tbl_struktur_posisiMinAggregateInputType = {
 export type Tbl_struktur_posisiMaxAggregateInputType = {
   id_posisi?: true
   is_kaprodi?: true
+  jalur_sambung?: true
   parent_id?: true
   jabatan?: true
   nama?: true
   dosen_id?: true
+  level?: true
+  jarak_kosong?: true
   urutan?: true
-  pos_x?: true
-  pos_y?: true
   created_at?: true
   updated_at?: true
 }
@@ -137,13 +142,14 @@ export type Tbl_struktur_posisiMaxAggregateInputType = {
 export type Tbl_struktur_posisiCountAggregateInputType = {
   id_posisi?: true
   is_kaprodi?: true
+  jalur_sambung?: true
   parent_id?: true
   jabatan?: true
   nama?: true
   dosen_id?: true
+  level?: true
+  jarak_kosong?: true
   urutan?: true
-  pos_x?: true
-  pos_y?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -238,13 +244,14 @@ export type tbl_struktur_posisiGroupByArgs<ExtArgs extends runtime.Types.Extensi
 export type Tbl_struktur_posisiGroupByOutputType = {
   id_posisi: bigint
   is_kaprodi: boolean
+  jalur_sambung: $Enums.JalurSambung
   parent_id: bigint | null
   jabatan: string
   nama: string | null
   dosen_id: bigint | null
+  level: number
+  jarak_kosong: number
   urutan: number
-  pos_x: number
-  pos_y: number
   created_at: Date
   updated_at: Date
   _count: Tbl_struktur_posisiCountAggregateOutputType | null
@@ -275,13 +282,14 @@ export type tbl_struktur_posisiWhereInput = {
   NOT?: Prisma.tbl_struktur_posisiWhereInput | Prisma.tbl_struktur_posisiWhereInput[]
   id_posisi?: Prisma.BigIntFilter<"tbl_struktur_posisi"> | bigint | number
   is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFilter<"tbl_struktur_posisi"> | $Enums.JalurSambung
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
   dosen_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
+  level?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
+  jarak_kosong?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   urutan?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_x?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_y?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   created_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
   parent?: Prisma.XOR<Prisma.Tbl_struktur_posisiNullableScalarRelationFilter, Prisma.tbl_struktur_posisiWhereInput> | null
@@ -293,13 +301,14 @@ export type tbl_struktur_posisiWhereInput = {
 export type tbl_struktur_posisiOrderByWithRelationInput = {
   id_posisi?: Prisma.SortOrder
   is_kaprodi?: Prisma.SortOrder
+  jalur_sambung?: Prisma.SortOrder
   parent_id?: Prisma.SortOrderInput | Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrderInput | Prisma.SortOrder
   dosen_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   parent?: Prisma.tbl_struktur_posisiOrderByWithRelationInput
@@ -314,13 +323,14 @@ export type tbl_struktur_posisiWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.tbl_struktur_posisiWhereInput[]
   NOT?: Prisma.tbl_struktur_posisiWhereInput | Prisma.tbl_struktur_posisiWhereInput[]
   is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFilter<"tbl_struktur_posisi"> | $Enums.JalurSambung
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
   dosen_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
+  level?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
+  jarak_kosong?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   urutan?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_x?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_y?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   created_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
   parent?: Prisma.XOR<Prisma.Tbl_struktur_posisiNullableScalarRelationFilter, Prisma.tbl_struktur_posisiWhereInput> | null
@@ -332,13 +342,14 @@ export type tbl_struktur_posisiWhereUniqueInput = Prisma.AtLeast<{
 export type tbl_struktur_posisiOrderByWithAggregationInput = {
   id_posisi?: Prisma.SortOrder
   is_kaprodi?: Prisma.SortOrder
+  jalur_sambung?: Prisma.SortOrder
   parent_id?: Prisma.SortOrderInput | Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrderInput | Prisma.SortOrder
   dosen_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.tbl_struktur_posisiCountOrderByAggregateInput
@@ -354,13 +365,14 @@ export type tbl_struktur_posisiScalarWhereWithAggregatesInput = {
   NOT?: Prisma.tbl_struktur_posisiScalarWhereWithAggregatesInput | Prisma.tbl_struktur_posisiScalarWhereWithAggregatesInput[]
   id_posisi?: Prisma.BigIntWithAggregatesFilter<"tbl_struktur_posisi"> | bigint | number
   is_kaprodi?: Prisma.BoolWithAggregatesFilter<"tbl_struktur_posisi"> | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungWithAggregatesFilter<"tbl_struktur_posisi"> | $Enums.JalurSambung
   parent_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringWithAggregatesFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableWithAggregatesFilter<"tbl_struktur_posisi"> | string | null
   dosen_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_struktur_posisi"> | bigint | number | null
+  level?: Prisma.IntWithAggregatesFilter<"tbl_struktur_posisi"> | number
+  jarak_kosong?: Prisma.IntWithAggregatesFilter<"tbl_struktur_posisi"> | number
   urutan?: Prisma.IntWithAggregatesFilter<"tbl_struktur_posisi"> | number
-  pos_x?: Prisma.IntWithAggregatesFilter<"tbl_struktur_posisi"> | number
-  pos_y?: Prisma.IntWithAggregatesFilter<"tbl_struktur_posisi"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_struktur_posisi"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_struktur_posisi"> | Date | string
 }
@@ -368,11 +380,12 @@ export type tbl_struktur_posisiScalarWhereWithAggregatesInput = {
 export type tbl_struktur_posisiCreateInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   parent?: Prisma.tbl_struktur_posisiCreateNestedOneWithoutChildrenInput
@@ -384,13 +397,14 @@ export type tbl_struktur_posisiCreateInput = {
 export type tbl_struktur_posisiUncheckedCreateInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutParentInput
@@ -400,11 +414,12 @@ export type tbl_struktur_posisiUncheckedCreateInput = {
 export type tbl_struktur_posisiUpdateInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent?: Prisma.tbl_struktur_posisiUpdateOneWithoutChildrenNestedInput
@@ -416,13 +431,14 @@ export type tbl_struktur_posisiUpdateInput = {
 export type tbl_struktur_posisiUncheckedUpdateInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutParentNestedInput
@@ -432,13 +448,14 @@ export type tbl_struktur_posisiUncheckedUpdateInput = {
 export type tbl_struktur_posisiCreateManyInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -446,11 +463,12 @@ export type tbl_struktur_posisiCreateManyInput = {
 export type tbl_struktur_posisiUpdateManyMutationInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -458,13 +476,14 @@ export type tbl_struktur_posisiUpdateManyMutationInput = {
 export type tbl_struktur_posisiUncheckedUpdateManyInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -487,13 +506,14 @@ export type Tbl_struktur_posisiNullableScalarRelationFilter = {
 export type tbl_struktur_posisiCountOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
   is_kaprodi?: Prisma.SortOrder
+  jalur_sambung?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   dosen_id?: Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -502,21 +522,22 @@ export type tbl_struktur_posisiAvgOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   dosen_id?: Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
 }
 
 export type tbl_struktur_posisiMaxOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
   is_kaprodi?: Prisma.SortOrder
+  jalur_sambung?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   dosen_id?: Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -524,13 +545,14 @@ export type tbl_struktur_posisiMaxOrderByAggregateInput = {
 export type tbl_struktur_posisiMinOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
   is_kaprodi?: Prisma.SortOrder
+  jalur_sambung?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   jabatan?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   dosen_id?: Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -539,9 +561,9 @@ export type tbl_struktur_posisiSumOrderByAggregateInput = {
   id_posisi?: Prisma.SortOrder
   parent_id?: Prisma.SortOrder
   dosen_id?: Prisma.SortOrder
+  level?: Prisma.SortOrder
+  jarak_kosong?: Prisma.SortOrder
   urutan?: Prisma.SortOrder
-  pos_x?: Prisma.SortOrder
-  pos_y?: Prisma.SortOrder
 }
 
 export type Tbl_struktur_posisiScalarRelationFilter = {
@@ -611,6 +633,10 @@ export type tbl_struktur_posisiUncheckedCreateNestedManyWithoutParentInput = {
   connect?: Prisma.tbl_struktur_posisiWhereUniqueInput | Prisma.tbl_struktur_posisiWhereUniqueInput[]
 }
 
+export type EnumJalurSambungFieldUpdateOperationsInput = {
+  set?: $Enums.JalurSambung
+}
+
 export type tbl_struktur_posisiUpdateOneWithoutChildrenNestedInput = {
   create?: Prisma.XOR<Prisma.tbl_struktur_posisiCreateWithoutChildrenInput, Prisma.tbl_struktur_posisiUncheckedCreateWithoutChildrenInput>
   connectOrCreate?: Prisma.tbl_struktur_posisiCreateOrConnectWithoutChildrenInput
@@ -674,11 +700,12 @@ export type tbl_struktur_posisiUpdateOneRequiredWithoutTupoksiNestedInput = {
 export type tbl_struktur_posisiCreateWithoutDosenInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   parent?: Prisma.tbl_struktur_posisiCreateNestedOneWithoutChildrenInput
@@ -689,12 +716,13 @@ export type tbl_struktur_posisiCreateWithoutDosenInput = {
 export type tbl_struktur_posisiUncheckedCreateWithoutDosenInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutParentInput
@@ -733,13 +761,14 @@ export type tbl_struktur_posisiScalarWhereInput = {
   NOT?: Prisma.tbl_struktur_posisiScalarWhereInput | Prisma.tbl_struktur_posisiScalarWhereInput[]
   id_posisi?: Prisma.BigIntFilter<"tbl_struktur_posisi"> | bigint | number
   is_kaprodi?: Prisma.BoolFilter<"tbl_struktur_posisi"> | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFilter<"tbl_struktur_posisi"> | $Enums.JalurSambung
   parent_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
   jabatan?: Prisma.StringFilter<"tbl_struktur_posisi"> | string
   nama?: Prisma.StringNullableFilter<"tbl_struktur_posisi"> | string | null
   dosen_id?: Prisma.BigIntNullableFilter<"tbl_struktur_posisi"> | bigint | number | null
+  level?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
+  jarak_kosong?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   urutan?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_x?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
-  pos_y?: Prisma.IntFilter<"tbl_struktur_posisi"> | number
   created_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_struktur_posisi"> | Date | string
 }
@@ -747,11 +776,12 @@ export type tbl_struktur_posisiScalarWhereInput = {
 export type tbl_struktur_posisiCreateWithoutChildrenInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   parent?: Prisma.tbl_struktur_posisiCreateNestedOneWithoutChildrenInput
@@ -762,13 +792,14 @@ export type tbl_struktur_posisiCreateWithoutChildrenInput = {
 export type tbl_struktur_posisiUncheckedCreateWithoutChildrenInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   tupoksi?: Prisma.tbl_struktur_tupoksiUncheckedCreateNestedManyWithoutPosisiInput
@@ -782,11 +813,12 @@ export type tbl_struktur_posisiCreateOrConnectWithoutChildrenInput = {
 export type tbl_struktur_posisiCreateWithoutParentInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   children?: Prisma.tbl_struktur_posisiCreateNestedManyWithoutParentInput
@@ -797,12 +829,13 @@ export type tbl_struktur_posisiCreateWithoutParentInput = {
 export type tbl_struktur_posisiUncheckedCreateWithoutParentInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutParentInput
@@ -833,11 +866,12 @@ export type tbl_struktur_posisiUpdateToOneWithWhereWithoutChildrenInput = {
 export type tbl_struktur_posisiUpdateWithoutChildrenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent?: Prisma.tbl_struktur_posisiUpdateOneWithoutChildrenNestedInput
@@ -848,13 +882,14 @@ export type tbl_struktur_posisiUpdateWithoutChildrenInput = {
 export type tbl_struktur_posisiUncheckedUpdateWithoutChildrenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tupoksi?: Prisma.tbl_struktur_tupoksiUncheckedUpdateManyWithoutPosisiNestedInput
@@ -879,11 +914,12 @@ export type tbl_struktur_posisiUpdateManyWithWhereWithoutParentInput = {
 export type tbl_struktur_posisiCreateWithoutTupoksiInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   parent?: Prisma.tbl_struktur_posisiCreateNestedOneWithoutChildrenInput
@@ -894,13 +930,14 @@ export type tbl_struktur_posisiCreateWithoutTupoksiInput = {
 export type tbl_struktur_posisiUncheckedCreateWithoutTupoksiInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutParentInput
@@ -925,11 +962,12 @@ export type tbl_struktur_posisiUpdateToOneWithWhereWithoutTupoksiInput = {
 export type tbl_struktur_posisiUpdateWithoutTupoksiInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent?: Prisma.tbl_struktur_posisiUpdateOneWithoutChildrenNestedInput
@@ -940,13 +978,14 @@ export type tbl_struktur_posisiUpdateWithoutTupoksiInput = {
 export type tbl_struktur_posisiUncheckedUpdateWithoutTupoksiInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutParentNestedInput
@@ -955,12 +994,13 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutTupoksiInput = {
 export type tbl_struktur_posisiCreateManyDosenInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   parent_id?: bigint | number | null
   jabatan: string
   nama?: string | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -968,11 +1008,12 @@ export type tbl_struktur_posisiCreateManyDosenInput = {
 export type tbl_struktur_posisiUpdateWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent?: Prisma.tbl_struktur_posisiUpdateOneWithoutChildrenNestedInput
@@ -983,12 +1024,13 @@ export type tbl_struktur_posisiUpdateWithoutDosenInput = {
 export type tbl_struktur_posisiUncheckedUpdateWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutParentNestedInput
@@ -998,12 +1040,13 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutDosenInput = {
 export type tbl_struktur_posisiUncheckedUpdateManyWithoutDosenInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   parent_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1011,12 +1054,13 @@ export type tbl_struktur_posisiUncheckedUpdateManyWithoutDosenInput = {
 export type tbl_struktur_posisiCreateManyParentInput = {
   id_posisi?: bigint | number
   is_kaprodi?: boolean
+  jalur_sambung?: $Enums.JalurSambung
   jabatan: string
   nama?: string | null
   dosen_id?: bigint | number | null
+  level?: number
+  jarak_kosong?: number
   urutan?: number
-  pos_x?: number
-  pos_y?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -1024,11 +1068,12 @@ export type tbl_struktur_posisiCreateManyParentInput = {
 export type tbl_struktur_posisiUpdateWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   children?: Prisma.tbl_struktur_posisiUpdateManyWithoutParentNestedInput
@@ -1039,12 +1084,13 @@ export type tbl_struktur_posisiUpdateWithoutParentInput = {
 export type tbl_struktur_posisiUncheckedUpdateWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   children?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutParentNestedInput
@@ -1054,12 +1100,13 @@ export type tbl_struktur_posisiUncheckedUpdateWithoutParentInput = {
 export type tbl_struktur_posisiUncheckedUpdateManyWithoutParentInput = {
   id_posisi?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_kaprodi?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  jalur_sambung?: Prisma.EnumJalurSambungFieldUpdateOperationsInput | $Enums.JalurSambung
   jabatan?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  level?: Prisma.IntFieldUpdateOperationsInput | number
+  jarak_kosong?: Prisma.IntFieldUpdateOperationsInput | number
   urutan?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_x?: Prisma.IntFieldUpdateOperationsInput | number
-  pos_y?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1107,13 +1154,14 @@ export type Tbl_struktur_posisiCountOutputTypeCountTupoksiArgs<ExtArgs extends r
 export type tbl_struktur_posisiSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
   is_kaprodi?: boolean
+  jalur_sambung?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
   dosen_id?: boolean
+  level?: boolean
+  jarak_kosong?: boolean
   urutan?: boolean
-  pos_x?: boolean
-  pos_y?: boolean
   created_at?: boolean
   updated_at?: boolean
   parent?: boolean | Prisma.tbl_struktur_posisi$parentArgs<ExtArgs>
@@ -1126,13 +1174,14 @@ export type tbl_struktur_posisiSelect<ExtArgs extends runtime.Types.Extensions.I
 export type tbl_struktur_posisiSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
   is_kaprodi?: boolean
+  jalur_sambung?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
   dosen_id?: boolean
+  level?: boolean
+  jarak_kosong?: boolean
   urutan?: boolean
-  pos_x?: boolean
-  pos_y?: boolean
   created_at?: boolean
   updated_at?: boolean
   parent?: boolean | Prisma.tbl_struktur_posisi$parentArgs<ExtArgs>
@@ -1142,13 +1191,14 @@ export type tbl_struktur_posisiSelectCreateManyAndReturn<ExtArgs extends runtime
 export type tbl_struktur_posisiSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_posisi?: boolean
   is_kaprodi?: boolean
+  jalur_sambung?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
   dosen_id?: boolean
+  level?: boolean
+  jarak_kosong?: boolean
   urutan?: boolean
-  pos_x?: boolean
-  pos_y?: boolean
   created_at?: boolean
   updated_at?: boolean
   parent?: boolean | Prisma.tbl_struktur_posisi$parentArgs<ExtArgs>
@@ -1158,18 +1208,19 @@ export type tbl_struktur_posisiSelectUpdateManyAndReturn<ExtArgs extends runtime
 export type tbl_struktur_posisiSelectScalar = {
   id_posisi?: boolean
   is_kaprodi?: boolean
+  jalur_sambung?: boolean
   parent_id?: boolean
   jabatan?: boolean
   nama?: boolean
   dosen_id?: boolean
+  level?: boolean
+  jarak_kosong?: boolean
   urutan?: boolean
-  pos_x?: boolean
-  pos_y?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type tbl_struktur_posisiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_posisi" | "is_kaprodi" | "parent_id" | "jabatan" | "nama" | "dosen_id" | "urutan" | "pos_x" | "pos_y" | "created_at" | "updated_at", ExtArgs["result"]["tbl_struktur_posisi"]>
+export type tbl_struktur_posisiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_posisi" | "is_kaprodi" | "jalur_sambung" | "parent_id" | "jabatan" | "nama" | "dosen_id" | "level" | "jarak_kosong" | "urutan" | "created_at" | "updated_at", ExtArgs["result"]["tbl_struktur_posisi"]>
 export type tbl_struktur_posisiInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   parent?: boolean | Prisma.tbl_struktur_posisi$parentArgs<ExtArgs>
   children?: boolean | Prisma.tbl_struktur_posisi$childrenArgs<ExtArgs>
@@ -1197,13 +1248,14 @@ export type $tbl_struktur_posisiPayload<ExtArgs extends runtime.Types.Extensions
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_posisi: bigint
     is_kaprodi: boolean
+    jalur_sambung: $Enums.JalurSambung
     parent_id: bigint | null
     jabatan: string
     nama: string | null
     dosen_id: bigint | null
+    level: number
+    jarak_kosong: number
     urutan: number
-    pos_x: number
-    pos_y: number
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["tbl_struktur_posisi"]>
@@ -1635,13 +1687,14 @@ export interface Prisma__tbl_struktur_posisiClient<T, Null = never, ExtArgs exte
 export interface tbl_struktur_posisiFieldRefs {
   readonly id_posisi: Prisma.FieldRef<"tbl_struktur_posisi", 'BigInt'>
   readonly is_kaprodi: Prisma.FieldRef<"tbl_struktur_posisi", 'Boolean'>
+  readonly jalur_sambung: Prisma.FieldRef<"tbl_struktur_posisi", 'JalurSambung'>
   readonly parent_id: Prisma.FieldRef<"tbl_struktur_posisi", 'BigInt'>
   readonly jabatan: Prisma.FieldRef<"tbl_struktur_posisi", 'String'>
   readonly nama: Prisma.FieldRef<"tbl_struktur_posisi", 'String'>
   readonly dosen_id: Prisma.FieldRef<"tbl_struktur_posisi", 'BigInt'>
+  readonly level: Prisma.FieldRef<"tbl_struktur_posisi", 'Int'>
+  readonly jarak_kosong: Prisma.FieldRef<"tbl_struktur_posisi", 'Int'>
   readonly urutan: Prisma.FieldRef<"tbl_struktur_posisi", 'Int'>
-  readonly pos_x: Prisma.FieldRef<"tbl_struktur_posisi", 'Int'>
-  readonly pos_y: Prisma.FieldRef<"tbl_struktur_posisi", 'Int'>
   readonly created_at: Prisma.FieldRef<"tbl_struktur_posisi", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"tbl_struktur_posisi", 'DateTime'>
 }
