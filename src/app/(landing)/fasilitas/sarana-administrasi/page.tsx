@@ -17,12 +17,12 @@ export default async function SaranaAdministrasiPage() {
     <>
       <PageHeader
         eyebrow="Fasilitas"
-        title="sarana administrasi"
-        description="Pusat koordinasi strategis dan pelayanan administratif terpadu yang didedikasikan untuk mendukung tata kelola organisasi yang prima, efisien, dan profesional."
+        title="Sarana Administrasi"
+        description="Ruang kerja Ketua Program Studi dan ruang Tata Usaha di Gedung A, tempat layanan administrasi akademik dan kemahasiswaan prodi."
         breadcrumbs={[
           { label: "Beranda", href: "/" },
           { label: "Fasilitas" },
-          { label: "sarana administrasi" },
+          { label: "Sarana Administrasi" },
         ]}
       />
 

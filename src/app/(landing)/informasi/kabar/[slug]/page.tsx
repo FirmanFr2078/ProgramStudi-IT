@@ -28,7 +28,7 @@ export default function KabarDetailPage({ params }: Props) {
       <section className="mx-auto max-w-3xl px-4 pt-10 sm:px-6">
         <Link
           href="/informasi/kabar"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-lime"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeftIcon className="size-4" />
           Kembali ke daftar kabar

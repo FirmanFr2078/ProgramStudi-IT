@@ -7,7 +7,7 @@ import { FasilitasGrid } from "@/components/landing/fasilitas/grid"
 export const metadata: Metadata = {
   title: "Laboratorium",
   description:
-    "Laboratorium praktikum Program Studi Teknik Informatika Universitas Islam Balitar — jaringan, pemrograman, dan multimedia.",
+    "Laboratorium praktikum Program Studi Teknik Informatika Universitas Islam Balitar: jaringan, pemrograman, dan multimedia.",
 }
 
 export default async function LaboratoriumPage() {

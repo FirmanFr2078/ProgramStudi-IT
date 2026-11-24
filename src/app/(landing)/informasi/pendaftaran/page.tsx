@@ -41,7 +41,7 @@ export default async function PendaftaranPage() {
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {jalur.map((j, i) => (
             <Reveal key={j.nama} delay={i * 80} className="h-full">
-              <div className="flex h-full flex-col gap-3 rounded-2xl border bg-card p-6 transition-colors hover:border-lime">
+              <div className="flex h-full flex-col gap-3 rounded-xl border border-black/10 bg-card p-6 transition-colors hover:border-primary/40 dark:border-white/12">
                 <h3 className="font-heading text-lg font-bold">{j.nama}</h3>
                 <p className="text-sm text-muted-foreground">{j.deskripsi}</p>
                 <ul className="mt-auto flex flex-col gap-1.5 pt-2">
@@ -50,7 +50,7 @@ export default async function PendaftaranPage() {
                       key={s}
                       className="flex items-start gap-2 text-xs text-muted-foreground"
                     >
-                      <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-lime" />
+                      <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-primary" />
                       {s}
                     </li>
                   ))}
@@ -71,24 +71,21 @@ export default async function PendaftaranPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pt-4 pb-16 text-center sm:px-6 md:pb-24">
-        <div className="mx-auto flex max-w-lg flex-col items-center gap-4 rounded-2xl border bg-card p-8">
-          <h2 className="font-heading text-xl font-bold sm:text-2xl">
-            Butuh Bantuan?
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Tim admisi kami siap membantu jika ada pertanyaan seputar
-            pendaftaran.
-          </p>
-          <Link
-            href="/informasi/kontak"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "glow h-11 rounded-full bg-[#2e1065] px-7 text-sm text-white hover:bg-[#3b0f85]"
-            )}
-          >
-            Hubungi Kami
-          </Link>
-        </div>
+        <div className="mx-auto flex max-w-lg flex-col items-center gap-4 rounded-xl border border-black/10 bg-card p-8 dark:border-white/12">
+                  <h2 className="font-heading text-xl font-bold sm:text-2xl">
+                    Butuh Bantuan?
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Tim admisi kami siap membantu jika ada pertanyaan seputar
+                    pendaftaran.
+                  </p>
+                  <Link
+                    href="/informasi/kontak"
+                    className={cn(buttonVariants(), "min-h-11 px-6")}
+                  >
+                    Hubungi Kami
+                  </Link>
+                </div>
       </section>
     </>
   )

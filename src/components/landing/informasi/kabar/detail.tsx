@@ -20,15 +20,15 @@ export async function KabarDetail({
       <Reveal>
         <span
           className={cn(
-            "w-fit rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider uppercase",
+            "w-fit rounded-full px-2.5 py-1 text-xs",
             kabar.kategori === "Pengumuman"
-              ? "bg-lime/10 text-lime"
-              : "bg-accent text-lavender"
+              ? "bg-primary/10 text-primary"
+                            : "bg-muted text-muted-foreground"
           )}
         >
           {kabar.kategori}
         </span>
-        <h1 className="mt-3 font-heading text-2xl font-extrabold sm:text-3xl">
+        <h1 className="mt-3 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
           {kabar.judul}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">

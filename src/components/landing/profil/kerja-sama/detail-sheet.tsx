@@ -29,7 +29,7 @@ export function DetailMitraSheet({
         {mitra && (
           <>
             <SheetHeader>
-              <p className="font-mono text-[11px] tracking-wider text-lavender uppercase">
+              <p className="text-sm font-medium text-primary">
                 {mitra.kategori}
               </p>
               <SheetTitle>{mitra.nama}</SheetTitle>
@@ -41,7 +41,7 @@ export function DetailMitraSheet({
                 {mitra.lingkup.map((l) => (
                   <span
                     key={l}
-                    className="rounded-full bg-accent px-2.5 py-1 text-xs text-lavender"
+                    className="rounded-full bg-accent px-2.5 py-1 text-xs text-foreground"
                   >
                     {l}
                   </span>

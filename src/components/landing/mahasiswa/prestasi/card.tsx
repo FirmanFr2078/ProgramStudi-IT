@@ -4,15 +4,15 @@ import { cn } from "cn"
 import type { Prestasi, TingkatPrestasi } from "@/types"
 
 const tingkatStyle: Record<TingkatPrestasi, string> = {
-  Internasional: "bg-lime/10 text-lime",
-  Nasional: "bg-lavender/10 text-lavender",
+  Internasional: "bg-primary/10 text-primary",
+  Nasional: "bg-muted text-muted-foreground",
   Provinsi: "bg-accent text-foreground",
   Kampus: "bg-accent text-muted-foreground",
 }
 
 export function PrestasiCard({ item }: { item: Prestasi }) {
   return (
-    <div className="flex h-full flex-col gap-3 rounded-2xl border bg-card p-6 transition-colors hover:border-lime">
+    <div className="flex h-full flex-col gap-3 rounded-xl border border-black/10 bg-card p-6 transition-colors hover:border-primary/40 dark:border-white/12">
       <div className="flex items-start justify-between gap-3">
         <span
           className={cn(
@@ -28,7 +28,7 @@ export function PrestasiCard({ item }: { item: Prestasi }) {
       </div>
 
       <div className="flex items-start gap-2">
-        <TrophyIcon className="mt-0.5 size-5 shrink-0 text-lime" />
+        <TrophyIcon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
         <p className="text-sm font-bold">{item.peringkat}</p>
       </div>
 

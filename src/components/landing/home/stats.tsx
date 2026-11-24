@@ -1,46 +1,30 @@
 import Link from "next/link"
-import { ArrowUpRightIcon } from "lucide-react"
-import { cn } from "cn"
 
 import { prodiStats } from "@/config/stats"
 import { Reveal } from "@/components/landing/reveal"
+import { CountUp } from "@/components/landing/home/count-up"
+import { cn } from "cn"
 
 export function Stats() {
   return (
-    <section
-      id="prodi-dalam-angka"
-      className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24"
-    >
-      <Reveal>
-        <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
-          Prodi dalam Angka
-        </p>
-        <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-          Teknik Informatika Hari Ini
-        </h2>
-      </Reveal>
-
-      <div className="mt-10 grid grid-cols-2 gap-6 border-t sm:grid-cols-4 md:mt-14">
-        {prodiStats.map(({ value, label, href }, i) => (
-          <Reveal key={href} delay={i * 100}>
-            <Link
-              href={href}
-              className={cn(
-                "group flex h-full flex-col gap-1 border-b pt-6 transition-colors hover:border-b-lime sm:border-b-0 sm:pr-4",
-                i !== prodiStats.length - 1 && "sm:border-r"
-              )}
-            >
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-heading text-3xl font-extrabold sm:text-4xl md:text-5xl">
-                  {value}
-                </span>
-                <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-lime" />
-              </div>
-              <span className="text-sm text-muted-foreground">{label}</span>
+    <section id="prodi-dalam-angka" className="mx-auto max-w-6xl scroll-mt-24 px-4 pb-8 pt-12 sm:px-6 sm:pb-10 md:pb-12">
+      <Reveal className="border-y border-border py-8 sm:py-10">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+          <div>
+            <p className="text-sm font-medium text-primary">Prodi dalam angka</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">Komunitas Teknik Informatika.</h2>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Data ringkas tentang mahasiswa, alumni, dosen, dan mitra prodi.</p>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4">
+          {prodiStats.map(({ value, label, href }, index) => (
+            <Link key={href} href={href} className={cn("group min-w-0 py-2 transition-colors hover:text-primary sm:px-5 sm:first:pl-0", index > 0 && "border-l border-border pl-4 sm:pl-5")}>
+              <p className="font-heading text-4xl font-extrabold leading-none tracking-[-0.04em] text-foreground transition-colors group-hover:text-primary sm:text-5xl"><CountUp value={value} /></p>
+              <p className="mt-3 text-sm text-muted-foreground transition-colors group-hover:text-foreground">{label}</p>
             </Link>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   )
 }

@@ -6,16 +6,13 @@ import type { Mitra } from "@/types"
 export function MitraPreview({ items }: { items: Mitra[] }) {
   return (
     <div>
-      <div className="flex flex-wrap gap-2">
+      <ul className="flex flex-col gap-2">
         {items.map((m) => (
-          <span
-            key={m.slug}
-            className="rounded-full border bg-card px-3 py-1.5 text-sm"
-          >
+          <li key={m.slug} className="text-sm">
             {m.nama}
-          </span>
+          </li>
         ))}
-      </div>
+      </ul>
       <Link
         href="/profil/kerja-sama"
         className="group mt-4 flex w-fit items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"

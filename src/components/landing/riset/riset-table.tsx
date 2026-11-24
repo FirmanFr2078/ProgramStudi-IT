@@ -40,7 +40,8 @@ export function RisetTable({
         <select
           value={tahun}
           onChange={(e) => handleTahunChange(e.target.value)}
-          className="rounded-full border bg-card px-4 py-2 text-sm"
+          aria-label="Pilih tahun"
+          className="min-h-11 rounded-full border border-black/10 bg-card px-4 py-2 text-sm dark:border-white/12"
         >
           <option value="Semua">Semua Tahun</option>
           {tahunList.map((t) => (
@@ -52,7 +53,7 @@ export function RisetTable({
         <p className="text-xs text-muted-foreground">{filtered.length} data</p>
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-xl border">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-black/10 dark:border-white/12">
         <table className="w-full min-w-160 text-left text-sm">
           <thead>
             <tr className="border-b bg-card text-xs text-muted-foreground uppercase">
@@ -105,7 +106,7 @@ export function RisetTable({
             type="button"
             disabled={page === 1}
             onClick={() => setPage((p) => Math.max(1, p - 1))}
-            className="rounded-full border px-3 py-1.5 text-sm disabled:opacity-40"
+            className="min-h-11 rounded-full border border-black/10 px-4 text-sm disabled:opacity-40 dark:border-white/12"
           >
             Sebelumnya
           </button>
@@ -116,7 +117,7 @@ export function RisetTable({
             type="button"
             disabled={page === totalPages}
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            className="rounded-full border px-3 py-1.5 text-sm disabled:opacity-40"
+            className="min-h-11 rounded-full border border-black/10 px-4 text-sm disabled:opacity-40 dark:border-white/12"
           >
             Selanjutnya
           </button>

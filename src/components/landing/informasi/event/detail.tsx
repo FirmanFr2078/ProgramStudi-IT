@@ -19,7 +19,7 @@ export async function EventDetail({
   return (
     <section className="mx-auto max-w-3xl px-4 pt-6 pb-16 sm:px-6 md:pb-24">
       <Reveal>
-        <span className="w-fit rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider text-lavender uppercase">
+        <span className="w-fit rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
           {event.kategori}
         </span>
         <h1 className="mt-3 font-heading text-2xl font-extrabold sm:text-3xl">
@@ -28,19 +28,19 @@ export async function EventDetail({
 
         <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground sm:text-base">
           <span className="flex items-center gap-2">
-            <CalendarIcon className="size-4 shrink-0 text-lavender" />
+            <CalendarIcon className="size-4 shrink-0 text-primary" aria-hidden="true" />
             {formatTanggal(event.tanggalMulai)}
             {event.tanggalSelesai &&
               ` – ${formatTanggal(event.tanggalSelesai)}`}
           </span>
           {event.waktu && (
             <span className="flex items-center gap-2">
-              <ClockIcon className="size-4 shrink-0 text-lavender" />
+              <ClockIcon className="size-4 shrink-0 text-primary" aria-hidden="true" />
               {event.waktu}
             </span>
           )}
           <span className="flex items-center gap-2">
-            <MapPinIcon className="size-4 shrink-0 text-lavender" />
+            <MapPinIcon className="size-4 shrink-0 text-primary" aria-hidden="true" />
             {event.lokasi}
           </span>
         </div>
@@ -50,7 +50,7 @@ export async function EventDetail({
             href={event.tautanDaftar}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(buttonVariants({ size: "lg" }), "glow mt-6 rounded-full")}
+            className={cn(buttonVariants({ size: "lg" }), "mt-6 rounded-md")}
           >
             Daftar Sekarang
           </a>

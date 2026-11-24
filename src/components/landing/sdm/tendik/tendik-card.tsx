@@ -6,12 +6,12 @@ import { getInitials } from "@/lib/initials"
 import type { Tendik } from "@/types"
 
 const iconButton =
-  "flex size-8 items-center justify-center rounded-full border text-muted-foreground transition-colors hover:border-lime hover:text-lime"
+  "relative flex size-8 items-center justify-center rounded-full border border-black/10 text-muted-foreground transition-colors after:absolute after:-inset-1.5 after:content-[''] hover:border-primary/40 hover:text-foreground dark:border-white/12"
 
 export function TendikCard({ tendik }: { tendik: Tendik }) {
   return (
-    <article className="group relative flex h-full items-center gap-4 rounded-2xl border bg-card p-5 transition-colors hover:border-lime">
-      <Avatar className="size-16">
+    <article className="group relative flex h-full items-start gap-4 rounded-xl border border-black/10 bg-card p-5 transition-colors hover:border-primary/40 dark:border-white/12">
+      <Avatar className="size-14">
         {tendik.foto && (
           <AvatarImage
             src={tendik.foto}
@@ -19,18 +19,13 @@ export function TendikCard({ tendik }: { tendik: Tendik }) {
             className="object-top"
           />
         )}
-        <AvatarFallback className="bg-accent font-heading text-lg font-bold text-lavender">
+        <AvatarFallback className="bg-accent font-heading text-sm font-bold text-muted-foreground">
           {getInitials(tendik.nama)}
         </AvatarFallback>
       </Avatar>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        {/* badge: unit kerja */}
-        <span className="mb-2 block h-5 w-fit max-w-full truncate rounded-full bg-accent px-2 text-[10px] leading-5 font-semibold text-lavender">
-          {tendik.unitKerja}
-        </span>
-
-        <h3 className="truncate font-heading text-base font-bold">
+        <h3 className="font-heading text-base leading-snug font-bold">
           <Link
             href={`/sdm/tendik/${tendik.slug}`}
             title={tendik.nama}
@@ -40,6 +35,8 @@ export function TendikCard({ tendik }: { tendik: Tendik }) {
           </Link>
         </h3>
 
+        <p className="mt-1 text-xs text-primary">{tendik.unitKerja}</p>
+
         <p
           title={tendik.jabatan}
           className="mt-1 truncate text-xs text-muted-foreground"
@@ -48,13 +45,13 @@ export function TendikCard({ tendik }: { tendik: Tendik }) {
         </p>
 
         <div className="mt-4 flex h-8 items-center gap-2">
-          <div className="relative z-10 flex items-center gap-1.5">
+          <div className="relative z-10 flex items-center gap-3">
             <a
               href={`mailto:${tendik.email}`}
               aria-label={`Email ${tendik.nama}`}
               className={iconButton}
             >
-              <MailIcon className="size-3.5" />
+              <MailIcon className="size-3.5" aria-hidden="true" />
             </a>
             {tendik.telepon && (
               <a
@@ -62,14 +59,14 @@ export function TendikCard({ tendik }: { tendik: Tendik }) {
                 aria-label={`Telepon ${tendik.nama}`}
                 className={iconButton}
               >
-                <PhoneIcon className="size-3.5" />
+                <PhoneIcon className="size-3.5" aria-hidden="true" />
               </a>
             )}
           </div>
 
-          <span className="ml-auto inline-flex shrink-0 items-center gap-1 text-xs text-muted-foreground transition-colors group-hover:text-lime">
+          <span className="ml-auto inline-flex shrink-0 items-center gap-1 text-xs font-medium text-primary transition-colors group-hover:text-foreground">
             Detail
-            <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <ArrowUpRightIcon className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
           </span>
         </div>
       </div>

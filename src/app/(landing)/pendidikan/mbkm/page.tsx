@@ -37,7 +37,7 @@ export default async function MbkmPage() {
       <PageHeader
         eyebrow="Pendidikan"
         title="MBKM"
-        description="Merdeka Belajar Kampus Merdeka — kesempatan belajar di luar kampus yang bisa dikonversi menjadi SKS."
+        description="Merdeka Belajar Kampus Merdeka: kesempatan belajar di luar kampus yang bisa dikonversi menjadi SKS."
         breadcrumbs={[
           { label: "Beranda", href: "/" },
           { label: "Pendidikan" },
@@ -48,9 +48,8 @@ export default async function MbkmPage() {
       <section className="mx-auto max-w-6xl px-4 pt-6 pb-10 sm:px-6 md:pb-14">
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
           MBKM memberi mahasiswa hak belajar maksimal tiga semester di luar
-          program studi — baik di kampus lain, dunia industri, maupun
-          masyarakat — dengan capaian belajarnya dikonversi menjadi SKS yang
-          diakui.
+          program studi, baik di kampus lain, dunia industri, maupun
+          masyarakat. Capaian belajarnya dikonversi menjadi SKS yang diakui.
         </p>
       </section>
 

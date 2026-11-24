@@ -34,7 +34,7 @@ export function EventCard({
     <Link
       href={`/informasi/event/${event.slug}`}
       className={cn(
-        "group flex items-center gap-4 rounded-2xl border bg-card p-4 transition-colors hover:border-lime",
+        "group flex items-center gap-4 rounded-xl border border-black/10 bg-card p-4 transition-colors hover:border-primary/40 dark:border-white/12",
         !akanDatang && "opacity-70 grayscale-[0.4] hover:opacity-100 hover:grayscale-0"
       )}
     >
@@ -42,22 +42,18 @@ export function EventCard({
         <span className="font-heading text-2xl font-extrabold leading-none">
           {tanggal.getDate()}
         </span>
-        <span className="mt-1 font-mono text-[10px] tracking-wider text-lavender uppercase">
+        <span className="mt-1 text-xs text-muted-foreground">
           {tanggal.toLocaleDateString("id-ID", { month: "short" })}
         </span>
       </div>
 
       <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-accent px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lavender uppercase">
-            {event.kategori}
-          </span>
-          {countdown && (
-            <span className="rounded-full bg-lime/10 px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-lime uppercase">
-              {countdown}
-            </span>
-          )}
-        </div>
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+                  <span className="text-muted-foreground">{event.kategori}</span>
+                  {countdown && (
+                    <span className="font-medium text-primary">{countdown}</span>
+                  )}
+                </div>
         <h3 className="mt-1.5 truncate font-bold">{event.judul}</h3>
         <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
           <MapPinIcon className="size-3 shrink-0" />
