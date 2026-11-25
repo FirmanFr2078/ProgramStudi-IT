@@ -73,6 +73,8 @@ web-prodi
 │  │  │  └─ migration.sql
 │  │  ├─ 20261123000000_struktur_level
 │  │  │  └─ migration.sql
+│  │  ├─ 20261123124125_struktur_jarak_kosong
+│  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
 │  └─ seed.ts
@@ -288,6 +290,7 @@ web-prodi
 │     ├─ struktur.ts
 │     └─ tendik.ts
 ├─ tsconfig.json
+├─ web prodi v.2.zip
 └─ web prodi.zip
 
 ```
