@@ -553,8 +553,8 @@ export const CARD_H = 64
 const GAP_X = 36
 const ROW_GAP = 84
 const BAR_OFFSET = 28
-/** FIX 2 -- dulu HALF_GAP=30 dipaksa di kedua sisi tiap kali baris tidak punya kartu tengah,
- *  padahal ruang itu cuma buat lewatnya garis vertikal (bukan cadangan kartu). Dikecilkan. */
+/** Jarak si garis spine (titik tanpa kartu tengah) ke kartu kiri/kanan terdekat, biar garisnya
+ *  gak nempel ke kartu. Ini konstanta kecil, bukan pengganti lebar kartu. */
 const SPINE_CLEARANCE = 14
 export const BOARD_PAD = 48
 
@@ -563,12 +563,10 @@ export type LayoutLine = { key: string; d: string; green: boolean }
 export type LayoutSpot = {
   key: string
   parentId: string
-  /** Celah ke-index pada garis utama: 0 = tepat di bawah kartu atasan. Untuk titik skip, ini index baris anchor-nya. */
   index: number
   x: number
   y: number
   green: boolean
-  /** BARU -- ada isinya kalau ini titik "Penyisipan level vertikal" di tengah baris kosong (jarakKosong). */
   skip?: { parentId: string; level: number; position: number }
 }
 export type LayoutResult = {
@@ -579,17 +577,24 @@ export type LayoutResult = {
   height: number
 }
 
-type Placed = { node: TreeNode; block: Block }
+/**
+ * CATATAN ARSITEKTUR -- jarak antar-kartu di satu baris SELALU konstan (CARD_W/2 + GAP_X dari
+ * garis tengah), TIDAK PERNAH ikut melebar karena subtree di bawah salah satu kartu lebar.
+ * Dulu `measure()` menghitung lebar tiap node dari subtree terdalamnya (standar "tidy tree"), dan
+ * lebar itu dipakai lagi oleh PARENT-nya buat jarak ke saudara-saudaranya -- efeknya nambah kartu di
+ * level yang dalam bisa "menjalar" ngubah jarak di level yang jauh di atasnya, gak terkait sama
+ * sekali. Sekarang distabilkan: subtree boleh melebar sebebas-bebasnya ke bawah, tapi pelebaran itu
+ * berhenti di situ, gak pernah naik ke atas. Konsekuensinya: kalau 1 kartu subtree-nya SANGAT lebar,
+ * dia bisa visual numpuk ke kolom tetangganya -- diterima sebagai trade-off, bukan dianggap bug.
+ */
+type Placed = { node: TreeNode }
 type RowBlock = {
   level: number
   left: Placed[] // urut dari kiri ke kanan
   center: Placed | null
   right: Placed[]
-  leftExtent: number
-  rightExtent: number
-  height: number
 }
-type Block = { l: number; r: number; h: number; rows: RowBlock[] }
+type Block = { rows: RowBlock[] }
 
 export function layoutStruktur(list: TreeNode[]): LayoutResult {
   const byParent = new Map<string | null, TreeNode[]>()
@@ -609,32 +614,20 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
 
     const kids = byParent.get(node.id) ?? []
     const levels = [...new Set(kids.map((item) => item.level))].sort((a, b) => a - b)
-    const rows: RowBlock[] = []
-    let l = CARD_W / 2
-    let r = CARD_W / 2
-    let h = CARD_H
+    const toPlaced = (item: TreeNode): Placed => ({ node: item })
 
-    for (const level of levels) {
+    const rows: RowBlock[] = levels.map((level) => {
       const cards = kids.filter((item) => item.level === level).sort(compareInRow)
-      const toPlaced = (item: TreeNode): Placed => ({ node: item, block: measure(item) })
-      const left = cards.filter((item) => item.jalur === "kiri").map(toPlaced)
       const centerNode = cards.find((item) => item.jalur === "lurus")
-      const center = centerNode ? toPlaced(centerNode) : null
-      const right = cards.filter((item) => item.jalur === "kanan").map(toPlaced)
+      return {
+        level,
+        left: cards.filter((item) => item.jalur === "kiri").map(toPlaced),
+        center: centerNode ? toPlaced(centerNode) : null,
+        right: cards.filter((item) => item.jalur === "kanan").map(toPlaced),
+      }
+    })
 
-      const innerL = center ? center.block.l : SPINE_CLEARANCE
-      const innerR = center ? center.block.r : SPINE_CLEARANCE
-      const leftExtent = left.reduce((sum, item) => sum + item.block.l + item.block.r + GAP_X, innerL)
-      const rightExtent = right.reduce((sum, item) => sum + item.block.l + item.block.r + GAP_X, innerR)
-      const rowH = Math.max(...[...left, ...(center ? [center] : []), ...right].map((item) => item.block.h))
-
-      rows.push({ level, left, center, right, leftExtent, rightExtent, height: rowH })
-      l = Math.max(l, leftExtent)
-      r = Math.max(r, rightExtent)
-      h += ROW_GAP + rowH
-    }
-
-    const block: Block = { l, r, h, rows }
+    const block: Block = { rows }
     memo.set(node.id, block)
     return block
   }
@@ -659,8 +652,8 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
     let rowTop = bottom + ROW_GAP
     const rowTops: number[] = []
 
-    block.rows.forEach((row, rowIndex) => {
-      // BARU -- render titik skip "Penyisipan level vertikal" untuk jarakKosong baris ini.
+    block.rows.forEach((row) => {
+      // Titik skip "Penyisipan level vertikal" untuk jarakKosong baris ini.
       const rowCards = [...row.left, ...(row.center ? [row.center] : []), ...row.right]
       const skip = rowCards[0]?.node.jarakKosong ?? 0
       if (skip > 0) {
@@ -668,7 +661,7 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
           spots.push({
             key: `${node.id}-skip-${row.level}-${s}`,
             parentId: node.id,
-            index: rowIndex,
+            index: 0,
             x: ax,
             y: rowTop + s * (ROW_GAP + CARD_H) + ROW_GAP / 2 - BAR_OFFSET,
             green: isGreen,
@@ -680,29 +673,28 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
 
       rowTops.push(rowTop)
       const barY = rowTop - BAR_OFFSET
-      // FIX 1 -- dulu syaratnya "harus baris terakhir" (rowIndex === block.rows.length - 1), itu yang
-      // bikin baris di TENGAH struktur (bukan baris terakhir) tanpa kartu tengah kegambar abu-abu padahal
-      // harusnya hijau. Sekarang cukup: hijau DAN baris itu tidak punya kartu tengah -- di baris manapun.
-      const isAuthority = isGreen && !row.center
+      // Bar & stub ke kartu kiri/kanan SELALU netral -- hijau cuma dibawa oleh garis spine tunggal di bawah.
+      const isAuthority = false
       const key = `${node.id}-r${row.level}`
 
-      // posisi sumbu tiap kartu samping di baris ini
+      // Jarak tiap kartu samping dari garis tengah: KONSTAN (CARD_W/2 + GAP_X), tidak peduli
+      // subtree di bawah kartu itu selebar apa.
       const axes: { placed: Placed; x: number }[] = []
-      const innerL = row.center ? row.center.block.l : SPINE_CLEARANCE
-      const innerR = row.center ? row.center.block.r : SPINE_CLEARANCE
+      const innerL = row.center ? CARD_W / 2 : SPINE_CLEARANCE
+      const innerR = row.center ? CARD_W / 2 : SPINE_CLEARANCE
 
       let edge = ax - innerL - GAP_X
       for (let i = row.left.length - 1; i >= 0; i -= 1) {
         const item = row.left[i]
-        const x = edge - item.block.r
+        const x = edge - CARD_W / 2
         axes.push({ placed: item, x })
-        edge = x - item.block.l - GAP_X
+        edge = x - CARD_W / 2 - GAP_X
       }
       edge = ax + innerR + GAP_X
       for (const item of row.right) {
-        const x = edge + item.block.l
+        const x = edge + CARD_W / 2
         axes.push({ placed: item, x })
-        edge = x + item.block.r + GAP_X
+        edge = x + CARD_W / 2 + GAP_X
       }
 
       if (axes.length > 0) {
@@ -716,15 +708,13 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
       }
 
       if (row.center) {
-        // Kartu di garis utama: garis datar tidak perlu, spine yang menyambung ke atasnya.
         place(row.center.node, ax, rowTop)
       }
       for (const item of axes) place(item.placed.node, item.x, rowTop)
 
-      rowTop += row.height + ROW_GAP
+      rowTop += CARD_H + ROW_GAP
     })
 
-    // Garis utama: dari bawah kartu atasan sampai ujung (atas kartu lurus, atau persimpangan terakhir).
     const lastTop = rowTops[rowTops.length - 1]
     const needsAppendSpot = hasSpine && !lastRow.center
     const spineEnd = lastRow.center ? lastTop : needsAppendSpot ? lastTop + CARD_H + BAR_OFFSET : lastTop - BAR_OFFSET
@@ -743,12 +733,10 @@ export function layoutStruktur(list: TreeNode[]): LayoutResult {
   const roots = (byParent.get(null) ?? []).sort((a, b) => a.urutan - b.urutan)
   let cursor = 0
   for (const root of roots) {
-    const block = measure(root)
-    place(root, cursor + block.l, 0)
-    cursor += block.l + block.r + GAP_X * 2
+    place(root, cursor + CARD_W / 2, 0)
+    cursor += CARD_W + GAP_X * 2
   }
 
-  // geser semua koordinat supaya mulai dari BOARD_PAD (tidak ada nilai negatif)
   const minX = Math.min(0, ...boxes.map((item) => item.x))
   const maxX = Math.max(0, ...boxes.map((item) => item.x + item.w))
   const maxY = Math.max(0, ...boxes.map((item) => item.y + item.h), ...spots.map((item) => item.y + 14))
