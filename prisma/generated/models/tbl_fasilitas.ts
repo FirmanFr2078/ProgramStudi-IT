@@ -445,14 +445,6 @@ export type EnumKategoriFasilitasFieldUpdateOperationsInput = {
   set?: $Enums.KategoriFasilitas
 }
 
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type tbl_fasilitasUpdatefiturInput = {
   set?: string[]
   push?: string | string[]

@@ -494,28 +494,99 @@ export type EnumTingkatPrestasiWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumTingkatPrestasiFilter<$PrismaModel>
 }
 
-export type EnumKategoriMitraFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriMitra | Prisma.EnumKategoriMitraFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel> | $Enums.KategoriMitra
+export type EnumBidangKerjaSamaFilter<$PrismaModel = never> = {
+  equals?: $Enums.BidangKerjaSama | Prisma.EnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel> | $Enums.BidangKerjaSama
 }
 
-export type EnumKategoriMitraWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriMitra | Prisma.EnumKategoriMitraFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriMitraWithAggregatesFilter<$PrismaModel> | $Enums.KategoriMitra
+export type EnumBidangKerjaSamaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BidangKerjaSama | Prisma.EnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBidangKerjaSamaWithAggregatesFilter<$PrismaModel> | $Enums.BidangKerjaSama
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel>
 }
 
-export type EnumKategoriFasilitasFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel> | $Enums.KategoriFasilitas
+export type EnumTingkatKerjaSamaFilter<$PrismaModel = never> = {
+  equals?: $Enums.TingkatKerjaSama | Prisma.EnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel> | $Enums.TingkatKerjaSama
+}
+
+export type EnumTingkatKerjaSamaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TingkatKerjaSama | Prisma.EnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTingkatKerjaSamaWithAggregatesFilter<$PrismaModel> | $Enums.TingkatKerjaSama
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel>
+}
+
+export type EnumJenisNaskahFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisNaskah | Prisma.EnumJenisNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel> | $Enums.JenisNaskah
+}
+
+export type EnumStatusNaskahFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusNaskah | Prisma.EnumStatusNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel> | $Enums.StatusNaskah
+}
+
+export type BigIntNullableFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type EnumJenisNaskahWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisNaskah | Prisma.EnumJenisNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisNaskahWithAggregatesFilter<$PrismaModel> | $Enums.JenisNaskah
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel>
+}
+
+export type EnumStatusNaskahWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusNaskah | Prisma.EnumStatusNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusNaskahWithAggregatesFilter<$PrismaModel> | $Enums.StatusNaskah
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel>
+}
+
+export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
 }
 
 export type IntNullableFilter<$PrismaModel = never> = {
@@ -529,14 +600,11 @@ export type IntNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntNullableFilter<$PrismaModel> | number | null
 }
 
-export type EnumKategoriFasilitasWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel> | $Enums.KategoriFasilitas
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
+export type EnumStatusKegiatanFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusKegiatan | Prisma.EnumStatusKegiatanFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel> | $Enums.StatusKegiatan
 }
 
 export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -553,6 +621,50 @@ export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
+}
+
+export type EnumStatusKegiatanWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusKegiatan | Prisma.EnumStatusKegiatanFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusKegiatanWithAggregatesFilter<$PrismaModel> | $Enums.StatusKegiatan
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel>
+}
+
+export type EnumJenisBerkasFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisBerkas | Prisma.EnumJenisBerkasFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel> | $Enums.JenisBerkas
+}
+
+export type EnumJenisBerkasWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisBerkas | Prisma.EnumJenisBerkasFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisBerkasWithAggregatesFilter<$PrismaModel> | $Enums.JenisBerkas
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel>
+}
+
+export type EnumKategoriFasilitasFilter<$PrismaModel = never> = {
+  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel> | $Enums.KategoriFasilitas
+}
+
+export type EnumKategoriFasilitasWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel> | $Enums.KategoriFasilitas
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
 }
 
 export type EnumJenisRisetFilter<$PrismaModel = never> = {
@@ -664,17 +776,6 @@ export type EnumJalurSambungFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel> | $Enums.JalurSambung
 }
 
-export type BigIntNullableFilter<$PrismaModel = never> = {
-  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
-  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-}
-
 export type EnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
   in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
@@ -683,22 +784,6 @@ export type EnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
   _max?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
-}
-
-export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
-  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
-  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
 }
 
 export type NestedUuidFilter<$PrismaModel = never> = {
@@ -1136,38 +1221,117 @@ export type NestedEnumTingkatPrestasiWithAggregatesFilter<$PrismaModel = never> 
   _max?: Prisma.NestedEnumTingkatPrestasiFilter<$PrismaModel>
 }
 
-export type NestedEnumKategoriMitraFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriMitra | Prisma.EnumKategoriMitraFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel> | $Enums.KategoriMitra
+export type NestedEnumBidangKerjaSamaFilter<$PrismaModel = never> = {
+  equals?: $Enums.BidangKerjaSama | Prisma.EnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel> | $Enums.BidangKerjaSama
 }
 
-export type NestedEnumKategoriMitraWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriMitra | Prisma.EnumKategoriMitraFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriMitra[] | Prisma.ListEnumKategoriMitraFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriMitraWithAggregatesFilter<$PrismaModel> | $Enums.KategoriMitra
+export type NestedEnumBidangKerjaSamaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BidangKerjaSama | Prisma.EnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.BidangKerjaSama[] | Prisma.ListEnumBidangKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBidangKerjaSamaWithAggregatesFilter<$PrismaModel> | $Enums.BidangKerjaSama
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumKategoriMitraFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBidangKerjaSamaFilter<$PrismaModel>
 }
 
-export type NestedEnumKategoriFasilitasFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel> | $Enums.KategoriFasilitas
+export type NestedEnumTingkatKerjaSamaFilter<$PrismaModel = never> = {
+  equals?: $Enums.TingkatKerjaSama | Prisma.EnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel> | $Enums.TingkatKerjaSama
 }
 
-export type NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel> | $Enums.KategoriFasilitas
+export type NestedEnumTingkatKerjaSamaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TingkatKerjaSama | Prisma.EnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  in?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TingkatKerjaSama[] | Prisma.ListEnumTingkatKerjaSamaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTingkatKerjaSamaWithAggregatesFilter<$PrismaModel> | $Enums.TingkatKerjaSama
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTingkatKerjaSamaFilter<$PrismaModel>
+}
+
+export type NestedEnumJenisNaskahFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisNaskah | Prisma.EnumJenisNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel> | $Enums.JenisNaskah
+}
+
+export type NestedEnumStatusNaskahFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusNaskah | Prisma.EnumStatusNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel> | $Enums.StatusNaskah
+}
+
+export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+}
+
+export type NestedEnumJenisNaskahWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisNaskah | Prisma.EnumJenisNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisNaskah[] | Prisma.ListEnumJenisNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisNaskahWithAggregatesFilter<$PrismaModel> | $Enums.JenisNaskah
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJenisNaskahFilter<$PrismaModel>
+}
+
+export type NestedEnumStatusNaskahWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusNaskah | Prisma.EnumStatusNaskahFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusNaskah[] | Prisma.ListEnumStatusNaskahFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusNaskahWithAggregatesFilter<$PrismaModel> | $Enums.StatusNaskah
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusNaskahFilter<$PrismaModel>
+}
+
+export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
+  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
+  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
+}
+
+export type NestedFloatNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+}
+
+export type NestedEnumStatusKegiatanFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusKegiatan | Prisma.EnumStatusKegiatanFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel> | $Enums.StatusKegiatan
 }
 
 export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -1186,15 +1350,48 @@ export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
 }
 
-export type NestedFloatNullableFilter<$PrismaModel = never> = {
-  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
-  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
-  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
-  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+export type NestedEnumStatusKegiatanWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusKegiatan | Prisma.EnumStatusKegiatanFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StatusKegiatan[] | Prisma.ListEnumStatusKegiatanFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStatusKegiatanWithAggregatesFilter<$PrismaModel> | $Enums.StatusKegiatan
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusKegiatanFilter<$PrismaModel>
+}
+
+export type NestedEnumJenisBerkasFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisBerkas | Prisma.EnumJenisBerkasFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel> | $Enums.JenisBerkas
+}
+
+export type NestedEnumJenisBerkasWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.JenisBerkas | Prisma.EnumJenisBerkasFieldRefInput<$PrismaModel>
+  in?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.JenisBerkas[] | Prisma.ListEnumJenisBerkasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumJenisBerkasWithAggregatesFilter<$PrismaModel> | $Enums.JenisBerkas
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumJenisBerkasFilter<$PrismaModel>
+}
+
+export type NestedEnumKategoriFasilitasFilter<$PrismaModel = never> = {
+  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel> | $Enums.KategoriFasilitas
+}
+
+export type NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.KategoriFasilitas | Prisma.EnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  in?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  notIn?: $Enums.KategoriFasilitas[] | Prisma.ListEnumKategoriFasilitasFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumKategoriFasilitasWithAggregatesFilter<$PrismaModel> | $Enums.KategoriFasilitas
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumKategoriFasilitasFilter<$PrismaModel>
 }
 
 export type NestedEnumJenisRisetFilter<$PrismaModel = never> = {
@@ -1306,17 +1503,6 @@ export type NestedEnumJalurSambungFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel> | $Enums.JalurSambung
 }
 
-export type NestedBigIntNullableFilter<$PrismaModel = never> = {
-  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
-  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-}
-
 export type NestedEnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
   equals?: $Enums.JalurSambung | Prisma.EnumJalurSambungFieldRefInput<$PrismaModel>
   in?: $Enums.JalurSambung[] | Prisma.ListEnumJalurSambungFieldRefInput<$PrismaModel>
@@ -1325,22 +1511,6 @@ export type NestedEnumJalurSambungWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
   _max?: Prisma.NestedEnumJalurSambungFilter<$PrismaModel>
-}
-
-export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel> | null
-  in?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  notIn?: bigint[] | number[] | Prisma.ListBigIntFieldRefInput<$PrismaModel> | null
-  lt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  lte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gt?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  gte?: bigint | number | Prisma.BigIntFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
-  _sum?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedBigIntNullableFilter<$PrismaModel>
 }
 
 

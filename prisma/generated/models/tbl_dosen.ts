@@ -347,6 +347,7 @@ export type tbl_dosenWhereInput = {
   struktur_posisi?: Prisma.Tbl_struktur_posisiListRelationFilter
   created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
   updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  kerja_sama?: Prisma.Tbl_kerja_samaListRelationFilter
 }
 
 export type tbl_dosenOrderByWithRelationInput = {
@@ -375,6 +376,7 @@ export type tbl_dosenOrderByWithRelationInput = {
   struktur_posisi?: Prisma.tbl_struktur_posisiOrderByRelationAggregateInput
   created_by?: Prisma.tbl_profilesOrderByWithRelationInput
   updated_by?: Prisma.tbl_profilesOrderByWithRelationInput
+  kerja_sama?: Prisma.tbl_kerja_samaOrderByRelationAggregateInput
 }
 
 export type tbl_dosenWhereUniqueInput = Prisma.AtLeast<{
@@ -406,6 +408,7 @@ export type tbl_dosenWhereUniqueInput = Prisma.AtLeast<{
   struktur_posisi?: Prisma.Tbl_struktur_posisiListRelationFilter
   created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
   updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  kerja_sama?: Prisma.Tbl_kerja_samaListRelationFilter
 }, "id_dosen" | "slug" | "nidn" | "email">
 
 export type tbl_dosenOrderByWithAggregationInput = {
@@ -490,6 +493,7 @@ export type tbl_dosenCreateInput = {
   struktur_posisi?: Prisma.tbl_struktur_posisiCreateNestedManyWithoutDosenInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_updatedInput
+  kerja_sama?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenUncheckedCreateInput = {
@@ -516,6 +520,7 @@ export type tbl_dosenUncheckedCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutDosenInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenUpdateInput = {
@@ -542,6 +547,7 @@ export type tbl_dosenUpdateInput = {
   struktur_posisi?: Prisma.tbl_struktur_posisiUpdateManyWithoutDosenNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_updatedNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateInput = {
@@ -568,6 +574,7 @@ export type tbl_dosenUncheckedUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutDosenNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenCreateManyInput = {
@@ -843,6 +850,22 @@ export type tbl_dosenUpdatemata_kuliahInput = {
   push?: string | string[]
 }
 
+export type tbl_dosenCreateNestedOneWithoutKerja_samaInput = {
+  create?: Prisma.XOR<Prisma.tbl_dosenCreateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedCreateWithoutKerja_samaInput>
+  connectOrCreate?: Prisma.tbl_dosenCreateOrConnectWithoutKerja_samaInput
+  connect?: Prisma.tbl_dosenWhereUniqueInput
+}
+
+export type tbl_dosenUpdateOneWithoutKerja_samaNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_dosenCreateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedCreateWithoutKerja_samaInput>
+  connectOrCreate?: Prisma.tbl_dosenCreateOrConnectWithoutKerja_samaInput
+  upsert?: Prisma.tbl_dosenUpsertWithoutKerja_samaInput
+  disconnect?: Prisma.tbl_dosenWhereInput | boolean
+  delete?: Prisma.tbl_dosenWhereInput | boolean
+  connect?: Prisma.tbl_dosenWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_dosenUpdateToOneWithWhereWithoutKerja_samaInput, Prisma.tbl_dosenUpdateWithoutKerja_samaInput>, Prisma.tbl_dosenUncheckedUpdateWithoutKerja_samaInput>
+}
+
 export type tbl_dosenCreateNestedOneWithoutStruktur_posisiInput = {
   create?: Prisma.XOR<Prisma.tbl_dosenCreateWithoutStruktur_posisiInput, Prisma.tbl_dosenUncheckedCreateWithoutStruktur_posisiInput>
   connectOrCreate?: Prisma.tbl_dosenCreateOrConnectWithoutStruktur_posisiInput
@@ -882,6 +905,7 @@ export type tbl_dosenCreateWithoutCreated_byInput = {
   updated_at?: Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiCreateNestedManyWithoutDosenInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_updatedInput
+  kerja_sama?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenUncheckedCreateWithoutCreated_byInput = {
@@ -907,6 +931,7 @@ export type tbl_dosenUncheckedCreateWithoutCreated_byInput = {
   created_at?: Date | string
   updated_at?: Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutDosenInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenCreateOrConnectWithoutCreated_byInput = {
@@ -942,6 +967,7 @@ export type tbl_dosenCreateWithoutUpdated_byInput = {
   updated_at?: Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiCreateNestedManyWithoutDosenInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_createdInput
+  kerja_sama?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenUncheckedCreateWithoutUpdated_byInput = {
@@ -967,6 +993,7 @@ export type tbl_dosenUncheckedCreateWithoutUpdated_byInput = {
   created_at?: Date | string
   updated_at?: Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutDosenInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenCreateOrConnectWithoutUpdated_byInput = {
@@ -1039,6 +1066,126 @@ export type tbl_dosenUpdateManyWithWhereWithoutUpdated_byInput = {
   data: Prisma.XOR<Prisma.tbl_dosenUpdateManyMutationInput, Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byInput>
 }
 
+export type tbl_dosenCreateWithoutKerja_samaInput = {
+  id_dosen?: bigint | number
+  slug: string
+  nama: string
+  nidn: string
+  jabatan_struktural?: string | null
+  jabatan_fungsional: $Enums.JabatanFungsional
+  pendidikan_s1_bidang: string
+  pendidikan_s1_kampus: string
+  pendidikan_s2_bidang?: string | null
+  pendidikan_s2_kampus?: string | null
+  pendidikan_s3_bidang?: string | null
+  pendidikan_s3_kampus?: string | null
+  bidang_keahlian?: Prisma.tbl_dosenCreatebidang_keahlianInput | string[]
+  mata_kuliah?: Prisma.tbl_dosenCreatemata_kuliahInput | string[]
+  email: string
+  foto?: string | null
+  sinta?: string | null
+  google_scholar?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  struktur_posisi?: Prisma.tbl_struktur_posisiCreateNestedManyWithoutDosenInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_updatedInput
+}
+
+export type tbl_dosenUncheckedCreateWithoutKerja_samaInput = {
+  id_dosen?: bigint | number
+  slug: string
+  nama: string
+  nidn: string
+  jabatan_struktural?: string | null
+  jabatan_fungsional: $Enums.JabatanFungsional
+  pendidikan_s1_bidang: string
+  pendidikan_s1_kampus: string
+  pendidikan_s2_bidang?: string | null
+  pendidikan_s2_kampus?: string | null
+  pendidikan_s3_bidang?: string | null
+  pendidikan_s3_kampus?: string | null
+  bidang_keahlian?: Prisma.tbl_dosenCreatebidang_keahlianInput | string[]
+  mata_kuliah?: Prisma.tbl_dosenCreatemata_kuliahInput | string[]
+  email: string
+  foto?: string | null
+  sinta?: string | null
+  google_scholar?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedCreateNestedManyWithoutDosenInput
+}
+
+export type tbl_dosenCreateOrConnectWithoutKerja_samaInput = {
+  where: Prisma.tbl_dosenWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_dosenCreateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedCreateWithoutKerja_samaInput>
+}
+
+export type tbl_dosenUpsertWithoutKerja_samaInput = {
+  update: Prisma.XOR<Prisma.tbl_dosenUpdateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedUpdateWithoutKerja_samaInput>
+  create: Prisma.XOR<Prisma.tbl_dosenCreateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedCreateWithoutKerja_samaInput>
+  where?: Prisma.tbl_dosenWhereInput
+}
+
+export type tbl_dosenUpdateToOneWithWhereWithoutKerja_samaInput = {
+  where?: Prisma.tbl_dosenWhereInput
+  data: Prisma.XOR<Prisma.tbl_dosenUpdateWithoutKerja_samaInput, Prisma.tbl_dosenUncheckedUpdateWithoutKerja_samaInput>
+}
+
+export type tbl_dosenUpdateWithoutKerja_samaInput = {
+  id_dosen?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nidn?: Prisma.StringFieldUpdateOperationsInput | string
+  jabatan_struktural?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jabatan_fungsional?: Prisma.EnumJabatanFungsionalFieldUpdateOperationsInput | $Enums.JabatanFungsional
+  pendidikan_s1_bidang?: Prisma.StringFieldUpdateOperationsInput | string
+  pendidikan_s1_kampus?: Prisma.StringFieldUpdateOperationsInput | string
+  pendidikan_s2_bidang?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s2_kampus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s3_bidang?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s3_kampus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bidang_keahlian?: Prisma.tbl_dosenUpdatebidang_keahlianInput | string[]
+  mata_kuliah?: Prisma.tbl_dosenUpdatemata_kuliahInput | string[]
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sinta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  google_scholar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  struktur_posisi?: Prisma.tbl_struktur_posisiUpdateManyWithoutDosenNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_updatedNestedInput
+}
+
+export type tbl_dosenUncheckedUpdateWithoutKerja_samaInput = {
+  id_dosen?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nidn?: Prisma.StringFieldUpdateOperationsInput | string
+  jabatan_struktural?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jabatan_fungsional?: Prisma.EnumJabatanFungsionalFieldUpdateOperationsInput | $Enums.JabatanFungsional
+  pendidikan_s1_bidang?: Prisma.StringFieldUpdateOperationsInput | string
+  pendidikan_s1_kampus?: Prisma.StringFieldUpdateOperationsInput | string
+  pendidikan_s2_bidang?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s2_kampus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s3_bidang?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pendidikan_s3_kampus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bidang_keahlian?: Prisma.tbl_dosenUpdatebidang_keahlianInput | string[]
+  mata_kuliah?: Prisma.tbl_dosenUpdatemata_kuliahInput | string[]
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sinta?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  google_scholar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutDosenNestedInput
+}
+
 export type tbl_dosenCreateWithoutStruktur_posisiInput = {
   id_dosen?: bigint | number
   slug: string
@@ -1062,6 +1209,7 @@ export type tbl_dosenCreateWithoutStruktur_posisiInput = {
   updated_at?: Date | string
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutDosen_updatedInput
+  kerja_sama?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenUncheckedCreateWithoutStruktur_posisiInput = {
@@ -1087,6 +1235,7 @@ export type tbl_dosenUncheckedCreateWithoutStruktur_posisiInput = {
   updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPj_dosenInput
 }
 
 export type tbl_dosenCreateOrConnectWithoutStruktur_posisiInput = {
@@ -1128,6 +1277,7 @@ export type tbl_dosenUpdateWithoutStruktur_posisiInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_updatedNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateWithoutStruktur_posisiInput = {
@@ -1153,6 +1303,7 @@ export type tbl_dosenUncheckedUpdateWithoutStruktur_posisiInput = {
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenCreateManyCreated_byInput = {
@@ -1226,6 +1377,7 @@ export type tbl_dosenUpdateWithoutCreated_byInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUpdateManyWithoutDosenNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_updatedNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateWithoutCreated_byInput = {
@@ -1251,6 +1403,7 @@ export type tbl_dosenUncheckedUpdateWithoutCreated_byInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutDosenNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateManyWithoutCreated_byInput = {
@@ -1300,6 +1453,7 @@ export type tbl_dosenUpdateWithoutUpdated_byInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUpdateManyWithoutDosenNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutDosen_createdNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateWithoutUpdated_byInput = {
@@ -1325,6 +1479,7 @@ export type tbl_dosenUncheckedUpdateWithoutUpdated_byInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   struktur_posisi?: Prisma.tbl_struktur_posisiUncheckedUpdateManyWithoutDosenNestedInput
+  kerja_sama?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenNestedInput
 }
 
 export type tbl_dosenUncheckedUpdateManyWithoutUpdated_byInput = {
@@ -1358,10 +1513,12 @@ export type tbl_dosenUncheckedUpdateManyWithoutUpdated_byInput = {
 
 export type Tbl_dosenCountOutputType = {
   struktur_posisi: number
+  kerja_sama: number
 }
 
 export type Tbl_dosenCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   struktur_posisi?: boolean | Tbl_dosenCountOutputTypeCountStruktur_posisiArgs
+  kerja_sama?: boolean | Tbl_dosenCountOutputTypeCountKerja_samaArgs
 }
 
 /**
@@ -1379,6 +1536,13 @@ export type Tbl_dosenCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ex
  */
 export type Tbl_dosenCountOutputTypeCountStruktur_posisiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.tbl_struktur_posisiWhereInput
+}
+
+/**
+ * Tbl_dosenCountOutputType without action
+ */
+export type Tbl_dosenCountOutputTypeCountKerja_samaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kerja_samaWhereInput
 }
 
 
@@ -1408,6 +1572,7 @@ export type tbl_dosenSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   struktur_posisi?: boolean | Prisma.tbl_dosen$struktur_posisiArgs<ExtArgs>
   created_by?: boolean | Prisma.tbl_dosen$created_byArgs<ExtArgs>
   updated_by?: boolean | Prisma.tbl_dosen$updated_byArgs<ExtArgs>
+  kerja_sama?: boolean | Prisma.tbl_dosen$kerja_samaArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_dosenCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_dosen"]>
 
@@ -1495,6 +1660,7 @@ export type tbl_dosenInclude<ExtArgs extends runtime.Types.Extensions.InternalAr
   struktur_posisi?: boolean | Prisma.tbl_dosen$struktur_posisiArgs<ExtArgs>
   created_by?: boolean | Prisma.tbl_dosen$created_byArgs<ExtArgs>
   updated_by?: boolean | Prisma.tbl_dosen$updated_byArgs<ExtArgs>
+  kerja_sama?: boolean | Prisma.tbl_dosen$kerja_samaArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_dosenCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type tbl_dosenIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1512,6 +1678,7 @@ export type $tbl_dosenPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     struktur_posisi: Prisma.$tbl_struktur_posisiPayload<ExtArgs>[]
     created_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
     updated_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+    kerja_sama: Prisma.$tbl_kerja_samaPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_dosen: bigint
@@ -1933,6 +2100,7 @@ export interface Prisma__tbl_dosenClient<T, Null = never, ExtArgs extends runtim
   struktur_posisi<T extends Prisma.tbl_dosen$struktur_posisiArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_dosen$struktur_posisiArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_struktur_posisiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   created_by<T extends Prisma.tbl_dosen$created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_dosen$created_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.tbl_dosen$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_dosen$updated_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  kerja_sama<T extends Prisma.tbl_dosen$kerja_samaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_dosen$kerja_samaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_samaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2444,6 +2612,30 @@ export type tbl_dosen$updated_byArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   include?: Prisma.tbl_profilesInclude<ExtArgs> | null
   where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
+ * tbl_dosen.kerja_sama
+ */
+export type tbl_dosen$kerja_samaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kerja_sama
+   */
+  select?: Prisma.tbl_kerja_samaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kerja_sama
+   */
+  omit?: Prisma.tbl_kerja_samaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kerja_samaInclude<ExtArgs> | null
+  where?: Prisma.tbl_kerja_samaWhereInput
+  orderBy?: Prisma.tbl_kerja_samaOrderByWithRelationInput | Prisma.tbl_kerja_samaOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kerja_samaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kerja_samaScalarFieldEnum | Prisma.Tbl_kerja_samaScalarFieldEnum[]
 }
 
 /**

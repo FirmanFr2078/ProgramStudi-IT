@@ -58,10 +58,40 @@ export type tbl_alumni = Prisma.tbl_alumniModel
  */
 export type tbl_prestasi = Prisma.tbl_prestasiModel
 /**
+ * Model tbl_ref_kategori_mitra
+ * 
+ */
+export type tbl_ref_kategori_mitra = Prisma.tbl_ref_kategori_mitraModel
+/**
+ * Model tbl_ref_bentuk
+ * 
+ */
+export type tbl_ref_bentuk = Prisma.tbl_ref_bentukModel
+/**
  * Model tbl_mitra
  * 
  */
 export type tbl_mitra = Prisma.tbl_mitraModel
+/**
+ * Model tbl_kerja_sama
+ * 
+ */
+export type tbl_kerja_sama = Prisma.tbl_kerja_samaModel
+/**
+ * Model tbl_kerja_sama_kegiatan
+ * 
+ */
+export type tbl_kerja_sama_kegiatan = Prisma.tbl_kerja_sama_kegiatanModel
+/**
+ * Model tbl_kerja_sama_berkas
+ * 
+ */
+export type tbl_kerja_sama_berkas = Prisma.tbl_kerja_sama_berkasModel
+/**
+ * Model tbl_pengaturan_halaman
+ * 
+ */
+export type tbl_pengaturan_halaman = Prisma.tbl_pengaturan_halamanModel
 /**
  * Model tbl_fasilitas
  * 

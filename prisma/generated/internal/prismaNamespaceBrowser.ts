@@ -59,7 +59,13 @@ export const ModelName = {
   tbl_tendik: 'tbl_tendik',
   tbl_alumni: 'tbl_alumni',
   tbl_prestasi: 'tbl_prestasi',
+  tbl_ref_kategori_mitra: 'tbl_ref_kategori_mitra',
+  tbl_ref_bentuk: 'tbl_ref_bentuk',
   tbl_mitra: 'tbl_mitra',
+  tbl_kerja_sama: 'tbl_kerja_sama',
+  tbl_kerja_sama_kegiatan: 'tbl_kerja_sama_kegiatan',
+  tbl_kerja_sama_berkas: 'tbl_kerja_sama_berkas',
+  tbl_pengaturan_halaman: 'tbl_pengaturan_halaman',
   tbl_fasilitas: 'tbl_fasilitas',
   tbl_riset: 'tbl_riset',
   tbl_hki: 'tbl_hki',
@@ -238,22 +244,139 @@ export const Tbl_prestasiScalarFieldEnum = {
 export type Tbl_prestasiScalarFieldEnum = (typeof Tbl_prestasiScalarFieldEnum)[keyof typeof Tbl_prestasiScalarFieldEnum]
 
 
+export const Tbl_ref_kategori_mitraScalarFieldEnum = {
+  id_kategori: 'id_kategori',
+  nama: 'nama',
+  urutan: 'urutan',
+  aktif: 'aktif'
+} as const
+
+export type Tbl_ref_kategori_mitraScalarFieldEnum = (typeof Tbl_ref_kategori_mitraScalarFieldEnum)[keyof typeof Tbl_ref_kategori_mitraScalarFieldEnum]
+
+
+export const Tbl_ref_bentukScalarFieldEnum = {
+  id_bentuk: 'id_bentuk',
+  nama: 'nama',
+  bidang: 'bidang',
+  urutan: 'urutan',
+  aktif: 'aktif'
+} as const
+
+export type Tbl_ref_bentukScalarFieldEnum = (typeof Tbl_ref_bentukScalarFieldEnum)[keyof typeof Tbl_ref_bentukScalarFieldEnum]
+
+
 export const Tbl_mitraScalarFieldEnum = {
   id_mitra: 'id_mitra',
   slug: 'slug',
   nama: 'nama',
-  kategori: 'kategori',
+  nama_singkat: 'nama_singkat',
+  kategori_id: 'kategori_id',
+  tingkat: 'tingkat',
+  negara: 'negara',
+  kota: 'kota',
+  website: 'website',
+  logo: 'logo',
   ringkasan: 'ringkasan',
-  lingkup: 'lingkup',
   deskripsi: 'deskripsi',
-  mulai: 'mulai',
-  berakhir: 'berakhir',
-  pic: 'pic',
+  tampil_publik: 'tampil_publik',
+  unggulan: 'unggulan',
+  tampil_di_mbkm: 'tampil_di_mbkm',
+  urutan: 'urutan',
+  kontak_nama: 'kontak_nama',
+  kontak_jabatan: 'kontak_jabatan',
+  kontak_email: 'kontak_email',
+  kontak_telepon: 'kontak_telepon',
+  kontak_publik: 'kontak_publik',
+  catatan_internal: 'catatan_internal',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
 export type Tbl_mitraScalarFieldEnum = (typeof Tbl_mitraScalarFieldEnum)[keyof typeof Tbl_mitraScalarFieldEnum]
+
+
+export const Tbl_kerja_samaScalarFieldEnum = {
+  id_kerja_sama: 'id_kerja_sama',
+  mitra_id: 'mitra_id',
+  jenis: 'jenis',
+  judul: 'judul',
+  status: 'status',
+  nomor_prodi: 'nomor_prodi',
+  nomor_mitra: 'nomor_mitra',
+  tempat_ttd: 'tempat_ttd',
+  tanggal_ttd: 'tanggal_ttd',
+  mulai: 'mulai',
+  berakhir: 'berakhir',
+  ruang_lingkup: 'ruang_lingkup',
+  pembiayaan: 'pembiayaan',
+  ttd_prodi: 'ttd_prodi',
+  ttd_mitra: 'ttd_mitra',
+  pj_dosen_id: 'pj_dosen_id',
+  pj_mitra: 'pj_mitra',
+  induk_id: 'induk_id',
+  perpanjangan_dari_id: 'perpanjangan_dari_id',
+  catatan_internal: 'catatan_internal',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_kerja_samaScalarFieldEnum = (typeof Tbl_kerja_samaScalarFieldEnum)[keyof typeof Tbl_kerja_samaScalarFieldEnum]
+
+
+export const Tbl_kerja_sama_kegiatanScalarFieldEnum = {
+  id_kegiatan: 'id_kegiatan',
+  kerja_sama_id: 'kerja_sama_id',
+  bidang: 'bidang',
+  bentuk_id: 'bentuk_id',
+  judul: 'judul',
+  uraian: 'uraian',
+  manfaat: 'manfaat',
+  tanggal_mulai: 'tanggal_mulai',
+  tanggal_selesai: 'tanggal_selesai',
+  jumlah_peserta: 'jumlah_peserta',
+  status: 'status',
+  tampil_publik: 'tampil_publik',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_kerja_sama_kegiatanScalarFieldEnum = (typeof Tbl_kerja_sama_kegiatanScalarFieldEnum)[keyof typeof Tbl_kerja_sama_kegiatanScalarFieldEnum]
+
+
+export const Tbl_kerja_sama_berkasScalarFieldEnum = {
+  id_berkas: 'id_berkas',
+  kerja_sama_id: 'kerja_sama_id',
+  kegiatan_id: 'kegiatan_id',
+  jenis: 'jenis',
+  label: 'label',
+  path: 'path',
+  tautan: 'tautan',
+  mime: 'mime',
+  ukuran: 'ukuran',
+  created_at: 'created_at'
+} as const
+
+export type Tbl_kerja_sama_berkasScalarFieldEnum = (typeof Tbl_kerja_sama_berkasScalarFieldEnum)[keyof typeof Tbl_kerja_sama_berkasScalarFieldEnum]
+
+
+export const Tbl_pengaturan_halamanScalarFieldEnum = {
+  id_pengaturan: 'id_pengaturan',
+  kunci: 'kunci',
+  eyebrow: 'eyebrow',
+  judul: 'judul',
+  deskripsi: 'deskripsi',
+  pembuka: 'pembuka',
+  opsi: 'opsi',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_pengaturan_halamanScalarFieldEnum = (typeof Tbl_pengaturan_halamanScalarFieldEnum)[keyof typeof Tbl_pengaturan_halamanScalarFieldEnum]
 
 
 export const Tbl_fasilitasScalarFieldEnum = {

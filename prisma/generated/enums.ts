@@ -91,15 +91,67 @@ export const TingkatPrestasi = {
 export type TingkatPrestasi = (typeof TingkatPrestasi)[keyof typeof TingkatPrestasi]
 
 
-export const KategoriMitra = {
-  DuniaUsahaIndustri: 'DuniaUsahaIndustri',
-  PerguruanTinggi: 'PerguruanTinggi',
-  PemerintahInstansi: 'PemerintahInstansi',
-  OrganisasiProfesi: 'OrganisasiProfesi',
-  MediaKomunitas: 'MediaKomunitas'
+export const TingkatKerjaSama = {
+  Internasional: 'Internasional',
+  Nasional: 'Nasional',
+  LokalWilayah: 'LokalWilayah'
 } as const
 
-export type KategoriMitra = (typeof KategoriMitra)[keyof typeof KategoriMitra]
+export type TingkatKerjaSama = (typeof TingkatKerjaSama)[keyof typeof TingkatKerjaSama]
+
+
+export const BidangKerjaSama = {
+  Pendidikan: 'Pendidikan',
+  Penelitian: 'Penelitian',
+  PengabdianMasyarakat: 'PengabdianMasyarakat',
+  PengembanganKelembagaan: 'PengembanganKelembagaan'
+} as const
+
+export type BidangKerjaSama = (typeof BidangKerjaSama)[keyof typeof BidangKerjaSama]
+
+
+export const JenisNaskah = {
+  LoI: 'LoI',
+  MoU: 'MoU',
+  PKS: 'PKS',
+  IA: 'IA',
+  Addendum: 'Addendum'
+} as const
+
+export type JenisNaskah = (typeof JenisNaskah)[keyof typeof JenisNaskah]
+
+
+export const StatusNaskah = {
+  Draft: 'Draft',
+  Berlaku: 'Berlaku',
+  Dibatalkan: 'Dibatalkan'
+} as const
+
+export type StatusNaskah = (typeof StatusNaskah)[keyof typeof StatusNaskah]
+
+
+export const StatusKegiatan = {
+  Direncanakan: 'Direncanakan',
+  Berjalan: 'Berjalan',
+  Selesai: 'Selesai',
+  Dibatalkan: 'Dibatalkan'
+} as const
+
+export type StatusKegiatan = (typeof StatusKegiatan)[keyof typeof StatusKegiatan]
+
+
+export const JenisBerkas = {
+  Naskah: 'Naskah',
+  Addendum: 'Addendum',
+  SuratTugas: 'SuratTugas',
+  Laporan: 'Laporan',
+  Dokumentasi: 'Dokumentasi',
+  Sertifikat: 'Sertifikat',
+  Luaran: 'Luaran',
+  Lainnya: 'Lainnya'
+} as const
+
+export type JenisBerkas = (typeof JenisBerkas)[keyof typeof JenisBerkas]
 
 
 export const KategoriFasilitas = {
@@ -161,6 +213,7 @@ export type JenisMataKuliah = (typeof JenisMataKuliah)[keyof typeof JenisMataKul
 
 export const ModulDokumen = {
   Kurikulum: 'Kurikulum',
+  KerjaSama: 'KerjaSama',
   Kalender: 'Kalender',
   Mbkm: 'Mbkm'
 } as const

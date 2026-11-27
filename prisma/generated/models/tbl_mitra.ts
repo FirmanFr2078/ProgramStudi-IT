@@ -28,21 +28,40 @@ export type AggregateTbl_mitra = {
 
 export type Tbl_mitraAvgAggregateOutputType = {
   id_mitra: number | null
+  kategori_id: number | null
+  urutan: number | null
 }
 
 export type Tbl_mitraSumAggregateOutputType = {
   id_mitra: bigint | null
+  kategori_id: bigint | null
+  urutan: number | null
 }
 
 export type Tbl_mitraMinAggregateOutputType = {
   id_mitra: bigint | null
   slug: string | null
   nama: string | null
-  kategori: $Enums.KategoriMitra | null
+  nama_singkat: string | null
+  kategori_id: bigint | null
+  tingkat: $Enums.TingkatKerjaSama | null
+  negara: string | null
+  kota: string | null
+  website: string | null
+  logo: string | null
   ringkasan: string | null
-  mulai: Date | null
-  berakhir: Date | null
-  pic: string | null
+  tampil_publik: boolean | null
+  unggulan: boolean | null
+  tampil_di_mbkm: boolean | null
+  urutan: number | null
+  kontak_nama: string | null
+  kontak_jabatan: string | null
+  kontak_email: string | null
+  kontak_telepon: string | null
+  kontak_publik: boolean | null
+  catatan_internal: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -51,11 +70,26 @@ export type Tbl_mitraMaxAggregateOutputType = {
   id_mitra: bigint | null
   slug: string | null
   nama: string | null
-  kategori: $Enums.KategoriMitra | null
+  nama_singkat: string | null
+  kategori_id: bigint | null
+  tingkat: $Enums.TingkatKerjaSama | null
+  negara: string | null
+  kota: string | null
+  website: string | null
+  logo: string | null
   ringkasan: string | null
-  mulai: Date | null
-  berakhir: Date | null
-  pic: string | null
+  tampil_publik: boolean | null
+  unggulan: boolean | null
+  tampil_di_mbkm: boolean | null
+  urutan: number | null
+  kontak_nama: string | null
+  kontak_jabatan: string | null
+  kontak_email: string | null
+  kontak_telepon: string | null
+  kontak_publik: boolean | null
+  catatan_internal: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -64,13 +98,27 @@ export type Tbl_mitraCountAggregateOutputType = {
   id_mitra: number
   slug: number
   nama: number
-  kategori: number
+  nama_singkat: number
+  kategori_id: number
+  tingkat: number
+  negara: number
+  kota: number
+  website: number
+  logo: number
   ringkasan: number
-  lingkup: number
   deskripsi: number
-  mulai: number
-  berakhir: number
-  pic: number
+  tampil_publik: number
+  unggulan: number
+  tampil_di_mbkm: number
+  urutan: number
+  kontak_nama: number
+  kontak_jabatan: number
+  kontak_email: number
+  kontak_telepon: number
+  kontak_publik: number
+  catatan_internal: number
+  created_by_id: number
+  updated_by_id: number
   created_at: number
   updated_at: number
   _all: number
@@ -79,21 +127,40 @@ export type Tbl_mitraCountAggregateOutputType = {
 
 export type Tbl_mitraAvgAggregateInputType = {
   id_mitra?: true
+  kategori_id?: true
+  urutan?: true
 }
 
 export type Tbl_mitraSumAggregateInputType = {
   id_mitra?: true
+  kategori_id?: true
+  urutan?: true
 }
 
 export type Tbl_mitraMinAggregateInputType = {
   id_mitra?: true
   slug?: true
   nama?: true
-  kategori?: true
+  nama_singkat?: true
+  kategori_id?: true
+  tingkat?: true
+  negara?: true
+  kota?: true
+  website?: true
+  logo?: true
   ringkasan?: true
-  mulai?: true
-  berakhir?: true
-  pic?: true
+  tampil_publik?: true
+  unggulan?: true
+  tampil_di_mbkm?: true
+  urutan?: true
+  kontak_nama?: true
+  kontak_jabatan?: true
+  kontak_email?: true
+  kontak_telepon?: true
+  kontak_publik?: true
+  catatan_internal?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -102,11 +169,26 @@ export type Tbl_mitraMaxAggregateInputType = {
   id_mitra?: true
   slug?: true
   nama?: true
-  kategori?: true
+  nama_singkat?: true
+  kategori_id?: true
+  tingkat?: true
+  negara?: true
+  kota?: true
+  website?: true
+  logo?: true
   ringkasan?: true
-  mulai?: true
-  berakhir?: true
-  pic?: true
+  tampil_publik?: true
+  unggulan?: true
+  tampil_di_mbkm?: true
+  urutan?: true
+  kontak_nama?: true
+  kontak_jabatan?: true
+  kontak_email?: true
+  kontak_telepon?: true
+  kontak_publik?: true
+  catatan_internal?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
 }
@@ -115,13 +197,27 @@ export type Tbl_mitraCountAggregateInputType = {
   id_mitra?: true
   slug?: true
   nama?: true
-  kategori?: true
+  nama_singkat?: true
+  kategori_id?: true
+  tingkat?: true
+  negara?: true
+  kota?: true
+  website?: true
+  logo?: true
   ringkasan?: true
-  lingkup?: true
   deskripsi?: true
-  mulai?: true
-  berakhir?: true
-  pic?: true
+  tampil_publik?: true
+  unggulan?: true
+  tampil_di_mbkm?: true
+  urutan?: true
+  kontak_nama?: true
+  kontak_jabatan?: true
+  kontak_email?: true
+  kontak_telepon?: true
+  kontak_publik?: true
+  catatan_internal?: true
+  created_by_id?: true
+  updated_by_id?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -217,13 +313,27 @@ export type Tbl_mitraGroupByOutputType = {
   id_mitra: bigint
   slug: string
   nama: string
-  kategori: $Enums.KategoriMitra
+  nama_singkat: string | null
+  kategori_id: bigint
+  tingkat: $Enums.TingkatKerjaSama
+  negara: string
+  kota: string | null
+  website: string | null
+  logo: string | null
   ringkasan: string
-  lingkup: string[]
   deskripsi: string[]
-  mulai: Date
-  berakhir: Date | null
-  pic: string | null
+  tampil_publik: boolean
+  unggulan: boolean
+  tampil_di_mbkm: boolean
+  urutan: number
+  kontak_nama: string | null
+  kontak_jabatan: string | null
+  kontak_email: string | null
+  kontak_telepon: string | null
+  kontak_publik: boolean
+  catatan_internal: string | null
+  created_by_id: string | null
+  updated_by_id: string | null
   created_at: Date
   updated_at: Date
   _count: Tbl_mitraCountAggregateOutputType | null
@@ -255,30 +365,66 @@ export type tbl_mitraWhereInput = {
   id_mitra?: Prisma.BigIntFilter<"tbl_mitra"> | bigint | number
   slug?: Prisma.StringFilter<"tbl_mitra"> | string
   nama?: Prisma.StringFilter<"tbl_mitra"> | string
-  kategori?: Prisma.EnumKategoriMitraFilter<"tbl_mitra"> | $Enums.KategoriMitra
+  nama_singkat?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kategori_id?: Prisma.BigIntFilter<"tbl_mitra"> | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFilter<"tbl_mitra"> | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFilter<"tbl_mitra"> | string
+  kota?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  website?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  logo?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
   ringkasan?: Prisma.StringFilter<"tbl_mitra"> | string
-  lingkup?: Prisma.StringNullableListFilter<"tbl_mitra">
   deskripsi?: Prisma.StringNullableListFilter<"tbl_mitra">
-  mulai?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
-  berakhir?: Prisma.DateTimeNullableFilter<"tbl_mitra"> | Date | string | null
-  pic?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  tampil_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  tampil_di_mbkm?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_mitra"> | number
+  kontak_nama?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_jabatan?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_email?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_telepon?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  catatan_internal?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
+  kategori?: Prisma.XOR<Prisma.Tbl_ref_kategori_mitraScalarRelationFilter, Prisma.tbl_ref_kategori_mitraWhereInput>
+  naskah?: Prisma.Tbl_kerja_samaListRelationFilter
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }
 
 export type tbl_mitraOrderByWithRelationInput = {
   id_mitra?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  nama_singkat?: Prisma.SortOrderInput | Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  tingkat?: Prisma.SortOrder
+  negara?: Prisma.SortOrder
+  kota?: Prisma.SortOrderInput | Prisma.SortOrder
+  website?: Prisma.SortOrderInput | Prisma.SortOrder
+  logo?: Prisma.SortOrderInput | Prisma.SortOrder
   ringkasan?: Prisma.SortOrder
-  lingkup?: Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
-  mulai?: Prisma.SortOrder
-  berakhir?: Prisma.SortOrderInput | Prisma.SortOrder
-  pic?: Prisma.SortOrderInput | Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  tampil_di_mbkm?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  kontak_nama?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_jabatan?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_email?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_telepon?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_publik?: Prisma.SortOrder
+  catatan_internal?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  kategori?: Prisma.tbl_ref_kategori_mitraOrderByWithRelationInput
+  naskah?: Prisma.tbl_kerja_samaOrderByRelationAggregateInput
+  created_by?: Prisma.tbl_profilesOrderByWithRelationInput
+  updated_by?: Prisma.tbl_profilesOrderByWithRelationInput
 }
 
 export type tbl_mitraWhereUniqueInput = Prisma.AtLeast<{
@@ -288,28 +434,60 @@ export type tbl_mitraWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.tbl_mitraWhereInput[]
   NOT?: Prisma.tbl_mitraWhereInput | Prisma.tbl_mitraWhereInput[]
   nama?: Prisma.StringFilter<"tbl_mitra"> | string
-  kategori?: Prisma.EnumKategoriMitraFilter<"tbl_mitra"> | $Enums.KategoriMitra
+  nama_singkat?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kategori_id?: Prisma.BigIntFilter<"tbl_mitra"> | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFilter<"tbl_mitra"> | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFilter<"tbl_mitra"> | string
+  kota?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  website?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  logo?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
   ringkasan?: Prisma.StringFilter<"tbl_mitra"> | string
-  lingkup?: Prisma.StringNullableListFilter<"tbl_mitra">
   deskripsi?: Prisma.StringNullableListFilter<"tbl_mitra">
-  mulai?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
-  berakhir?: Prisma.DateTimeNullableFilter<"tbl_mitra"> | Date | string | null
-  pic?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  tampil_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  tampil_di_mbkm?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_mitra"> | number
+  kontak_nama?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_jabatan?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_email?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_telepon?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  catatan_internal?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
+  kategori?: Prisma.XOR<Prisma.Tbl_ref_kategori_mitraScalarRelationFilter, Prisma.tbl_ref_kategori_mitraWhereInput>
+  naskah?: Prisma.Tbl_kerja_samaListRelationFilter
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }, "id_mitra" | "slug">
 
 export type tbl_mitraOrderByWithAggregationInput = {
   id_mitra?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  nama_singkat?: Prisma.SortOrderInput | Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  tingkat?: Prisma.SortOrder
+  negara?: Prisma.SortOrder
+  kota?: Prisma.SortOrderInput | Prisma.SortOrder
+  website?: Prisma.SortOrderInput | Prisma.SortOrder
+  logo?: Prisma.SortOrderInput | Prisma.SortOrder
   ringkasan?: Prisma.SortOrder
-  lingkup?: Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
-  mulai?: Prisma.SortOrder
-  berakhir?: Prisma.SortOrderInput | Prisma.SortOrder
-  pic?: Prisma.SortOrderInput | Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  tampil_di_mbkm?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  kontak_nama?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_jabatan?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_email?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_telepon?: Prisma.SortOrderInput | Prisma.SortOrder
+  kontak_publik?: Prisma.SortOrder
+  catatan_internal?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.tbl_mitraCountOrderByAggregateInput
@@ -326,13 +504,27 @@ export type tbl_mitraScalarWhereWithAggregatesInput = {
   id_mitra?: Prisma.BigIntWithAggregatesFilter<"tbl_mitra"> | bigint | number
   slug?: Prisma.StringWithAggregatesFilter<"tbl_mitra"> | string
   nama?: Prisma.StringWithAggregatesFilter<"tbl_mitra"> | string
-  kategori?: Prisma.EnumKategoriMitraWithAggregatesFilter<"tbl_mitra"> | $Enums.KategoriMitra
+  nama_singkat?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  kategori_id?: Prisma.BigIntWithAggregatesFilter<"tbl_mitra"> | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaWithAggregatesFilter<"tbl_mitra"> | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringWithAggregatesFilter<"tbl_mitra"> | string
+  kota?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  website?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  logo?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
   ringkasan?: Prisma.StringWithAggregatesFilter<"tbl_mitra"> | string
-  lingkup?: Prisma.StringNullableListFilter<"tbl_mitra">
   deskripsi?: Prisma.StringNullableListFilter<"tbl_mitra">
-  mulai?: Prisma.DateTimeWithAggregatesFilter<"tbl_mitra"> | Date | string
-  berakhir?: Prisma.DateTimeNullableWithAggregatesFilter<"tbl_mitra"> | Date | string | null
-  pic?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  tampil_publik?: Prisma.BoolWithAggregatesFilter<"tbl_mitra"> | boolean
+  unggulan?: Prisma.BoolWithAggregatesFilter<"tbl_mitra"> | boolean
+  tampil_di_mbkm?: Prisma.BoolWithAggregatesFilter<"tbl_mitra"> | boolean
+  urutan?: Prisma.IntWithAggregatesFilter<"tbl_mitra"> | number
+  kontak_nama?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  kontak_jabatan?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  kontak_email?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  kontak_telepon?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  kontak_publik?: Prisma.BoolWithAggregatesFilter<"tbl_mitra"> | boolean
+  catatan_internal?: Prisma.StringNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  created_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_mitra"> | string | null
+  updated_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_mitra"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_mitra"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_mitra"> | Date | string
 }
@@ -341,73 +533,147 @@ export type tbl_mitraCreateInput = {
   id_mitra?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriMitra
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
   ringkasan: string
-  lingkup?: Prisma.tbl_mitraCreatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
-  mulai: Date | string
-  berakhir?: Date | string | null
-  pic?: string | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_mitraCreateNestedOneWithoutMitraInput
+  naskah?: Prisma.tbl_kerja_samaCreateNestedManyWithoutMitraInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_updatedInput
 }
 
 export type tbl_mitraUncheckedCreateInput = {
   id_mitra?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriMitra
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
   ringkasan: string
-  lingkup?: Prisma.tbl_mitraCreatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
-  mulai: Date | string
-  berakhir?: Date | string | null
-  pic?: string | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutMitraInput
 }
 
 export type tbl_mitraUpdateInput = {
   id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriMitraFieldUpdateOperationsInput | $Enums.KategoriMitra
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  lingkup?: Prisma.tbl_mitraUpdatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
-  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  pic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_mitraUpdateOneRequiredWithoutMitraNestedInput
+  naskah?: Prisma.tbl_kerja_samaUpdateManyWithoutMitraNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_updatedNestedInput
 }
 
 export type tbl_mitraUncheckedUpdateInput = {
   id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriMitraFieldUpdateOperationsInput | $Enums.KategoriMitra
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  lingkup?: Prisma.tbl_mitraUpdatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
-  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  pic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutMitraNestedInput
 }
 
 export type tbl_mitraCreateManyInput = {
   id_mitra?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriMitra
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
   ringkasan: string
-  lingkup?: Prisma.tbl_mitraCreatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
-  mulai: Date | string
-  berakhir?: Date | string | null
-  pic?: string | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -416,13 +682,24 @@ export type tbl_mitraUpdateManyMutationInput = {
   id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriMitraFieldUpdateOperationsInput | $Enums.KategoriMitra
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  lingkup?: Prisma.tbl_mitraUpdatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
-  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  pic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -431,45 +708,100 @@ export type tbl_mitraUncheckedUpdateManyInput = {
   id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriMitraFieldUpdateOperationsInput | $Enums.KategoriMitra
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
-  lingkup?: Prisma.tbl_mitraUpdatelingkupInput | string[]
   deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
-  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  pic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type Tbl_mitraListRelationFilter = {
+  every?: Prisma.tbl_mitraWhereInput
+  some?: Prisma.tbl_mitraWhereInput
+  none?: Prisma.tbl_mitraWhereInput
+}
+
+export type tbl_mitraOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type tbl_mitraCountOrderByAggregateInput = {
   id_mitra?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  nama_singkat?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  tingkat?: Prisma.SortOrder
+  negara?: Prisma.SortOrder
+  kota?: Prisma.SortOrder
+  website?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
   ringkasan?: Prisma.SortOrder
-  lingkup?: Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
-  mulai?: Prisma.SortOrder
-  berakhir?: Prisma.SortOrder
-  pic?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  tampil_di_mbkm?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  kontak_nama?: Prisma.SortOrder
+  kontak_jabatan?: Prisma.SortOrder
+  kontak_email?: Prisma.SortOrder
+  kontak_telepon?: Prisma.SortOrder
+  kontak_publik?: Prisma.SortOrder
+  catatan_internal?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type tbl_mitraAvgOrderByAggregateInput = {
   id_mitra?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
 }
 
 export type tbl_mitraMaxOrderByAggregateInput = {
   id_mitra?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  nama_singkat?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  tingkat?: Prisma.SortOrder
+  negara?: Prisma.SortOrder
+  kota?: Prisma.SortOrder
+  website?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
   ringkasan?: Prisma.SortOrder
-  mulai?: Prisma.SortOrder
-  berakhir?: Prisma.SortOrder
-  pic?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  tampil_di_mbkm?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  kontak_nama?: Prisma.SortOrder
+  kontak_jabatan?: Prisma.SortOrder
+  kontak_email?: Prisma.SortOrder
+  kontak_telepon?: Prisma.SortOrder
+  kontak_publik?: Prisma.SortOrder
+  catatan_internal?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -478,34 +810,173 @@ export type tbl_mitraMinOrderByAggregateInput = {
   id_mitra?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  nama_singkat?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  tingkat?: Prisma.SortOrder
+  negara?: Prisma.SortOrder
+  kota?: Prisma.SortOrder
+  website?: Prisma.SortOrder
+  logo?: Prisma.SortOrder
   ringkasan?: Prisma.SortOrder
-  mulai?: Prisma.SortOrder
-  berakhir?: Prisma.SortOrder
-  pic?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  tampil_di_mbkm?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  kontak_nama?: Prisma.SortOrder
+  kontak_jabatan?: Prisma.SortOrder
+  kontak_email?: Prisma.SortOrder
+  kontak_telepon?: Prisma.SortOrder
+  kontak_publik?: Prisma.SortOrder
+  catatan_internal?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type tbl_mitraSumOrderByAggregateInput = {
   id_mitra?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
 }
 
-export type tbl_mitraCreatelingkupInput = {
-  set: string[]
+export type Tbl_mitraScalarRelationFilter = {
+  is?: Prisma.tbl_mitraWhereInput
+  isNot?: Prisma.tbl_mitraWhereInput
+}
+
+export type tbl_mitraCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_mitraCreateWithoutCreated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_mitraCreateWithoutUpdated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_mitraCreateWithoutCreated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_mitraCreateWithoutUpdated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_mitraCreateWithoutCreated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+}
+
+export type tbl_mitraUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_mitraCreateWithoutUpdated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_mitraCreateWithoutCreated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_mitraCreateWithoutUpdated_byInput[] | Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_mitraCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_mitraCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+}
+
+export type tbl_mitraCreateNestedManyWithoutKategoriInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput> | Prisma.tbl_mitraCreateWithoutKategoriInput[] | Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput | Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput[]
+  createMany?: Prisma.tbl_mitraCreateManyKategoriInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraUncheckedCreateNestedManyWithoutKategoriInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput> | Prisma.tbl_mitraCreateWithoutKategoriInput[] | Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput | Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput[]
+  createMany?: Prisma.tbl_mitraCreateManyKategoriInputEnvelope
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+}
+
+export type tbl_mitraUpdateManyWithoutKategoriNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput> | Prisma.tbl_mitraCreateWithoutKategoriInput[] | Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput | Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutKategoriInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutKategoriInput[]
+  createMany?: Prisma.tbl_mitraCreateManyKategoriInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutKategoriInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutKategoriInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutKategoriInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutKategoriInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutKategoriNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput> | Prisma.tbl_mitraCreateWithoutKategoriInput[] | Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput | Prisma.tbl_mitraCreateOrConnectWithoutKategoriInput[]
+  upsert?: Prisma.tbl_mitraUpsertWithWhereUniqueWithoutKategoriInput | Prisma.tbl_mitraUpsertWithWhereUniqueWithoutKategoriInput[]
+  createMany?: Prisma.tbl_mitraCreateManyKategoriInputEnvelope
+  set?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  disconnect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  delete?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  connect?: Prisma.tbl_mitraWhereUniqueInput | Prisma.tbl_mitraWhereUniqueInput[]
+  update?: Prisma.tbl_mitraUpdateWithWhereUniqueWithoutKategoriInput | Prisma.tbl_mitraUpdateWithWhereUniqueWithoutKategoriInput[]
+  updateMany?: Prisma.tbl_mitraUpdateManyWithWhereWithoutKategoriInput | Prisma.tbl_mitraUpdateManyWithWhereWithoutKategoriInput[]
+  deleteMany?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
 }
 
 export type tbl_mitraCreatedeskripsiInput = {
   set: string[]
 }
 
-export type EnumKategoriMitraFieldUpdateOperationsInput = {
-  set?: $Enums.KategoriMitra
-}
-
-export type tbl_mitraUpdatelingkupInput = {
-  set?: string[]
-  push?: string | string[]
+export type EnumTingkatKerjaSamaFieldUpdateOperationsInput = {
+  set?: $Enums.TingkatKerjaSama
 }
 
 export type tbl_mitraUpdatedeskripsiInput = {
@@ -513,84 +984,988 @@ export type tbl_mitraUpdatedeskripsiInput = {
   push?: string | string[]
 }
 
+export type tbl_mitraCreateNestedOneWithoutNaskahInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutNaskahInput, Prisma.tbl_mitraUncheckedCreateWithoutNaskahInput>
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutNaskahInput
+  connect?: Prisma.tbl_mitraWhereUniqueInput
+}
+
+export type tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_mitraCreateWithoutNaskahInput, Prisma.tbl_mitraUncheckedCreateWithoutNaskahInput>
+  connectOrCreate?: Prisma.tbl_mitraCreateOrConnectWithoutNaskahInput
+  upsert?: Prisma.tbl_mitraUpsertWithoutNaskahInput
+  connect?: Prisma.tbl_mitraWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_mitraUpdateToOneWithWhereWithoutNaskahInput, Prisma.tbl_mitraUpdateWithoutNaskahInput>, Prisma.tbl_mitraUncheckedUpdateWithoutNaskahInput>
+}
+
+export type tbl_mitraCreateWithoutCreated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_mitraCreateNestedOneWithoutMitraInput
+  naskah?: Prisma.tbl_kerja_samaCreateNestedManyWithoutMitraInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_updatedInput
+}
+
+export type tbl_mitraUncheckedCreateWithoutCreated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutMitraInput
+}
+
+export type tbl_mitraCreateOrConnectWithoutCreated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_mitraCreateManyCreated_byInputEnvelope = {
+  data: Prisma.tbl_mitraCreateManyCreated_byInput | Prisma.tbl_mitraCreateManyCreated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_mitraCreateWithoutUpdated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_mitraCreateNestedOneWithoutMitraInput
+  naskah?: Prisma.tbl_kerja_samaCreateNestedManyWithoutMitraInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_createdInput
+}
+
+export type tbl_mitraUncheckedCreateWithoutUpdated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutMitraInput
+}
+
+export type tbl_mitraCreateOrConnectWithoutUpdated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_mitraCreateManyUpdated_byInputEnvelope = {
+  data: Prisma.tbl_mitraCreateManyUpdated_byInput | Prisma.tbl_mitraCreateManyUpdated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_mitraUpsertWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedUpdateWithoutCreated_byInput>
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_mitraUpdateWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutCreated_byInput, Prisma.tbl_mitraUncheckedUpdateWithoutCreated_byInput>
+}
+
+export type tbl_mitraUpdateManyWithWhereWithoutCreated_byInput = {
+  where: Prisma.tbl_mitraScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateManyMutationInput, Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byInput>
+}
+
+export type tbl_mitraScalarWhereInput = {
+  AND?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+  OR?: Prisma.tbl_mitraScalarWhereInput[]
+  NOT?: Prisma.tbl_mitraScalarWhereInput | Prisma.tbl_mitraScalarWhereInput[]
+  id_mitra?: Prisma.BigIntFilter<"tbl_mitra"> | bigint | number
+  slug?: Prisma.StringFilter<"tbl_mitra"> | string
+  nama?: Prisma.StringFilter<"tbl_mitra"> | string
+  nama_singkat?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kategori_id?: Prisma.BigIntFilter<"tbl_mitra"> | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFilter<"tbl_mitra"> | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFilter<"tbl_mitra"> | string
+  kota?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  website?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  logo?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  ringkasan?: Prisma.StringFilter<"tbl_mitra"> | string
+  deskripsi?: Prisma.StringNullableListFilter<"tbl_mitra">
+  tampil_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  tampil_di_mbkm?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_mitra"> | number
+  kontak_nama?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_jabatan?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_email?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_telepon?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  kontak_publik?: Prisma.BoolFilter<"tbl_mitra"> | boolean
+  catatan_internal?: Prisma.StringNullableFilter<"tbl_mitra"> | string | null
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_mitra"> | string | null
+  created_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"tbl_mitra"> | Date | string
+}
+
+export type tbl_mitraUpsertWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedUpdateWithoutUpdated_byInput>
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_mitraUpdateWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutUpdated_byInput, Prisma.tbl_mitraUncheckedUpdateWithoutUpdated_byInput>
+}
+
+export type tbl_mitraUpdateManyWithWhereWithoutUpdated_byInput = {
+  where: Prisma.tbl_mitraScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateManyMutationInput, Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byInput>
+}
+
+export type tbl_mitraCreateWithoutKategoriInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  naskah?: Prisma.tbl_kerja_samaCreateNestedManyWithoutMitraInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_updatedInput
+}
+
+export type tbl_mitraUncheckedCreateWithoutKategoriInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutMitraInput
+}
+
+export type tbl_mitraCreateOrConnectWithoutKategoriInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput>
+}
+
+export type tbl_mitraCreateManyKategoriInputEnvelope = {
+  data: Prisma.tbl_mitraCreateManyKategoriInput | Prisma.tbl_mitraCreateManyKategoriInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_mitraUpsertWithWhereUniqueWithoutKategoriInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutKategoriInput, Prisma.tbl_mitraUncheckedUpdateWithoutKategoriInput>
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutKategoriInput, Prisma.tbl_mitraUncheckedCreateWithoutKategoriInput>
+}
+
+export type tbl_mitraUpdateWithWhereUniqueWithoutKategoriInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutKategoriInput, Prisma.tbl_mitraUncheckedUpdateWithoutKategoriInput>
+}
+
+export type tbl_mitraUpdateManyWithWhereWithoutKategoriInput = {
+  where: Prisma.tbl_mitraScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateManyMutationInput, Prisma.tbl_mitraUncheckedUpdateManyWithoutKategoriInput>
+}
+
+export type tbl_mitraCreateWithoutNaskahInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_mitraCreateNestedOneWithoutMitraInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutMitra_updatedInput
+}
+
+export type tbl_mitraUncheckedCreateWithoutNaskahInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_mitraCreateOrConnectWithoutNaskahInput = {
+  where: Prisma.tbl_mitraWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutNaskahInput, Prisma.tbl_mitraUncheckedCreateWithoutNaskahInput>
+}
+
+export type tbl_mitraUpsertWithoutNaskahInput = {
+  update: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutNaskahInput, Prisma.tbl_mitraUncheckedUpdateWithoutNaskahInput>
+  create: Prisma.XOR<Prisma.tbl_mitraCreateWithoutNaskahInput, Prisma.tbl_mitraUncheckedCreateWithoutNaskahInput>
+  where?: Prisma.tbl_mitraWhereInput
+}
+
+export type tbl_mitraUpdateToOneWithWhereWithoutNaskahInput = {
+  where?: Prisma.tbl_mitraWhereInput
+  data: Prisma.XOR<Prisma.tbl_mitraUpdateWithoutNaskahInput, Prisma.tbl_mitraUncheckedUpdateWithoutNaskahInput>
+}
+
+export type tbl_mitraUpdateWithoutNaskahInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_mitraUpdateOneRequiredWithoutMitraNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_updatedNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateWithoutNaskahInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_mitraCreateManyCreated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_mitraCreateManyUpdated_byInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  kategori_id: bigint | number
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_mitraUpdateWithoutCreated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_mitraUpdateOneRequiredWithoutMitraNestedInput
+  naskah?: Prisma.tbl_kerja_samaUpdateManyWithoutMitraNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_updatedNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateWithoutCreated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutMitraNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutCreated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_mitraUpdateWithoutUpdated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_mitraUpdateOneRequiredWithoutMitraNestedInput
+  naskah?: Prisma.tbl_kerja_samaUpdateManyWithoutMitraNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_createdNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateWithoutUpdated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutMitraNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutUpdated_byInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_mitraCreateManyKategoriInput = {
+  id_mitra?: bigint | number
+  slug: string
+  nama: string
+  nama_singkat?: string | null
+  tingkat: $Enums.TingkatKerjaSama
+  negara?: string
+  kota?: string | null
+  website?: string | null
+  logo?: string | null
+  ringkasan: string
+  deskripsi?: Prisma.tbl_mitraCreatedeskripsiInput | string[]
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: number
+  kontak_nama?: string | null
+  kontak_jabatan?: string | null
+  kontak_email?: string | null
+  kontak_telepon?: string | null
+  kontak_publik?: boolean
+  catatan_internal?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_mitraUpdateWithoutKategoriInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  naskah?: Prisma.tbl_kerja_samaUpdateManyWithoutMitraNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutMitra_updatedNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateWithoutKategoriInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  naskah?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutMitraNestedInput
+}
+
+export type tbl_mitraUncheckedUpdateManyWithoutKategoriInput = {
+  id_mitra?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  nama_singkat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tingkat?: Prisma.EnumTingkatKerjaSamaFieldUpdateOperationsInput | $Enums.TingkatKerjaSama
+  negara?: Prisma.StringFieldUpdateOperationsInput | string
+  kota?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ringkasan?: Prisma.StringFieldUpdateOperationsInput | string
+  deskripsi?: Prisma.tbl_mitraUpdatedeskripsiInput | string[]
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  tampil_di_mbkm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  kontak_nama?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_jabatan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_telepon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kontak_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type Tbl_mitraCountOutputType
+ */
+
+export type Tbl_mitraCountOutputType = {
+  naskah: number
+}
+
+export type Tbl_mitraCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  naskah?: boolean | Tbl_mitraCountOutputTypeCountNaskahArgs
+}
+
+/**
+ * Tbl_mitraCountOutputType without action
+ */
+export type Tbl_mitraCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Tbl_mitraCountOutputType
+   */
+  select?: Prisma.Tbl_mitraCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Tbl_mitraCountOutputType without action
+ */
+export type Tbl_mitraCountOutputTypeCountNaskahArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kerja_samaWhereInput
+}
 
 
 export type tbl_mitraSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_mitra?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
+  nama_singkat?: boolean
+  kategori_id?: boolean
+  tingkat?: boolean
+  negara?: boolean
+  kota?: boolean
+  website?: boolean
+  logo?: boolean
   ringkasan?: boolean
-  lingkup?: boolean
   deskripsi?: boolean
-  mulai?: boolean
-  berakhir?: boolean
-  pic?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: boolean
+  kontak_nama?: boolean
+  kontak_jabatan?: boolean
+  kontak_email?: boolean
+  kontak_telepon?: boolean
+  kontak_publik?: boolean
+  catatan_internal?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  naskah?: boolean | Prisma.tbl_mitra$naskahArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_mitraCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_mitra"]>
 
 export type tbl_mitraSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_mitra?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
+  nama_singkat?: boolean
+  kategori_id?: boolean
+  tingkat?: boolean
+  negara?: boolean
+  kota?: boolean
+  website?: boolean
+  logo?: boolean
   ringkasan?: boolean
-  lingkup?: boolean
   deskripsi?: boolean
-  mulai?: boolean
-  berakhir?: boolean
-  pic?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: boolean
+  kontak_nama?: boolean
+  kontak_jabatan?: boolean
+  kontak_email?: boolean
+  kontak_telepon?: boolean
+  kontak_publik?: boolean
+  catatan_internal?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_mitra"]>
 
 export type tbl_mitraSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_mitra?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
+  nama_singkat?: boolean
+  kategori_id?: boolean
+  tingkat?: boolean
+  negara?: boolean
+  kota?: boolean
+  website?: boolean
+  logo?: boolean
   ringkasan?: boolean
-  lingkup?: boolean
   deskripsi?: boolean
-  mulai?: boolean
-  berakhir?: boolean
-  pic?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: boolean
+  kontak_nama?: boolean
+  kontak_jabatan?: boolean
+  kontak_email?: boolean
+  kontak_telepon?: boolean
+  kontak_publik?: boolean
+  catatan_internal?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_mitra"]>
 
 export type tbl_mitraSelectScalar = {
   id_mitra?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
+  nama_singkat?: boolean
+  kategori_id?: boolean
+  tingkat?: boolean
+  negara?: boolean
+  kota?: boolean
+  website?: boolean
+  logo?: boolean
   ringkasan?: boolean
-  lingkup?: boolean
   deskripsi?: boolean
-  mulai?: boolean
-  berakhir?: boolean
-  pic?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  tampil_di_mbkm?: boolean
+  urutan?: boolean
+  kontak_nama?: boolean
+  kontak_jabatan?: boolean
+  kontak_email?: boolean
+  kontak_telepon?: boolean
+  kontak_publik?: boolean
+  catatan_internal?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type tbl_mitraOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_mitra" | "slug" | "nama" | "kategori" | "ringkasan" | "lingkup" | "deskripsi" | "mulai" | "berakhir" | "pic" | "created_at" | "updated_at", ExtArgs["result"]["tbl_mitra"]>
+export type tbl_mitraOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_mitra" | "slug" | "nama" | "nama_singkat" | "kategori_id" | "tingkat" | "negara" | "kota" | "website" | "logo" | "ringkasan" | "deskripsi" | "tampil_publik" | "unggulan" | "tampil_di_mbkm" | "urutan" | "kontak_nama" | "kontak_jabatan" | "kontak_email" | "kontak_telepon" | "kontak_publik" | "catatan_internal" | "created_by_id" | "updated_by_id" | "created_at" | "updated_at", ExtArgs["result"]["tbl_mitra"]>
+export type tbl_mitraInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  naskah?: boolean | Prisma.tbl_mitra$naskahArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_mitraCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type tbl_mitraIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
+}
+export type tbl_mitraIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_mitra$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_mitra$updated_byArgs<ExtArgs>
+}
 
 export type $tbl_mitraPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_mitra"
-  objects: {}
+  objects: {
+    kategori: Prisma.$tbl_ref_kategori_mitraPayload<ExtArgs>
+    naskah: Prisma.$tbl_kerja_samaPayload<ExtArgs>[]
+    created_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+    updated_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_mitra: bigint
     slug: string
     nama: string
-    kategori: $Enums.KategoriMitra
+    nama_singkat: string | null
+    kategori_id: bigint
+    tingkat: $Enums.TingkatKerjaSama
+    negara: string
+    kota: string | null
+    website: string | null
+    logo: string | null
     ringkasan: string
-    lingkup: string[]
     deskripsi: string[]
-    mulai: Date
-    berakhir: Date | null
-    pic: string | null
+    tampil_publik: boolean
+    unggulan: boolean
+    tampil_di_mbkm: boolean
+    urutan: number
+    kontak_nama: string | null
+    kontak_jabatan: string | null
+    kontak_email: string | null
+    kontak_telepon: string | null
+    kontak_publik: boolean
+    catatan_internal: string | null
+    created_by_id: string | null
+    updated_by_id: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["tbl_mitra"]>
@@ -987,6 +2362,10 @@ readonly fields: tbl_mitraFieldRefs;
  */
 export interface Prisma__tbl_mitraClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  kategori<T extends Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_ref_kategori_mitraDefaultArgs<ExtArgs>>): Prisma.Prisma__tbl_ref_kategori_mitraClient<runtime.Types.Result.GetResult<Prisma.$tbl_ref_kategori_mitraPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  naskah<T extends Prisma.tbl_mitra$naskahArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_mitra$naskahArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_samaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  created_by<T extends Prisma.tbl_mitra$created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_mitra$created_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  updated_by<T extends Prisma.tbl_mitra$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_mitra$updated_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1019,13 +2398,27 @@ export interface tbl_mitraFieldRefs {
   readonly id_mitra: Prisma.FieldRef<"tbl_mitra", 'BigInt'>
   readonly slug: Prisma.FieldRef<"tbl_mitra", 'String'>
   readonly nama: Prisma.FieldRef<"tbl_mitra", 'String'>
-  readonly kategori: Prisma.FieldRef<"tbl_mitra", 'KategoriMitra'>
+  readonly nama_singkat: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kategori_id: Prisma.FieldRef<"tbl_mitra", 'BigInt'>
+  readonly tingkat: Prisma.FieldRef<"tbl_mitra", 'TingkatKerjaSama'>
+  readonly negara: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kota: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly website: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly logo: Prisma.FieldRef<"tbl_mitra", 'String'>
   readonly ringkasan: Prisma.FieldRef<"tbl_mitra", 'String'>
-  readonly lingkup: Prisma.FieldRef<"tbl_mitra", 'String[]'>
   readonly deskripsi: Prisma.FieldRef<"tbl_mitra", 'String[]'>
-  readonly mulai: Prisma.FieldRef<"tbl_mitra", 'DateTime'>
-  readonly berakhir: Prisma.FieldRef<"tbl_mitra", 'DateTime'>
-  readonly pic: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly tampil_publik: Prisma.FieldRef<"tbl_mitra", 'Boolean'>
+  readonly unggulan: Prisma.FieldRef<"tbl_mitra", 'Boolean'>
+  readonly tampil_di_mbkm: Prisma.FieldRef<"tbl_mitra", 'Boolean'>
+  readonly urutan: Prisma.FieldRef<"tbl_mitra", 'Int'>
+  readonly kontak_nama: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kontak_jabatan: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kontak_email: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kontak_telepon: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly kontak_publik: Prisma.FieldRef<"tbl_mitra", 'Boolean'>
+  readonly catatan_internal: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly created_by_id: Prisma.FieldRef<"tbl_mitra", 'String'>
+  readonly updated_by_id: Prisma.FieldRef<"tbl_mitra", 'String'>
   readonly created_at: Prisma.FieldRef<"tbl_mitra", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"tbl_mitra", 'DateTime'>
 }
@@ -1045,6 +2438,10 @@ export type tbl_mitraFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_mitra to fetch.
    */
   where: Prisma.tbl_mitraWhereUniqueInput
@@ -1063,6 +2460,10 @@ export type tbl_mitraFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensi
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_mitra to fetch.
    */
   where: Prisma.tbl_mitraWhereUniqueInput
@@ -1080,6 +2481,10 @@ export type tbl_mitraFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the tbl_mitra
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
   /**
    * Filter, which tbl_mitra to fetch.
    */
@@ -1129,6 +2534,10 @@ export type tbl_mitraFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_mitra to fetch.
    */
   where?: Prisma.tbl_mitraWhereInput
@@ -1176,6 +2585,10 @@ export type tbl_mitraFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the tbl_mitra
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
   /**
    * Filter, which tbl_mitras to fetch.
    */
@@ -1225,6 +2638,10 @@ export type tbl_mitraCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
+  /**
    * The data needed to create a tbl_mitra.
    */
   data: Prisma.XOR<Prisma.tbl_mitraCreateInput, Prisma.tbl_mitraUncheckedCreateInput>
@@ -1258,6 +2675,10 @@ export type tbl_mitraCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    */
   data: Prisma.tbl_mitraCreateManyInput | Prisma.tbl_mitraCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1272,6 +2693,10 @@ export type tbl_mitraUpdateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the tbl_mitra
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
   /**
    * The data needed to update a tbl_mitra.
    */
@@ -1324,6 +2749,10 @@ export type tbl_mitraUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Exten
    * Limit how many tbl_mitras to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1338,6 +2767,10 @@ export type tbl_mitraUpsertArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the tbl_mitra
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
   /**
    * The filter to search for the tbl_mitra to update in case it exists.
    */
@@ -1365,6 +2798,10 @@ export type tbl_mitraDeleteArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
+  /**
    * Filter which tbl_mitra to delete.
    */
   where: Prisma.tbl_mitraWhereUniqueInput
@@ -1385,6 +2822,68 @@ export type tbl_mitraDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
+ * tbl_mitra.naskah
+ */
+export type tbl_mitra$naskahArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kerja_sama
+   */
+  select?: Prisma.tbl_kerja_samaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kerja_sama
+   */
+  omit?: Prisma.tbl_kerja_samaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kerja_samaInclude<ExtArgs> | null
+  where?: Prisma.tbl_kerja_samaWhereInput
+  orderBy?: Prisma.tbl_kerja_samaOrderByWithRelationInput | Prisma.tbl_kerja_samaOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kerja_samaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kerja_samaScalarFieldEnum | Prisma.Tbl_kerja_samaScalarFieldEnum[]
+}
+
+/**
+ * tbl_mitra.created_by
+ */
+export type tbl_mitra$created_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
+ * tbl_mitra.updated_by
+ */
+export type tbl_mitra$updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
  * tbl_mitra without action
  */
 export type tbl_mitraDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1396,4 +2895,8 @@ export type tbl_mitraDefaultArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the tbl_mitra
    */
   omit?: Prisma.tbl_mitraOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_mitraInclude<ExtArgs> | null
 }

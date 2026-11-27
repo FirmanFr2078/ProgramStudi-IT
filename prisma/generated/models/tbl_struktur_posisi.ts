@@ -661,14 +661,6 @@ export type tbl_struktur_posisiUpdateManyWithoutParentNestedInput = {
   deleteMany?: Prisma.tbl_struktur_posisiScalarWhereInput | Prisma.tbl_struktur_posisiScalarWhereInput[]
 }
 
-export type NullableBigIntFieldUpdateOperationsInput = {
-  set?: bigint | number | null
-  increment?: bigint | number
-  decrement?: bigint | number
-  multiply?: bigint | number
-  divide?: bigint | number
-}
-
 export type tbl_struktur_posisiUncheckedUpdateManyWithoutParentNestedInput = {
   create?: Prisma.XOR<Prisma.tbl_struktur_posisiCreateWithoutParentInput, Prisma.tbl_struktur_posisiUncheckedCreateWithoutParentInput> | Prisma.tbl_struktur_posisiCreateWithoutParentInput[] | Prisma.tbl_struktur_posisiUncheckedCreateWithoutParentInput[]
   connectOrCreate?: Prisma.tbl_struktur_posisiCreateOrConnectWithoutParentInput | Prisma.tbl_struktur_posisiCreateOrConnectWithoutParentInput[]
