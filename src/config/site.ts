@@ -1,14 +1,14 @@
 import type { FooterGroup, SiteNavItem } from "@/types"
 
 export const siteConfig = {
-  name: "Prodi TI", // nama sementara, ganti kapan saja
+  name: "Prodi TI",
   fullName: "Program Studi Teknik Informatika",
   faculty: "Fakultas Teknik dan Informatika",
   university: "Universitas Islam Balitar",
   tagline: "Belajar informatika, kami temani tiap langkahnya.",
-  address: "[Alamat kampus], Blitar, Jawa Timur",
-  email: "[email prodi]",
-  phone: "[nomor telepon]",
+  address: "Jl. Majapahit No.2- 4, Sananwetan, Kec. Sananwetan, Kota Blitar, Jawa Timur 66137",
+  email: "prodi@mail.com",
+  phone: "081234567890",
   copyrightYear: 2026,
   social: [
     { label: "Instagram", href: "#" },

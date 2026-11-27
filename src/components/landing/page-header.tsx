@@ -18,11 +18,13 @@ export function PageHeader({
   title,
   description,
   breadcrumbs,
+  showEyebrow = true,
 }: {
   eyebrow: string
   title: string
   description?: string
   breadcrumbs: Crumb[]
+  showEyebrow?: boolean
 }) {
   return (
     <section className="mx-auto max-w-6xl px-4 pt-10 pb-4 sm:px-6">
@@ -51,10 +53,12 @@ export function PageHeader({
       </Breadcrumb>
 
       <Reveal>
-        <p className="mt-4 font-mono text-xs tracking-[0.35em] text-lavender uppercase">
-          {eyebrow}
-        </p>
-        <h1 className="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">
+        {showEyebrow && (
+          <span className="mt-4 inline-block text-sm font-medium text-primary">
+            {eyebrow}
+          </span>
+        )}
+        <h1 className="mt-4 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
           {title}
         </h1>
         {description && (

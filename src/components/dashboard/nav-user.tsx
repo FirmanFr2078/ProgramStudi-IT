@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { ChevronsUpDownIcon, LogOutIcon, UserIcon } from "lucide-react"
+import { ChevronsUpDownIcon, LogOutIcon, UserIcon } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useLogout } from "@/hooks/auth/use-logout";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,23 +12,24 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
-import type { SessionUser } from "@/types"
+} from "@/components/ui/sidebar";
+import type { SessionUser } from "@/types";
 
 export function NavUser({ user }: { user: SessionUser }) {
   const { isMobile } = useSidebar()
+  const { logout, isLoading } = useLogout()
   const initials = user.name
     .split(" ")
     .map((w) => w[0])
     .slice(0, 2)
     .join("")
-    .toUpperCase()
+    .toUpperCase();
 
   const identity = (
     <>
@@ -37,17 +39,21 @@ export function NavUser({ user }: { user: SessionUser }) {
       </Avatar>
       <div className="grid flex-1 text-left text-sm leading-tight">
         <span className="truncate font-medium">{user.name}</span>
-        <span className="truncate text-xs text-muted-foreground">{user.email}</span>
+        <span className="truncate text-xs text-muted-foreground">
+          {user.email}
+        </span>
       </div>
     </>
-  )
+  );
 
   return (
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={<SidebarMenuButton size="lg" className="aria-expanded:bg-muted" />}
+            render={
+              <SidebarMenuButton size="lg" className="aria-expanded:bg-muted" />
+            }
           >
             {identity}
             <ChevronsUpDownIcon className="ml-auto size-4" />
@@ -73,13 +79,13 @@ export function NavUser({ user }: { user: SessionUser }) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => logout()} disabled={isLoading}>
               <LogOutIcon />
-              Keluar
+              {isLoading ? "Keluar..." : "Keluar"}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }

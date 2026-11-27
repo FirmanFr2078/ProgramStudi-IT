@@ -24,8 +24,9 @@ export default async function ProfilPage() {
     <>
       <PageHeader
         eyebrow="Profil"
+        showEyebrow={false}
         title="Profil Program Studi"
-        description="Mengenal lebih dekat Program Studi Teknik Informatika — sejarah, arah, dan lulusan yang kami siapkan."
+        description="Sejarah, arah pendidikan, dan profil lulusan Teknik Informatika."
         breadcrumbs={[
           { label: "Beranda", href: "/" },
           { label: "Profil" },
@@ -37,14 +38,14 @@ export default async function ProfilPage() {
 
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16">
         <Reveal>
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <span className="text-sm font-medium text-primary">
             Sejarah
-          </p>
-          <h2 className="mt-2 font-heading text-2xl font-extrabold sm:text-3xl">
-            Perjalanan Kami
+          </span>
+          <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+            Perjalanan kami
           </h2>
         </Reveal>
-        <Reveal delay={100} className="mt-6 flex flex-col gap-4">
+        <Reveal delay={100} className="mt-6 flex flex-col gap-4 border-l-2 border-border pl-5">
           {profile.sejarah.map((p, i) => (
             <p
               key={i}

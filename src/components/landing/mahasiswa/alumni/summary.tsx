@@ -16,12 +16,12 @@ export function AlumniSummary({ data }: { data: Alumni[] }) {
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-      <div className="rounded-2xl border bg-card p-4">
-        <p className="font-heading text-2xl font-extrabold text-lime">{total}</p>
+      <div className="rounded-xl border border-black/10 bg-card p-4 dark:border-white/12">
+        <p className="font-heading text-2xl font-extrabold">{total}</p>
         <p className="mt-1 text-xs text-muted-foreground">Total Alumni</p>
       </div>
       {perStatus.map(({ status, jumlah }) => (
-        <div key={status} className="rounded-2xl border bg-card p-4">
+        <div key={status} className="rounded-xl border border-black/10 bg-card p-4 dark:border-white/12">
           <p className="font-heading text-2xl font-extrabold">{jumlah}</p>
           <p className="mt-1 text-xs text-muted-foreground">{status}</p>
         </div>

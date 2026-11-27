@@ -184,12 +184,12 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={100} className="flex flex-col items-center gap-[1.4vh]">
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="font-mono text-xs tracking-[0.2em] text-lavender uppercase">
             Program Studi
           </p>
           <h1
             data-text={title}
-            className="glitch text-2xl leading-[0.95] font-extrabold tracking-tight whitespace-nowrap uppercase sm:text-4xl lg:text-5xl xl:text-6xl"
+            className="glitch text-2xl leading-[0.95] font-extrabold tracking-tight uppercase sm:whitespace-nowrap sm:text-4xl lg:text-5xl xl:text-6xl"
           >
             {title}
           </h1>
@@ -201,7 +201,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="border border-input px-4 py-2 font-mono text-[11px] tracking-[0.25em] uppercase sm:text-xs">
+          <p className="border border-input px-4 py-2 font-mono text-[11px] tracking-[0.15em] uppercase sm:text-xs">
             Belajar · Meneliti · <span className="text-lime">Berkarya</span>
           </p>
         </Reveal>
@@ -211,7 +211,7 @@ export function Hero() {
             href="/profil/profil-prodi"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "glow h-11 rounded-full px-6 text-sm",
+              "rounded-md px-6 text-sm",
             )}
           >
             Kenali Prodi
@@ -220,7 +220,7 @@ export function Hero() {
             href="/informasi/pendaftaran"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "h-11 rounded-full px-6 text-sm",
+              "rounded-md px-6 text-sm",
             )}
           >
             Info Pendaftaran

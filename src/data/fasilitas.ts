@@ -65,7 +65,7 @@ const dummy: Fasilitas[] = [
     nama: "Gedung A",
     kategori: "Gedung",
     lokasi: "Kampus Utama Universitas Islam Balitar",
-    deskripsi: "Gedung utama Program Studi Teknik Informatika — berisi laboratorium, ruang dosen, dan aula.",
+    deskripsi: "Gedung utama Program Studi Teknik Informatika, berisi laboratorium, ruang dosen, dan aula.",
     fitur: ["3 lantai", "Laboratorium", "Ruang dosen", "Aula"],
   },
   {

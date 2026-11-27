@@ -5,7 +5,7 @@ import type { Fasilitas } from "@/types"
 export function FasilitasGrid({ items }: { items: Fasilitas[] }) {
   if (items.length === 0) {
     return (
-      <p className="rounded-2xl border bg-card p-8 text-center text-sm text-muted-foreground">
+      <p className="rounded-xl border border-black/10 bg-card p-8 text-center text-sm text-muted-foreground dark:border-white/12">
         Belum ada data untuk kategori ini.
       </p>
     )

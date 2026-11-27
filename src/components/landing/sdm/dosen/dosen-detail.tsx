@@ -8,7 +8,7 @@ import { getDosenBySlug } from "@/data/dosen"
 import { getInitials } from "@/lib/initials"
 
 const pillLink =
-  "rounded-full border px-3 py-1.5 transition-colors hover:border-lime hover:text-lime"
+  "rounded-full border border-black/10 px-3 py-1.5 transition-colors hover:border-primary/40 hover:text-foreground dark:border-white/12"
 
 export async function DosenDetail({
   params,
@@ -31,18 +31,18 @@ export async function DosenDetail({
                 className="object-top"
               />
             )}
-            <AvatarFallback className="bg-accent font-heading text-2xl font-bold text-lavender">
+            <AvatarFallback className="bg-accent font-heading text-2xl font-bold text-muted-foreground">
               {getInitials(dosen.nama)}
             </AvatarFallback>
           </Avatar>
           <div>
             <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
               {dosen.jabatanStruktural && (
-                <span className="rounded-full bg-lime/10 px-2.5 py-0.5 text-xs font-semibold text-lime">
+                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
                   {dosen.jabatanStruktural}
                 </span>
               )}
-              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs text-lavender">
+              <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs text-muted-foreground">
                 {dosen.jabatanFungsional}
               </span>
             </div>
@@ -58,13 +58,13 @@ export async function DosenDetail({
 
       <section className="mx-auto grid max-w-4xl gap-4 px-4 py-10 sm:px-6 md:grid-cols-2">
         <Reveal className="rounded-2xl border bg-card p-6">
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="text-sm font-medium text-primary">
             Pendidikan
           </p>
           <ul className="mt-4 flex flex-col gap-3">
             {dosen.pendidikan.map((p) => (
               <li key={p.jenjang} className="text-sm">
-                <span className="font-bold">{p.jenjang}</span> — {p.bidang}
+                <span className="font-bold">{p.jenjang}</span> di {p.bidang}
                 <br />
                 <span className="text-muted-foreground">{p.kampus}</span>
               </li>
@@ -73,14 +73,14 @@ export async function DosenDetail({
         </Reveal>
 
         <Reveal delay={80} className="rounded-2xl border bg-card p-6">
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="text-sm font-medium text-primary">
             Bidang Keahlian
           </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {dosen.bidangKeahlian.map((b) => (
               <span
                 key={b}
-                className="rounded-full bg-accent px-2.5 py-1 text-xs text-lavender"
+                className="rounded-full bg-accent px-2.5 py-1 text-xs text-foreground"
               >
                 {b}
               </span>
@@ -92,14 +92,14 @@ export async function DosenDetail({
           delay={160}
           className="rounded-2xl border bg-card p-6 md:col-span-2"
         >
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="text-sm font-medium text-primary">
             Mata Kuliah Diampu
           </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {dosen.mataKuliah.map((m) => (
               <span
                 key={m}
-                className="rounded-full border px-2.5 py-1 text-xs text-muted-foreground"
+                className="rounded-full border border-black/10 px-2.5 py-1 text-xs text-muted-foreground dark:border-white/12"
               >
                 {m}
               </span>
@@ -111,7 +111,7 @@ export async function DosenDetail({
           delay={240}
           className="rounded-2xl border bg-card p-6 md:col-span-2"
         >
-          <p className="font-mono text-xs tracking-[0.35em] text-lavender uppercase">
+          <p className="text-sm font-medium text-primary">
             Kontak & Publikasi
           </p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm">

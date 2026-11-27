@@ -8,7 +8,7 @@ export function BentukKegiatanGrid({ items }: { items: BentukKegiatan[] }) {
           key={id}
           className="flex flex-col items-center gap-3 rounded-xl border bg-card p-5 text-center"
         >
-          <Icon className="size-6 text-lavender" />
+          <Icon className="size-6 text-primary" />
           <span className="text-sm font-medium">{nama}</span>
         </div>
       ))}

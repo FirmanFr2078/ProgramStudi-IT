@@ -18,7 +18,7 @@ export default async function KerjaSamaPage() {
       <PageHeader
         eyebrow="Profil"
         title="Kerja Sama"
-        description="Program studi menjalin kerja sama lintas sektor — dunia usaha, perguruan tinggi, pemerintah, organisasi profesi, hingga media — untuk memperkaya pengalaman belajar mahasiswa."
+        description="Program studi menjalin kerja sama lintas sektor, dari dunia usaha, perguruan tinggi, pemerintah, organisasi profesi, hingga media, untuk memperkaya pengalaman belajar mahasiswa."
         breadcrumbs={[
           { label: "Beranda", href: "/" },
           { label: "Profil" },

@@ -2,7 +2,7 @@ import type { ProgramProfile } from "@/types"
 
 const dummy: ProgramProfile = {
   sambutan: {
-    nama: "[Nama Ketua Program Studi]",
+    nama: "Sri Lestanti, S.Kom., M.T.",
     jabatan: "Ketua Program Studi Teknik Informatika",
     isi: [
       "Selamat datang di Program Studi Teknik Informatika, Universitas Islam Balitar. Kami percaya bahwa dunia teknologi informasi bergerak sangat cepat, dan tugas kami adalah menyiapkan mahasiswa tidak hanya menguasai teori, tetapi juga siap menghadapi persoalan nyata di industri.",
@@ -53,7 +53,7 @@ const dummy: ProgramProfile = {
     { label: "Fakultas", value: "Fakultas Teknik dan Informatika" },
     { label: "Perguruan Tinggi", value: "Universitas Islam Balitar" },
     { label: "Gelar Lulusan", value: "S.Kom. (Sarjana Komputer)" },
-    { label: "Akreditasi", value: "[Peringkat akreditasi] — BAN-PT/LAM Infokom" },
+    { label: "Akreditasi", value: "[Peringkat akreditasi] (BAN-PT/LAM Infokom)" },
     { label: "SK Penyelenggaraan", value: "[Nomor SK dan tanggal]" },
     { label: "Lama Studi Normal", value: "4 tahun (8 semester), 144 SKS" },
   ],

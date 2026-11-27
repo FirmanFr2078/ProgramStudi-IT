@@ -31,7 +31,7 @@ export function TanggalPentingList({ items }: { items: TanggalPenting[] }) {
           className="flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
         >
           <span className="font-medium">{item.keterangan}</span>
-          <span className="font-mono text-sm text-lavender">
+          <span className="text-sm text-muted-foreground">
             {formatRentang(item.mulai, item.selesai)}
           </span>
         </li>

@@ -9,10 +9,10 @@ import type { Alumni } from "@/types"
 const PER_PAGE = 15
 
 const statusStyle: Record<string, string> = {
-  Bekerja: "bg-lime/10 text-lime",
-  Wirausaha: "bg-lavender/10 text-lavender",
-  "Melanjutkan Studi": "bg-accent text-foreground",
-  "Mencari Kerja": "bg-accent text-muted-foreground",
+  Bekerja: "font-medium text-primary",
+  Wirausaha: "text-muted-foreground",
+  "Melanjutkan Studi": "text-muted-foreground",
+  "Mencari Kerja": "text-muted-foreground",
 }
 
 export function AlumniTable({ items }: { items: Alumni[] }) {
@@ -121,9 +121,7 @@ export function AlumniTable({ items }: { items: Alumni[] }) {
                   {item.tahunLulus}
                 </td>
                 <td className="px-4 py-3">
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-xs ${statusStyle[item.statusKarier]}`}
-                  >
+                  <span className={`text-xs ${statusStyle[item.statusKarier]}`}>
                     {item.statusKarier}
                   </span>
                 </td>

@@ -6,6 +6,7 @@ export type Permission = (typeof PERMISSIONS)[number]
 export type SessionUser = {
   name: string
   email: string
+  username: string
   role: Role
   avatar?: string
 }
