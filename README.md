@@ -32,12 +32,18 @@ web-prodi
 │  │  │  ├─ tbl_jadwal.ts
 │  │  │  ├─ tbl_jalur_pendaftaran.ts
 │  │  │  ├─ tbl_kabar.ts
+│  │  │  ├─ tbl_kerja_sama.ts
+│  │  │  ├─ tbl_kerja_sama_berkas.ts
+│  │  │  ├─ tbl_kerja_sama_kegiatan.ts
 │  │  │  ├─ tbl_langkah_mbkm.ts
 │  │  │  ├─ tbl_mata_kuliah.ts
 │  │  │  ├─ tbl_mitra.ts
+│  │  │  ├─ tbl_pengaturan_halaman.ts
 │  │  │  ├─ tbl_prestasi.ts
 │  │  │  ├─ tbl_profiles.ts
 │  │  │  ├─ tbl_profil_prodi.ts
+│  │  │  ├─ tbl_ref_bentuk.ts
+│  │  │  ├─ tbl_ref_kategori_mitra.ts
 │  │  │  ├─ tbl_riset.ts
 │  │  │  ├─ tbl_struktur_posisi.ts
 │  │  │  ├─ tbl_struktur_tupoksi.ts
@@ -74,6 +80,8 @@ web-prodi
 │  │  ├─ 20261123000000_struktur_level
 │  │  │  └─ migration.sql
 │  │  ├─ 20261123124125_struktur_jarak_kosong
+│  │  │  └─ migration.sql
+│  │  ├─ 20261127041721_kerja_sama_tiga_lapis
 │  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
@@ -229,6 +237,16 @@ web-prodi
 │  ├─ database
 │  │  ├─ dosen.ts
 │  │  ├─ kabar.ts
+│  │  ├─ kerja-sama
+│  │  │  ├─ berkas.ts
+│  │  │  ├─ enums.ts
+│  │  │  ├─ kegiatan.ts
+│  │  │  ├─ mitra.ts
+│  │  │  ├─ naskah.ts
+│  │  │  ├─ publik-builder.ts
+│  │  │  ├─ publik.ts
+│  │  │  ├─ referensi.ts
+│  │  │  └─ shared.ts
 │  │  ├─ profil.ts
 │  │  └─ struktur.ts
 │  ├─ hooks
@@ -257,6 +275,8 @@ web-prodi
 │  │  ├─ ids.ts
 │  │  ├─ image-upload-handlers.ts
 │  │  ├─ initials.ts
+│  │  ├─ kerja-sama-status.ts
+│  │  ├─ kerja-sama-storage.ts
 │  │  ├─ permissions.ts
 │  │  ├─ prisma.ts
 │  │  ├─ session.ts
@@ -285,12 +305,11 @@ web-prodi
 │     ├─ prestasi.ts
 │     ├─ profil.ts
 │     ├─ riset.ts
+│     ├─ shared-schema.ts
 │     ├─ site.ts
 │     ├─ stats.ts
 │     ├─ struktur.ts
 │     └─ tendik.ts
-├─ tsconfig.json
-├─ web prodi v.2.zip
-└─ web prodi.zip
+└─ tsconfig.json
 
 ```
