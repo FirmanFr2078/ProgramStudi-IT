@@ -104,7 +104,6 @@ export function useFasilitasForm(initial?: FasilitasAdmin) {
   const [fotoPreview, setFotoPreview] = useState<string | null>(
     initial?.foto ?? null,
   );
-  const [slugManuallyEdited, setSlugManuallyEdited] = useState(isEditing);
   const [fieldErrors, setFieldErrors] = useState<
     Record<string, string[] | undefined>
   >({});
@@ -117,23 +116,23 @@ export function useFasilitasForm(initial?: FasilitasAdmin) {
     key: K,
     value: FasilitasFormValues[K],
   ) {
-    if (key === "slug") setSlugManuallyEdited(true);
     setValues((prev) => {
       const next = { ...prev, [key]: value };
-      if (key === "nama" && !slugManuallyEdited) {
+      if (key === "nama") {
         next.slug = slugify(String(value));
       }
       return next;
     });
   }
-
   function setFotoFile(file: File) {
     if (fotoPreview?.startsWith("blob:")) URL.revokeObjectURL(fotoPreview);
     setPendingFoto(file);
     setFotoPreview(URL.createObjectURL(file));
   }
 
-  async function uploadFoto(file: File): Promise<{ path: string; url: string }> {
+  async function uploadFoto(
+    file: File,
+  ): Promise<{ path: string; url: string }> {
     const body = new FormData();
     body.set("file", file);
     const response = await fetch("/api/dashboard/fasilitas/upload", {
@@ -201,7 +200,9 @@ export function useFasilitasForm(initial?: FasilitasAdmin) {
     } catch (error) {
       if (uploadedPath) await deleteUploadedFoto(uploadedPath);
       setErrorMessage(
-        error instanceof Error ? error.message : "Terjadi kesalahan saat menyimpan.",
+        error instanceof Error
+          ? error.message
+          : "Terjadi kesalahan saat menyimpan.",
       );
     } finally {
       setIsSubmitting(false);
