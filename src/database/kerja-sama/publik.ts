@@ -27,10 +27,13 @@ const PUBLIK_INCLUDE = {
   naskah: {
     where: { status: "Berlaku" },
     select: {
+      id_kerja_sama: true,
       jenis: true,
       status: true,
       mulai: true,
       berakhir: true,
+      preview: true,
+      berkas: { where: { utama: true, path: { not: null } }, select: { id_berkas: true }, take: 1 },
       bentuk: { select: { nama: true }, orderBy: { nama: "asc" } },
       kegiatan: {
         where: { tampil_publik: true, status: { not: "Dibatalkan" } },
@@ -72,7 +75,10 @@ function toSumber(row: PublikRow): MitraPublikSumber {
       telepon: row.kontak_telepon,
     },
     naskah: row.naskah.map((n) => ({
+      id: String(n.id_kerja_sama),
       jenis: n.jenis,
+      preview: resolveImage(n.preview),
+      bisaDiunduh: n.berkas.length > 0,
       status: n.status,
       mulai: toIsoDate(n.mulai),
       berakhir: n.berakhir ? toIsoDate(n.berakhir) : null,

@@ -5,9 +5,11 @@ import type { tbl_kerja_sama_berkas } from "@generated/client"
 import { logEntityMutation, type Actor } from "@/lib/authorship"
 import { deleteKerjaSamaFiles } from "@/lib/kerja-sama-storage"
 import { prisma } from "@/lib/prisma"
+import { deleteFile } from "@/lib/storage"
 import {
   BERKAS_KEGIATAN_FOLDER,
   BERKAS_NASKAH_FOLDER,
+  NASKAH_PREVIEW_FOLDER,
   type BerkasAdmin,
   type BerkasInput,
 } from "@/types"
@@ -26,6 +28,7 @@ export function toBerkasAdmin(row: tbl_kerja_sama_berkas): BerkasAdmin {
     tautan: row.tautan,
     mime: row.mime,
     ukuran: row.ukuran,
+    utama: row.utama,
     createdAt: row.created_at.toISOString(),
   }
 }
@@ -71,17 +74,28 @@ export async function addBerkas(input: BerkasInput, actor: Actor): Promise<Berka
     }
   }
 
-  const row = await prisma.tbl_kerja_sama_berkas.create({
-    data: {
-      kerja_sama_id: kerjaSamaId,
-      kegiatan_id: kegiatanId,
-      jenis: LABEL_TO_JENIS_BERKAS[input.jenis],
-      label: input.label,
-      path: input.path,
-      tautan: input.tautan,
-      mime: input.mime,
-      ukuran: input.ukuran,
-    },
+  // Berkas utama baru menggantikan yang lama dalam satu transaksi, sehingga satu naskah
+  // hanya punya satu berkas utama (aturan dijaga di kode, bukan indeks database).
+  const row = await prisma.$transaction(async (tx) => {
+    if (input.utama && kerjaSamaId !== null) {
+      await tx.tbl_kerja_sama_berkas.updateMany({
+        where: { kerja_sama_id: kerjaSamaId, utama: true },
+        data: { utama: false },
+      })
+    }
+    return tx.tbl_kerja_sama_berkas.create({
+      data: {
+        kerja_sama_id: kerjaSamaId,
+        kegiatan_id: kegiatanId,
+        jenis: LABEL_TO_JENIS_BERKAS[input.jenis],
+        label: input.label,
+        path: input.path,
+        tautan: input.tautan,
+        mime: input.mime,
+        ukuran: input.ukuran,
+        utama: input.utama,
+      },
+    })
   })
 
   await logEntityMutation({
@@ -112,6 +126,56 @@ export async function deleteBerkas(id: bigint, actor: Actor): Promise<void> {
   })
 
   await deleteKerjaSamaFiles([before.path])
+
+  // Berkas utama dihapus: pratinjau yang dibuat dari file itu ikut tidak berlaku.
+  if (before.utama && before.kerja_sama_id !== null) {
+    const naskah = await prisma.tbl_kerja_sama.findUnique({
+      where: { id_kerja_sama: before.kerja_sama_id },
+      select: { preview: true },
+    })
+    if (naskah?.preview) {
+      await prisma.tbl_kerja_sama.update({
+        where: { id_kerja_sama: before.kerja_sama_id },
+        data: { preview: null },
+      })
+      if (naskah.preview.startsWith(`${NASKAH_PREVIEW_FOLDER}/`)) {
+        try {
+          await deleteFile("images", naskah.preview)
+        } catch (error) {
+          console.error("[NASKAH_PREVIEW_CLEANUP]", error)
+        }
+      }
+    }
+  }
+}
+
+/** Jadikan satu berkas jenis Naskah (yang berupa file) sebagai berkas utama naskahnya. */
+export async function setBerkasUtama(id: bigint, actor: Actor): Promise<BerkasAdmin> {
+  const berkas = await prisma.tbl_kerja_sama_berkas.findUniqueOrThrow({ where: { id_berkas: id } })
+
+  if (berkas.kerja_sama_id === null || berkas.jenis !== "Naskah" || !berkas.path) {
+    throw new KerjaSamaRuleError("Hanya file berjenis Naskah milik sebuah naskah yang bisa jadi berkas utama.")
+  }
+  const naskahId = berkas.kerja_sama_id
+
+  const row = await prisma.$transaction(async (tx) => {
+    await tx.tbl_kerja_sama_berkas.updateMany({
+      where: { kerja_sama_id: naskahId, utama: true },
+      data: { utama: false },
+    })
+    return tx.tbl_kerja_sama_berkas.update({ where: { id_berkas: id }, data: { utama: true } })
+  })
+
+  await logEntityMutation({
+    actor,
+    action: "update",
+    entity: ENTITY,
+    entityId: id,
+    deskripsi: `${actor.nama} menjadikan berkas "${berkas.label}" sebagai berkas utama naskah.`,
+    dataBaru: { utama: true },
+  })
+
+  return toBerkasAdmin(row)
 }
 
 /**

@@ -9,9 +9,11 @@ import {
   type Actor,
 } from "@/lib/authorship"
 import { deleteKerjaSamaFiles } from "@/lib/kerja-sama-storage"
+import { hitungStatusKode, kodeMasihBerlaku } from "@/lib/kerja-sama-kode"
 import { hitungMasaBerlaku, todayJakarta } from "@/lib/kerja-sama-status"
 import { prisma } from "@/lib/prisma"
-import { INDUK_NASKAH, type NaskahAdmin, type NaskahInput, type NaskahOpsi } from "@/types"
+import { deleteFile } from "@/lib/storage"
+import { INDUK_NASKAH, NASKAH_PREVIEW_FOLDER, type NaskahAdmin, type NaskahInput, type NaskahOpsi } from "@/types"
 
 import { BIDANG_TO_LABEL } from "./enums"
 import { toBerkasAdmin } from "./berkas"
@@ -25,6 +27,7 @@ import {
   toDbDateOrNull,
   toId,
   toIdOrNull,
+  resolveImage,
   toIsoDate,
   type FieldErrors,
 } from "./shared"
@@ -38,6 +41,7 @@ const NASKAH_INCLUDE = {
   perpanjangan_dari: { select: { id_kerja_sama: true, judul: true } },
   bentuk: { select: { id_bentuk: true, nama: true, bidang: true }, orderBy: { nama: "asc" } },
   berkas: { orderBy: { created_at: "asc" } },
+  kode_unduh: { select: { dipakai_pertama_pada: true, dicabut_pada: true } },
   _count: { select: { kegiatan: true } },
   created_by: AUDIT_SELECT,
   updated_by: AUDIT_SELECT,
@@ -69,11 +73,28 @@ function toRowData(input: NaskahInput) {
     pj_mitra: input.pjMitra,
     induk_id: toIdOrNull(input.indukId),
     perpanjangan_dari_id: toIdOrNull(input.perpanjanganDariId),
+    preview: input.preview,
     catatan_internal: input.catatanInternal,
   }
 }
 
+/** Hapus gambar pratinjau lama dari bucket publik, hanya kalau memang milik folder pratinjau. */
+async function hapusPreviewJikaMilik(path: string | null | undefined) {
+  if (!path || !path.startsWith(`${NASKAH_PREVIEW_FOLDER}/`)) return
+  try {
+    await deleteFile("images", path)
+  } catch (error) {
+    console.error("[NASKAH_PREVIEW_CLEANUP]", error)
+  }
+}
+
+/** Dipakai endpoint upload pratinjau DELETE (rollback): gambar yang sudah dipakai tidak boleh dihapus. */
+export async function isNaskahPreviewInUse(path: string): Promise<boolean> {
+  return (await prisma.tbl_kerja_sama.count({ where: { preview: path } })) > 0
+}
+
 function toNaskahAdmin(row: NaskahRow, today: string): NaskahAdmin {
+  const sekarang = new Date()
   const mulai = toIsoDate(row.mulai)
   const berakhir = row.berakhir ? toIsoDate(row.berakhir) : null
   const { masa, sisaHari } = hitungMasaBerlaku({ status: row.status, mulai, berakhir }, today)
@@ -112,6 +133,17 @@ function toNaskahAdmin(row: NaskahRow, today: string): NaskahAdmin {
     })),
     jumlahKegiatan: row._count.kegiatan,
     berkas: row.berkas.map(toBerkasAdmin),
+    preview: resolveImage(row.preview),
+    previewPath: row.preview,
+    bisaDiunduh: row.berkas.some((b) => b.utama && b.path !== null),
+    jumlahKodeAktif: row.kode_unduh.filter((k) =>
+      kodeMasihBerlaku(
+        hitungStatusKode(
+          { dipakaiPertamaPada: k.dipakai_pertama_pada, dicabutPada: k.dicabut_pada },
+          sekarang,
+        ).status,
+      ),
+    ).length,
     catatanInternal: row.catatan_internal,
     createdAt: row.created_at.toISOString(),
     updatedAt: row.updated_at.toISOString(),
@@ -369,6 +401,10 @@ export async function updateNaskah(
     dataBaru: input,
   })
 
+  if (before.preview && before.preview !== input.preview) {
+    await hapusPreviewJikaMilik(before.preview)
+  }
+
   return toNaskahAdmin(row, todayJakarta())
 }
 
@@ -411,4 +447,5 @@ export async function deleteNaskah(id: bigint, actor: Actor): Promise<void> {
   })
 
   await deleteKerjaSamaFiles(paths)
+  await hapusPreviewJikaMilik(before.preview)
 }

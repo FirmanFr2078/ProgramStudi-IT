@@ -125,7 +125,7 @@ export const KODE_MASA_UNDUH_MENIT = 10
 export const BERKAS_NASKAH_FOLDER = "naskah"
 export const BERKAS_KEGIATAN_FOLDER = "kegiatan"
 
-export const BERKAS_MAX_SIZE = 10 * 1024 * 1024 // 10 MB
+export const BERKAS_MAX_SIZE = 4 * 1024 * 1024 // 4 MB (batas body request Vercel ±4,5 MB)
 export const BERKAS_ALLOWED_MIME = [
   "application/pdf",
   "image/jpeg",
@@ -359,7 +359,7 @@ export const berkasInputSchema = z
       .number()
       .int()
       .min(0)
-      .max(BERKAS_MAX_SIZE, "Ukuran berkas maksimal 10 MB")
+      .max(BERKAS_MAX_SIZE, "Ukuran berkas maksimal 4 MB")
       .nullable()
       .optional()
       .transform((value) => value ?? null),

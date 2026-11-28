@@ -32,7 +32,10 @@ export type MitraPublikSumber = {
   kontakPublik: boolean
   kontak: { nama: string | null; jabatan: string | null; email: string | null; telepon: string | null }
   naskah: Array<{
+    id: string
     jenis: JenisNaskah
+    preview: string | null // URL publik gambar pratinjau
+    bisaDiunduh: boolean
     status: StatusNaskah
     mulai: string
     berakhir: string | null
@@ -82,8 +85,15 @@ export function susunMitraPublik(
     }
   }
 
+  // Banner kartu: naskah AKTIF terbaru yang punya pratinjau; kalau tidak ada yang aktif,
+  // riwayat terbaru yang punya pratinjau. `dihitung` sudah urut dari yang terbaru.
+  const pratinjau =
+    aktif.find((n) => n.preview)?.preview ?? dihitung.find((n) => n.preview)?.preview ?? null
+
   const naskahPublik: NaskahPublik[] = dihitung.map((n) => ({
+    id: n.id,
     jenis: n.jenis,
+    bisaDiunduh: n.bisaDiunduh,
     mulai: n.mulai,
     berakhir: n.berakhir,
     masa: n.masa,
@@ -109,6 +119,7 @@ export function susunMitraPublik(
     kota: sumber.kota,
     website: sumber.website,
     logo: sumber.logo,
+    pratinjau,
     ringkasan: sumber.ringkasan,
     deskripsi: sumber.deskripsi,
     lingkup,

@@ -45,8 +45,33 @@ export function useFasilitasList() {
   }, []);
 
   useEffect(() => {
-    fetchList();
-  }, [fetchList]);
+    let ignore = false;
+
+    fetch("/api/dashboard/fasilitas", { credentials: "include" })
+      .then((response) => response.json() as Promise<ListResponse>)
+      .then((result) => {
+        if (ignore) return;
+        if (!result.success) {
+          setErrorMessage(result.message ?? "Gagal memuat daftar fasilitas.");
+        } else {
+          setData(result.data ?? []);
+        }
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        if (ignore) return;
+        setErrorMessage(
+          error instanceof Error
+            ? error.message
+            : "Terjadi kesalahan saat memuat fasilitas.",
+        );
+        setIsLoading(false);
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   async function deleteFasilitas(id: string) {
     setDeletingId(id);

@@ -10,9 +10,23 @@ import {
 } from "@/lib/authorship"
 import { prisma } from "@/lib/prisma"
 import { deleteFile } from "@/lib/storage"
-import { FASILITAS_FOTO_FOLDER, type FasilitasAdmin, type FasilitasInput, type FasilitasRingkas } from "@/types"
+import {
+  FASILITAS_FOTO_FOLDER,
+  JENIS_BERKAS_FOTO,
+  type FasilitasAdmin,
+  type FasilitasInput,
+  type FasilitasRingkas,
+} from "@/types"
 
-import { KEPEMILIKAN_TO_LABEL, KONDISI_TO_LABEL, LABEL_TO_KEPEMILIKAN, LABEL_TO_KONDISI, LABEL_TO_STATUS, STATUS_TO_LABEL } from "./enums"
+import {
+  JENIS_BERKAS_TO_LABEL,
+  KEPEMILIKAN_TO_LABEL,
+  KONDISI_TO_LABEL,
+  LABEL_TO_KEPEMILIKAN,
+  LABEL_TO_KONDISI,
+  LABEL_TO_STATUS,
+  STATUS_TO_LABEL,
+} from "./enums"
 import { toAlatAdmin } from "./alat"
 import { toBerkasAdmin } from "./berkas"
 import {
@@ -284,10 +298,9 @@ export async function deleteFasilitas(id: bigint, actor: Actor): Promise<void> {
 
   await removeFotoIfOwned(before.foto)
   for (const berkas of before.berkas) {
-    const kategori = (["Sertifikat Kalibrasi", "Dokumen Inventaris", "Lainnya"] as const).includes(
-      berkas.jenis as never,
-    )
-    await deleteFile(kategori ? "documents" : "images", berkas.path).catch((error) =>
+    const jenis = JENIS_BERKAS_TO_LABEL[berkas.jenis]
+    const category = JENIS_BERKAS_FOTO.includes(jenis) ? "images" : "documents"
+    await deleteFile(category, berkas.path).catch((error) =>
       console.error("[FASILITAS_BERKAS_CLEANUP]", error),
     )
   }
