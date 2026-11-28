@@ -49,6 +49,7 @@ export type Tbl_kerja_sama_berkasMinAggregateOutputType = {
   path: string | null
   tautan: string | null
   mime: string | null
+  utama: boolean | null
   ukuran: number | null
   created_at: Date | null
 }
@@ -62,6 +63,7 @@ export type Tbl_kerja_sama_berkasMaxAggregateOutputType = {
   path: string | null
   tautan: string | null
   mime: string | null
+  utama: boolean | null
   ukuran: number | null
   created_at: Date | null
 }
@@ -75,6 +77,7 @@ export type Tbl_kerja_sama_berkasCountAggregateOutputType = {
   path: number
   tautan: number
   mime: number
+  utama: number
   ukuran: number
   created_at: number
   _all: number
@@ -104,6 +107,7 @@ export type Tbl_kerja_sama_berkasMinAggregateInputType = {
   path?: true
   tautan?: true
   mime?: true
+  utama?: true
   ukuran?: true
   created_at?: true
 }
@@ -117,6 +121,7 @@ export type Tbl_kerja_sama_berkasMaxAggregateInputType = {
   path?: true
   tautan?: true
   mime?: true
+  utama?: true
   ukuran?: true
   created_at?: true
 }
@@ -130,6 +135,7 @@ export type Tbl_kerja_sama_berkasCountAggregateInputType = {
   path?: true
   tautan?: true
   mime?: true
+  utama?: true
   ukuran?: true
   created_at?: true
   _all?: true
@@ -230,6 +236,7 @@ export type Tbl_kerja_sama_berkasGroupByOutputType = {
   path: string | null
   tautan: string | null
   mime: string | null
+  utama: boolean
   ukuran: number | null
   created_at: Date
   _count: Tbl_kerja_sama_berkasCountAggregateOutputType | null
@@ -266,6 +273,7 @@ export type tbl_kerja_sama_berkasWhereInput = {
   path?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   tautan?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   mime?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
+  utama?: Prisma.BoolFilter<"tbl_kerja_sama_berkas"> | boolean
   ukuran?: Prisma.IntNullableFilter<"tbl_kerja_sama_berkas"> | number | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama_berkas"> | Date | string
   kerja_sama?: Prisma.XOR<Prisma.Tbl_kerja_samaNullableScalarRelationFilter, Prisma.tbl_kerja_samaWhereInput> | null
@@ -281,6 +289,7 @@ export type tbl_kerja_sama_berkasOrderByWithRelationInput = {
   path?: Prisma.SortOrderInput | Prisma.SortOrder
   tautan?: Prisma.SortOrderInput | Prisma.SortOrder
   mime?: Prisma.SortOrderInput | Prisma.SortOrder
+  utama?: Prisma.SortOrder
   ukuran?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   kerja_sama?: Prisma.tbl_kerja_samaOrderByWithRelationInput
@@ -299,6 +308,7 @@ export type tbl_kerja_sama_berkasWhereUniqueInput = Prisma.AtLeast<{
   path?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   tautan?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   mime?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
+  utama?: Prisma.BoolFilter<"tbl_kerja_sama_berkas"> | boolean
   ukuran?: Prisma.IntNullableFilter<"tbl_kerja_sama_berkas"> | number | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama_berkas"> | Date | string
   kerja_sama?: Prisma.XOR<Prisma.Tbl_kerja_samaNullableScalarRelationFilter, Prisma.tbl_kerja_samaWhereInput> | null
@@ -314,6 +324,7 @@ export type tbl_kerja_sama_berkasOrderByWithAggregationInput = {
   path?: Prisma.SortOrderInput | Prisma.SortOrder
   tautan?: Prisma.SortOrderInput | Prisma.SortOrder
   mime?: Prisma.SortOrderInput | Prisma.SortOrder
+  utama?: Prisma.SortOrder
   ukuran?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.tbl_kerja_sama_berkasCountOrderByAggregateInput
@@ -335,6 +346,7 @@ export type tbl_kerja_sama_berkasScalarWhereWithAggregatesInput = {
   path?: Prisma.StringNullableWithAggregatesFilter<"tbl_kerja_sama_berkas"> | string | null
   tautan?: Prisma.StringNullableWithAggregatesFilter<"tbl_kerja_sama_berkas"> | string | null
   mime?: Prisma.StringNullableWithAggregatesFilter<"tbl_kerja_sama_berkas"> | string | null
+  utama?: Prisma.BoolWithAggregatesFilter<"tbl_kerja_sama_berkas"> | boolean
   ukuran?: Prisma.IntNullableWithAggregatesFilter<"tbl_kerja_sama_berkas"> | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_kerja_sama_berkas"> | Date | string
 }
@@ -346,6 +358,7 @@ export type tbl_kerja_sama_berkasCreateInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
   kerja_sama?: Prisma.tbl_kerja_samaCreateNestedOneWithoutBerkasInput
@@ -361,6 +374,7 @@ export type tbl_kerja_sama_berkasUncheckedCreateInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -372,6 +386,7 @@ export type tbl_kerja_sama_berkasUpdateInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   kerja_sama?: Prisma.tbl_kerja_samaUpdateOneWithoutBerkasNestedInput
@@ -387,6 +402,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -400,6 +416,7 @@ export type tbl_kerja_sama_berkasCreateManyInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -411,6 +428,7 @@ export type tbl_kerja_sama_berkasUpdateManyMutationInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -424,6 +442,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateManyInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -447,6 +466,7 @@ export type tbl_kerja_sama_berkasCountOrderByAggregateInput = {
   path?: Prisma.SortOrder
   tautan?: Prisma.SortOrder
   mime?: Prisma.SortOrder
+  utama?: Prisma.SortOrder
   ukuran?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -467,6 +487,7 @@ export type tbl_kerja_sama_berkasMaxOrderByAggregateInput = {
   path?: Prisma.SortOrder
   tautan?: Prisma.SortOrder
   mime?: Prisma.SortOrder
+  utama?: Prisma.SortOrder
   ukuran?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -480,6 +501,7 @@ export type tbl_kerja_sama_berkasMinOrderByAggregateInput = {
   path?: Prisma.SortOrder
   tautan?: Prisma.SortOrder
   mime?: Prisma.SortOrder
+  utama?: Prisma.SortOrder
   ukuran?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -586,6 +608,7 @@ export type tbl_kerja_sama_berkasCreateWithoutKerja_samaInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedOneWithoutBerkasInput
@@ -599,6 +622,7 @@ export type tbl_kerja_sama_berkasUncheckedCreateWithoutKerja_samaInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -641,6 +665,7 @@ export type tbl_kerja_sama_berkasScalarWhereInput = {
   path?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   tautan?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
   mime?: Prisma.StringNullableFilter<"tbl_kerja_sama_berkas"> | string | null
+  utama?: Prisma.BoolFilter<"tbl_kerja_sama_berkas"> | boolean
   ukuran?: Prisma.IntNullableFilter<"tbl_kerja_sama_berkas"> | number | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama_berkas"> | Date | string
 }
@@ -652,6 +677,7 @@ export type tbl_kerja_sama_berkasCreateWithoutKegiatanInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
   kerja_sama?: Prisma.tbl_kerja_samaCreateNestedOneWithoutBerkasInput
@@ -665,6 +691,7 @@ export type tbl_kerja_sama_berkasUncheckedCreateWithoutKegiatanInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -703,6 +730,7 @@ export type tbl_kerja_sama_berkasCreateManyKerja_samaInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -714,6 +742,7 @@ export type tbl_kerja_sama_berkasUpdateWithoutKerja_samaInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateOneWithoutBerkasNestedInput
@@ -727,6 +756,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateWithoutKerja_samaInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -739,6 +769,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -751,6 +782,7 @@ export type tbl_kerja_sama_berkasCreateManyKegiatanInput = {
   path?: string | null
   tautan?: string | null
   mime?: string | null
+  utama?: boolean
   ukuran?: number | null
   created_at?: Date | string
 }
@@ -762,6 +794,7 @@ export type tbl_kerja_sama_berkasUpdateWithoutKegiatanInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   kerja_sama?: Prisma.tbl_kerja_samaUpdateOneWithoutBerkasNestedInput
@@ -775,6 +808,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateWithoutKegiatanInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -787,6 +821,7 @@ export type tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKegiatanInput = {
   path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tautan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   mime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  utama?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ukuran?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -802,6 +837,7 @@ export type tbl_kerja_sama_berkasSelect<ExtArgs extends runtime.Types.Extensions
   path?: boolean
   tautan?: boolean
   mime?: boolean
+  utama?: boolean
   ukuran?: boolean
   created_at?: boolean
   kerja_sama?: boolean | Prisma.tbl_kerja_sama_berkas$kerja_samaArgs<ExtArgs>
@@ -817,6 +853,7 @@ export type tbl_kerja_sama_berkasSelectCreateManyAndReturn<ExtArgs extends runti
   path?: boolean
   tautan?: boolean
   mime?: boolean
+  utama?: boolean
   ukuran?: boolean
   created_at?: boolean
   kerja_sama?: boolean | Prisma.tbl_kerja_sama_berkas$kerja_samaArgs<ExtArgs>
@@ -832,6 +869,7 @@ export type tbl_kerja_sama_berkasSelectUpdateManyAndReturn<ExtArgs extends runti
   path?: boolean
   tautan?: boolean
   mime?: boolean
+  utama?: boolean
   ukuran?: boolean
   created_at?: boolean
   kerja_sama?: boolean | Prisma.tbl_kerja_sama_berkas$kerja_samaArgs<ExtArgs>
@@ -847,11 +885,12 @@ export type tbl_kerja_sama_berkasSelectScalar = {
   path?: boolean
   tautan?: boolean
   mime?: boolean
+  utama?: boolean
   ukuran?: boolean
   created_at?: boolean
 }
 
-export type tbl_kerja_sama_berkasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_berkas" | "kerja_sama_id" | "kegiatan_id" | "jenis" | "label" | "path" | "tautan" | "mime" | "ukuran" | "created_at", ExtArgs["result"]["tbl_kerja_sama_berkas"]>
+export type tbl_kerja_sama_berkasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_berkas" | "kerja_sama_id" | "kegiatan_id" | "jenis" | "label" | "path" | "tautan" | "mime" | "utama" | "ukuran" | "created_at", ExtArgs["result"]["tbl_kerja_sama_berkas"]>
 export type tbl_kerja_sama_berkasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   kerja_sama?: boolean | Prisma.tbl_kerja_sama_berkas$kerja_samaArgs<ExtArgs>
   kegiatan?: boolean | Prisma.tbl_kerja_sama_berkas$kegiatanArgs<ExtArgs>
@@ -880,6 +919,7 @@ export type $tbl_kerja_sama_berkasPayload<ExtArgs extends runtime.Types.Extensio
     path: string | null
     tautan: string | null
     mime: string | null
+    utama: boolean
     ukuran: number | null
     created_at: Date
   }, ExtArgs["result"]["tbl_kerja_sama_berkas"]>
@@ -1315,6 +1355,7 @@ export interface tbl_kerja_sama_berkasFieldRefs {
   readonly path: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'String'>
   readonly tautan: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'String'>
   readonly mime: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'String'>
+  readonly utama: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'Boolean'>
   readonly ukuran: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'Int'>
   readonly created_at: Prisma.FieldRef<"tbl_kerja_sama_berkas", 'DateTime'>
 }

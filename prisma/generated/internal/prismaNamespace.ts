@@ -411,8 +411,8 @@ export const ModelName = {
   tbl_kerja_sama: 'tbl_kerja_sama',
   tbl_kerja_sama_kegiatan: 'tbl_kerja_sama_kegiatan',
   tbl_kerja_sama_berkas: 'tbl_kerja_sama_berkas',
-  tbl_pengaturan_halaman: 'tbl_pengaturan_halaman',
-  tbl_fasilitas: 'tbl_fasilitas',
+  tbl_kerja_sama_kode_unduh: 'tbl_kerja_sama_kode_unduh',
+  tbl_kerja_sama_kode_gagal: 'tbl_kerja_sama_kode_gagal',
   tbl_riset: 'tbl_riset',
   tbl_hki: 'tbl_hki',
   tbl_jadwal: 'tbl_jadwal',
@@ -421,10 +421,15 @@ export const ModelName = {
   tbl_bentuk_kegiatan: 'tbl_bentuk_kegiatan',
   tbl_langkah_mbkm: 'tbl_langkah_mbkm',
   tbl_dokumen: 'tbl_dokumen',
+  tbl_pengaturan_halaman: 'tbl_pengaturan_halaman',
   tbl_profil_prodi: 'tbl_profil_prodi',
   tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran',
   tbl_struktur_posisi: 'tbl_struktur_posisi',
-  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi'
+  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi',
+  tbl_ref_kategori_fasilitas: 'tbl_ref_kategori_fasilitas',
+  tbl_fasilitas: 'tbl_fasilitas',
+  tbl_fasilitas_alat: 'tbl_fasilitas_alat',
+  tbl_fasilitas_berkas: 'tbl_fasilitas_berkas'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -440,7 +445,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tbl_profiles" | "tbl_activity_log" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_ref_kategori_mitra" | "tbl_ref_bentuk" | "tbl_mitra" | "tbl_kerja_sama" | "tbl_kerja_sama_kegiatan" | "tbl_kerja_sama_berkas" | "tbl_pengaturan_halaman" | "tbl_fasilitas" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran" | "tbl_struktur_posisi" | "tbl_struktur_tupoksi"
+    modelProps: "tbl_profiles" | "tbl_activity_log" | "tbl_kabar" | "tbl_event" | "tbl_dosen" | "tbl_tendik" | "tbl_alumni" | "tbl_prestasi" | "tbl_ref_kategori_mitra" | "tbl_ref_bentuk" | "tbl_mitra" | "tbl_kerja_sama" | "tbl_kerja_sama_kegiatan" | "tbl_kerja_sama_berkas" | "tbl_kerja_sama_kode_unduh" | "tbl_kerja_sama_kode_gagal" | "tbl_riset" | "tbl_hki" | "tbl_jadwal" | "tbl_tanggal_penting" | "tbl_mata_kuliah" | "tbl_bentuk_kegiatan" | "tbl_langkah_mbkm" | "tbl_dokumen" | "tbl_pengaturan_halaman" | "tbl_profil_prodi" | "tbl_jalur_pendaftaran" | "tbl_struktur_posisi" | "tbl_struktur_tupoksi" | "tbl_ref_kategori_fasilitas" | "tbl_fasilitas" | "tbl_fasilitas_alat" | "tbl_fasilitas_berkas"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1480,151 +1485,151 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    tbl_pengaturan_halaman: {
-      payload: Prisma.$tbl_pengaturan_halamanPayload<ExtArgs>
-      fields: Prisma.tbl_pengaturan_halamanFieldRefs
+    tbl_kerja_sama_kode_unduh: {
+      payload: Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>
+      fields: Prisma.tbl_kerja_sama_kode_unduhFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.tbl_pengaturan_halamanFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload> | null
+          args: Prisma.tbl_kerja_sama_kode_unduhFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.tbl_pengaturan_halamanFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         findFirst: {
-          args: Prisma.tbl_pengaturan_halamanFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload> | null
+          args: Prisma.tbl_kerja_sama_kode_unduhFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.tbl_pengaturan_halamanFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         findMany: {
-          args: Prisma.tbl_pengaturan_halamanFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_unduhFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>[]
         }
         create: {
-          args: Prisma.tbl_pengaturan_halamanCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         createMany: {
-          args: Prisma.tbl_pengaturan_halamanCreateManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_unduhCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.tbl_pengaturan_halamanCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_unduhCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>[]
         }
         delete: {
-          args: Prisma.tbl_pengaturan_halamanDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         update: {
-          args: Prisma.tbl_pengaturan_halamanUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         deleteMany: {
-          args: Prisma.tbl_pengaturan_halamanDeleteManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_unduhDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.tbl_pengaturan_halamanUpdateManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_unduhUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.tbl_pengaturan_halamanUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_unduhUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>[]
         }
         upsert: {
-          args: Prisma.tbl_pengaturan_halamanUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+          args: Prisma.tbl_kerja_sama_kode_unduhUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_unduhPayload>
         }
         aggregate: {
-          args: Prisma.Tbl_pengaturan_halamanAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_pengaturan_halaman>
+          args: Prisma.Tbl_kerja_sama_kode_unduhAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_kerja_sama_kode_unduh>
         }
         groupBy: {
-          args: Prisma.tbl_pengaturan_halamanGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Tbl_pengaturan_halamanGroupByOutputType>[]
+          args: Prisma.tbl_kerja_sama_kode_unduhGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_kerja_sama_kode_unduhGroupByOutputType>[]
         }
         count: {
-          args: Prisma.tbl_pengaturan_halamanCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Tbl_pengaturan_halamanCountAggregateOutputType> | number
+          args: Prisma.tbl_kerja_sama_kode_unduhCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_kerja_sama_kode_unduhCountAggregateOutputType> | number
         }
       }
     }
-    tbl_fasilitas: {
-      payload: Prisma.$tbl_fasilitasPayload<ExtArgs>
-      fields: Prisma.tbl_fasilitasFieldRefs
+    tbl_kerja_sama_kode_gagal: {
+      payload: Prisma.$tbl_kerja_sama_kode_gagalPayload<ExtArgs>
+      fields: Prisma.tbl_kerja_sama_kode_gagalFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.tbl_fasilitasFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload> | null
+          args: Prisma.tbl_kerja_sama_kode_gagalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.tbl_fasilitasFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         findFirst: {
-          args: Prisma.tbl_fasilitasFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload> | null
+          args: Prisma.tbl_kerja_sama_kode_gagalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.tbl_fasilitasFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         findMany: {
-          args: Prisma.tbl_fasilitasFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_gagalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>[]
         }
         create: {
-          args: Prisma.tbl_fasilitasCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         createMany: {
-          args: Prisma.tbl_fasilitasCreateManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_gagalCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.tbl_fasilitasCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_gagalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>[]
         }
         delete: {
-          args: Prisma.tbl_fasilitasDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         update: {
-          args: Prisma.tbl_fasilitasUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         deleteMany: {
-          args: Prisma.tbl_fasilitasDeleteManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_gagalDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.tbl_fasilitasUpdateManyArgs<ExtArgs>
+          args: Prisma.tbl_kerja_sama_kode_gagalUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.tbl_fasilitasUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+          args: Prisma.tbl_kerja_sama_kode_gagalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>[]
         }
         upsert: {
-          args: Prisma.tbl_fasilitasUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+          args: Prisma.tbl_kerja_sama_kode_gagalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_kerja_sama_kode_gagalPayload>
         }
         aggregate: {
-          args: Prisma.Tbl_fasilitasAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_fasilitas>
+          args: Prisma.Tbl_kerja_sama_kode_gagalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_kerja_sama_kode_gagal>
         }
         groupBy: {
-          args: Prisma.tbl_fasilitasGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitasGroupByOutputType>[]
+          args: Prisma.tbl_kerja_sama_kode_gagalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_kerja_sama_kode_gagalGroupByOutputType>[]
         }
         count: {
-          args: Prisma.tbl_fasilitasCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitasCountAggregateOutputType> | number
+          args: Prisma.tbl_kerja_sama_kode_gagalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_kerja_sama_kode_gagalCountAggregateOutputType> | number
         }
       }
     }
@@ -2220,6 +2225,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    tbl_pengaturan_halaman: {
+      payload: Prisma.$tbl_pengaturan_halamanPayload<ExtArgs>
+      fields: Prisma.tbl_pengaturan_halamanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_pengaturan_halamanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_pengaturan_halamanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_pengaturan_halamanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_pengaturan_halamanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_pengaturan_halamanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_pengaturan_halamanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_pengaturan_halamanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_pengaturan_halamanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_pengaturan_halamanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        update: {
+          args: Prisma.tbl_pengaturan_halamanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_pengaturan_halamanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_pengaturan_halamanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_pengaturan_halamanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_pengaturan_halamanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_pengaturan_halamanPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_pengaturan_halamanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_pengaturan_halaman>
+        }
+        groupBy: {
+          args: Prisma.tbl_pengaturan_halamanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_pengaturan_halamanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_pengaturan_halamanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_pengaturan_halamanCountAggregateOutputType> | number
+        }
+      }
+    }
     tbl_profil_prodi: {
       payload: Prisma.$tbl_profil_prodiPayload<ExtArgs>
       fields: Prisma.tbl_profil_prodiFieldRefs
@@ -2516,6 +2595,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    tbl_ref_kategori_fasilitas: {
+      payload: Prisma.$tbl_ref_kategori_fasilitasPayload<ExtArgs>
+      fields: Prisma.tbl_ref_kategori_fasilitasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_ref_kategori_fasilitasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_ref_kategori_fasilitasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_ref_kategori_fasilitasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_ref_kategori_fasilitasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_ref_kategori_fasilitasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_ref_kategori_fasilitasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_ref_kategori_fasilitasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_ref_kategori_fasilitasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_ref_kategori_fasilitasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        update: {
+          args: Prisma.tbl_ref_kategori_fasilitasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_ref_kategori_fasilitasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_ref_kategori_fasilitasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_ref_kategori_fasilitasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_ref_kategori_fasilitasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_ref_kategori_fasilitasPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_ref_kategori_fasilitasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_ref_kategori_fasilitas>
+        }
+        groupBy: {
+          args: Prisma.tbl_ref_kategori_fasilitasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_ref_kategori_fasilitasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_ref_kategori_fasilitasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_ref_kategori_fasilitasCountAggregateOutputType> | number
+        }
+      }
+    }
+    tbl_fasilitas: {
+      payload: Prisma.$tbl_fasilitasPayload<ExtArgs>
+      fields: Prisma.tbl_fasilitasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_fasilitasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_fasilitasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_fasilitasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_fasilitasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_fasilitasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_fasilitasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_fasilitasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_fasilitasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_fasilitasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        update: {
+          args: Prisma.tbl_fasilitasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_fasilitasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_fasilitasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_fasilitasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_fasilitasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitasPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_fasilitasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_fasilitas>
+        }
+        groupBy: {
+          args: Prisma.tbl_fasilitasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_fasilitasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitasCountAggregateOutputType> | number
+        }
+      }
+    }
+    tbl_fasilitas_alat: {
+      payload: Prisma.$tbl_fasilitas_alatPayload<ExtArgs>
+      fields: Prisma.tbl_fasilitas_alatFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_fasilitas_alatFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_fasilitas_alatFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_fasilitas_alatFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_fasilitas_alatFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_fasilitas_alatFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_fasilitas_alatCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_fasilitas_alatCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_fasilitas_alatCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_fasilitas_alatDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        update: {
+          args: Prisma.tbl_fasilitas_alatUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_fasilitas_alatDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_fasilitas_alatUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_fasilitas_alatUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_fasilitas_alatUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_alatPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_fasilitas_alatAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_fasilitas_alat>
+        }
+        groupBy: {
+          args: Prisma.tbl_fasilitas_alatGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitas_alatGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_fasilitas_alatCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitas_alatCountAggregateOutputType> | number
+        }
+      }
+    }
+    tbl_fasilitas_berkas: {
+      payload: Prisma.$tbl_fasilitas_berkasPayload<ExtArgs>
+      fields: Prisma.tbl_fasilitas_berkasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tbl_fasilitas_berkasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tbl_fasilitas_berkasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        findFirst: {
+          args: Prisma.tbl_fasilitas_berkasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tbl_fasilitas_berkasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        findMany: {
+          args: Prisma.tbl_fasilitas_berkasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>[]
+        }
+        create: {
+          args: Prisma.tbl_fasilitas_berkasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        createMany: {
+          args: Prisma.tbl_fasilitas_berkasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tbl_fasilitas_berkasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>[]
+        }
+        delete: {
+          args: Prisma.tbl_fasilitas_berkasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        update: {
+          args: Prisma.tbl_fasilitas_berkasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        deleteMany: {
+          args: Prisma.tbl_fasilitas_berkasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tbl_fasilitas_berkasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tbl_fasilitas_berkasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>[]
+        }
+        upsert: {
+          args: Prisma.tbl_fasilitas_berkasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tbl_fasilitas_berkasPayload>
+        }
+        aggregate: {
+          args: Prisma.Tbl_fasilitas_berkasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTbl_fasilitas_berkas>
+        }
+        groupBy: {
+          args: Prisma.tbl_fasilitas_berkasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitas_berkasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tbl_fasilitas_berkasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tbl_fasilitas_berkasCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2776,6 +3151,7 @@ export const Tbl_kerja_samaScalarFieldEnum = {
   induk_id: 'induk_id',
   perpanjangan_dari_id: 'perpanjangan_dari_id',
   catatan_internal: 'catatan_internal',
+  preview: 'preview',
   created_by_id: 'created_by_id',
   updated_by_id: 'updated_by_id',
   created_at: 'created_at',
@@ -2816,6 +3192,7 @@ export const Tbl_kerja_sama_berkasScalarFieldEnum = {
   path: 'path',
   tautan: 'tautan',
   mime: 'mime',
+  utama: 'utama',
   ukuran: 'ukuran',
   created_at: 'created_at'
 } as const
@@ -2823,33 +3200,32 @@ export const Tbl_kerja_sama_berkasScalarFieldEnum = {
 export type Tbl_kerja_sama_berkasScalarFieldEnum = (typeof Tbl_kerja_sama_berkasScalarFieldEnum)[keyof typeof Tbl_kerja_sama_berkasScalarFieldEnum]
 
 
-export const Tbl_pengaturan_halamanScalarFieldEnum = {
-  id_pengaturan: 'id_pengaturan',
-  kunci: 'kunci',
-  eyebrow: 'eyebrow',
-  judul: 'judul',
-  deskripsi: 'deskripsi',
-  pembuka: 'pembuka',
-  opsi: 'opsi',
-  updated_at: 'updated_at'
+export const Tbl_kerja_sama_kode_unduhScalarFieldEnum = {
+  id_kode: 'id_kode',
+  kerja_sama_id: 'kerja_sama_id',
+  kode_hash: 'kode_hash',
+  petunjuk: 'petunjuk',
+  peminta: 'peminta',
+  catatan: 'catatan',
+  dibuat_oleh_id: 'dibuat_oleh_id',
+  created_at: 'created_at',
+  dipakai_pertama_pada: 'dipakai_pertama_pada',
+  terakhir_diunduh_pada: 'terakhir_diunduh_pada',
+  jumlah_unduhan: 'jumlah_unduhan',
+  dicabut_pada: 'dicabut_pada',
+  dicabut_oleh_id: 'dicabut_oleh_id'
 } as const
 
-export type Tbl_pengaturan_halamanScalarFieldEnum = (typeof Tbl_pengaturan_halamanScalarFieldEnum)[keyof typeof Tbl_pengaturan_halamanScalarFieldEnum]
+export type Tbl_kerja_sama_kode_unduhScalarFieldEnum = (typeof Tbl_kerja_sama_kode_unduhScalarFieldEnum)[keyof typeof Tbl_kerja_sama_kode_unduhScalarFieldEnum]
 
 
-export const Tbl_fasilitasScalarFieldEnum = {
-  id_fasilitas: 'id_fasilitas',
-  slug: 'slug',
-  nama: 'nama',
-  kategori: 'kategori',
-  foto: 'foto',
-  lokasi: 'lokasi',
-  deskripsi: 'deskripsi',
-  kapasitas: 'kapasitas',
-  fitur: 'fitur'
+export const Tbl_kerja_sama_kode_gagalScalarFieldEnum = {
+  id_gagal: 'id_gagal',
+  ip_hash: 'ip_hash',
+  created_at: 'created_at'
 } as const
 
-export type Tbl_fasilitasScalarFieldEnum = (typeof Tbl_fasilitasScalarFieldEnum)[keyof typeof Tbl_fasilitasScalarFieldEnum]
+export type Tbl_kerja_sama_kode_gagalScalarFieldEnum = (typeof Tbl_kerja_sama_kode_gagalScalarFieldEnum)[keyof typeof Tbl_kerja_sama_kode_gagalScalarFieldEnum]
 
 
 export const Tbl_risetScalarFieldEnum = {
@@ -2945,6 +3321,20 @@ export const Tbl_dokumenScalarFieldEnum = {
 export type Tbl_dokumenScalarFieldEnum = (typeof Tbl_dokumenScalarFieldEnum)[keyof typeof Tbl_dokumenScalarFieldEnum]
 
 
+export const Tbl_pengaturan_halamanScalarFieldEnum = {
+  id_pengaturan: 'id_pengaturan',
+  kunci: 'kunci',
+  eyebrow: 'eyebrow',
+  judul: 'judul',
+  deskripsi: 'deskripsi',
+  pembuka: 'pembuka',
+  opsi: 'opsi',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_pengaturan_halamanScalarFieldEnum = (typeof Tbl_pengaturan_halamanScalarFieldEnum)[keyof typeof Tbl_pengaturan_halamanScalarFieldEnum]
+
+
 export const Tbl_profil_prodiScalarFieldEnum = {
   id_profil: 'id_profil',
   sambutan_isi: 'sambutan_isi',
@@ -2996,6 +3386,77 @@ export const Tbl_struktur_tupoksiScalarFieldEnum = {
 } as const
 
 export type Tbl_struktur_tupoksiScalarFieldEnum = (typeof Tbl_struktur_tupoksiScalarFieldEnum)[keyof typeof Tbl_struktur_tupoksiScalarFieldEnum]
+
+
+export const Tbl_ref_kategori_fasilitasScalarFieldEnum = {
+  id_kategori: 'id_kategori',
+  slug: 'slug',
+  nama: 'nama',
+  urutan: 'urutan',
+  aktif: 'aktif'
+} as const
+
+export type Tbl_ref_kategori_fasilitasScalarFieldEnum = (typeof Tbl_ref_kategori_fasilitasScalarFieldEnum)[keyof typeof Tbl_ref_kategori_fasilitasScalarFieldEnum]
+
+
+export const Tbl_fasilitasScalarFieldEnum = {
+  id_fasilitas: 'id_fasilitas',
+  slug: 'slug',
+  nama: 'nama',
+  kategori_id: 'kategori_id',
+  gedung_id: 'gedung_id',
+  lantai: 'lantai',
+  deskripsi: 'deskripsi',
+  foto: 'foto',
+  luas_m2: 'luas_m2',
+  kapasitas: 'kapasitas',
+  kepemilikan: 'kepemilikan',
+  kondisi: 'kondisi',
+  status: 'status',
+  aksesibel_difabel: 'aksesibel_difabel',
+  penggunaan_jam_per_minggu: 'penggunaan_jam_per_minggu',
+  tampil_publik: 'tampil_publik',
+  unggulan: 'unggulan',
+  urutan: 'urutan',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_fasilitasScalarFieldEnum = (typeof Tbl_fasilitasScalarFieldEnum)[keyof typeof Tbl_fasilitasScalarFieldEnum]
+
+
+export const Tbl_fasilitas_alatScalarFieldEnum = {
+  id_alat: 'id_alat',
+  fasilitas_id: 'fasilitas_id',
+  nama: 'nama',
+  jumlah_unit: 'jumlah_unit',
+  tahun_perolehan: 'tahun_perolehan',
+  kepemilikan: 'kepemilikan',
+  kondisi: 'kondisi',
+  spesifikasi: 'spesifikasi',
+  tampil_publik: 'tampil_publik',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_fasilitas_alatScalarFieldEnum = (typeof Tbl_fasilitas_alatScalarFieldEnum)[keyof typeof Tbl_fasilitas_alatScalarFieldEnum]
+
+
+export const Tbl_fasilitas_berkasScalarFieldEnum = {
+  id_berkas: 'id_berkas',
+  fasilitas_id: 'fasilitas_id',
+  jenis: 'jenis',
+  label: 'label',
+  path: 'path',
+  mime: 'mime',
+  ukuran: 'ukuran',
+  urutan: 'urutan',
+  created_at: 'created_at'
+} as const
+
+export type Tbl_fasilitas_berkasScalarFieldEnum = (typeof Tbl_fasilitas_berkasScalarFieldEnum)[keyof typeof Tbl_fasilitas_berkasScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -3326,20 +3787,6 @@ export type ListEnumJenisBerkasFieldRefInput<$PrismaModel> = FieldRefInputType<$
 
 
 /**
- * Reference to a field of type 'KategoriFasilitas'
- */
-export type EnumKategoriFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KategoriFasilitas'>
-    
-
-
-/**
- * Reference to a field of type 'KategoriFasilitas[]'
- */
-export type ListEnumKategoriFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KategoriFasilitas[]'>
-    
-
-
-/**
  * Reference to a field of type 'JenisRiset'
  */
 export type EnumJenisRisetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JenisRiset'>
@@ -3434,6 +3881,76 @@ export type EnumJalurSambungFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'JalurSambung[]'
  */
 export type ListEnumJalurSambungFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JalurSambung[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal'
+ */
+export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
+ * Reference to a field of type 'KepemilikanAset'
+ */
+export type EnumKepemilikanAsetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KepemilikanAset'>
+    
+
+
+/**
+ * Reference to a field of type 'KepemilikanAset[]'
+ */
+export type ListEnumKepemilikanAsetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KepemilikanAset[]'>
+    
+
+
+/**
+ * Reference to a field of type 'KondisiAset'
+ */
+export type EnumKondisiAsetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KondisiAset'>
+    
+
+
+/**
+ * Reference to a field of type 'KondisiAset[]'
+ */
+export type ListEnumKondisiAsetFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'KondisiAset[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusFasilitas'
+ */
+export type EnumStatusFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusFasilitas'>
+    
+
+
+/**
+ * Reference to a field of type 'StatusFasilitas[]'
+ */
+export type ListEnumStatusFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusFasilitas[]'>
+    
+
+
+/**
+ * Reference to a field of type 'JenisBerkasFasilitas'
+ */
+export type EnumJenisBerkasFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JenisBerkasFasilitas'>
+    
+
+
+/**
+ * Reference to a field of type 'JenisBerkasFasilitas[]'
+ */
+export type ListEnumJenisBerkasFasilitasFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'JenisBerkasFasilitas[]'>
     
 
 
@@ -3615,8 +4132,8 @@ export type GlobalOmitConfig = {
   tbl_kerja_sama?: Prisma.tbl_kerja_samaOmit
   tbl_kerja_sama_kegiatan?: Prisma.tbl_kerja_sama_kegiatanOmit
   tbl_kerja_sama_berkas?: Prisma.tbl_kerja_sama_berkasOmit
-  tbl_pengaturan_halaman?: Prisma.tbl_pengaturan_halamanOmit
-  tbl_fasilitas?: Prisma.tbl_fasilitasOmit
+  tbl_kerja_sama_kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhOmit
+  tbl_kerja_sama_kode_gagal?: Prisma.tbl_kerja_sama_kode_gagalOmit
   tbl_riset?: Prisma.tbl_risetOmit
   tbl_hki?: Prisma.tbl_hkiOmit
   tbl_jadwal?: Prisma.tbl_jadwalOmit
@@ -3625,10 +4142,15 @@ export type GlobalOmitConfig = {
   tbl_bentuk_kegiatan?: Prisma.tbl_bentuk_kegiatanOmit
   tbl_langkah_mbkm?: Prisma.tbl_langkah_mbkmOmit
   tbl_dokumen?: Prisma.tbl_dokumenOmit
+  tbl_pengaturan_halaman?: Prisma.tbl_pengaturan_halamanOmit
   tbl_profil_prodi?: Prisma.tbl_profil_prodiOmit
   tbl_jalur_pendaftaran?: Prisma.tbl_jalur_pendaftaranOmit
   tbl_struktur_posisi?: Prisma.tbl_struktur_posisiOmit
   tbl_struktur_tupoksi?: Prisma.tbl_struktur_tupoksiOmit
+  tbl_ref_kategori_fasilitas?: Prisma.tbl_ref_kategori_fasilitasOmit
+  tbl_fasilitas?: Prisma.tbl_fasilitasOmit
+  tbl_fasilitas_alat?: Prisma.tbl_fasilitas_alatOmit
+  tbl_fasilitas_berkas?: Prisma.tbl_fasilitas_berkasOmit
 }
 
 /* Types for Logging */

@@ -112,15 +112,15 @@ export type tbl_kerja_sama_kegiatan = Prisma.tbl_kerja_sama_kegiatanModel
  */
 export type tbl_kerja_sama_berkas = Prisma.tbl_kerja_sama_berkasModel
 /**
- * Model tbl_pengaturan_halaman
+ * Model tbl_kerja_sama_kode_unduh
  * 
  */
-export type tbl_pengaturan_halaman = Prisma.tbl_pengaturan_halamanModel
+export type tbl_kerja_sama_kode_unduh = Prisma.tbl_kerja_sama_kode_unduhModel
 /**
- * Model tbl_fasilitas
+ * Model tbl_kerja_sama_kode_gagal
  * 
  */
-export type tbl_fasilitas = Prisma.tbl_fasilitasModel
+export type tbl_kerja_sama_kode_gagal = Prisma.tbl_kerja_sama_kode_gagalModel
 /**
  * Model tbl_riset
  * 
@@ -162,6 +162,11 @@ export type tbl_langkah_mbkm = Prisma.tbl_langkah_mbkmModel
  */
 export type tbl_dokumen = Prisma.tbl_dokumenModel
 /**
+ * Model tbl_pengaturan_halaman
+ * 
+ */
+export type tbl_pengaturan_halaman = Prisma.tbl_pengaturan_halamanModel
+/**
  * Model tbl_profil_prodi
  * 
  */
@@ -181,3 +186,23 @@ export type tbl_struktur_posisi = Prisma.tbl_struktur_posisiModel
  * 
  */
 export type tbl_struktur_tupoksi = Prisma.tbl_struktur_tupoksiModel
+/**
+ * Model tbl_ref_kategori_fasilitas
+ * 
+ */
+export type tbl_ref_kategori_fasilitas = Prisma.tbl_ref_kategori_fasilitasModel
+/**
+ * Model tbl_fasilitas
+ * 
+ */
+export type tbl_fasilitas = Prisma.tbl_fasilitasModel
+/**
+ * Model tbl_fasilitas_alat
+ * 
+ */
+export type tbl_fasilitas_alat = Prisma.tbl_fasilitas_alatModel
+/**
+ * Model tbl_fasilitas_berkas
+ * 
+ */
+export type tbl_fasilitas_berkas = Prisma.tbl_fasilitas_berkasModel

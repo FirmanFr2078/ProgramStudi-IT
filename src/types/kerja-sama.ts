@@ -82,6 +82,15 @@ export type MasaBerlaku =
   | "Berakhir"
   | "Dibatalkan"
 
+/**
+ * Status kode unduh -- DIHITUNG dari tiga tanggal (lib/kerja-sama-kode.ts), tidak disimpan.
+ * - Aktif             : belum pernah dipakai
+ * - Dalam Masa Unduh  : sudah dipakai, masih dalam KODE_MASA_UNDUH_MENIT
+ * - Habis             : masa unduh lewat
+ * - Dicabut           : dicabut admin
+ */
+export type StatusKode = "Aktif" | "Dalam Masa Unduh" | "Habis" | "Dicabut"
+
 /** Status mitra, diturunkan dari naskah-naskahnya. */
 export type StatusMitra = "Aktif" | "Berakhir" | "Belum Aktif" | "Tanpa Naskah"
 
@@ -102,6 +111,15 @@ export const INDUK_NASKAH: Record<
 
 /** Folder di bucket "images" untuk logo mitra. */
 export const MITRA_LOGO_FOLDER = "mitra"
+
+/** Folder di bucket "images" (publik) untuk gambar pratinjau halaman pertama naskah. */
+export const NASKAH_PREVIEW_FOLDER = "naskah-preview"
+
+/**
+ * Kode unduh tidak punya batas waktu sebelum dipakai. Setelah DIPAKAI PERTAMA KALI,
+ * kode masih berlaku selama ini (untuk antisipasi unduhan gagal), lalu hangus.
+ */
+export const KODE_MASA_UNDUH_MENIT = 10
 
 /** Folder di bucket PRIVAT "kerja-sama" (lihat lib/kerja-sama-storage.ts). */
 export const BERKAS_NASKAH_FOLDER = "naskah"
@@ -231,6 +249,8 @@ export type MitraInput = z.infer<typeof mitraInputSchema>
 // dst.) ada di src/database/kerja-sama/naskah.ts, bukan di sini.
 // ============================================================
 
+const PREVIEW_PATH_PATTERN = new RegExp(`^${NASKAH_PREVIEW_FOLDER}/[A-Za-z0-9._-]+$`)
+
 export const naskahInputSchema = z
   .object({
     mitraId: idSchema("Mitra"),
@@ -261,6 +281,12 @@ export const naskahInputSchema = z
       .max(20, "Bentuk kerja sama maksimal 20 item")
       .default([])
       .transform((ids) => Array.from(new Set(ids))),
+
+    // Gambar halaman pertama naskah (banner kartu landing), di bucket "images".
+    preview: optionalText(255, "Path pratinjau").refine(
+      (value) => value === null || PREVIEW_PATH_PATTERN.test(value),
+      "Path pratinjau tidak valid",
+    ),
 
     catatanInternal: optionalText(2000, "Catatan internal"),
   })
@@ -337,6 +363,8 @@ export const berkasInputSchema = z
       .nullable()
       .optional()
       .transform((value) => value ?? null),
+    // Berkas utama = yang diunduh lewat kode di landing. Satu per naskah.
+    utama: z.boolean().default(false),
   })
   .refine((value) => (value.kerjaSamaId === null) !== (value.kegiatanId === null), {
     message: "Berkas harus menempel pada tepat satu naskah atau satu kegiatan.",
@@ -346,6 +374,14 @@ export const berkasInputSchema = z
     message: "Isi salah satu: unggah berkas atau tautan eksternal.",
     path: ["tautan"],
   })
+  .refine(
+    (value) =>
+      !value.utama || (value.kerjaSamaId !== null && value.jenis === "Naskah" && value.path !== null),
+    {
+      message: "Berkas utama harus berupa file jenis Naskah yang diunggah (bukan tautan).",
+      path: ["utama"],
+    },
+  )
   .refine((value) => value.path === null || BERKAS_PATH_PATTERN.test(value.path), {
     message: "Path berkas tidak valid.",
     path: ["path"],
@@ -361,6 +397,29 @@ export const berkasInputSchema = z
     },
   )
 export type BerkasInput = z.infer<typeof berkasInputSchema>
+
+// ============================================================
+// VALIDASI INPUT -- KODE UNDUH
+// ============================================================
+
+export const kodeUnduhInputSchema = z.object({
+  kerjaSamaId: idSchema("Naskah"),
+  // Satu kode = satu peminta, supaya riwayatnya jelas siapa yang mengunduh.
+  peminta: z
+    .string()
+    .trim()
+    .min(1, "Nama peminta wajib diisi")
+    .max(150, "Nama peminta maksimal 150 karakter"),
+  catatan: optionalText(300, "Catatan"),
+})
+export type KodeUnduhInput = z.infer<typeof kodeUnduhInputSchema>
+
+/** Body endpoint publik (landing). Kode dinormalisasi di server, bukan di skema. */
+export const verifikasiKodeSchema = z.object({
+  naskahId: idSchema("Naskah"),
+  kode: z.string().trim().min(1, "Kode wajib diisi").max(40, "Kode terlalu panjang"),
+})
+export type VerifikasiKodeInput = z.infer<typeof verifikasiKodeSchema>
 
 // ============================================================
 // VIEW ADMIN
@@ -396,6 +455,7 @@ export type BerkasAdmin = {
   tautan: string | null
   mime: string | null
   ukuran: number | null
+  utama: boolean
   createdAt: string
   // Sengaja tanpa URL: bucket privat, URL unduhan dibuat sesaat lewat signed URL.
 }
@@ -459,12 +519,37 @@ export type NaskahAdmin = {
   bentuk: BentukRingkas[]
   jumlahKegiatan: number
   berkas: BerkasAdmin[]
+  preview: string | null // URL publik gambar pratinjau
+  previewPath: string | null // nilai asli di database
+  bisaDiunduh: boolean // punya berkas utama berupa file
+  jumlahKodeAktif: number // kode yang masih bisa dipakai (Aktif + Dalam Masa Unduh)
   catatanInternal: string | null
   createdAt: string
   updatedAt: string
   createdBy: KerjaSamaAttribution
   updatedBy: KerjaSamaAttribution
 }
+
+export type KodeUnduhAdmin = {
+  id: string
+  kerjaSamaId: string
+  /** 4 karakter terakhir, hanya sebagai penanda di riwayat. Kode utuh TIDAK tersimpan. */
+  petunjuk: string
+  peminta: string
+  catatan: string | null
+  status: StatusKode
+  /** Sisa detik masa unduh; hanya terisi saat status "Dalam Masa Unduh". */
+  sisaDetik: number | null
+  jumlahUnduhan: number
+  createdAt: string
+  dipakaiPertamaPada: string | null
+  terakhirDiunduhPada: string | null
+  dicabutPada: string | null
+  dibuatOleh: KerjaSamaAttribution
+}
+
+/** Hasil membuat kode: satu-satunya saat kode utuh bisa dilihat. */
+export type KodeUnduhBaru = KodeUnduhAdmin & { kode: string }
 
 /** Ringkasan naskah untuk dropdown (pilih induk, pilih naskah saat input kegiatan). */
 export type NaskahOpsi = {
@@ -508,7 +593,9 @@ export type KegiatanAdmin = {
 // ============================================================
 
 export type NaskahPublik = {
+  id: string // dipakai dialog landing untuk mengirim kode unduh
   jenis: JenisNaskah
+  bisaDiunduh: boolean
   mulai: string
   berakhir: string | null
   masa: MasaBerlaku
@@ -532,6 +619,8 @@ export type MitraPublik = {
   kota: string | null
   website: string | null
   logo: string | null
+  /** Banner kartu: pratinjau naskah aktif terbaru yang punya pratinjau; null = kartu tanpa banner. */
+  pratinjau: string | null
   ringkasan: string
   deskripsi: string[]
   lingkup: string[] // nama bentuk kerja sama dari naskah yang berlaku, tanpa duplikat

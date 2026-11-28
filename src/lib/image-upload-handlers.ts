@@ -2,7 +2,7 @@ import "server-only"
 
 import { apiResponse, handleApiError } from "@/lib/api-response"
 import { requirePermission } from "@/lib/auth"
-import { deleteFile, uploadFile } from "@/lib/storage"
+import { deleteFile, uploadFile, type StorageCategory } from "@/lib/storage"
 import type { Permission } from "@/types"
 
 type ImageUploadOptions = {
@@ -11,6 +11,8 @@ type ImageUploadOptions = {
   folder: string
   /** Label untuk log error, mis. "/api/dashboard/sdm/dosen/upload". */
   route: string
+  /** Bucket Storage yang dipakai. Default "images" (kompatibel dengan pemanggil lama). */
+  category?: StorageCategory
   /**
    * Opsional: kembalikan true kalau file sedang dipakai data di database.
    * Endpoint DELETE dipakai untuk rollback file yang baru diunggah, jadi
@@ -53,6 +55,7 @@ export function createImageUploadHandlers({
   permission,
   folder,
   route,
+  category,
   isInUse,
 }: ImageUploadOptions) {
   const pathPattern = new RegExp(`^${escapeRegExp(folder)}/[A-Za-z0-9._-]+$`)
@@ -80,7 +83,7 @@ export function createImageUploadHandlers({
         )
       }
 
-      const uploaded = await uploadFile("images", file, { folder })
+      const uploaded = await uploadFile(category || "images", file, { folder })
       if (!uploaded.success) {
         return apiResponse({ success: false, message: uploaded.error }, 400)
       }
@@ -121,7 +124,7 @@ export function createImageUploadHandlers({
         )
       }
 
-      const result = await deleteFile("images", path)
+      const result = await deleteFile(category || "images", path)
       if (!result.success) {
         return apiResponse({ success: false, message: result.error }, 400)
       }

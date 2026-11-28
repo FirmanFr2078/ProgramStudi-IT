@@ -28,92 +28,190 @@ export type AggregateTbl_fasilitas = {
 
 export type Tbl_fasilitasAvgAggregateOutputType = {
   id_fasilitas: number | null
+  kategori_id: number | null
+  gedung_id: number | null
+  luas_m2: runtime.Decimal | null
   kapasitas: number | null
+  penggunaan_jam_per_minggu: number | null
+  urutan: number | null
 }
 
 export type Tbl_fasilitasSumAggregateOutputType = {
   id_fasilitas: bigint | null
+  kategori_id: bigint | null
+  gedung_id: bigint | null
+  luas_m2: runtime.Decimal | null
   kapasitas: number | null
+  penggunaan_jam_per_minggu: number | null
+  urutan: number | null
 }
 
 export type Tbl_fasilitasMinAggregateOutputType = {
   id_fasilitas: bigint | null
   slug: string | null
   nama: string | null
-  kategori: $Enums.KategoriFasilitas | null
+  kategori_id: bigint | null
+  gedung_id: bigint | null
+  lantai: string | null
   foto: string | null
-  lokasi: string | null
-  deskripsi: string | null
+  luas_m2: runtime.Decimal | null
   kapasitas: number | null
+  kepemilikan: $Enums.KepemilikanAset | null
+  kondisi: $Enums.KondisiAset | null
+  status: $Enums.StatusFasilitas | null
+  aksesibel_difabel: boolean | null
+  penggunaan_jam_per_minggu: number | null
+  tampil_publik: boolean | null
+  unggulan: boolean | null
+  urutan: number | null
+  created_by_id: string | null
+  updated_by_id: string | null
+  created_at: Date | null
+  updated_at: Date | null
 }
 
 export type Tbl_fasilitasMaxAggregateOutputType = {
   id_fasilitas: bigint | null
   slug: string | null
   nama: string | null
-  kategori: $Enums.KategoriFasilitas | null
+  kategori_id: bigint | null
+  gedung_id: bigint | null
+  lantai: string | null
   foto: string | null
-  lokasi: string | null
-  deskripsi: string | null
+  luas_m2: runtime.Decimal | null
   kapasitas: number | null
+  kepemilikan: $Enums.KepemilikanAset | null
+  kondisi: $Enums.KondisiAset | null
+  status: $Enums.StatusFasilitas | null
+  aksesibel_difabel: boolean | null
+  penggunaan_jam_per_minggu: number | null
+  tampil_publik: boolean | null
+  unggulan: boolean | null
+  urutan: number | null
+  created_by_id: string | null
+  updated_by_id: string | null
+  created_at: Date | null
+  updated_at: Date | null
 }
 
 export type Tbl_fasilitasCountAggregateOutputType = {
   id_fasilitas: number
   slug: number
   nama: number
-  kategori: number
-  foto: number
-  lokasi: number
+  kategori_id: number
+  gedung_id: number
+  lantai: number
   deskripsi: number
+  foto: number
+  luas_m2: number
   kapasitas: number
-  fitur: number
+  kepemilikan: number
+  kondisi: number
+  status: number
+  aksesibel_difabel: number
+  penggunaan_jam_per_minggu: number
+  tampil_publik: number
+  unggulan: number
+  urutan: number
+  created_by_id: number
+  updated_by_id: number
+  created_at: number
+  updated_at: number
   _all: number
 }
 
 
 export type Tbl_fasilitasAvgAggregateInputType = {
   id_fasilitas?: true
+  kategori_id?: true
+  gedung_id?: true
+  luas_m2?: true
   kapasitas?: true
+  penggunaan_jam_per_minggu?: true
+  urutan?: true
 }
 
 export type Tbl_fasilitasSumAggregateInputType = {
   id_fasilitas?: true
+  kategori_id?: true
+  gedung_id?: true
+  luas_m2?: true
   kapasitas?: true
+  penggunaan_jam_per_minggu?: true
+  urutan?: true
 }
 
 export type Tbl_fasilitasMinAggregateInputType = {
   id_fasilitas?: true
   slug?: true
   nama?: true
-  kategori?: true
+  kategori_id?: true
+  gedung_id?: true
+  lantai?: true
   foto?: true
-  lokasi?: true
-  deskripsi?: true
+  luas_m2?: true
   kapasitas?: true
+  kepemilikan?: true
+  kondisi?: true
+  status?: true
+  aksesibel_difabel?: true
+  penggunaan_jam_per_minggu?: true
+  tampil_publik?: true
+  unggulan?: true
+  urutan?: true
+  created_by_id?: true
+  updated_by_id?: true
+  created_at?: true
+  updated_at?: true
 }
 
 export type Tbl_fasilitasMaxAggregateInputType = {
   id_fasilitas?: true
   slug?: true
   nama?: true
-  kategori?: true
+  kategori_id?: true
+  gedung_id?: true
+  lantai?: true
   foto?: true
-  lokasi?: true
-  deskripsi?: true
+  luas_m2?: true
   kapasitas?: true
+  kepemilikan?: true
+  kondisi?: true
+  status?: true
+  aksesibel_difabel?: true
+  penggunaan_jam_per_minggu?: true
+  tampil_publik?: true
+  unggulan?: true
+  urutan?: true
+  created_by_id?: true
+  updated_by_id?: true
+  created_at?: true
+  updated_at?: true
 }
 
 export type Tbl_fasilitasCountAggregateInputType = {
   id_fasilitas?: true
   slug?: true
   nama?: true
-  kategori?: true
-  foto?: true
-  lokasi?: true
+  kategori_id?: true
+  gedung_id?: true
+  lantai?: true
   deskripsi?: true
+  foto?: true
+  luas_m2?: true
   kapasitas?: true
-  fitur?: true
+  kepemilikan?: true
+  kondisi?: true
+  status?: true
+  aksesibel_difabel?: true
+  penggunaan_jam_per_minggu?: true
+  tampil_publik?: true
+  unggulan?: true
+  urutan?: true
+  created_by_id?: true
+  updated_by_id?: true
+  created_at?: true
+  updated_at?: true
   _all?: true
 }
 
@@ -207,12 +305,25 @@ export type Tbl_fasilitasGroupByOutputType = {
   id_fasilitas: bigint
   slug: string
   nama: string
-  kategori: $Enums.KategoriFasilitas
+  kategori_id: bigint
+  gedung_id: bigint | null
+  lantai: string | null
+  deskripsi: string[]
   foto: string | null
-  lokasi: string
-  deskripsi: string
+  luas_m2: runtime.Decimal | null
   kapasitas: number | null
-  fitur: string[]
+  kepemilikan: $Enums.KepemilikanAset
+  kondisi: $Enums.KondisiAset
+  status: $Enums.StatusFasilitas
+  aksesibel_difabel: boolean
+  penggunaan_jam_per_minggu: number | null
+  tampil_publik: boolean
+  unggulan: boolean
+  urutan: number
+  created_by_id: string | null
+  updated_by_id: string | null
+  created_at: Date
+  updated_at: Date
   _count: Tbl_fasilitasCountAggregateOutputType | null
   _avg: Tbl_fasilitasAvgAggregateOutputType | null
   _sum: Tbl_fasilitasSumAggregateOutputType | null
@@ -242,24 +353,64 @@ export type tbl_fasilitasWhereInput = {
   id_fasilitas?: Prisma.BigIntFilter<"tbl_fasilitas"> | bigint | number
   slug?: Prisma.StringFilter<"tbl_fasilitas"> | string
   nama?: Prisma.StringFilter<"tbl_fasilitas"> | string
-  kategori?: Prisma.EnumKategoriFasilitasFilter<"tbl_fasilitas"> | $Enums.KategoriFasilitas
+  kategori_id?: Prisma.BigIntFilter<"tbl_fasilitas"> | bigint | number
+  gedung_id?: Prisma.BigIntNullableFilter<"tbl_fasilitas"> | bigint | number | null
+  lantai?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
+  deskripsi?: Prisma.StringNullableListFilter<"tbl_fasilitas">
   foto?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
-  lokasi?: Prisma.StringFilter<"tbl_fasilitas"> | string
-  deskripsi?: Prisma.StringFilter<"tbl_fasilitas"> | string
+  luas_m2?: Prisma.DecimalNullableFilter<"tbl_fasilitas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
-  fitur?: Prisma.StringNullableListFilter<"tbl_fasilitas">
+  kepemilikan?: Prisma.EnumKepemilikanAsetFilter<"tbl_fasilitas"> | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFilter<"tbl_fasilitas"> | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFilter<"tbl_fasilitas"> | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  penggunaan_jam_per_minggu?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
+  tampil_publik?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_fasilitas"> | number
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  created_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+  kategori?: Prisma.XOR<Prisma.Tbl_ref_kategori_fasilitasScalarRelationFilter, Prisma.tbl_ref_kategori_fasilitasWhereInput>
+  gedung?: Prisma.XOR<Prisma.Tbl_fasilitasNullableScalarRelationFilter, Prisma.tbl_fasilitasWhereInput> | null
+  ruangan?: Prisma.Tbl_fasilitasListRelationFilter
+  alat?: Prisma.Tbl_fasilitas_alatListRelationFilter
+  berkas?: Prisma.Tbl_fasilitas_berkasListRelationFilter
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }
 
 export type tbl_fasilitasOrderByWithRelationInput = {
   id_fasilitas?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
-  foto?: Prisma.SortOrderInput | Prisma.SortOrder
-  lokasi?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  lantai?: Prisma.SortOrderInput | Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
+  foto?: Prisma.SortOrderInput | Prisma.SortOrder
+  luas_m2?: Prisma.SortOrderInput | Prisma.SortOrder
   kapasitas?: Prisma.SortOrderInput | Prisma.SortOrder
-  fitur?: Prisma.SortOrder
+  kepemilikan?: Prisma.SortOrder
+  kondisi?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  aksesibel_difabel?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrderInput | Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
+  kategori?: Prisma.tbl_ref_kategori_fasilitasOrderByWithRelationInput
+  gedung?: Prisma.tbl_fasilitasOrderByWithRelationInput
+  ruangan?: Prisma.tbl_fasilitasOrderByRelationAggregateInput
+  alat?: Prisma.tbl_fasilitas_alatOrderByRelationAggregateInput
+  berkas?: Prisma.tbl_fasilitas_berkasOrderByRelationAggregateInput
+  created_by?: Prisma.tbl_profilesOrderByWithRelationInput
+  updated_by?: Prisma.tbl_profilesOrderByWithRelationInput
 }
 
 export type tbl_fasilitasWhereUniqueInput = Prisma.AtLeast<{
@@ -269,24 +420,57 @@ export type tbl_fasilitasWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.tbl_fasilitasWhereInput[]
   NOT?: Prisma.tbl_fasilitasWhereInput | Prisma.tbl_fasilitasWhereInput[]
   nama?: Prisma.StringFilter<"tbl_fasilitas"> | string
-  kategori?: Prisma.EnumKategoriFasilitasFilter<"tbl_fasilitas"> | $Enums.KategoriFasilitas
+  kategori_id?: Prisma.BigIntFilter<"tbl_fasilitas"> | bigint | number
+  gedung_id?: Prisma.BigIntNullableFilter<"tbl_fasilitas"> | bigint | number | null
+  lantai?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
+  deskripsi?: Prisma.StringNullableListFilter<"tbl_fasilitas">
   foto?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
-  lokasi?: Prisma.StringFilter<"tbl_fasilitas"> | string
-  deskripsi?: Prisma.StringFilter<"tbl_fasilitas"> | string
+  luas_m2?: Prisma.DecimalNullableFilter<"tbl_fasilitas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
-  fitur?: Prisma.StringNullableListFilter<"tbl_fasilitas">
+  kepemilikan?: Prisma.EnumKepemilikanAsetFilter<"tbl_fasilitas"> | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFilter<"tbl_fasilitas"> | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFilter<"tbl_fasilitas"> | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  penggunaan_jam_per_minggu?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
+  tampil_publik?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_fasilitas"> | number
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  created_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+  kategori?: Prisma.XOR<Prisma.Tbl_ref_kategori_fasilitasScalarRelationFilter, Prisma.tbl_ref_kategori_fasilitasWhereInput>
+  gedung?: Prisma.XOR<Prisma.Tbl_fasilitasNullableScalarRelationFilter, Prisma.tbl_fasilitasWhereInput> | null
+  ruangan?: Prisma.Tbl_fasilitasListRelationFilter
+  alat?: Prisma.Tbl_fasilitas_alatListRelationFilter
+  berkas?: Prisma.Tbl_fasilitas_berkasListRelationFilter
+  created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }, "id_fasilitas" | "slug">
 
 export type tbl_fasilitasOrderByWithAggregationInput = {
   id_fasilitas?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
-  foto?: Prisma.SortOrderInput | Prisma.SortOrder
-  lokasi?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  lantai?: Prisma.SortOrderInput | Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
+  foto?: Prisma.SortOrderInput | Prisma.SortOrder
+  luas_m2?: Prisma.SortOrderInput | Prisma.SortOrder
   kapasitas?: Prisma.SortOrderInput | Prisma.SortOrder
-  fitur?: Prisma.SortOrder
+  kepemilikan?: Prisma.SortOrder
+  kondisi?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  aksesibel_difabel?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrderInput | Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.tbl_fasilitasCountOrderByAggregateInput
   _avg?: Prisma.tbl_fasilitasAvgOrderByAggregateInput
   _max?: Prisma.tbl_fasilitasMaxOrderByAggregateInput
@@ -301,220 +485,1915 @@ export type tbl_fasilitasScalarWhereWithAggregatesInput = {
   id_fasilitas?: Prisma.BigIntWithAggregatesFilter<"tbl_fasilitas"> | bigint | number
   slug?: Prisma.StringWithAggregatesFilter<"tbl_fasilitas"> | string
   nama?: Prisma.StringWithAggregatesFilter<"tbl_fasilitas"> | string
-  kategori?: Prisma.EnumKategoriFasilitasWithAggregatesFilter<"tbl_fasilitas"> | $Enums.KategoriFasilitas
+  kategori_id?: Prisma.BigIntWithAggregatesFilter<"tbl_fasilitas"> | bigint | number
+  gedung_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_fasilitas"> | bigint | number | null
+  lantai?: Prisma.StringNullableWithAggregatesFilter<"tbl_fasilitas"> | string | null
+  deskripsi?: Prisma.StringNullableListFilter<"tbl_fasilitas">
   foto?: Prisma.StringNullableWithAggregatesFilter<"tbl_fasilitas"> | string | null
-  lokasi?: Prisma.StringWithAggregatesFilter<"tbl_fasilitas"> | string
-  deskripsi?: Prisma.StringWithAggregatesFilter<"tbl_fasilitas"> | string
+  luas_m2?: Prisma.DecimalNullableWithAggregatesFilter<"tbl_fasilitas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.IntNullableWithAggregatesFilter<"tbl_fasilitas"> | number | null
-  fitur?: Prisma.StringNullableListFilter<"tbl_fasilitas">
+  kepemilikan?: Prisma.EnumKepemilikanAsetWithAggregatesFilter<"tbl_fasilitas"> | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetWithAggregatesFilter<"tbl_fasilitas"> | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasWithAggregatesFilter<"tbl_fasilitas"> | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolWithAggregatesFilter<"tbl_fasilitas"> | boolean
+  penggunaan_jam_per_minggu?: Prisma.IntNullableWithAggregatesFilter<"tbl_fasilitas"> | number | null
+  tampil_publik?: Prisma.BoolWithAggregatesFilter<"tbl_fasilitas"> | boolean
+  unggulan?: Prisma.BoolWithAggregatesFilter<"tbl_fasilitas"> | boolean
+  urutan?: Prisma.IntWithAggregatesFilter<"tbl_fasilitas"> | number
+  created_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_fasilitas"> | string | null
+  updated_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_fasilitas"> | string | null
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_fasilitas"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_fasilitas"> | Date | string
 }
 
 export type tbl_fasilitasCreateInput = {
   id_fasilitas?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriFasilitas
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
   foto?: string | null
-  lokasi: string
-  deskripsi: string
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: number | null
-  fitur?: Prisma.tbl_fasilitasCreatefiturInput | string[]
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
 }
 
 export type tbl_fasilitasUncheckedCreateInput = {
   id_fasilitas?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriFasilitas
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
   foto?: string | null
-  lokasi: string
-  deskripsi: string
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: number | null
-  fitur?: Prisma.tbl_fasilitasCreatefiturInput | string[]
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
 }
 
 export type tbl_fasilitasUpdateInput = {
   id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriFasilitasFieldUpdateOperationsInput | $Enums.KategoriFasilitas
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lokasi?: Prisma.StringFieldUpdateOperationsInput | string
-  deskripsi?: Prisma.StringFieldUpdateOperationsInput | string
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  fitur?: Prisma.tbl_fasilitasUpdatefiturInput | string[]
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
 }
 
 export type tbl_fasilitasUncheckedUpdateInput = {
   id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriFasilitasFieldUpdateOperationsInput | $Enums.KategoriFasilitas
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lokasi?: Prisma.StringFieldUpdateOperationsInput | string
-  deskripsi?: Prisma.StringFieldUpdateOperationsInput | string
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  fitur?: Prisma.tbl_fasilitasUpdatefiturInput | string[]
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
 }
 
 export type tbl_fasilitasCreateManyInput = {
   id_fasilitas?: bigint | number
   slug: string
   nama: string
-  kategori: $Enums.KategoriFasilitas
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
   foto?: string | null
-  lokasi: string
-  deskripsi: string
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: number | null
-  fitur?: Prisma.tbl_fasilitasCreatefiturInput | string[]
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type tbl_fasilitasUpdateManyMutationInput = {
   id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriFasilitasFieldUpdateOperationsInput | $Enums.KategoriFasilitas
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lokasi?: Prisma.StringFieldUpdateOperationsInput | string
-  deskripsi?: Prisma.StringFieldUpdateOperationsInput | string
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  fitur?: Prisma.tbl_fasilitasUpdatefiturInput | string[]
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type tbl_fasilitasUncheckedUpdateManyInput = {
   id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  kategori?: Prisma.EnumKategoriFasilitasFieldUpdateOperationsInput | $Enums.KategoriFasilitas
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  lokasi?: Prisma.StringFieldUpdateOperationsInput | string
-  deskripsi?: Prisma.StringFieldUpdateOperationsInput | string
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  fitur?: Prisma.tbl_fasilitasUpdatefiturInput | string[]
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type Tbl_fasilitasListRelationFilter = {
+  every?: Prisma.tbl_fasilitasWhereInput
+  some?: Prisma.tbl_fasilitasWhereInput
+  none?: Prisma.tbl_fasilitasWhereInput
+}
+
+export type tbl_fasilitasOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type Tbl_fasilitasNullableScalarRelationFilter = {
+  is?: Prisma.tbl_fasilitasWhereInput | null
+  isNot?: Prisma.tbl_fasilitasWhereInput | null
 }
 
 export type tbl_fasilitasCountOrderByAggregateInput = {
   id_fasilitas?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
-  foto?: Prisma.SortOrder
-  lokasi?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrder
+  lantai?: Prisma.SortOrder
   deskripsi?: Prisma.SortOrder
+  foto?: Prisma.SortOrder
+  luas_m2?: Prisma.SortOrder
   kapasitas?: Prisma.SortOrder
-  fitur?: Prisma.SortOrder
+  kepemilikan?: Prisma.SortOrder
+  kondisi?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  aksesibel_difabel?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type tbl_fasilitasAvgOrderByAggregateInput = {
   id_fasilitas?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrder
+  luas_m2?: Prisma.SortOrder
   kapasitas?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
 }
 
 export type tbl_fasilitasMaxOrderByAggregateInput = {
   id_fasilitas?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrder
+  lantai?: Prisma.SortOrder
   foto?: Prisma.SortOrder
-  lokasi?: Prisma.SortOrder
-  deskripsi?: Prisma.SortOrder
+  luas_m2?: Prisma.SortOrder
   kapasitas?: Prisma.SortOrder
+  kepemilikan?: Prisma.SortOrder
+  kondisi?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  aksesibel_difabel?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type tbl_fasilitasMinOrderByAggregateInput = {
   id_fasilitas?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  kategori?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrder
+  lantai?: Prisma.SortOrder
   foto?: Prisma.SortOrder
-  lokasi?: Prisma.SortOrder
-  deskripsi?: Prisma.SortOrder
+  luas_m2?: Prisma.SortOrder
   kapasitas?: Prisma.SortOrder
+  kepemilikan?: Prisma.SortOrder
+  kondisi?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  aksesibel_difabel?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrder
+  tampil_publik?: Prisma.SortOrder
+  unggulan?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
+  created_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type tbl_fasilitasSumOrderByAggregateInput = {
   id_fasilitas?: Prisma.SortOrder
+  kategori_id?: Prisma.SortOrder
+  gedung_id?: Prisma.SortOrder
+  luas_m2?: Prisma.SortOrder
   kapasitas?: Prisma.SortOrder
+  penggunaan_jam_per_minggu?: Prisma.SortOrder
+  urutan?: Prisma.SortOrder
 }
 
-export type tbl_fasilitasCreatefiturInput = {
+export type Tbl_fasilitasScalarRelationFilter = {
+  is?: Prisma.tbl_fasilitasWhereInput
+  isNot?: Prisma.tbl_fasilitasWhereInput
+}
+
+export type tbl_fasilitasCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_fasilitasCreateWithoutCreated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_fasilitasCreateWithoutUpdated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_fasilitasCreateWithoutCreated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyCreated_byInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_fasilitasCreateWithoutUpdated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyUpdated_byInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_fasilitasCreateWithoutCreated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_fasilitasCreateWithoutUpdated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput> | Prisma.tbl_fasilitasCreateWithoutCreated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutCreated_byInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutCreated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyCreated_byInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutCreated_byInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutCreated_byInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutCreated_byInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutCreated_byInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput> | Prisma.tbl_fasilitasCreateWithoutUpdated_byInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput | Prisma.tbl_fasilitasCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyUpdated_byInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutUpdated_byInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutUpdated_byInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasCreateNestedManyWithoutKategoriInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput> | Prisma.tbl_fasilitasCreateWithoutKategoriInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput | Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyKategoriInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUncheckedCreateNestedManyWithoutKategoriInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput> | Prisma.tbl_fasilitasCreateWithoutKategoriInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput | Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyKategoriInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUpdateManyWithoutKategoriNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput> | Prisma.tbl_fasilitasCreateWithoutKategoriInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput | Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutKategoriInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutKategoriInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyKategoriInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutKategoriInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutKategoriInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutKategoriInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutKategoriInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutKategoriNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput> | Prisma.tbl_fasilitasCreateWithoutKategoriInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput | Prisma.tbl_fasilitasCreateOrConnectWithoutKategoriInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutKategoriInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutKategoriInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyKategoriInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutKategoriInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutKategoriInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutKategoriInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutKategoriInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasCreatedeskripsiInput = {
   set: string[]
 }
 
-export type EnumKategoriFasilitasFieldUpdateOperationsInput = {
-  set?: $Enums.KategoriFasilitas
+export type tbl_fasilitasCreateNestedOneWithoutRuanganInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedCreateWithoutRuanganInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutRuanganInput
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
 }
 
-export type tbl_fasilitasUpdatefiturInput = {
+export type tbl_fasilitasCreateNestedManyWithoutGedungInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput> | Prisma.tbl_fasilitasCreateWithoutGedungInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput | Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyGedungInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput> | Prisma.tbl_fasilitasCreateWithoutGedungInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput | Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyGedungInputEnvelope
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+}
+
+export type tbl_fasilitasUpdatedeskripsiInput = {
   set?: string[]
   push?: string | string[]
 }
 
+export type NullableDecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type EnumKepemilikanAsetFieldUpdateOperationsInput = {
+  set?: $Enums.KepemilikanAset
+}
+
+export type EnumKondisiAsetFieldUpdateOperationsInput = {
+  set?: $Enums.KondisiAset
+}
+
+export type EnumStatusFasilitasFieldUpdateOperationsInput = {
+  set?: $Enums.StatusFasilitas
+}
+
+export type tbl_fasilitasUpdateOneWithoutRuanganNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedCreateWithoutRuanganInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutRuanganInput
+  upsert?: Prisma.tbl_fasilitasUpsertWithoutRuanganInput
+  disconnect?: Prisma.tbl_fasilitasWhereInput | boolean
+  delete?: Prisma.tbl_fasilitasWhereInput | boolean
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_fasilitasUpdateToOneWithWhereWithoutRuanganInput, Prisma.tbl_fasilitasUpdateWithoutRuanganInput>, Prisma.tbl_fasilitasUncheckedUpdateWithoutRuanganInput>
+}
+
+export type tbl_fasilitasUpdateManyWithoutGedungNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput> | Prisma.tbl_fasilitasCreateWithoutGedungInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput | Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutGedungInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutGedungInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyGedungInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutGedungInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutGedungInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutGedungInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutGedungInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput> | Prisma.tbl_fasilitasCreateWithoutGedungInput[] | Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput[]
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput | Prisma.tbl_fasilitasCreateOrConnectWithoutGedungInput[]
+  upsert?: Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutGedungInput | Prisma.tbl_fasilitasUpsertWithWhereUniqueWithoutGedungInput[]
+  createMany?: Prisma.tbl_fasilitasCreateManyGedungInputEnvelope
+  set?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  disconnect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  delete?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput | Prisma.tbl_fasilitasWhereUniqueInput[]
+  update?: Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutGedungInput | Prisma.tbl_fasilitasUpdateWithWhereUniqueWithoutGedungInput[]
+  updateMany?: Prisma.tbl_fasilitasUpdateManyWithWhereWithoutGedungInput | Prisma.tbl_fasilitasUpdateManyWithWhereWithoutGedungInput[]
+  deleteMany?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+}
+
+export type tbl_fasilitasCreateNestedOneWithoutAlatInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedCreateWithoutAlatInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutAlatInput
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
+}
+
+export type tbl_fasilitasUpdateOneRequiredWithoutAlatNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedCreateWithoutAlatInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutAlatInput
+  upsert?: Prisma.tbl_fasilitasUpsertWithoutAlatInput
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_fasilitasUpdateToOneWithWhereWithoutAlatInput, Prisma.tbl_fasilitasUpdateWithoutAlatInput>, Prisma.tbl_fasilitasUncheckedUpdateWithoutAlatInput>
+}
+
+export type tbl_fasilitasCreateNestedOneWithoutBerkasInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedCreateWithoutBerkasInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutBerkasInput
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
+}
+
+export type tbl_fasilitasUpdateOneRequiredWithoutBerkasNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedCreateWithoutBerkasInput>
+  connectOrCreate?: Prisma.tbl_fasilitasCreateOrConnectWithoutBerkasInput
+  upsert?: Prisma.tbl_fasilitasUpsertWithoutBerkasInput
+  connect?: Prisma.tbl_fasilitasWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_fasilitasUpdateToOneWithWhereWithoutBerkasInput, Prisma.tbl_fasilitasUpdateWithoutBerkasInput>, Prisma.tbl_fasilitasUncheckedUpdateWithoutBerkasInput>
+}
+
+export type tbl_fasilitasCreateWithoutCreated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutCreated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutCreated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_fasilitasCreateManyCreated_byInputEnvelope = {
+  data: Prisma.tbl_fasilitasCreateManyCreated_byInput | Prisma.tbl_fasilitasCreateManyCreated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_fasilitasCreateWithoutUpdated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutUpdated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutUpdated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_fasilitasCreateManyUpdated_byInputEnvelope = {
+  data: Prisma.tbl_fasilitasCreateManyUpdated_byInput | Prisma.tbl_fasilitasCreateManyUpdated_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_fasilitasUpsertWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutCreated_byInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutCreated_byInput>
+}
+
+export type tbl_fasilitasUpdateWithWhereUniqueWithoutCreated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutCreated_byInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutCreated_byInput>
+}
+
+export type tbl_fasilitasUpdateManyWithWhereWithoutCreated_byInput = {
+  where: Prisma.tbl_fasilitasScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateManyMutationInput, Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byInput>
+}
+
+export type tbl_fasilitasScalarWhereInput = {
+  AND?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+  OR?: Prisma.tbl_fasilitasScalarWhereInput[]
+  NOT?: Prisma.tbl_fasilitasScalarWhereInput | Prisma.tbl_fasilitasScalarWhereInput[]
+  id_fasilitas?: Prisma.BigIntFilter<"tbl_fasilitas"> | bigint | number
+  slug?: Prisma.StringFilter<"tbl_fasilitas"> | string
+  nama?: Prisma.StringFilter<"tbl_fasilitas"> | string
+  kategori_id?: Prisma.BigIntFilter<"tbl_fasilitas"> | bigint | number
+  gedung_id?: Prisma.BigIntNullableFilter<"tbl_fasilitas"> | bigint | number | null
+  lantai?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
+  deskripsi?: Prisma.StringNullableListFilter<"tbl_fasilitas">
+  foto?: Prisma.StringNullableFilter<"tbl_fasilitas"> | string | null
+  luas_m2?: Prisma.DecimalNullableFilter<"tbl_fasilitas"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFilter<"tbl_fasilitas"> | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFilter<"tbl_fasilitas"> | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFilter<"tbl_fasilitas"> | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  penggunaan_jam_per_minggu?: Prisma.IntNullableFilter<"tbl_fasilitas"> | number | null
+  tampil_publik?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  unggulan?: Prisma.BoolFilter<"tbl_fasilitas"> | boolean
+  urutan?: Prisma.IntFilter<"tbl_fasilitas"> | number
+  created_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  updated_by_id?: Prisma.UuidNullableFilter<"tbl_fasilitas"> | string | null
+  created_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"tbl_fasilitas"> | Date | string
+}
+
+export type tbl_fasilitasUpsertWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutUpdated_byInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type tbl_fasilitasUpdateWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutUpdated_byInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutUpdated_byInput>
+}
+
+export type tbl_fasilitasUpdateManyWithWhereWithoutUpdated_byInput = {
+  where: Prisma.tbl_fasilitasScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateManyMutationInput, Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byInput>
+}
+
+export type tbl_fasilitasCreateWithoutKategoriInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutKategoriInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutKategoriInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput>
+}
+
+export type tbl_fasilitasCreateManyKategoriInputEnvelope = {
+  data: Prisma.tbl_fasilitasCreateManyKategoriInput | Prisma.tbl_fasilitasCreateManyKategoriInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_fasilitasUpsertWithWhereUniqueWithoutKategoriInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutKategoriInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedCreateWithoutKategoriInput>
+}
+
+export type tbl_fasilitasUpdateWithWhereUniqueWithoutKategoriInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutKategoriInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutKategoriInput>
+}
+
+export type tbl_fasilitasUpdateManyWithWhereWithoutKategoriInput = {
+  where: Prisma.tbl_fasilitasScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateManyMutationInput, Prisma.tbl_fasilitasUncheckedUpdateManyWithoutKategoriInput>
+}
+
+export type tbl_fasilitasCreateWithoutRuanganInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutRuanganInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutRuanganInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedCreateWithoutRuanganInput>
+}
+
+export type tbl_fasilitasCreateWithoutGedungInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutGedungInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutGedungInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput>
+}
+
+export type tbl_fasilitasCreateManyGedungInputEnvelope = {
+  data: Prisma.tbl_fasilitasCreateManyGedungInput | Prisma.tbl_fasilitasCreateManyGedungInput[]
+  skipDuplicates?: boolean
+}
+
+export type tbl_fasilitasUpsertWithoutRuanganInput = {
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutRuanganInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedCreateWithoutRuanganInput>
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+export type tbl_fasilitasUpdateToOneWithWhereWithoutRuanganInput = {
+  where?: Prisma.tbl_fasilitasWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutRuanganInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutRuanganInput>
+}
+
+export type tbl_fasilitasUpdateWithoutRuanganInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutRuanganInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasUpsertWithWhereUniqueWithoutGedungInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutGedungInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedCreateWithoutGedungInput>
+}
+
+export type tbl_fasilitasUpdateWithWhereUniqueWithoutGedungInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutGedungInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutGedungInput>
+}
+
+export type tbl_fasilitasUpdateManyWithWhereWithoutGedungInput = {
+  where: Prisma.tbl_fasilitasScalarWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateManyMutationInput, Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungInput>
+}
+
+export type tbl_fasilitasCreateWithoutAlatInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  berkas?: Prisma.tbl_fasilitas_berkasCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutAlatInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutAlatInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedCreateWithoutAlatInput>
+}
+
+export type tbl_fasilitasUpsertWithoutAlatInput = {
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutAlatInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedCreateWithoutAlatInput>
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+export type tbl_fasilitasUpdateToOneWithWhereWithoutAlatInput = {
+  where?: Prisma.tbl_fasilitasWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutAlatInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutAlatInput>
+}
+
+export type tbl_fasilitasUpdateWithoutAlatInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutAlatInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasCreateWithoutBerkasInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  kategori: Prisma.tbl_ref_kategori_fasilitasCreateNestedOneWithoutFasilitasInput
+  gedung?: Prisma.tbl_fasilitasCreateNestedOneWithoutRuanganInput
+  ruangan?: Prisma.tbl_fasilitasCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatCreateNestedManyWithoutFasilitasInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput
+}
+
+export type tbl_fasilitasUncheckedCreateWithoutBerkasInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutGedungInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedCreateNestedManyWithoutFasilitasInput
+}
+
+export type tbl_fasilitasCreateOrConnectWithoutBerkasInput = {
+  where: Prisma.tbl_fasilitasWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedCreateWithoutBerkasInput>
+}
+
+export type tbl_fasilitasUpsertWithoutBerkasInput = {
+  update: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutBerkasInput>
+  create: Prisma.XOR<Prisma.tbl_fasilitasCreateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedCreateWithoutBerkasInput>
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+export type tbl_fasilitasUpdateToOneWithWhereWithoutBerkasInput = {
+  where?: Prisma.tbl_fasilitasWhereInput
+  data: Prisma.XOR<Prisma.tbl_fasilitasUpdateWithoutBerkasInput, Prisma.tbl_fasilitasUncheckedUpdateWithoutBerkasInput>
+}
+
+export type tbl_fasilitasUpdateWithoutBerkasInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutBerkasInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasCreateManyCreated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_fasilitasCreateManyUpdated_byInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_fasilitasUpdateWithoutCreated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutCreated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutCreated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_fasilitasUpdateWithoutUpdated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutUpdated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_fasilitasCreateManyKategoriInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  gedung_id?: bigint | number | null
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_fasilitasUpdateWithoutKategoriInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gedung?: Prisma.tbl_fasilitasUpdateOneWithoutRuanganNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutKategoriInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutKategoriInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  gedung_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type tbl_fasilitasCreateManyGedungInput = {
+  id_fasilitas?: bigint | number
+  slug: string
+  nama: string
+  kategori_id: bigint | number
+  lantai?: string | null
+  deskripsi?: Prisma.tbl_fasilitasCreatedeskripsiInput | string[]
+  foto?: string | null
+  luas_m2?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: number | null
+  kepemilikan?: $Enums.KepemilikanAset
+  kondisi?: $Enums.KondisiAset
+  status?: $Enums.StatusFasilitas
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: number | null
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: number
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type tbl_fasilitasUpdateWithoutGedungInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.tbl_ref_kategori_fasilitasUpdateOneRequiredWithoutFasilitasNestedInput
+  ruangan?: Prisma.tbl_fasilitasUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUpdateManyWithoutFasilitasNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateWithoutGedungInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ruangan?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutGedungNestedInput
+  alat?: Prisma.tbl_fasilitas_alatUncheckedUpdateManyWithoutFasilitasNestedInput
+  berkas?: Prisma.tbl_fasilitas_berkasUncheckedUpdateManyWithoutFasilitasNestedInput
+}
+
+export type tbl_fasilitasUncheckedUpdateManyWithoutGedungInput = {
+  id_fasilitas?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  kategori_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  lantai?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deskripsi?: Prisma.tbl_fasilitasUpdatedeskripsiInput | string[]
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  luas_m2?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  kapasitas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  kepemilikan?: Prisma.EnumKepemilikanAsetFieldUpdateOperationsInput | $Enums.KepemilikanAset
+  kondisi?: Prisma.EnumKondisiAsetFieldUpdateOperationsInput | $Enums.KondisiAset
+  status?: Prisma.EnumStatusFasilitasFieldUpdateOperationsInput | $Enums.StatusFasilitas
+  aksesibel_difabel?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  penggunaan_jam_per_minggu?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tampil_publik?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  unggulan?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  urutan?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type Tbl_fasilitasCountOutputType
+ */
+
+export type Tbl_fasilitasCountOutputType = {
+  ruangan: number
+  alat: number
+  berkas: number
+}
+
+export type Tbl_fasilitasCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  ruangan?: boolean | Tbl_fasilitasCountOutputTypeCountRuanganArgs
+  alat?: boolean | Tbl_fasilitasCountOutputTypeCountAlatArgs
+  berkas?: boolean | Tbl_fasilitasCountOutputTypeCountBerkasArgs
+}
+
+/**
+ * Tbl_fasilitasCountOutputType without action
+ */
+export type Tbl_fasilitasCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Tbl_fasilitasCountOutputType
+   */
+  select?: Prisma.Tbl_fasilitasCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Tbl_fasilitasCountOutputType without action
+ */
+export type Tbl_fasilitasCountOutputTypeCountRuanganArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+/**
+ * Tbl_fasilitasCountOutputType without action
+ */
+export type Tbl_fasilitasCountOutputTypeCountAlatArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_fasilitas_alatWhereInput
+}
+
+/**
+ * Tbl_fasilitasCountOutputType without action
+ */
+export type Tbl_fasilitasCountOutputTypeCountBerkasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_fasilitas_berkasWhereInput
+}
 
 
 export type tbl_fasilitasSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_fasilitas?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
-  foto?: boolean
-  lokasi?: boolean
+  kategori_id?: boolean
+  gedung_id?: boolean
+  lantai?: boolean
   deskripsi?: boolean
+  foto?: boolean
+  luas_m2?: boolean
   kapasitas?: boolean
-  fitur?: boolean
+  kepemilikan?: boolean
+  kondisi?: boolean
+  status?: boolean
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  ruangan?: boolean | Prisma.tbl_fasilitas$ruanganArgs<ExtArgs>
+  alat?: boolean | Prisma.tbl_fasilitas$alatArgs<ExtArgs>
+  berkas?: boolean | Prisma.tbl_fasilitas$berkasArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_fasilitasCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_fasilitas"]>
 
 export type tbl_fasilitasSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_fasilitas?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
-  foto?: boolean
-  lokasi?: boolean
+  kategori_id?: boolean
+  gedung_id?: boolean
+  lantai?: boolean
   deskripsi?: boolean
+  foto?: boolean
+  luas_m2?: boolean
   kapasitas?: boolean
-  fitur?: boolean
+  kepemilikan?: boolean
+  kondisi?: boolean
+  status?: boolean
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_fasilitas"]>
 
 export type tbl_fasilitasSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_fasilitas?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
-  foto?: boolean
-  lokasi?: boolean
+  kategori_id?: boolean
+  gedung_id?: boolean
+  lantai?: boolean
   deskripsi?: boolean
+  foto?: boolean
+  luas_m2?: boolean
   kapasitas?: boolean
-  fitur?: boolean
+  kepemilikan?: boolean
+  kondisi?: boolean
+  status?: boolean
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
+  created_at?: boolean
+  updated_at?: boolean
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_fasilitas"]>
 
 export type tbl_fasilitasSelectScalar = {
   id_fasilitas?: boolean
   slug?: boolean
   nama?: boolean
-  kategori?: boolean
-  foto?: boolean
-  lokasi?: boolean
+  kategori_id?: boolean
+  gedung_id?: boolean
+  lantai?: boolean
   deskripsi?: boolean
+  foto?: boolean
+  luas_m2?: boolean
   kapasitas?: boolean
-  fitur?: boolean
+  kepemilikan?: boolean
+  kondisi?: boolean
+  status?: boolean
+  aksesibel_difabel?: boolean
+  penggunaan_jam_per_minggu?: boolean
+  tampil_publik?: boolean
+  unggulan?: boolean
+  urutan?: boolean
+  created_by_id?: boolean
+  updated_by_id?: boolean
+  created_at?: boolean
+  updated_at?: boolean
 }
 
-export type tbl_fasilitasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_fasilitas" | "slug" | "nama" | "kategori" | "foto" | "lokasi" | "deskripsi" | "kapasitas" | "fitur", ExtArgs["result"]["tbl_fasilitas"]>
+export type tbl_fasilitasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_fasilitas" | "slug" | "nama" | "kategori_id" | "gedung_id" | "lantai" | "deskripsi" | "foto" | "luas_m2" | "kapasitas" | "kepemilikan" | "kondisi" | "status" | "aksesibel_difabel" | "penggunaan_jam_per_minggu" | "tampil_publik" | "unggulan" | "urutan" | "created_by_id" | "updated_by_id" | "created_at" | "updated_at", ExtArgs["result"]["tbl_fasilitas"]>
+export type tbl_fasilitasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  ruangan?: boolean | Prisma.tbl_fasilitas$ruanganArgs<ExtArgs>
+  alat?: boolean | Prisma.tbl_fasilitas$alatArgs<ExtArgs>
+  berkas?: boolean | Prisma.tbl_fasilitas$berkasArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
+  _count?: boolean | Prisma.Tbl_fasilitasCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type tbl_fasilitasIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
+}
+export type tbl_fasilitasIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  kategori?: boolean | Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>
+  gedung?: boolean | Prisma.tbl_fasilitas$gedungArgs<ExtArgs>
+  created_by?: boolean | Prisma.tbl_fasilitas$created_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>
+}
 
 export type $tbl_fasilitasPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "tbl_fasilitas"
-  objects: {}
+  objects: {
+    kategori: Prisma.$tbl_ref_kategori_fasilitasPayload<ExtArgs>
+    gedung: Prisma.$tbl_fasilitasPayload<ExtArgs> | null
+    ruangan: Prisma.$tbl_fasilitasPayload<ExtArgs>[]
+    alat: Prisma.$tbl_fasilitas_alatPayload<ExtArgs>[]
+    berkas: Prisma.$tbl_fasilitas_berkasPayload<ExtArgs>[]
+    created_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+    updated_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_fasilitas: bigint
     slug: string
     nama: string
-    kategori: $Enums.KategoriFasilitas
+    kategori_id: bigint
+    gedung_id: bigint | null
+    lantai: string | null
+    deskripsi: string[]
     foto: string | null
-    lokasi: string
-    deskripsi: string
+    luas_m2: runtime.Decimal | null
     kapasitas: number | null
-    fitur: string[]
+    kepemilikan: $Enums.KepemilikanAset
+    kondisi: $Enums.KondisiAset
+    status: $Enums.StatusFasilitas
+    aksesibel_difabel: boolean
+    penggunaan_jam_per_minggu: number | null
+    tampil_publik: boolean
+    unggulan: boolean
+    urutan: number
+    created_by_id: string | null
+    updated_by_id: string | null
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["tbl_fasilitas"]>
   composites: {}
 }
@@ -909,6 +2788,13 @@ readonly fields: tbl_fasilitasFieldRefs;
  */
 export interface Prisma__tbl_fasilitasClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  kategori<T extends Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_ref_kategori_fasilitasDefaultArgs<ExtArgs>>): Prisma.Prisma__tbl_ref_kategori_fasilitasClient<runtime.Types.Result.GetResult<Prisma.$tbl_ref_kategori_fasilitasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  gedung<T extends Prisma.tbl_fasilitas$gedungArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$gedungArgs<ExtArgs>>): Prisma.Prisma__tbl_fasilitasClient<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  ruangan<T extends Prisma.tbl_fasilitas$ruanganArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$ruanganArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  alat<T extends Prisma.tbl_fasilitas$alatArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$alatArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitas_alatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  berkas<T extends Prisma.tbl_fasilitas$berkasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$berkasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitas_berkasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  created_by<T extends Prisma.tbl_fasilitas$created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$created_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  updated_by<T extends Prisma.tbl_fasilitas$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_fasilitas$updated_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -941,12 +2827,25 @@ export interface tbl_fasilitasFieldRefs {
   readonly id_fasilitas: Prisma.FieldRef<"tbl_fasilitas", 'BigInt'>
   readonly slug: Prisma.FieldRef<"tbl_fasilitas", 'String'>
   readonly nama: Prisma.FieldRef<"tbl_fasilitas", 'String'>
-  readonly kategori: Prisma.FieldRef<"tbl_fasilitas", 'KategoriFasilitas'>
+  readonly kategori_id: Prisma.FieldRef<"tbl_fasilitas", 'BigInt'>
+  readonly gedung_id: Prisma.FieldRef<"tbl_fasilitas", 'BigInt'>
+  readonly lantai: Prisma.FieldRef<"tbl_fasilitas", 'String'>
+  readonly deskripsi: Prisma.FieldRef<"tbl_fasilitas", 'String[]'>
   readonly foto: Prisma.FieldRef<"tbl_fasilitas", 'String'>
-  readonly lokasi: Prisma.FieldRef<"tbl_fasilitas", 'String'>
-  readonly deskripsi: Prisma.FieldRef<"tbl_fasilitas", 'String'>
+  readonly luas_m2: Prisma.FieldRef<"tbl_fasilitas", 'Decimal'>
   readonly kapasitas: Prisma.FieldRef<"tbl_fasilitas", 'Int'>
-  readonly fitur: Prisma.FieldRef<"tbl_fasilitas", 'String[]'>
+  readonly kepemilikan: Prisma.FieldRef<"tbl_fasilitas", 'KepemilikanAset'>
+  readonly kondisi: Prisma.FieldRef<"tbl_fasilitas", 'KondisiAset'>
+  readonly status: Prisma.FieldRef<"tbl_fasilitas", 'StatusFasilitas'>
+  readonly aksesibel_difabel: Prisma.FieldRef<"tbl_fasilitas", 'Boolean'>
+  readonly penggunaan_jam_per_minggu: Prisma.FieldRef<"tbl_fasilitas", 'Int'>
+  readonly tampil_publik: Prisma.FieldRef<"tbl_fasilitas", 'Boolean'>
+  readonly unggulan: Prisma.FieldRef<"tbl_fasilitas", 'Boolean'>
+  readonly urutan: Prisma.FieldRef<"tbl_fasilitas", 'Int'>
+  readonly created_by_id: Prisma.FieldRef<"tbl_fasilitas", 'String'>
+  readonly updated_by_id: Prisma.FieldRef<"tbl_fasilitas", 'String'>
+  readonly created_at: Prisma.FieldRef<"tbl_fasilitas", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"tbl_fasilitas", 'DateTime'>
 }
     
 
@@ -963,6 +2862,10 @@ export type tbl_fasilitasFindUniqueArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
   /**
    * Filter, which tbl_fasilitas to fetch.
    */
@@ -982,6 +2885,10 @@ export type tbl_fasilitasFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Ext
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_fasilitas to fetch.
    */
   where: Prisma.tbl_fasilitasWhereUniqueInput
@@ -999,6 +2906,10 @@ export type tbl_fasilitasFindFirstArgs<ExtArgs extends runtime.Types.Extensions.
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
   /**
    * Filter, which tbl_fasilitas to fetch.
    */
@@ -1048,6 +2959,10 @@ export type tbl_fasilitasFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Exte
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  /**
    * Filter, which tbl_fasilitas to fetch.
    */
   where?: Prisma.tbl_fasilitasWhereInput
@@ -1095,6 +3010,10 @@ export type tbl_fasilitasFindManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
   /**
    * Filter, which tbl_fasilitas to fetch.
    */
@@ -1144,6 +3063,10 @@ export type tbl_fasilitasCreateArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  /**
    * The data needed to create a tbl_fasilitas.
    */
   data: Prisma.XOR<Prisma.tbl_fasilitasCreateInput, Prisma.tbl_fasilitasUncheckedCreateInput>
@@ -1177,6 +3100,10 @@ export type tbl_fasilitasCreateManyAndReturnArgs<ExtArgs extends runtime.Types.E
    */
   data: Prisma.tbl_fasilitasCreateManyInput | Prisma.tbl_fasilitasCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1191,6 +3118,10 @@ export type tbl_fasilitasUpdateArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
   /**
    * The data needed to update a tbl_fasilitas.
    */
@@ -1243,6 +3174,10 @@ export type tbl_fasilitasUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.E
    * Limit how many tbl_fasilitas to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1257,6 +3192,10 @@ export type tbl_fasilitasUpsertArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
   /**
    * The filter to search for the tbl_fasilitas to update in case it exists.
    */
@@ -1284,6 +3223,10 @@ export type tbl_fasilitasDeleteArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  /**
    * Filter which tbl_fasilitas to delete.
    */
   where: Prisma.tbl_fasilitasWhereUniqueInput
@@ -1304,6 +3247,135 @@ export type tbl_fasilitasDeleteManyArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
+ * tbl_fasilitas.gedung
+ */
+export type tbl_fasilitas$gedungArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas
+   */
+  select?: Prisma.tbl_fasilitasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas
+   */
+  omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+/**
+ * tbl_fasilitas.ruangan
+ */
+export type tbl_fasilitas$ruanganArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas
+   */
+  select?: Prisma.tbl_fasilitasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas
+   */
+  omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitasWhereInput
+  orderBy?: Prisma.tbl_fasilitasOrderByWithRelationInput | Prisma.tbl_fasilitasOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_fasilitasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_fasilitasScalarFieldEnum | Prisma.Tbl_fasilitasScalarFieldEnum[]
+}
+
+/**
+ * tbl_fasilitas.alat
+ */
+export type tbl_fasilitas$alatArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas_alat
+   */
+  select?: Prisma.tbl_fasilitas_alatSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas_alat
+   */
+  omit?: Prisma.tbl_fasilitas_alatOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitas_alatInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitas_alatWhereInput
+  orderBy?: Prisma.tbl_fasilitas_alatOrderByWithRelationInput | Prisma.tbl_fasilitas_alatOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_fasilitas_alatWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_fasilitas_alatScalarFieldEnum | Prisma.Tbl_fasilitas_alatScalarFieldEnum[]
+}
+
+/**
+ * tbl_fasilitas.berkas
+ */
+export type tbl_fasilitas$berkasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas_berkas
+   */
+  select?: Prisma.tbl_fasilitas_berkasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas_berkas
+   */
+  omit?: Prisma.tbl_fasilitas_berkasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitas_berkasInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitas_berkasWhereInput
+  orderBy?: Prisma.tbl_fasilitas_berkasOrderByWithRelationInput | Prisma.tbl_fasilitas_berkasOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_fasilitas_berkasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_fasilitas_berkasScalarFieldEnum | Prisma.Tbl_fasilitas_berkasScalarFieldEnum[]
+}
+
+/**
+ * tbl_fasilitas.created_by
+ */
+export type tbl_fasilitas$created_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
+ * tbl_fasilitas.updated_by
+ */
+export type tbl_fasilitas$updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_profiles
+   */
+  select?: Prisma.tbl_profilesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_profiles
+   */
+  omit?: Prisma.tbl_profilesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_profilesInclude<ExtArgs> | null
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+/**
  * tbl_fasilitas without action
  */
 export type tbl_fasilitasDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1315,4 +3387,8 @@ export type tbl_fasilitasDefaultArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the tbl_fasilitas
    */
   omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
 }

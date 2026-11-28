@@ -65,8 +65,8 @@ export const ModelName = {
   tbl_kerja_sama: 'tbl_kerja_sama',
   tbl_kerja_sama_kegiatan: 'tbl_kerja_sama_kegiatan',
   tbl_kerja_sama_berkas: 'tbl_kerja_sama_berkas',
-  tbl_pengaturan_halaman: 'tbl_pengaturan_halaman',
-  tbl_fasilitas: 'tbl_fasilitas',
+  tbl_kerja_sama_kode_unduh: 'tbl_kerja_sama_kode_unduh',
+  tbl_kerja_sama_kode_gagal: 'tbl_kerja_sama_kode_gagal',
   tbl_riset: 'tbl_riset',
   tbl_hki: 'tbl_hki',
   tbl_jadwal: 'tbl_jadwal',
@@ -75,10 +75,15 @@ export const ModelName = {
   tbl_bentuk_kegiatan: 'tbl_bentuk_kegiatan',
   tbl_langkah_mbkm: 'tbl_langkah_mbkm',
   tbl_dokumen: 'tbl_dokumen',
+  tbl_pengaturan_halaman: 'tbl_pengaturan_halaman',
   tbl_profil_prodi: 'tbl_profil_prodi',
   tbl_jalur_pendaftaran: 'tbl_jalur_pendaftaran',
   tbl_struktur_posisi: 'tbl_struktur_posisi',
-  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi'
+  tbl_struktur_tupoksi: 'tbl_struktur_tupoksi',
+  tbl_ref_kategori_fasilitas: 'tbl_ref_kategori_fasilitas',
+  tbl_fasilitas: 'tbl_fasilitas',
+  tbl_fasilitas_alat: 'tbl_fasilitas_alat',
+  tbl_fasilitas_berkas: 'tbl_fasilitas_berkas'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -318,6 +323,7 @@ export const Tbl_kerja_samaScalarFieldEnum = {
   induk_id: 'induk_id',
   perpanjangan_dari_id: 'perpanjangan_dari_id',
   catatan_internal: 'catatan_internal',
+  preview: 'preview',
   created_by_id: 'created_by_id',
   updated_by_id: 'updated_by_id',
   created_at: 'created_at',
@@ -358,6 +364,7 @@ export const Tbl_kerja_sama_berkasScalarFieldEnum = {
   path: 'path',
   tautan: 'tautan',
   mime: 'mime',
+  utama: 'utama',
   ukuran: 'ukuran',
   created_at: 'created_at'
 } as const
@@ -365,33 +372,32 @@ export const Tbl_kerja_sama_berkasScalarFieldEnum = {
 export type Tbl_kerja_sama_berkasScalarFieldEnum = (typeof Tbl_kerja_sama_berkasScalarFieldEnum)[keyof typeof Tbl_kerja_sama_berkasScalarFieldEnum]
 
 
-export const Tbl_pengaturan_halamanScalarFieldEnum = {
-  id_pengaturan: 'id_pengaturan',
-  kunci: 'kunci',
-  eyebrow: 'eyebrow',
-  judul: 'judul',
-  deskripsi: 'deskripsi',
-  pembuka: 'pembuka',
-  opsi: 'opsi',
-  updated_at: 'updated_at'
+export const Tbl_kerja_sama_kode_unduhScalarFieldEnum = {
+  id_kode: 'id_kode',
+  kerja_sama_id: 'kerja_sama_id',
+  kode_hash: 'kode_hash',
+  petunjuk: 'petunjuk',
+  peminta: 'peminta',
+  catatan: 'catatan',
+  dibuat_oleh_id: 'dibuat_oleh_id',
+  created_at: 'created_at',
+  dipakai_pertama_pada: 'dipakai_pertama_pada',
+  terakhir_diunduh_pada: 'terakhir_diunduh_pada',
+  jumlah_unduhan: 'jumlah_unduhan',
+  dicabut_pada: 'dicabut_pada',
+  dicabut_oleh_id: 'dicabut_oleh_id'
 } as const
 
-export type Tbl_pengaturan_halamanScalarFieldEnum = (typeof Tbl_pengaturan_halamanScalarFieldEnum)[keyof typeof Tbl_pengaturan_halamanScalarFieldEnum]
+export type Tbl_kerja_sama_kode_unduhScalarFieldEnum = (typeof Tbl_kerja_sama_kode_unduhScalarFieldEnum)[keyof typeof Tbl_kerja_sama_kode_unduhScalarFieldEnum]
 
 
-export const Tbl_fasilitasScalarFieldEnum = {
-  id_fasilitas: 'id_fasilitas',
-  slug: 'slug',
-  nama: 'nama',
-  kategori: 'kategori',
-  foto: 'foto',
-  lokasi: 'lokasi',
-  deskripsi: 'deskripsi',
-  kapasitas: 'kapasitas',
-  fitur: 'fitur'
+export const Tbl_kerja_sama_kode_gagalScalarFieldEnum = {
+  id_gagal: 'id_gagal',
+  ip_hash: 'ip_hash',
+  created_at: 'created_at'
 } as const
 
-export type Tbl_fasilitasScalarFieldEnum = (typeof Tbl_fasilitasScalarFieldEnum)[keyof typeof Tbl_fasilitasScalarFieldEnum]
+export type Tbl_kerja_sama_kode_gagalScalarFieldEnum = (typeof Tbl_kerja_sama_kode_gagalScalarFieldEnum)[keyof typeof Tbl_kerja_sama_kode_gagalScalarFieldEnum]
 
 
 export const Tbl_risetScalarFieldEnum = {
@@ -487,6 +493,20 @@ export const Tbl_dokumenScalarFieldEnum = {
 export type Tbl_dokumenScalarFieldEnum = (typeof Tbl_dokumenScalarFieldEnum)[keyof typeof Tbl_dokumenScalarFieldEnum]
 
 
+export const Tbl_pengaturan_halamanScalarFieldEnum = {
+  id_pengaturan: 'id_pengaturan',
+  kunci: 'kunci',
+  eyebrow: 'eyebrow',
+  judul: 'judul',
+  deskripsi: 'deskripsi',
+  pembuka: 'pembuka',
+  opsi: 'opsi',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_pengaturan_halamanScalarFieldEnum = (typeof Tbl_pengaturan_halamanScalarFieldEnum)[keyof typeof Tbl_pengaturan_halamanScalarFieldEnum]
+
+
 export const Tbl_profil_prodiScalarFieldEnum = {
   id_profil: 'id_profil',
   sambutan_isi: 'sambutan_isi',
@@ -538,6 +558,77 @@ export const Tbl_struktur_tupoksiScalarFieldEnum = {
 } as const
 
 export type Tbl_struktur_tupoksiScalarFieldEnum = (typeof Tbl_struktur_tupoksiScalarFieldEnum)[keyof typeof Tbl_struktur_tupoksiScalarFieldEnum]
+
+
+export const Tbl_ref_kategori_fasilitasScalarFieldEnum = {
+  id_kategori: 'id_kategori',
+  slug: 'slug',
+  nama: 'nama',
+  urutan: 'urutan',
+  aktif: 'aktif'
+} as const
+
+export type Tbl_ref_kategori_fasilitasScalarFieldEnum = (typeof Tbl_ref_kategori_fasilitasScalarFieldEnum)[keyof typeof Tbl_ref_kategori_fasilitasScalarFieldEnum]
+
+
+export const Tbl_fasilitasScalarFieldEnum = {
+  id_fasilitas: 'id_fasilitas',
+  slug: 'slug',
+  nama: 'nama',
+  kategori_id: 'kategori_id',
+  gedung_id: 'gedung_id',
+  lantai: 'lantai',
+  deskripsi: 'deskripsi',
+  foto: 'foto',
+  luas_m2: 'luas_m2',
+  kapasitas: 'kapasitas',
+  kepemilikan: 'kepemilikan',
+  kondisi: 'kondisi',
+  status: 'status',
+  aksesibel_difabel: 'aksesibel_difabel',
+  penggunaan_jam_per_minggu: 'penggunaan_jam_per_minggu',
+  tampil_publik: 'tampil_publik',
+  unggulan: 'unggulan',
+  urutan: 'urutan',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_fasilitasScalarFieldEnum = (typeof Tbl_fasilitasScalarFieldEnum)[keyof typeof Tbl_fasilitasScalarFieldEnum]
+
+
+export const Tbl_fasilitas_alatScalarFieldEnum = {
+  id_alat: 'id_alat',
+  fasilitas_id: 'fasilitas_id',
+  nama: 'nama',
+  jumlah_unit: 'jumlah_unit',
+  tahun_perolehan: 'tahun_perolehan',
+  kepemilikan: 'kepemilikan',
+  kondisi: 'kondisi',
+  spesifikasi: 'spesifikasi',
+  tampil_publik: 'tampil_publik',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Tbl_fasilitas_alatScalarFieldEnum = (typeof Tbl_fasilitas_alatScalarFieldEnum)[keyof typeof Tbl_fasilitas_alatScalarFieldEnum]
+
+
+export const Tbl_fasilitas_berkasScalarFieldEnum = {
+  id_berkas: 'id_berkas',
+  fasilitas_id: 'fasilitas_id',
+  jenis: 'jenis',
+  label: 'label',
+  path: 'path',
+  mime: 'mime',
+  ukuran: 'ukuran',
+  urutan: 'urutan',
+  created_at: 'created_at'
+} as const
+
+export type Tbl_fasilitas_berkasScalarFieldEnum = (typeof Tbl_fasilitas_berkasScalarFieldEnum)[keyof typeof Tbl_fasilitas_berkasScalarFieldEnum]
 
 
 export const SortOrder = {

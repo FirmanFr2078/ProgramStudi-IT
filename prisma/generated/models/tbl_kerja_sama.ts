@@ -63,6 +63,7 @@ export type Tbl_kerja_samaMinAggregateOutputType = {
   induk_id: bigint | null
   perpanjangan_dari_id: bigint | null
   catatan_internal: string | null
+  preview: string | null
   created_by_id: string | null
   updated_by_id: string | null
   created_at: Date | null
@@ -90,6 +91,7 @@ export type Tbl_kerja_samaMaxAggregateOutputType = {
   induk_id: bigint | null
   perpanjangan_dari_id: bigint | null
   catatan_internal: string | null
+  preview: string | null
   created_by_id: string | null
   updated_by_id: string | null
   created_at: Date | null
@@ -117,6 +119,7 @@ export type Tbl_kerja_samaCountAggregateOutputType = {
   induk_id: number
   perpanjangan_dari_id: number
   catatan_internal: number
+  preview: number
   created_by_id: number
   updated_by_id: number
   created_at: number
@@ -162,6 +165,7 @@ export type Tbl_kerja_samaMinAggregateInputType = {
   induk_id?: true
   perpanjangan_dari_id?: true
   catatan_internal?: true
+  preview?: true
   created_by_id?: true
   updated_by_id?: true
   created_at?: true
@@ -189,6 +193,7 @@ export type Tbl_kerja_samaMaxAggregateInputType = {
   induk_id?: true
   perpanjangan_dari_id?: true
   catatan_internal?: true
+  preview?: true
   created_by_id?: true
   updated_by_id?: true
   created_at?: true
@@ -216,6 +221,7 @@ export type Tbl_kerja_samaCountAggregateInputType = {
   induk_id?: true
   perpanjangan_dari_id?: true
   catatan_internal?: true
+  preview?: true
   created_by_id?: true
   updated_by_id?: true
   created_at?: true
@@ -330,6 +336,7 @@ export type Tbl_kerja_samaGroupByOutputType = {
   induk_id: bigint | null
   perpanjangan_dari_id: bigint | null
   catatan_internal: string | null
+  preview: string | null
   created_by_id: string | null
   updated_by_id: string | null
   created_at: Date
@@ -380,6 +387,7 @@ export type tbl_kerja_samaWhereInput = {
   induk_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   perpanjangan_dari_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   catatan_internal?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
+  preview?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
   created_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   updated_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama"> | Date | string
@@ -393,6 +401,7 @@ export type tbl_kerja_samaWhereInput = {
   bentuk?: Prisma.Tbl_ref_bentukListRelationFilter
   kegiatan?: Prisma.Tbl_kerja_sama_kegiatanListRelationFilter
   berkas?: Prisma.Tbl_kerja_sama_berkasListRelationFilter
+  kode_unduh?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
   created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
   updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }
@@ -418,6 +427,7 @@ export type tbl_kerja_samaOrderByWithRelationInput = {
   induk_id?: Prisma.SortOrderInput | Prisma.SortOrder
   perpanjangan_dari_id?: Prisma.SortOrderInput | Prisma.SortOrder
   catatan_internal?: Prisma.SortOrderInput | Prisma.SortOrder
+  preview?: Prisma.SortOrderInput | Prisma.SortOrder
   created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -431,6 +441,7 @@ export type tbl_kerja_samaOrderByWithRelationInput = {
   bentuk?: Prisma.tbl_ref_bentukOrderByRelationAggregateInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanOrderByRelationAggregateInput
   berkas?: Prisma.tbl_kerja_sama_berkasOrderByRelationAggregateInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhOrderByRelationAggregateInput
   created_by?: Prisma.tbl_profilesOrderByWithRelationInput
   updated_by?: Prisma.tbl_profilesOrderByWithRelationInput
 }
@@ -459,6 +470,7 @@ export type tbl_kerja_samaWhereUniqueInput = Prisma.AtLeast<{
   induk_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   perpanjangan_dari_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   catatan_internal?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
+  preview?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
   created_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   updated_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama"> | Date | string
@@ -472,6 +484,7 @@ export type tbl_kerja_samaWhereUniqueInput = Prisma.AtLeast<{
   bentuk?: Prisma.Tbl_ref_bentukListRelationFilter
   kegiatan?: Prisma.Tbl_kerja_sama_kegiatanListRelationFilter
   berkas?: Prisma.Tbl_kerja_sama_berkasListRelationFilter
+  kode_unduh?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
   created_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
   updated_by?: Prisma.XOR<Prisma.Tbl_profilesNullableScalarRelationFilter, Prisma.tbl_profilesWhereInput> | null
 }, "id_kerja_sama" | "nomor_prodi">
@@ -497,6 +510,7 @@ export type tbl_kerja_samaOrderByWithAggregationInput = {
   induk_id?: Prisma.SortOrderInput | Prisma.SortOrder
   perpanjangan_dari_id?: Prisma.SortOrderInput | Prisma.SortOrder
   catatan_internal?: Prisma.SortOrderInput | Prisma.SortOrder
+  preview?: Prisma.SortOrderInput | Prisma.SortOrder
   created_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -532,6 +546,7 @@ export type tbl_kerja_samaScalarWhereWithAggregatesInput = {
   induk_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_kerja_sama"> | bigint | number | null
   perpanjangan_dari_id?: Prisma.BigIntNullableWithAggregatesFilter<"tbl_kerja_sama"> | bigint | number | null
   catatan_internal?: Prisma.StringNullableWithAggregatesFilter<"tbl_kerja_sama"> | string | null
+  preview?: Prisma.StringNullableWithAggregatesFilter<"tbl_kerja_sama"> | string | null
   created_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_kerja_sama"> | string | null
   updated_by_id?: Prisma.UuidNullableWithAggregatesFilter<"tbl_kerja_sama"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"tbl_kerja_sama"> | Date | string
@@ -555,6 +570,7 @@ export type tbl_kerja_samaCreateInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -566,6 +582,7 @@ export type tbl_kerja_samaCreateInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -591,6 +608,7 @@ export type tbl_kerja_samaUncheckedCreateInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -600,6 +618,7 @@ export type tbl_kerja_samaUncheckedCreateInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaUpdateInput = {
@@ -619,6 +638,7 @@ export type tbl_kerja_samaUpdateInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -630,6 +650,7 @@ export type tbl_kerja_samaUpdateInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -655,6 +676,7 @@ export type tbl_kerja_samaUncheckedUpdateInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -664,6 +686,7 @@ export type tbl_kerja_samaUncheckedUpdateInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaCreateManyInput = {
@@ -687,6 +710,7 @@ export type tbl_kerja_samaCreateManyInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -710,6 +734,7 @@ export type tbl_kerja_samaUpdateManyMutationInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -735,6 +760,7 @@ export type tbl_kerja_samaUncheckedUpdateManyInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -777,6 +803,7 @@ export type tbl_kerja_samaCountOrderByAggregateInput = {
   induk_id?: Prisma.SortOrder
   perpanjangan_dari_id?: Prisma.SortOrder
   catatan_internal?: Prisma.SortOrder
+  preview?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -812,6 +839,7 @@ export type tbl_kerja_samaMaxOrderByAggregateInput = {
   induk_id?: Prisma.SortOrder
   perpanjangan_dari_id?: Prisma.SortOrder
   catatan_internal?: Prisma.SortOrder
+  preview?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -839,6 +867,7 @@ export type tbl_kerja_samaMinOrderByAggregateInput = {
   induk_id?: Prisma.SortOrder
   perpanjangan_dari_id?: Prisma.SortOrder
   catatan_internal?: Prisma.SortOrder
+  preview?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -1226,6 +1255,20 @@ export type tbl_kerja_samaUpdateOneWithoutBerkasNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_kerja_samaUpdateToOneWithWhereWithoutBerkasInput, Prisma.tbl_kerja_samaUpdateWithoutBerkasInput>, Prisma.tbl_kerja_samaUncheckedUpdateWithoutBerkasInput>
 }
 
+export type tbl_kerja_samaCreateNestedOneWithoutKode_unduhInput = {
+  create?: Prisma.XOR<Prisma.tbl_kerja_samaCreateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedCreateWithoutKode_unduhInput>
+  connectOrCreate?: Prisma.tbl_kerja_samaCreateOrConnectWithoutKode_unduhInput
+  connect?: Prisma.tbl_kerja_samaWhereUniqueInput
+}
+
+export type tbl_kerja_samaUpdateOneRequiredWithoutKode_unduhNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_kerja_samaCreateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedCreateWithoutKode_unduhInput>
+  connectOrCreate?: Prisma.tbl_kerja_samaCreateOrConnectWithoutKode_unduhInput
+  upsert?: Prisma.tbl_kerja_samaUpsertWithoutKode_unduhInput
+  connect?: Prisma.tbl_kerja_samaWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_kerja_samaUpdateToOneWithWhereWithoutKode_unduhInput, Prisma.tbl_kerja_samaUpdateWithoutKode_unduhInput>, Prisma.tbl_kerja_samaUncheckedUpdateWithoutKode_unduhInput>
+}
+
 export type tbl_kerja_samaCreateWithoutCreated_byInput = {
   id_kerja_sama?: bigint | number
   jenis: $Enums.JenisNaskah
@@ -1243,6 +1286,7 @@ export type tbl_kerja_samaCreateWithoutCreated_byInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1254,6 +1298,7 @@ export type tbl_kerja_samaCreateWithoutCreated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
 
@@ -1278,6 +1323,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutCreated_byInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1286,6 +1332,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutCreated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutCreated_byInput = {
@@ -1315,6 +1362,7 @@ export type tbl_kerja_samaCreateWithoutUpdated_byInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1326,6 +1374,7 @@ export type tbl_kerja_samaCreateWithoutUpdated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
 }
 
@@ -1350,6 +1399,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutUpdated_byInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -1358,6 +1408,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutUpdated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutUpdated_byInput = {
@@ -1410,6 +1461,7 @@ export type tbl_kerja_samaScalarWhereInput = {
   induk_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   perpanjangan_dari_id?: Prisma.BigIntNullableFilter<"tbl_kerja_sama"> | bigint | number | null
   catatan_internal?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
+  preview?: Prisma.StringNullableFilter<"tbl_kerja_sama"> | string | null
   created_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   updated_by_id?: Prisma.UuidNullableFilter<"tbl_kerja_sama"> | string | null
   created_at?: Prisma.DateTimeFilter<"tbl_kerja_sama"> | Date | string
@@ -1449,6 +1501,7 @@ export type tbl_kerja_samaCreateWithoutPj_dosenInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1459,6 +1512,7 @@ export type tbl_kerja_samaCreateWithoutPj_dosenInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1483,6 +1537,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPj_dosenInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1492,6 +1547,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPj_dosenInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutPj_dosenInput = {
@@ -1537,6 +1593,7 @@ export type tbl_kerja_samaCreateWithoutBentukInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1547,6 +1604,7 @@ export type tbl_kerja_samaCreateWithoutBentukInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPerpanjangan_dariInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1572,6 +1630,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutBentukInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1580,6 +1639,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutBentukInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPerpanjangan_dariInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutBentukInput = {
@@ -1620,6 +1680,7 @@ export type tbl_kerja_samaCreateWithoutMitraInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   pj_dosen?: Prisma.tbl_dosenCreateNestedOneWithoutKerja_samaInput
@@ -1630,6 +1691,7 @@ export type tbl_kerja_samaCreateWithoutMitraInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1654,6 +1716,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutMitraInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1663,6 +1726,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutMitraInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutMitraInput = {
@@ -1708,6 +1772,7 @@ export type tbl_kerja_samaCreateWithoutTurunanInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1718,6 +1783,7 @@ export type tbl_kerja_samaCreateWithoutTurunanInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1743,6 +1809,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutTurunanInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1751,6 +1818,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutTurunanInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutTurunanInput = {
@@ -1775,6 +1843,7 @@ export type tbl_kerja_samaCreateWithoutIndukInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1785,6 +1854,7 @@ export type tbl_kerja_samaCreateWithoutIndukInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1809,6 +1879,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutIndukInput = {
   pj_mitra?: string | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1818,6 +1889,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutIndukInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutIndukInput = {
@@ -1847,6 +1919,7 @@ export type tbl_kerja_samaCreateWithoutPerpanjangan_berikutInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1857,6 +1930,7 @@ export type tbl_kerja_samaCreateWithoutPerpanjangan_berikutInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1882,6 +1956,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPerpanjangan_berikutInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1890,6 +1965,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPerpanjangan_berikutInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutPerpanjangan_berikutInput = {
@@ -1914,6 +1990,7 @@ export type tbl_kerja_samaCreateWithoutPerpanjangan_dariInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -1924,6 +2001,7 @@ export type tbl_kerja_samaCreateWithoutPerpanjangan_dariInput = {
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -1948,6 +2026,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPerpanjangan_dariInput = {
   pj_mitra?: string | null
   induk_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -1957,6 +2036,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutPerpanjangan_dariInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutPerpanjangan_dariInput = {
@@ -1997,6 +2077,7 @@ export type tbl_kerja_samaUpdateWithoutTurunanInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2007,6 +2088,7 @@ export type tbl_kerja_samaUpdateWithoutTurunanInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2032,6 +2114,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutTurunanInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2040,6 +2123,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutTurunanInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUpsertWithWhereUniqueWithoutIndukInput = {
@@ -2086,6 +2170,7 @@ export type tbl_kerja_samaUpdateWithoutPerpanjangan_berikutInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2096,6 +2181,7 @@ export type tbl_kerja_samaUpdateWithoutPerpanjangan_berikutInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2121,6 +2207,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPerpanjangan_berikutInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2129,6 +2216,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPerpanjangan_berikutInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUpsertWithWhereUniqueWithoutPerpanjangan_dariInput = {
@@ -2164,6 +2252,7 @@ export type tbl_kerja_samaCreateWithoutKegiatanInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -2174,6 +2263,7 @@ export type tbl_kerja_samaCreateWithoutKegiatanInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPerpanjangan_dariInput
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -2199,6 +2289,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutKegiatanInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -2207,6 +2298,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutKegiatanInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPerpanjangan_dariInput
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutKegiatanInput = {
@@ -2242,6 +2334,7 @@ export type tbl_kerja_samaUpdateWithoutKegiatanInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2252,6 +2345,7 @@ export type tbl_kerja_samaUpdateWithoutKegiatanInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUpdateManyWithoutPerpanjangan_dariNestedInput
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2277,6 +2371,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutKegiatanInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2285,6 +2380,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutKegiatanInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariNestedInput
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaCreateWithoutBerkasInput = {
@@ -2304,6 +2400,7 @@ export type tbl_kerja_samaCreateWithoutBerkasInput = {
   ttd_mitra?: string | null
   pj_mitra?: string | null
   catatan_internal?: string | null
+  preview?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
@@ -2314,6 +2411,7 @@ export type tbl_kerja_samaCreateWithoutBerkasInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPerpanjangan_dariInput
   bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutKerja_samaInput
   created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
   updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
 }
@@ -2339,6 +2437,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutBerkasInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -2347,6 +2446,7 @@ export type tbl_kerja_samaUncheckedCreateWithoutBerkasInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPerpanjangan_dariInput
   bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutKerja_samaInput
 }
 
 export type tbl_kerja_samaCreateOrConnectWithoutBerkasInput = {
@@ -2382,6 +2482,7 @@ export type tbl_kerja_samaUpdateWithoutBerkasInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2392,6 +2493,7 @@ export type tbl_kerja_samaUpdateWithoutBerkasInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUpdateManyWithoutPerpanjangan_dariNestedInput
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2417,6 +2519,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutBerkasInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2425,6 +2528,155 @@ export type tbl_kerja_samaUncheckedUpdateWithoutBerkasInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariNestedInput
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
+}
+
+export type tbl_kerja_samaCreateWithoutKode_unduhInput = {
+  id_kerja_sama?: bigint | number
+  jenis: $Enums.JenisNaskah
+  judul: string
+  status?: $Enums.StatusNaskah
+  nomor_prodi?: string | null
+  nomor_mitra?: string | null
+  tempat_ttd?: string | null
+  tanggal_ttd?: Date | string | null
+  mulai: Date | string
+  berakhir?: Date | string | null
+  ruang_lingkup?: string | null
+  pembiayaan?: string | null
+  ttd_prodi?: string | null
+  ttd_mitra?: string | null
+  pj_mitra?: string | null
+  catatan_internal?: string | null
+  preview?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  mitra: Prisma.tbl_mitraCreateNestedOneWithoutNaskahInput
+  pj_dosen?: Prisma.tbl_dosenCreateNestedOneWithoutKerja_samaInput
+  induk?: Prisma.tbl_kerja_samaCreateNestedOneWithoutTurunanInput
+  turunan?: Prisma.tbl_kerja_samaCreateNestedManyWithoutIndukInput
+  perpanjangan_dari?: Prisma.tbl_kerja_samaCreateNestedOneWithoutPerpanjangan_berikutInput
+  perpanjangan_berikut?: Prisma.tbl_kerja_samaCreateNestedManyWithoutPerpanjangan_dariInput
+  bentuk?: Prisma.tbl_ref_bentukCreateNestedManyWithoutNaskahInput
+  kegiatan?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutKerja_samaInput
+  berkas?: Prisma.tbl_kerja_sama_berkasCreateNestedManyWithoutKerja_samaInput
+  created_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_createdInput
+  updated_by?: Prisma.tbl_profilesCreateNestedOneWithoutNaskah_updatedInput
+}
+
+export type tbl_kerja_samaUncheckedCreateWithoutKode_unduhInput = {
+  id_kerja_sama?: bigint | number
+  mitra_id: bigint | number
+  jenis: $Enums.JenisNaskah
+  judul: string
+  status?: $Enums.StatusNaskah
+  nomor_prodi?: string | null
+  nomor_mitra?: string | null
+  tempat_ttd?: string | null
+  tanggal_ttd?: Date | string | null
+  mulai: Date | string
+  berakhir?: Date | string | null
+  ruang_lingkup?: string | null
+  pembiayaan?: string | null
+  ttd_prodi?: string | null
+  ttd_mitra?: string | null
+  pj_dosen_id?: bigint | number | null
+  pj_mitra?: string | null
+  induk_id?: bigint | number | null
+  perpanjangan_dari_id?: bigint | number | null
+  catatan_internal?: string | null
+  preview?: string | null
+  created_by_id?: string | null
+  updated_by_id?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  turunan?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutIndukInput
+  perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutPerpanjangan_dariInput
+  bentuk?: Prisma.tbl_ref_bentukUncheckedCreateNestedManyWithoutNaskahInput
+  kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutKerja_samaInput
+  berkas?: Prisma.tbl_kerja_sama_berkasUncheckedCreateNestedManyWithoutKerja_samaInput
+}
+
+export type tbl_kerja_samaCreateOrConnectWithoutKode_unduhInput = {
+  where: Prisma.tbl_kerja_samaWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_kerja_samaCreateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedCreateWithoutKode_unduhInput>
+}
+
+export type tbl_kerja_samaUpsertWithoutKode_unduhInput = {
+  update: Prisma.XOR<Prisma.tbl_kerja_samaUpdateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedUpdateWithoutKode_unduhInput>
+  create: Prisma.XOR<Prisma.tbl_kerja_samaCreateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedCreateWithoutKode_unduhInput>
+  where?: Prisma.tbl_kerja_samaWhereInput
+}
+
+export type tbl_kerja_samaUpdateToOneWithWhereWithoutKode_unduhInput = {
+  where?: Prisma.tbl_kerja_samaWhereInput
+  data: Prisma.XOR<Prisma.tbl_kerja_samaUpdateWithoutKode_unduhInput, Prisma.tbl_kerja_samaUncheckedUpdateWithoutKode_unduhInput>
+}
+
+export type tbl_kerja_samaUpdateWithoutKode_unduhInput = {
+  id_kerja_sama?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  jenis?: Prisma.EnumJenisNaskahFieldUpdateOperationsInput | $Enums.JenisNaskah
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusNaskahFieldUpdateOperationsInput | $Enums.StatusNaskah
+  nomor_prodi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nomor_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tempat_ttd?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tanggal_ttd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ruang_lingkup?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pembiayaan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ttd_prodi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
+  pj_dosen?: Prisma.tbl_dosenUpdateOneWithoutKerja_samaNestedInput
+  induk?: Prisma.tbl_kerja_samaUpdateOneWithoutTurunanNestedInput
+  turunan?: Prisma.tbl_kerja_samaUpdateManyWithoutIndukNestedInput
+  perpanjangan_dari?: Prisma.tbl_kerja_samaUpdateOneWithoutPerpanjangan_berikutNestedInput
+  perpanjangan_berikut?: Prisma.tbl_kerja_samaUpdateManyWithoutPerpanjangan_dariNestedInput
+  bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
+  kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
+  berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
+  updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
+}
+
+export type tbl_kerja_samaUncheckedUpdateWithoutKode_unduhInput = {
+  id_kerja_sama?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  mitra_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  jenis?: Prisma.EnumJenisNaskahFieldUpdateOperationsInput | $Enums.JenisNaskah
+  judul?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusNaskahFieldUpdateOperationsInput | $Enums.StatusNaskah
+  nomor_prodi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  nomor_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tempat_ttd?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tanggal_ttd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  mulai?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  berakhir?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  ruang_lingkup?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pembiayaan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ttd_prodi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pj_dosen_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  turunan?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutIndukNestedInput
+  perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariNestedInput
+  bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
+  kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
+  berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaCreateManyCreated_byInput = {
@@ -2448,6 +2700,7 @@ export type tbl_kerja_samaCreateManyCreated_byInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -2474,6 +2727,7 @@ export type tbl_kerja_samaCreateManyUpdated_byInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
@@ -2496,6 +2750,7 @@ export type tbl_kerja_samaUpdateWithoutCreated_byInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2507,6 +2762,7 @@ export type tbl_kerja_samaUpdateWithoutCreated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
 
@@ -2531,6 +2787,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutCreated_byInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2539,6 +2796,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutCreated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byInput = {
@@ -2562,6 +2820,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2584,6 +2843,7 @@ export type tbl_kerja_samaUpdateWithoutUpdated_byInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2595,6 +2855,7 @@ export type tbl_kerja_samaUpdateWithoutUpdated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
 }
 
@@ -2619,6 +2880,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutUpdated_byInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2627,6 +2889,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutUpdated_byInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byInput = {
@@ -2650,6 +2913,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2675,6 +2939,7 @@ export type tbl_kerja_samaCreateManyPj_dosenInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -2698,6 +2963,7 @@ export type tbl_kerja_samaUpdateWithoutPj_dosenInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2708,6 +2974,7 @@ export type tbl_kerja_samaUpdateWithoutPj_dosenInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2732,6 +2999,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPj_dosenInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2741,6 +3009,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPj_dosenInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenInput = {
@@ -2763,6 +3032,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutPj_dosenInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2786,6 +3056,7 @@ export type tbl_kerja_samaUpdateWithoutBentukInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -2796,6 +3067,7 @@ export type tbl_kerja_samaUpdateWithoutBentukInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUpdateManyWithoutPerpanjangan_dariNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2821,6 +3093,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutBentukInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2829,6 +3102,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutBentukInput = {
   perpanjangan_berikut?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutBentukInput = {
@@ -2852,6 +3126,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutBentukInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2878,6 +3153,7 @@ export type tbl_kerja_samaCreateManyMitraInput = {
   induk_id?: bigint | number | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -2901,6 +3177,7 @@ export type tbl_kerja_samaUpdateWithoutMitraInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pj_dosen?: Prisma.tbl_dosenUpdateOneWithoutKerja_samaNestedInput
@@ -2911,6 +3188,7 @@ export type tbl_kerja_samaUpdateWithoutMitraInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -2935,6 +3213,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutMitraInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2944,6 +3223,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutMitraInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutMitraInput = {
@@ -2966,6 +3246,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutMitraInput = {
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2992,6 +3273,7 @@ export type tbl_kerja_samaCreateManyIndukInput = {
   pj_mitra?: string | null
   perpanjangan_dari_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -3018,6 +3300,7 @@ export type tbl_kerja_samaCreateManyPerpanjangan_dariInput = {
   pj_mitra?: string | null
   induk_id?: bigint | number | null
   catatan_internal?: string | null
+  preview?: string | null
   created_by_id?: string | null
   updated_by_id?: string | null
   created_at?: Date | string
@@ -3041,6 +3324,7 @@ export type tbl_kerja_samaUpdateWithoutIndukInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -3051,6 +3335,7 @@ export type tbl_kerja_samaUpdateWithoutIndukInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -3075,6 +3360,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutIndukInput = {
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3084,6 +3370,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutIndukInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutIndukInput = {
@@ -3106,6 +3393,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutIndukInput = {
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   perpanjangan_dari_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3129,6 +3417,7 @@ export type tbl_kerja_samaUpdateWithoutPerpanjangan_dariInput = {
   ttd_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra?: Prisma.tbl_mitraUpdateOneRequiredWithoutNaskahNestedInput
@@ -3139,6 +3428,7 @@ export type tbl_kerja_samaUpdateWithoutPerpanjangan_dariInput = {
   bentuk?: Prisma.tbl_ref_bentukUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutKerja_samaNestedInput
   created_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_createdNestedInput
   updated_by?: Prisma.tbl_profilesUpdateOneWithoutNaskah_updatedNestedInput
 }
@@ -3163,6 +3453,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPerpanjangan_dariInput = {
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3172,6 +3463,7 @@ export type tbl_kerja_samaUncheckedUpdateWithoutPerpanjangan_dariInput = {
   bentuk?: Prisma.tbl_ref_bentukUncheckedUpdateManyWithoutNaskahNestedInput
   kegiatan?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutKerja_samaNestedInput
   berkas?: Prisma.tbl_kerja_sama_berkasUncheckedUpdateManyWithoutKerja_samaNestedInput
+  kode_unduh?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutKerja_samaNestedInput
 }
 
 export type tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariInput = {
@@ -3194,6 +3486,7 @@ export type tbl_kerja_samaUncheckedUpdateManyWithoutPerpanjangan_dariInput = {
   pj_mitra?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   induk_id?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   catatan_internal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updated_by_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3211,6 +3504,7 @@ export type Tbl_kerja_samaCountOutputType = {
   bentuk: number
   kegiatan: number
   berkas: number
+  kode_unduh: number
 }
 
 export type Tbl_kerja_samaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3219,6 +3513,7 @@ export type Tbl_kerja_samaCountOutputTypeSelect<ExtArgs extends runtime.Types.Ex
   bentuk?: boolean | Tbl_kerja_samaCountOutputTypeCountBentukArgs
   kegiatan?: boolean | Tbl_kerja_samaCountOutputTypeCountKegiatanArgs
   berkas?: boolean | Tbl_kerja_samaCountOutputTypeCountBerkasArgs
+  kode_unduh?: boolean | Tbl_kerja_samaCountOutputTypeCountKode_unduhArgs
 }
 
 /**
@@ -3266,6 +3561,13 @@ export type Tbl_kerja_samaCountOutputTypeCountBerkasArgs<ExtArgs extends runtime
   where?: Prisma.tbl_kerja_sama_berkasWhereInput
 }
 
+/**
+ * Tbl_kerja_samaCountOutputType without action
+ */
+export type Tbl_kerja_samaCountOutputTypeCountKode_unduhArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
+}
+
 
 export type tbl_kerja_samaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_kerja_sama?: boolean
@@ -3288,6 +3590,7 @@ export type tbl_kerja_samaSelect<ExtArgs extends runtime.Types.Extensions.Intern
   induk_id?: boolean
   perpanjangan_dari_id?: boolean
   catatan_internal?: boolean
+  preview?: boolean
   created_by_id?: boolean
   updated_by_id?: boolean
   created_at?: boolean
@@ -3301,6 +3604,7 @@ export type tbl_kerja_samaSelect<ExtArgs extends runtime.Types.Extensions.Intern
   bentuk?: boolean | Prisma.tbl_kerja_sama$bentukArgs<ExtArgs>
   kegiatan?: boolean | Prisma.tbl_kerja_sama$kegiatanArgs<ExtArgs>
   berkas?: boolean | Prisma.tbl_kerja_sama$berkasArgs<ExtArgs>
+  kode_unduh?: boolean | Prisma.tbl_kerja_sama$kode_unduhArgs<ExtArgs>
   created_by?: boolean | Prisma.tbl_kerja_sama$created_byArgs<ExtArgs>
   updated_by?: boolean | Prisma.tbl_kerja_sama$updated_byArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_kerja_samaCountOutputTypeDefaultArgs<ExtArgs>
@@ -3327,6 +3631,7 @@ export type tbl_kerja_samaSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   induk_id?: boolean
   perpanjangan_dari_id?: boolean
   catatan_internal?: boolean
+  preview?: boolean
   created_by_id?: boolean
   updated_by_id?: boolean
   created_at?: boolean
@@ -3360,6 +3665,7 @@ export type tbl_kerja_samaSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   induk_id?: boolean
   perpanjangan_dari_id?: boolean
   catatan_internal?: boolean
+  preview?: boolean
   created_by_id?: boolean
   updated_by_id?: boolean
   created_at?: boolean
@@ -3393,13 +3699,14 @@ export type tbl_kerja_samaSelectScalar = {
   induk_id?: boolean
   perpanjangan_dari_id?: boolean
   catatan_internal?: boolean
+  preview?: boolean
   created_by_id?: boolean
   updated_by_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type tbl_kerja_samaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_kerja_sama" | "mitra_id" | "jenis" | "judul" | "status" | "nomor_prodi" | "nomor_mitra" | "tempat_ttd" | "tanggal_ttd" | "mulai" | "berakhir" | "ruang_lingkup" | "pembiayaan" | "ttd_prodi" | "ttd_mitra" | "pj_dosen_id" | "pj_mitra" | "induk_id" | "perpanjangan_dari_id" | "catatan_internal" | "created_by_id" | "updated_by_id" | "created_at" | "updated_at", ExtArgs["result"]["tbl_kerja_sama"]>
+export type tbl_kerja_samaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_kerja_sama" | "mitra_id" | "jenis" | "judul" | "status" | "nomor_prodi" | "nomor_mitra" | "tempat_ttd" | "tanggal_ttd" | "mulai" | "berakhir" | "ruang_lingkup" | "pembiayaan" | "ttd_prodi" | "ttd_mitra" | "pj_dosen_id" | "pj_mitra" | "induk_id" | "perpanjangan_dari_id" | "catatan_internal" | "preview" | "created_by_id" | "updated_by_id" | "created_at" | "updated_at", ExtArgs["result"]["tbl_kerja_sama"]>
 export type tbl_kerja_samaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   mitra?: boolean | Prisma.tbl_mitraDefaultArgs<ExtArgs>
   pj_dosen?: boolean | Prisma.tbl_kerja_sama$pj_dosenArgs<ExtArgs>
@@ -3410,6 +3717,7 @@ export type tbl_kerja_samaInclude<ExtArgs extends runtime.Types.Extensions.Inter
   bentuk?: boolean | Prisma.tbl_kerja_sama$bentukArgs<ExtArgs>
   kegiatan?: boolean | Prisma.tbl_kerja_sama$kegiatanArgs<ExtArgs>
   berkas?: boolean | Prisma.tbl_kerja_sama$berkasArgs<ExtArgs>
+  kode_unduh?: boolean | Prisma.tbl_kerja_sama$kode_unduhArgs<ExtArgs>
   created_by?: boolean | Prisma.tbl_kerja_sama$created_byArgs<ExtArgs>
   updated_by?: boolean | Prisma.tbl_kerja_sama$updated_byArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_kerja_samaCountOutputTypeDefaultArgs<ExtArgs>
@@ -3443,6 +3751,7 @@ export type $tbl_kerja_samaPayload<ExtArgs extends runtime.Types.Extensions.Inte
     bentuk: Prisma.$tbl_ref_bentukPayload<ExtArgs>[]
     kegiatan: Prisma.$tbl_kerja_sama_kegiatanPayload<ExtArgs>[]
     berkas: Prisma.$tbl_kerja_sama_berkasPayload<ExtArgs>[]
+    kode_unduh: Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>[]
     created_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
     updated_by: Prisma.$tbl_profilesPayload<ExtArgs> | null
   }
@@ -3467,6 +3776,7 @@ export type $tbl_kerja_samaPayload<ExtArgs extends runtime.Types.Extensions.Inte
     induk_id: bigint | null
     perpanjangan_dari_id: bigint | null
     catatan_internal: string | null
+    preview: string | null
     created_by_id: string | null
     updated_by_id: string | null
     created_at: Date
@@ -3874,6 +4184,7 @@ export interface Prisma__tbl_kerja_samaClient<T, Null = never, ExtArgs extends r
   bentuk<T extends Prisma.tbl_kerja_sama$bentukArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$bentukArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_ref_bentukPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   kegiatan<T extends Prisma.tbl_kerja_sama$kegiatanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$kegiatanArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_kegiatanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   berkas<T extends Prisma.tbl_kerja_sama$berkasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$berkasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_berkasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kode_unduh<T extends Prisma.tbl_kerja_sama$kode_unduhArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$kode_unduhArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   created_by<T extends Prisma.tbl_kerja_sama$created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$created_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.tbl_kerja_sama$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_kerja_sama$updated_byArgs<ExtArgs>>): Prisma.Prisma__tbl_profilesClient<runtime.Types.Result.GetResult<Prisma.$tbl_profilesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
@@ -3925,6 +4236,7 @@ export interface tbl_kerja_samaFieldRefs {
   readonly induk_id: Prisma.FieldRef<"tbl_kerja_sama", 'BigInt'>
   readonly perpanjangan_dari_id: Prisma.FieldRef<"tbl_kerja_sama", 'BigInt'>
   readonly catatan_internal: Prisma.FieldRef<"tbl_kerja_sama", 'String'>
+  readonly preview: Prisma.FieldRef<"tbl_kerja_sama", 'String'>
   readonly created_by_id: Prisma.FieldRef<"tbl_kerja_sama", 'String'>
   readonly updated_by_id: Prisma.FieldRef<"tbl_kerja_sama", 'String'>
   readonly created_at: Prisma.FieldRef<"tbl_kerja_sama", 'DateTime'>
@@ -4504,6 +4816,30 @@ export type tbl_kerja_sama$berkasArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.Tbl_kerja_sama_berkasScalarFieldEnum | Prisma.Tbl_kerja_sama_berkasScalarFieldEnum[]
+}
+
+/**
+ * tbl_kerja_sama.kode_unduh
+ */
+export type tbl_kerja_sama$kode_unduhArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kerja_sama_kode_unduh
+   */
+  select?: Prisma.tbl_kerja_sama_kode_unduhSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kerja_sama_kode_unduh
+   */
+  omit?: Prisma.tbl_kerja_sama_kode_unduhOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kerja_sama_kode_unduhInclude<ExtArgs> | null
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
+  orderBy?: Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput | Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kerja_sama_kode_unduhWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum | Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum[]
 }
 
 /**

@@ -154,17 +154,6 @@ export const JenisBerkas = {
 export type JenisBerkas = (typeof JenisBerkas)[keyof typeof JenisBerkas]
 
 
-export const KategoriFasilitas = {
-  Laboratorium: 'Laboratorium',
-  RuangKelas: 'RuangKelas',
-  Gedung: 'Gedung',
-  Perpustakaan: 'Perpustakaan',
-  SaranaAdministrasi: 'SaranaAdministrasi'
-} as const
-
-export type KategoriFasilitas = (typeof KategoriFasilitas)[keyof typeof KategoriFasilitas]
-
-
 export const JenisRiset = {
   Penelitian: 'Penelitian',
   Pengabdian: 'Pengabdian'
@@ -228,3 +217,40 @@ export const JalurSambung = {
 } as const
 
 export type JalurSambung = (typeof JalurSambung)[keyof typeof JalurSambung]
+
+
+export const KepemilikanAset = {
+  MilikSendiri: 'MilikSendiri',
+  Sewa: 'Sewa',
+  Pinjam: 'Pinjam'
+} as const
+
+export type KepemilikanAset = (typeof KepemilikanAset)[keyof typeof KepemilikanAset]
+
+
+export const KondisiAset = {
+  Baik: 'Baik',
+  RusakRingan: 'RusakRingan',
+  RusakBerat: 'RusakBerat'
+} as const
+
+export type KondisiAset = (typeof KondisiAset)[keyof typeof KondisiAset]
+
+
+export const StatusFasilitas = {
+  Aktif: 'Aktif',
+  Renovasi: 'Renovasi',
+  TidakDigunakan: 'TidakDigunakan'
+} as const
+
+export type StatusFasilitas = (typeof StatusFasilitas)[keyof typeof StatusFasilitas]
+
+
+export const JenisBerkasFasilitas = {
+  Foto: 'Foto',
+  SertifikatKalibrasi: 'SertifikatKalibrasi',
+  DokumenInventaris: 'DokumenInventaris',
+  Lainnya: 'Lainnya'
+} as const
+
+export type JenisBerkasFasilitas = (typeof JenisBerkasFasilitas)[keyof typeof JenisBerkasFasilitas]

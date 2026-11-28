@@ -13,7 +13,7 @@ import {
 // Bucket "kerja-sama" HARUS dibuat di Supabase dengan public = OFF.
 // Tidak ada getPublicUrl di sini: berkas hanya bisa dibuka lewat signed URL
 // yang berumur pendek dan hanya dibuat oleh API yang sudah lolos
-// requirePermission("kerja-sama:manage").
+// requirePermission("kerja-sama:manage") atau oleh verifikasi kode unduh.
 // ============================================================
 
 export const KERJA_SAMA_BUCKET = "kerja-sama"
@@ -100,11 +100,15 @@ export async function uploadKerjaSamaBerkas(
 /** URL unduhan sesaat. null kalau file tidak ada / gagal dibuat. */
 export async function createBerkasSignedUrl(
   path: string,
-  options: { downloadName?: string } = {},
+  options: { downloadName?: string; ttlDetik?: number } = {},
 ): Promise<string | null> {
   const { data, error } = await supabaseStorage.storage
     .from(KERJA_SAMA_BUCKET)
-    .createSignedUrl(path, SIGNED_URL_TTL_DETIK, options.downloadName ? { download: options.downloadName } : undefined)
+    .createSignedUrl(
+      path,
+      options.ttlDetik ?? SIGNED_URL_TTL_DETIK,
+      options.downloadName ? { download: options.downloadName } : undefined,
+    )
 
   if (error || !data?.signedUrl) {
     console.error("[KERJA_SAMA_SIGNED_URL]", error)

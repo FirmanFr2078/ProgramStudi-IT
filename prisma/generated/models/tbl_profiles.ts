@@ -275,6 +275,8 @@ export type tbl_profilesWhereInput = {
   activity_logs?: Prisma.Tbl_activity_logListRelationFilter
   mitra_created?: Prisma.Tbl_mitraListRelationFilter
   mitra_updated?: Prisma.Tbl_mitraListRelationFilter
+  kode_dibuat?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
+  kode_dicabut?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
   naskah_created?: Prisma.Tbl_kerja_samaListRelationFilter
   naskah_updated?: Prisma.Tbl_kerja_samaListRelationFilter
   kegiatan_created?: Prisma.Tbl_kerja_sama_kegiatanListRelationFilter
@@ -283,6 +285,8 @@ export type tbl_profilesWhereInput = {
   kabar_updated?: Prisma.Tbl_kabarListRelationFilter
   dosen_created?: Prisma.Tbl_dosenListRelationFilter
   dosen_updated?: Prisma.Tbl_dosenListRelationFilter
+  fasilitas_created?: Prisma.Tbl_fasilitasListRelationFilter
+  fasilitas_updated?: Prisma.Tbl_fasilitasListRelationFilter
 }
 
 export type tbl_profilesOrderByWithRelationInput = {
@@ -301,6 +305,8 @@ export type tbl_profilesOrderByWithRelationInput = {
   activity_logs?: Prisma.tbl_activity_logOrderByRelationAggregateInput
   mitra_created?: Prisma.tbl_mitraOrderByRelationAggregateInput
   mitra_updated?: Prisma.tbl_mitraOrderByRelationAggregateInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhOrderByRelationAggregateInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhOrderByRelationAggregateInput
   naskah_created?: Prisma.tbl_kerja_samaOrderByRelationAggregateInput
   naskah_updated?: Prisma.tbl_kerja_samaOrderByRelationAggregateInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanOrderByRelationAggregateInput
@@ -309,6 +315,8 @@ export type tbl_profilesOrderByWithRelationInput = {
   kabar_updated?: Prisma.tbl_kabarOrderByRelationAggregateInput
   dosen_created?: Prisma.tbl_dosenOrderByRelationAggregateInput
   dosen_updated?: Prisma.tbl_dosenOrderByRelationAggregateInput
+  fasilitas_created?: Prisma.tbl_fasilitasOrderByRelationAggregateInput
+  fasilitas_updated?: Prisma.tbl_fasilitasOrderByRelationAggregateInput
 }
 
 export type tbl_profilesWhereUniqueInput = Prisma.AtLeast<{
@@ -330,6 +338,8 @@ export type tbl_profilesWhereUniqueInput = Prisma.AtLeast<{
   activity_logs?: Prisma.Tbl_activity_logListRelationFilter
   mitra_created?: Prisma.Tbl_mitraListRelationFilter
   mitra_updated?: Prisma.Tbl_mitraListRelationFilter
+  kode_dibuat?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
+  kode_dicabut?: Prisma.Tbl_kerja_sama_kode_unduhListRelationFilter
   naskah_created?: Prisma.Tbl_kerja_samaListRelationFilter
   naskah_updated?: Prisma.Tbl_kerja_samaListRelationFilter
   kegiatan_created?: Prisma.Tbl_kerja_sama_kegiatanListRelationFilter
@@ -338,6 +348,8 @@ export type tbl_profilesWhereUniqueInput = Prisma.AtLeast<{
   kabar_updated?: Prisma.Tbl_kabarListRelationFilter
   dosen_created?: Prisma.Tbl_dosenListRelationFilter
   dosen_updated?: Prisma.Tbl_dosenListRelationFilter
+  fasilitas_created?: Prisma.Tbl_fasilitasListRelationFilter
+  fasilitas_updated?: Prisma.Tbl_fasilitasListRelationFilter
 }, "id_profile" | "username" | "email">
 
 export type tbl_profilesOrderByWithAggregationInput = {
@@ -394,6 +406,8 @@ export type tbl_profilesCreateInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -402,6 +416,8 @@ export type tbl_profilesCreateInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateInput = {
@@ -420,6 +436,8 @@ export type tbl_profilesUncheckedCreateInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -428,6 +446,8 @@ export type tbl_profilesUncheckedCreateInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUpdateInput = {
@@ -446,6 +466,8 @@ export type tbl_profilesUpdateInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -454,6 +476,8 @@ export type tbl_profilesUpdateInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateInput = {
@@ -472,6 +496,8 @@ export type tbl_profilesUncheckedUpdateInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -480,6 +506,8 @@ export type tbl_profilesUncheckedUpdateInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateManyInput = {
@@ -793,6 +821,70 @@ export type tbl_profilesUpdateOneWithoutKegiatan_updatedNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutKegiatan_updatedInput, Prisma.tbl_profilesUpdateWithoutKegiatan_updatedInput>, Prisma.tbl_profilesUncheckedUpdateWithoutKegiatan_updatedInput>
 }
 
+export type tbl_profilesCreateNestedOneWithoutKode_dibuatInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dibuatInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKode_dibuatInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesCreateNestedOneWithoutKode_dicabutInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dicabutInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKode_dicabutInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesUpdateOneWithoutKode_dibuatNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dibuatInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKode_dibuatInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutKode_dibuatInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutKode_dibuatInput, Prisma.tbl_profilesUpdateWithoutKode_dibuatInput>, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dibuatInput>
+}
+
+export type tbl_profilesUpdateOneWithoutKode_dicabutNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dicabutInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutKode_dicabutInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutKode_dicabutInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutKode_dicabutInput, Prisma.tbl_profilesUpdateWithoutKode_dicabutInput>, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dicabutInput>
+}
+
+export type tbl_profilesCreateNestedOneWithoutFasilitas_createdInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_createdInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutFasilitas_createdInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesCreateNestedOneWithoutFasilitas_updatedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_updatedInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutFasilitas_updatedInput
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+}
+
+export type tbl_profilesUpdateOneWithoutFasilitas_createdNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_createdInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutFasilitas_createdInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutFasilitas_createdInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutFasilitas_createdInput, Prisma.tbl_profilesUpdateWithoutFasilitas_createdInput>, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_createdInput>
+}
+
+export type tbl_profilesUpdateOneWithoutFasilitas_updatedNestedInput = {
+  create?: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_updatedInput>
+  connectOrCreate?: Prisma.tbl_profilesCreateOrConnectWithoutFasilitas_updatedInput
+  upsert?: Prisma.tbl_profilesUpsertWithoutFasilitas_updatedInput
+  disconnect?: Prisma.tbl_profilesWhereInput | boolean
+  delete?: Prisma.tbl_profilesWhereInput | boolean
+  connect?: Prisma.tbl_profilesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tbl_profilesUpdateToOneWithWhereWithoutFasilitas_updatedInput, Prisma.tbl_profilesUpdateWithoutFasilitas_updatedInput>, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_updatedInput>
+}
+
 export type tbl_profilesCreateWithoutActivity_logsInput = {
   id_profile?: string
   username: string
@@ -808,6 +900,8 @@ export type tbl_profilesCreateWithoutActivity_logsInput = {
   updated_at?: Date | string
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -816,6 +910,8 @@ export type tbl_profilesCreateWithoutActivity_logsInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutActivity_logsInput = {
@@ -833,6 +929,8 @@ export type tbl_profilesUncheckedCreateWithoutActivity_logsInput = {
   updated_at?: Date | string
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -841,6 +939,8 @@ export type tbl_profilesUncheckedCreateWithoutActivity_logsInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutActivity_logsInput = {
@@ -874,6 +974,8 @@ export type tbl_profilesUpdateWithoutActivity_logsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -882,6 +984,8 @@ export type tbl_profilesUpdateWithoutActivity_logsInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutActivity_logsInput = {
@@ -899,6 +1003,8 @@ export type tbl_profilesUncheckedUpdateWithoutActivity_logsInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -907,6 +1013,8 @@ export type tbl_profilesUncheckedUpdateWithoutActivity_logsInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateWithoutKabar_createdInput = {
@@ -925,6 +1033,8 @@ export type tbl_profilesCreateWithoutKabar_createdInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -932,6 +1042,8 @@ export type tbl_profilesCreateWithoutKabar_createdInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutKabar_createdInput = {
@@ -950,6 +1062,8 @@ export type tbl_profilesUncheckedCreateWithoutKabar_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -957,6 +1071,8 @@ export type tbl_profilesUncheckedCreateWithoutKabar_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutKabar_createdInput = {
@@ -980,6 +1096,8 @@ export type tbl_profilesCreateWithoutKabar_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -987,6 +1105,8 @@ export type tbl_profilesCreateWithoutKabar_updatedInput = {
   kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutKabar_updatedInput = {
@@ -1005,6 +1125,8 @@ export type tbl_profilesUncheckedCreateWithoutKabar_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1012,6 +1134,8 @@ export type tbl_profilesUncheckedCreateWithoutKabar_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutKabar_updatedInput = {
@@ -1046,6 +1170,8 @@ export type tbl_profilesUpdateWithoutKabar_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1053,6 +1179,8 @@ export type tbl_profilesUpdateWithoutKabar_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutKabar_createdInput = {
@@ -1071,6 +1199,8 @@ export type tbl_profilesUncheckedUpdateWithoutKabar_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1078,6 +1208,8 @@ export type tbl_profilesUncheckedUpdateWithoutKabar_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUpsertWithoutKabar_updatedInput = {
@@ -1107,6 +1239,8 @@ export type tbl_profilesUpdateWithoutKabar_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1114,6 +1248,8 @@ export type tbl_profilesUpdateWithoutKabar_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutKabar_updatedInput = {
@@ -1132,6 +1268,8 @@ export type tbl_profilesUncheckedUpdateWithoutKabar_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1139,6 +1277,8 @@ export type tbl_profilesUncheckedUpdateWithoutKabar_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateWithoutDosen_createdInput = {
@@ -1157,6 +1297,8 @@ export type tbl_profilesCreateWithoutDosen_createdInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -1164,6 +1306,8 @@ export type tbl_profilesCreateWithoutDosen_createdInput = {
   kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutDosen_createdInput = {
@@ -1182,6 +1326,8 @@ export type tbl_profilesUncheckedCreateWithoutDosen_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1189,6 +1335,8 @@ export type tbl_profilesUncheckedCreateWithoutDosen_createdInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutDosen_createdInput = {
@@ -1212,6 +1360,8 @@ export type tbl_profilesCreateWithoutDosen_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -1219,6 +1369,8 @@ export type tbl_profilesCreateWithoutDosen_updatedInput = {
   kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutDosen_updatedInput = {
@@ -1237,6 +1389,8 @@ export type tbl_profilesUncheckedCreateWithoutDosen_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1244,6 +1398,8 @@ export type tbl_profilesUncheckedCreateWithoutDosen_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutDosen_updatedInput = {
@@ -1278,6 +1434,8 @@ export type tbl_profilesUpdateWithoutDosen_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1285,6 +1443,8 @@ export type tbl_profilesUpdateWithoutDosen_createdInput = {
   kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutDosen_createdInput = {
@@ -1303,6 +1463,8 @@ export type tbl_profilesUncheckedUpdateWithoutDosen_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1310,6 +1472,8 @@ export type tbl_profilesUncheckedUpdateWithoutDosen_createdInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUpsertWithoutDosen_updatedInput = {
@@ -1339,6 +1503,8 @@ export type tbl_profilesUpdateWithoutDosen_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1346,6 +1512,8 @@ export type tbl_profilesUpdateWithoutDosen_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutDosen_updatedInput = {
@@ -1364,6 +1532,8 @@ export type tbl_profilesUncheckedUpdateWithoutDosen_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1371,6 +1541,8 @@ export type tbl_profilesUncheckedUpdateWithoutDosen_updatedInput = {
   kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateWithoutMitra_createdInput = {
@@ -1388,6 +1560,8 @@ export type tbl_profilesCreateWithoutMitra_createdInput = {
   updated_at?: Date | string
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -1396,6 +1570,8 @@ export type tbl_profilesCreateWithoutMitra_createdInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutMitra_createdInput = {
@@ -1413,6 +1589,8 @@ export type tbl_profilesUncheckedCreateWithoutMitra_createdInput = {
   updated_at?: Date | string
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1421,6 +1599,8 @@ export type tbl_profilesUncheckedCreateWithoutMitra_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutMitra_createdInput = {
@@ -1443,6 +1623,8 @@ export type tbl_profilesCreateWithoutMitra_updatedInput = {
   updated_at?: Date | string
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -1451,6 +1633,8 @@ export type tbl_profilesCreateWithoutMitra_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutMitra_updatedInput = {
@@ -1468,6 +1652,8 @@ export type tbl_profilesUncheckedCreateWithoutMitra_updatedInput = {
   updated_at?: Date | string
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1476,6 +1662,8 @@ export type tbl_profilesUncheckedCreateWithoutMitra_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutMitra_updatedInput = {
@@ -1509,6 +1697,8 @@ export type tbl_profilesUpdateWithoutMitra_createdInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1517,6 +1707,8 @@ export type tbl_profilesUpdateWithoutMitra_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutMitra_createdInput = {
@@ -1534,6 +1726,8 @@ export type tbl_profilesUncheckedUpdateWithoutMitra_createdInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1542,6 +1736,8 @@ export type tbl_profilesUncheckedUpdateWithoutMitra_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUpsertWithoutMitra_updatedInput = {
@@ -1570,6 +1766,8 @@ export type tbl_profilesUpdateWithoutMitra_updatedInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -1578,6 +1776,8 @@ export type tbl_profilesUpdateWithoutMitra_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutMitra_updatedInput = {
@@ -1595,6 +1795,8 @@ export type tbl_profilesUncheckedUpdateWithoutMitra_updatedInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -1603,6 +1805,8 @@ export type tbl_profilesUncheckedUpdateWithoutMitra_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateWithoutNaskah_createdInput = {
@@ -1621,6 +1825,8 @@ export type tbl_profilesCreateWithoutNaskah_createdInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
@@ -1628,6 +1834,8 @@ export type tbl_profilesCreateWithoutNaskah_createdInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutNaskah_createdInput = {
@@ -1646,6 +1854,8 @@ export type tbl_profilesUncheckedCreateWithoutNaskah_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -1653,6 +1863,8 @@ export type tbl_profilesUncheckedCreateWithoutNaskah_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutNaskah_createdInput = {
@@ -1676,6 +1888,8 @@ export type tbl_profilesCreateWithoutNaskah_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
@@ -1683,6 +1897,8 @@ export type tbl_profilesCreateWithoutNaskah_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutNaskah_updatedInput = {
@@ -1701,6 +1917,8 @@ export type tbl_profilesUncheckedCreateWithoutNaskah_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -1708,6 +1926,8 @@ export type tbl_profilesUncheckedCreateWithoutNaskah_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutNaskah_updatedInput = {
@@ -1742,6 +1962,8 @@ export type tbl_profilesUpdateWithoutNaskah_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
@@ -1749,6 +1971,8 @@ export type tbl_profilesUpdateWithoutNaskah_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutNaskah_createdInput = {
@@ -1767,6 +1991,8 @@ export type tbl_profilesUncheckedUpdateWithoutNaskah_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -1774,6 +2000,8 @@ export type tbl_profilesUncheckedUpdateWithoutNaskah_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUpsertWithoutNaskah_updatedInput = {
@@ -1803,6 +2031,8 @@ export type tbl_profilesUpdateWithoutNaskah_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
@@ -1810,6 +2040,8 @@ export type tbl_profilesUpdateWithoutNaskah_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutNaskah_updatedInput = {
@@ -1828,6 +2060,8 @@ export type tbl_profilesUncheckedUpdateWithoutNaskah_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -1835,6 +2069,8 @@ export type tbl_profilesUncheckedUpdateWithoutNaskah_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesCreateWithoutKegiatan_createdInput = {
@@ -1853,6 +2089,8 @@ export type tbl_profilesCreateWithoutKegiatan_createdInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
@@ -1860,6 +2098,8 @@ export type tbl_profilesCreateWithoutKegiatan_createdInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutKegiatan_createdInput = {
@@ -1878,6 +2118,8 @@ export type tbl_profilesUncheckedCreateWithoutKegiatan_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -1885,6 +2127,8 @@ export type tbl_profilesUncheckedCreateWithoutKegiatan_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutKegiatan_createdInput = {
@@ -1908,6 +2152,8 @@ export type tbl_profilesCreateWithoutKegiatan_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
@@ -1915,6 +2161,8 @@ export type tbl_profilesCreateWithoutKegiatan_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesUncheckedCreateWithoutKegiatan_updatedInput = {
@@ -1933,6 +2181,8 @@ export type tbl_profilesUncheckedCreateWithoutKegiatan_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
   mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
   mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1940,6 +2190,8 @@ export type tbl_profilesUncheckedCreateWithoutKegiatan_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
   dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
   dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
 }
 
 export type tbl_profilesCreateOrConnectWithoutKegiatan_updatedInput = {
@@ -1974,6 +2226,8 @@ export type tbl_profilesUpdateWithoutKegiatan_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
@@ -1981,6 +2235,8 @@ export type tbl_profilesUpdateWithoutKegiatan_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutKegiatan_createdInput = {
@@ -1999,6 +2255,8 @@ export type tbl_profilesUncheckedUpdateWithoutKegiatan_createdInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -2006,6 +2264,8 @@ export type tbl_profilesUncheckedUpdateWithoutKegiatan_createdInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUpsertWithoutKegiatan_updatedInput = {
@@ -2035,6 +2295,8 @@ export type tbl_profilesUpdateWithoutKegiatan_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
@@ -2042,6 +2304,8 @@ export type tbl_profilesUpdateWithoutKegiatan_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
 }
 
 export type tbl_profilesUncheckedUpdateWithoutKegiatan_updatedInput = {
@@ -2060,6 +2324,8 @@ export type tbl_profilesUncheckedUpdateWithoutKegiatan_updatedInput = {
   activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
   mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
   mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
   naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
   naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
   kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -2067,6 +2333,536 @@ export type tbl_profilesUncheckedUpdateWithoutKegiatan_updatedInput = {
   kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
   dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
   dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesCreateWithoutKode_dibuatInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutKode_dibuatInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutKode_dibuatInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dibuatInput>
+}
+
+export type tbl_profilesCreateWithoutKode_dicabutInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutKode_dicabutInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutKode_dicabutInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dicabutInput>
+}
+
+export type tbl_profilesUpsertWithoutKode_dibuatInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dibuatInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dibuatInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutKode_dibuatInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKode_dibuatInput, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dibuatInput>
+}
+
+export type tbl_profilesUpdateWithoutKode_dibuatInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutKode_dibuatInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUpsertWithoutKode_dicabutInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dicabutInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedCreateWithoutKode_dicabutInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutKode_dicabutInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutKode_dicabutInput, Prisma.tbl_profilesUncheckedUpdateWithoutKode_dicabutInput>
+}
+
+export type tbl_profilesUpdateWithoutKode_dicabutInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutKode_dicabutInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesCreateWithoutFasilitas_createdInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutFasilitas_createdInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutUpdated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutFasilitas_createdInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_createdInput>
+}
+
+export type tbl_profilesCreateWithoutFasilitas_updatedInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasCreateNestedManyWithoutCreated_byInput
+}
+
+export type tbl_profilesUncheckedCreateWithoutFasilitas_updatedInput = {
+  id_profile?: string
+  username: string
+  password: string
+  email: string
+  nama: string
+  foto?: string | null
+  role?: $Enums.Role
+  is_active?: boolean
+  session_version?: number
+  last_login_at?: Date | string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedCreateNestedManyWithoutActorInput
+  mitra_created?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutCreated_byInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedCreateNestedManyWithoutUpdated_byInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDibuat_olehInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedCreateNestedManyWithoutDicabut_olehInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutCreated_byInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedCreateNestedManyWithoutUpdated_byInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutCreated_byInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedCreateNestedManyWithoutUpdated_byInput
+  kabar_created?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutCreated_byInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedCreateNestedManyWithoutUpdated_byInput
+  dosen_created?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutCreated_byInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedCreateNestedManyWithoutUpdated_byInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedCreateNestedManyWithoutCreated_byInput
+}
+
+export type tbl_profilesCreateOrConnectWithoutFasilitas_updatedInput = {
+  where: Prisma.tbl_profilesWhereUniqueInput
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_updatedInput>
+}
+
+export type tbl_profilesUpsertWithoutFasilitas_createdInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_createdInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_createdInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutFasilitas_createdInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutFasilitas_createdInput, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_createdInput>
+}
+
+export type tbl_profilesUpdateWithoutFasilitas_createdInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutFasilitas_createdInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_updated?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutUpdated_byNestedInput
+}
+
+export type tbl_profilesUpsertWithoutFasilitas_updatedInput = {
+  update: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_updatedInput>
+  create: Prisma.XOR<Prisma.tbl_profilesCreateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedCreateWithoutFasilitas_updatedInput>
+  where?: Prisma.tbl_profilesWhereInput
+}
+
+export type tbl_profilesUpdateToOneWithWhereWithoutFasilitas_updatedInput = {
+  where?: Prisma.tbl_profilesWhereInput
+  data: Prisma.XOR<Prisma.tbl_profilesUpdateWithoutFasilitas_updatedInput, Prisma.tbl_profilesUncheckedUpdateWithoutFasilitas_updatedInput>
+}
+
+export type tbl_profilesUpdateWithoutFasilitas_updatedInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUpdateManyWithoutCreated_byNestedInput
+}
+
+export type tbl_profilesUncheckedUpdateWithoutFasilitas_updatedInput = {
+  id_profile?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  is_active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  session_version?: Prisma.IntFieldUpdateOperationsInput | number
+  last_login_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activity_logs?: Prisma.tbl_activity_logUncheckedUpdateManyWithoutActorNestedInput
+  mitra_created?: Prisma.tbl_mitraUncheckedUpdateManyWithoutCreated_byNestedInput
+  mitra_updated?: Prisma.tbl_mitraUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kode_dibuat?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDibuat_olehNestedInput
+  kode_dicabut?: Prisma.tbl_kerja_sama_kode_unduhUncheckedUpdateManyWithoutDicabut_olehNestedInput
+  naskah_created?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutCreated_byNestedInput
+  naskah_updated?: Prisma.tbl_kerja_samaUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kegiatan_created?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutCreated_byNestedInput
+  kegiatan_updated?: Prisma.tbl_kerja_sama_kegiatanUncheckedUpdateManyWithoutUpdated_byNestedInput
+  kabar_created?: Prisma.tbl_kabarUncheckedUpdateManyWithoutCreated_byNestedInput
+  kabar_updated?: Prisma.tbl_kabarUncheckedUpdateManyWithoutUpdated_byNestedInput
+  dosen_created?: Prisma.tbl_dosenUncheckedUpdateManyWithoutCreated_byNestedInput
+  dosen_updated?: Prisma.tbl_dosenUncheckedUpdateManyWithoutUpdated_byNestedInput
+  fasilitas_created?: Prisma.tbl_fasilitasUncheckedUpdateManyWithoutCreated_byNestedInput
 }
 
 
@@ -2078,6 +2874,8 @@ export type Tbl_profilesCountOutputType = {
   activity_logs: number
   mitra_created: number
   mitra_updated: number
+  kode_dibuat: number
+  kode_dicabut: number
   naskah_created: number
   naskah_updated: number
   kegiatan_created: number
@@ -2086,12 +2884,16 @@ export type Tbl_profilesCountOutputType = {
   kabar_updated: number
   dosen_created: number
   dosen_updated: number
+  fasilitas_created: number
+  fasilitas_updated: number
 }
 
 export type Tbl_profilesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   activity_logs?: boolean | Tbl_profilesCountOutputTypeCountActivity_logsArgs
   mitra_created?: boolean | Tbl_profilesCountOutputTypeCountMitra_createdArgs
   mitra_updated?: boolean | Tbl_profilesCountOutputTypeCountMitra_updatedArgs
+  kode_dibuat?: boolean | Tbl_profilesCountOutputTypeCountKode_dibuatArgs
+  kode_dicabut?: boolean | Tbl_profilesCountOutputTypeCountKode_dicabutArgs
   naskah_created?: boolean | Tbl_profilesCountOutputTypeCountNaskah_createdArgs
   naskah_updated?: boolean | Tbl_profilesCountOutputTypeCountNaskah_updatedArgs
   kegiatan_created?: boolean | Tbl_profilesCountOutputTypeCountKegiatan_createdArgs
@@ -2100,6 +2902,8 @@ export type Tbl_profilesCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   kabar_updated?: boolean | Tbl_profilesCountOutputTypeCountKabar_updatedArgs
   dosen_created?: boolean | Tbl_profilesCountOutputTypeCountDosen_createdArgs
   dosen_updated?: boolean | Tbl_profilesCountOutputTypeCountDosen_updatedArgs
+  fasilitas_created?: boolean | Tbl_profilesCountOutputTypeCountFasilitas_createdArgs
+  fasilitas_updated?: boolean | Tbl_profilesCountOutputTypeCountFasilitas_updatedArgs
 }
 
 /**
@@ -2131,6 +2935,20 @@ export type Tbl_profilesCountOutputTypeCountMitra_createdArgs<ExtArgs extends ru
  */
 export type Tbl_profilesCountOutputTypeCountMitra_updatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.tbl_mitraWhereInput
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountKode_dibuatArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountKode_dicabutArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
 }
 
 /**
@@ -2189,6 +3007,20 @@ export type Tbl_profilesCountOutputTypeCountDosen_updatedArgs<ExtArgs extends ru
   where?: Prisma.tbl_dosenWhereInput
 }
 
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountFasilitas_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
+/**
+ * Tbl_profilesCountOutputType without action
+ */
+export type Tbl_profilesCountOutputTypeCountFasilitas_updatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.tbl_fasilitasWhereInput
+}
+
 
 export type tbl_profilesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id_profile?: boolean
@@ -2206,6 +3038,8 @@ export type tbl_profilesSelect<ExtArgs extends runtime.Types.Extensions.Internal
   activity_logs?: boolean | Prisma.tbl_profiles$activity_logsArgs<ExtArgs>
   mitra_created?: boolean | Prisma.tbl_profiles$mitra_createdArgs<ExtArgs>
   mitra_updated?: boolean | Prisma.tbl_profiles$mitra_updatedArgs<ExtArgs>
+  kode_dibuat?: boolean | Prisma.tbl_profiles$kode_dibuatArgs<ExtArgs>
+  kode_dicabut?: boolean | Prisma.tbl_profiles$kode_dicabutArgs<ExtArgs>
   naskah_created?: boolean | Prisma.tbl_profiles$naskah_createdArgs<ExtArgs>
   naskah_updated?: boolean | Prisma.tbl_profiles$naskah_updatedArgs<ExtArgs>
   kegiatan_created?: boolean | Prisma.tbl_profiles$kegiatan_createdArgs<ExtArgs>
@@ -2214,6 +3048,8 @@ export type tbl_profilesSelect<ExtArgs extends runtime.Types.Extensions.Internal
   kabar_updated?: boolean | Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>
   dosen_created?: boolean | Prisma.tbl_profiles$dosen_createdArgs<ExtArgs>
   dosen_updated?: boolean | Prisma.tbl_profiles$dosen_updatedArgs<ExtArgs>
+  fasilitas_created?: boolean | Prisma.tbl_profiles$fasilitas_createdArgs<ExtArgs>
+  fasilitas_updated?: boolean | Prisma.tbl_profiles$fasilitas_updatedArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_profilesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tbl_profiles"]>
 
@@ -2267,6 +3103,8 @@ export type tbl_profilesInclude<ExtArgs extends runtime.Types.Extensions.Interna
   activity_logs?: boolean | Prisma.tbl_profiles$activity_logsArgs<ExtArgs>
   mitra_created?: boolean | Prisma.tbl_profiles$mitra_createdArgs<ExtArgs>
   mitra_updated?: boolean | Prisma.tbl_profiles$mitra_updatedArgs<ExtArgs>
+  kode_dibuat?: boolean | Prisma.tbl_profiles$kode_dibuatArgs<ExtArgs>
+  kode_dicabut?: boolean | Prisma.tbl_profiles$kode_dicabutArgs<ExtArgs>
   naskah_created?: boolean | Prisma.tbl_profiles$naskah_createdArgs<ExtArgs>
   naskah_updated?: boolean | Prisma.tbl_profiles$naskah_updatedArgs<ExtArgs>
   kegiatan_created?: boolean | Prisma.tbl_profiles$kegiatan_createdArgs<ExtArgs>
@@ -2275,6 +3113,8 @@ export type tbl_profilesInclude<ExtArgs extends runtime.Types.Extensions.Interna
   kabar_updated?: boolean | Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>
   dosen_created?: boolean | Prisma.tbl_profiles$dosen_createdArgs<ExtArgs>
   dosen_updated?: boolean | Prisma.tbl_profiles$dosen_updatedArgs<ExtArgs>
+  fasilitas_created?: boolean | Prisma.tbl_profiles$fasilitas_createdArgs<ExtArgs>
+  fasilitas_updated?: boolean | Prisma.tbl_profiles$fasilitas_updatedArgs<ExtArgs>
   _count?: boolean | Prisma.Tbl_profilesCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type tbl_profilesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2286,6 +3126,8 @@ export type $tbl_profilesPayload<ExtArgs extends runtime.Types.Extensions.Intern
     activity_logs: Prisma.$tbl_activity_logPayload<ExtArgs>[]
     mitra_created: Prisma.$tbl_mitraPayload<ExtArgs>[]
     mitra_updated: Prisma.$tbl_mitraPayload<ExtArgs>[]
+    kode_dibuat: Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>[]
+    kode_dicabut: Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>[]
     naskah_created: Prisma.$tbl_kerja_samaPayload<ExtArgs>[]
     naskah_updated: Prisma.$tbl_kerja_samaPayload<ExtArgs>[]
     kegiatan_created: Prisma.$tbl_kerja_sama_kegiatanPayload<ExtArgs>[]
@@ -2294,6 +3136,8 @@ export type $tbl_profilesPayload<ExtArgs extends runtime.Types.Extensions.Intern
     kabar_updated: Prisma.$tbl_kabarPayload<ExtArgs>[]
     dosen_created: Prisma.$tbl_dosenPayload<ExtArgs>[]
     dosen_updated: Prisma.$tbl_dosenPayload<ExtArgs>[]
+    fasilitas_created: Prisma.$tbl_fasilitasPayload<ExtArgs>[]
+    fasilitas_updated: Prisma.$tbl_fasilitasPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_profile: string
@@ -2705,6 +3549,8 @@ export interface Prisma__tbl_profilesClient<T, Null = never, ExtArgs extends run
   activity_logs<T extends Prisma.tbl_profiles$activity_logsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$activity_logsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_activity_logPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   mitra_created<T extends Prisma.tbl_profiles$mitra_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$mitra_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_mitraPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   mitra_updated<T extends Prisma.tbl_profiles$mitra_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$mitra_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_mitraPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kode_dibuat<T extends Prisma.tbl_profiles$kode_dibuatArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kode_dibuatArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kode_dicabut<T extends Prisma.tbl_profiles$kode_dicabutArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kode_dicabutArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_kode_unduhPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   naskah_created<T extends Prisma.tbl_profiles$naskah_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$naskah_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_samaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   naskah_updated<T extends Prisma.tbl_profiles$naskah_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$naskah_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_samaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   kegiatan_created<T extends Prisma.tbl_profiles$kegiatan_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kegiatan_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kerja_sama_kegiatanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2713,6 +3559,8 @@ export interface Prisma__tbl_profilesClient<T, Null = never, ExtArgs extends run
   kabar_updated<T extends Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$kabar_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_kabarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   dosen_created<T extends Prisma.tbl_profiles$dosen_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$dosen_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_dosenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   dosen_updated<T extends Prisma.tbl_profiles$dosen_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$dosen_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_dosenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fasilitas_created<T extends Prisma.tbl_profiles$fasilitas_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$fasilitas_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fasilitas_updated<T extends Prisma.tbl_profiles$fasilitas_updatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tbl_profiles$fasilitas_updatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tbl_fasilitasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3219,6 +4067,54 @@ export type tbl_profiles$mitra_updatedArgs<ExtArgs extends runtime.Types.Extensi
 }
 
 /**
+ * tbl_profiles.kode_dibuat
+ */
+export type tbl_profiles$kode_dibuatArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kerja_sama_kode_unduh
+   */
+  select?: Prisma.tbl_kerja_sama_kode_unduhSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kerja_sama_kode_unduh
+   */
+  omit?: Prisma.tbl_kerja_sama_kode_unduhOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kerja_sama_kode_unduhInclude<ExtArgs> | null
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
+  orderBy?: Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput | Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kerja_sama_kode_unduhWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum | Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum[]
+}
+
+/**
+ * tbl_profiles.kode_dicabut
+ */
+export type tbl_profiles$kode_dicabutArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_kerja_sama_kode_unduh
+   */
+  select?: Prisma.tbl_kerja_sama_kode_unduhSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_kerja_sama_kode_unduh
+   */
+  omit?: Prisma.tbl_kerja_sama_kode_unduhOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_kerja_sama_kode_unduhInclude<ExtArgs> | null
+  where?: Prisma.tbl_kerja_sama_kode_unduhWhereInput
+  orderBy?: Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput | Prisma.tbl_kerja_sama_kode_unduhOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_kerja_sama_kode_unduhWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum | Prisma.Tbl_kerja_sama_kode_unduhScalarFieldEnum[]
+}
+
+/**
  * tbl_profiles.naskah_created
  */
 export type tbl_profiles$naskah_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3408,6 +4304,54 @@ export type tbl_profiles$dosen_updatedArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.Tbl_dosenScalarFieldEnum | Prisma.Tbl_dosenScalarFieldEnum[]
+}
+
+/**
+ * tbl_profiles.fasilitas_created
+ */
+export type tbl_profiles$fasilitas_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas
+   */
+  select?: Prisma.tbl_fasilitasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas
+   */
+  omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitasWhereInput
+  orderBy?: Prisma.tbl_fasilitasOrderByWithRelationInput | Prisma.tbl_fasilitasOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_fasilitasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_fasilitasScalarFieldEnum | Prisma.Tbl_fasilitasScalarFieldEnum[]
+}
+
+/**
+ * tbl_profiles.fasilitas_updated
+ */
+export type tbl_profiles$fasilitas_updatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tbl_fasilitas
+   */
+  select?: Prisma.tbl_fasilitasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tbl_fasilitas
+   */
+  omit?: Prisma.tbl_fasilitasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tbl_fasilitasInclude<ExtArgs> | null
+  where?: Prisma.tbl_fasilitasWhereInput
+  orderBy?: Prisma.tbl_fasilitasOrderByWithRelationInput | Prisma.tbl_fasilitasOrderByWithRelationInput[]
+  cursor?: Prisma.tbl_fasilitasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Tbl_fasilitasScalarFieldEnum | Prisma.Tbl_fasilitasScalarFieldEnum[]
 }
 
 /**

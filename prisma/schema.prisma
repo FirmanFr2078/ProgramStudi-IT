@@ -33,17 +33,21 @@ model tbl_profiles {
   session_version Int       @default(1) // naik tiap logout/ganti password -> revoke semua token lama
   last_login_at   DateTime? @db.Timestamptz(6)
 
-  activity_logs tbl_activity_log[]
-  mitra_created    tbl_mitra[]               @relation("MitraCreatedBy")
-  mitra_updated    tbl_mitra[]               @relation("MitraUpdatedBy")
-  naskah_created   tbl_kerja_sama[]          @relation("NaskahCreatedBy")
-  naskah_updated   tbl_kerja_sama[]          @relation("NaskahUpdatedBy")
-  kegiatan_created tbl_kerja_sama_kegiatan[] @relation("KegiatanCreatedBy")
-  kegiatan_updated tbl_kerja_sama_kegiatan[] @relation("KegiatanUpdatedBy")
-  kabar_created tbl_kabar[]        @relation("KabarCreatedBy")
-  kabar_updated tbl_kabar[]        @relation("KabarUpdatedBy")
-  dosen_created tbl_dosen[]        @relation("DosenCreatedBy")
-  dosen_updated tbl_dosen[]        @relation("DosenUpdatedBy")
+  activity_logs     tbl_activity_log[]
+  mitra_created     tbl_mitra[]                 @relation("MitraCreatedBy")
+  mitra_updated     tbl_mitra[]                 @relation("MitraUpdatedBy")
+  kode_dibuat       tbl_kerja_sama_kode_unduh[] @relation("KodeDibuatOleh")
+  kode_dicabut      tbl_kerja_sama_kode_unduh[] @relation("KodeDicabutOleh")
+  naskah_created    tbl_kerja_sama[]            @relation("NaskahCreatedBy")
+  naskah_updated    tbl_kerja_sama[]            @relation("NaskahUpdatedBy")
+  kegiatan_created  tbl_kerja_sama_kegiatan[]   @relation("KegiatanCreatedBy")
+  kegiatan_updated  tbl_kerja_sama_kegiatan[]   @relation("KegiatanUpdatedBy")
+  kabar_created     tbl_kabar[]                 @relation("KabarCreatedBy")
+  kabar_updated     tbl_kabar[]                 @relation("KabarUpdatedBy")
+  dosen_created     tbl_dosen[]                 @relation("DosenCreatedBy")
+  dosen_updated     tbl_dosen[]                 @relation("DosenUpdatedBy")
+  fasilitas_created tbl_fasilitas[]             @relation("FasilitasCreatedBy")
+  fasilitas_updated tbl_fasilitas[]             @relation("FasilitasUpdatedBy")
 
   created_at DateTime @default(now()) @db.Timestamptz(6)
   updated_at DateTime @updatedAt @db.Timestamptz(6)
@@ -270,7 +274,7 @@ model tbl_prestasi {
 enum TingkatKerjaSama {
   Internasional
   Nasional
-  LokalWilayah @map("Lokal/Wilayah")
+  LokalWilayah  @map("Lokal/Wilayah")
 }
 
 enum BidangKerjaSama {
@@ -283,14 +287,14 @@ enum BidangKerjaSama {
 enum JenisNaskah {
   LoI
   MoU
-  PKS      // = MoA
+  PKS // = MoA
   IA
   Addendum
 }
 
 enum StatusNaskah {
   Draft
-  Berlaku     // masa berlaku dihitung dari tanggal, bukan disimpan
+  Berlaku // masa berlaku dihitung dari tanggal, bukan disimpan
   Dibatalkan
 }
 
@@ -304,7 +308,7 @@ enum StatusKegiatan {
 enum JenisBerkas {
   Naskah
   Addendum
-  SuratTugas @map("Surat Tugas")
+  SuratTugas  @map("Surat Tugas")
   Laporan
   Dokumentasi
   Sertifikat
@@ -314,68 +318,68 @@ enum JenisBerkas {
 
 // ---------- REFERENSI (diedit admin) ----------
 model tbl_ref_kategori_mitra {
-  id_kategori BigInt  @id @default(autoincrement())
-  nama        String  @unique @db.VarChar(100)
-  urutan      Int     @default(0)
-  aktif       Boolean @default(true)
+  id_kategori BigInt      @id @default(autoincrement())
+  nama        String      @unique @db.VarChar(100)
+  urutan      Int         @default(0)
+  aktif       Boolean     @default(true)
   mitra       tbl_mitra[]
 }
 
 model tbl_ref_bentuk {
-  id_bentuk BigInt          @id @default(autoincrement())
-  nama      String          @unique @db.VarChar(100)
+  id_bentuk BigInt                    @id @default(autoincrement())
+  nama      String                    @unique @db.VarChar(100)
   bidang    BidangKerjaSama
-  urutan    Int             @default(0)
-  aktif     Boolean         @default(true)
+  urutan    Int                       @default(0)
+  aktif     Boolean                   @default(true)
   naskah    tbl_kerja_sama[]
   kegiatan  tbl_kerja_sama_kegiatan[]
 }
 
 // ---------- MITRA (identitas lembaga) ----------
 model tbl_mitra {
-  id_mitra     BigInt  @id @default(autoincrement())
-  slug         String  @unique @db.VarChar(150)
-  nama         String  @db.VarChar(200)
-  nama_singkat String? @db.VarChar(30)   // dipakai untuk inisial logo
+  id_mitra     BigInt                 @id @default(autoincrement())
+  slug         String                 @unique @db.VarChar(150)
+  nama         String                 @db.VarChar(200)
+  nama_singkat String?                @db.VarChar(30) // dipakai untuk inisial logo
   kategori_id  BigInt
   kategori     tbl_ref_kategori_mitra @relation(fields: [kategori_id], references: [id_kategori], onDelete: Restrict)
   tingkat      TingkatKerjaSama
-  negara       String  @default("Indonesia") @db.VarChar(80)
-  kota         String? @db.VarChar(100)
-  website      String? @db.VarChar(255)
-  logo         String? @db.VarChar(255)  // path bucket images, folder mitra/
+  negara       String                 @default("Indonesia") @db.VarChar(80)
+  kota         String?                @db.VarChar(100)
+  website      String?                @db.VarChar(255)
+  logo         String?                @db.VarChar(255) // path bucket images, folder mitra/
 
   ringkasan String   @db.VarChar(300)
   deskripsi String[]
 
-  tampil_publik  Boolean @default(false)  // draft sampai admin menyalakan
+  tampil_publik  Boolean @default(false) // draft sampai admin menyalakan
   unggulan       Boolean @default(false)
   tampil_di_mbkm Boolean @default(false)
   urutan         Int     @default(0)
 
   // kontak: internal secara default
-  kontak_nama    String? @db.VarChar(150)
-  kontak_jabatan String? @db.VarChar(100)
-  kontak_email   String? @db.VarChar(150)
-  kontak_telepon String? @db.VarChar(20)
-  kontak_publik  Boolean @default(false)
+  kontak_nama      String? @db.VarChar(150)
+  kontak_jabatan   String? @db.VarChar(100)
+  kontak_email     String? @db.VarChar(150)
+  kontak_telepon   String? @db.VarChar(20)
+  kontak_publik    Boolean @default(false)
   catatan_internal String?
 
   naskah tbl_kerja_sama[]
 
-  created_by_id String? @db.Uuid
+  created_by_id String?       @db.Uuid
   created_by    tbl_profiles? @relation("MitraCreatedBy", fields: [created_by_id], references: [id_profile], onDelete: SetNull)
-  updated_by_id String? @db.Uuid
+  updated_by_id String?       @db.Uuid
   updated_by    tbl_profiles? @relation("MitraUpdatedBy", fields: [updated_by_id], references: [id_profile], onDelete: SetNull)
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  updated_at DateTime @updatedAt @db.Timestamptz(6)
+  created_at    DateTime      @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime      @updatedAt @db.Timestamptz(6)
 
   @@index([kategori_id])
 }
 
 // ---------- NASKAH (LoI / MoU / PKS / IA) ----------
 model tbl_kerja_sama {
-  id_kerja_sama BigInt @id @default(autoincrement())
+  id_kerja_sama BigInt    @id @default(autoincrement())
   mitra_id      BigInt
   mitra         tbl_mitra @relation(fields: [mitra_id], references: [id_mitra], onDelete: Restrict)
 
@@ -383,40 +387,43 @@ model tbl_kerja_sama {
   judul  String       @db.VarChar(250)
   status StatusNaskah @default(Draft)
 
-  nomor_prodi String? @unique @db.VarChar(100)
-  nomor_mitra String? @db.VarChar(100)
-  tempat_ttd  String? @db.VarChar(100)
+  nomor_prodi String?   @unique @db.VarChar(100)
+  nomor_mitra String?   @db.VarChar(100)
+  tempat_ttd  String?   @db.VarChar(100)
   tanggal_ttd DateTime? @db.Date
   mulai       DateTime  @db.Date
-  berakhir    DateTime? @db.Date   // kosong = tanpa batas waktu
+  berakhir    DateTime? @db.Date // kosong = tanpa batas waktu
 
   ruang_lingkup String?
   pembiayaan    String? @db.VarChar(255)
 
-  ttd_prodi String? @db.VarChar(200)  // nama + jabatan penandatangan
-  ttd_mitra String? @db.VarChar(200)
+  ttd_prodi   String?    @db.VarChar(200) // nama + jabatan penandatangan
+  ttd_mitra   String?    @db.VarChar(200)
   pj_dosen_id BigInt?
   pj_dosen    tbl_dosen? @relation(fields: [pj_dosen_id], references: [id_dosen], onDelete: SetNull)
-  pj_mitra    String? @db.VarChar(150)
+  pj_mitra    String?    @db.VarChar(150)
 
-  induk_id BigInt?
-  induk    tbl_kerja_sama?  @relation("NaskahInduk", fields: [induk_id], references: [id_kerja_sama], onDelete: SetNull)
-  turunan  tbl_kerja_sama[] @relation("NaskahInduk")
+  induk_id             BigInt?
+  induk                tbl_kerja_sama?  @relation("NaskahInduk", fields: [induk_id], references: [id_kerja_sama], onDelete: SetNull)
+  turunan              tbl_kerja_sama[] @relation("NaskahInduk")
   perpanjangan_dari_id BigInt?
   perpanjangan_dari    tbl_kerja_sama?  @relation("NaskahPerpanjangan", fields: [perpanjangan_dari_id], references: [id_kerja_sama], onDelete: SetNull)
   perpanjangan_berikut tbl_kerja_sama[] @relation("NaskahPerpanjangan")
 
-  bentuk   tbl_ref_bentuk[]
-  kegiatan tbl_kerja_sama_kegiatan[]
-  berkas   tbl_kerja_sama_berkas[]
+  bentuk           tbl_ref_bentuk[]
+  kegiatan         tbl_kerja_sama_kegiatan[]
+  berkas           tbl_kerja_sama_berkas[]
   catatan_internal String?
 
-  created_by_id String? @db.Uuid
+  preview    String?                     @db.VarChar(255) // path bucket "images", folder naskah-preview/
+  kode_unduh tbl_kerja_sama_kode_unduh[]
+
+  created_by_id String?       @db.Uuid
   created_by    tbl_profiles? @relation("NaskahCreatedBy", fields: [created_by_id], references: [id_profile], onDelete: SetNull)
-  updated_by_id String? @db.Uuid
+  updated_by_id String?       @db.Uuid
   updated_by    tbl_profiles? @relation("NaskahUpdatedBy", fields: [updated_by_id], references: [id_profile], onDelete: SetNull)
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  updated_at DateTime @updatedAt @db.Timestamptz(6)
+  created_at    DateTime      @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime      @updatedAt @db.Timestamptz(6)
 
   @@index([mitra_id])
   @@index([berakhir])
@@ -425,7 +432,7 @@ model tbl_kerja_sama {
 
 // ---------- KEGIATAN (realisasi; baris di Tabel 1 IAPS) ----------
 model tbl_kerja_sama_kegiatan {
-  id_kegiatan   BigInt @id @default(autoincrement())
+  id_kegiatan   BigInt         @id @default(autoincrement())
   kerja_sama_id BigInt
   kerja_sama    tbl_kerja_sama @relation(fields: [kerja_sama_id], references: [id_kerja_sama], onDelete: Cascade)
 
@@ -433,23 +440,23 @@ model tbl_kerja_sama_kegiatan {
   bentuk_id BigInt?
   bentuk    tbl_ref_bentuk? @relation(fields: [bentuk_id], references: [id_bentuk], onDelete: SetNull)
 
-  judul   String   @db.VarChar(250)
-  uraian  String?
-  manfaat String[]            // manfaat bagi program studi
-  tanggal_mulai   DateTime  @db.Date
-  tanggal_selesai DateTime? @db.Date
+  judul           String         @db.VarChar(250)
+  uraian          String?
+  manfaat         String[] // manfaat bagi program studi
+  tanggal_mulai   DateTime       @db.Date
+  tanggal_selesai DateTime?      @db.Date
   jumlah_peserta  Int?
-  status StatusKegiatan @default(Direncanakan)
-  tampil_publik Boolean  @default(false)
+  status          StatusKegiatan @default(Direncanakan)
+  tampil_publik   Boolean        @default(false)
 
   berkas tbl_kerja_sama_berkas[]
 
-  created_by_id String? @db.Uuid
+  created_by_id String?       @db.Uuid
   created_by    tbl_profiles? @relation("KegiatanCreatedBy", fields: [created_by_id], references: [id_profile], onDelete: SetNull)
-  updated_by_id String? @db.Uuid
+  updated_by_id String?       @db.Uuid
   updated_by    tbl_profiles? @relation("KegiatanUpdatedBy", fields: [updated_by_id], references: [id_profile], onDelete: SetNull)
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  updated_at DateTime @updatedAt @db.Timestamptz(6)
+  created_at    DateTime      @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime      @updatedAt @db.Timestamptz(6)
 
   @@index([kerja_sama_id])
   @@index([tanggal_mulai])
@@ -458,58 +465,63 @@ model tbl_kerja_sama_kegiatan {
 // ---------- BERKAS (naskah ATAU kegiatan) ----------
 // Tambahkan CHECK lewat SQL di migration: tepat salah satu dari kerja_sama_id / kegiatan_id terisi.
 model tbl_kerja_sama_berkas {
-  id_berkas     BigInt @id @default(autoincrement())
+  id_berkas     BigInt                   @id @default(autoincrement())
   kerja_sama_id BigInt?
-  kerja_sama    tbl_kerja_sama? @relation(fields: [kerja_sama_id], references: [id_kerja_sama], onDelete: Cascade)
+  kerja_sama    tbl_kerja_sama?          @relation(fields: [kerja_sama_id], references: [id_kerja_sama], onDelete: Cascade)
   kegiatan_id   BigInt?
   kegiatan      tbl_kerja_sama_kegiatan? @relation(fields: [kegiatan_id], references: [id_kegiatan], onDelete: Cascade)
 
-  jenis  JenisBerkas
-  label  String      @db.VarChar(150)
-  path   String?     @db.VarChar(255)  // bucket PRIVAT "kerja-sama" (signed URL)
-  tautan String?     @db.VarChar(255)  // alternatif: link eksternal (https)
-  mime   String?     @db.VarChar(100)
-  ukuran Int?
-  created_at DateTime @default(now()) @db.Timestamptz(6)
+  jenis      JenisBerkas
+  label      String      @db.VarChar(150)
+  path       String?     @db.VarChar(255) // bucket PRIVAT "kerja-sama" (signed URL)
+  tautan     String?     @db.VarChar(255) // alternatif: link eksternal (https)
+  mime       String?     @db.VarChar(100)
+  utama      Boolean     @default(false) // berkas yang diunduh lewat kode di landing
+  ukuran     Int?
+  created_at DateTime    @default(now()) @db.Timestamptz(6)
 
   @@index([kerja_sama_id])
   @@index([kegiatan_id])
 }
 
-// ---------- PENGATURAN HALAMAN LANDING ----------
-model tbl_pengaturan_halaman {
-  id_pengaturan Int      @id @default(autoincrement())
-  kunci         String   @unique @db.VarChar(100) // "profil/kerja-sama", "pendidikan/mbkm", ...
-  eyebrow       String?  @db.VarChar(50)
-  judul         String   @db.VarChar(150)
-  deskripsi     String?  @db.VarChar(400)
-  pembuka       String[]                          // paragraf pengantar
-  opsi          Json     @default("{}")           // mis. {"tampilkanStatistik": true}
-  updated_at    DateTime @updatedAt @db.Timestamptz(6)
+// ---------- KODE UNDUH (sekali pakai, satu per peminta) ----------
+// Kode utuh TIDAK disimpan, hanya HMAC-nya. Status dihitung dari tanggal:
+//   dicabut_pada terisi                      -> Dicabut
+//   dipakai_pertama_pada kosong              -> Aktif (tanpa batas waktu)
+//   dipakai_pertama_pada + 10 menit > now    -> Dalam Masa Unduh
+//   selebihnya                               -> Habis
+model tbl_kerja_sama_kode_unduh {
+  id_kode       BigInt         @id @default(autoincrement())
+  kerja_sama_id BigInt
+  kerja_sama    tbl_kerja_sama @relation(fields: [kerja_sama_id], references: [id_kerja_sama], onDelete: Cascade)
+
+  kode_hash String  @unique @db.VarChar(64)
+  petunjuk  String  @db.VarChar(4) // 4 karakter terakhir, hanya penanda di riwayat
+  peminta   String  @db.VarChar(150)
+  catatan   String? @db.VarChar(300)
+
+  dibuat_oleh_id String?       @db.Uuid
+  dibuat_oleh    tbl_profiles? @relation("KodeDibuatOleh", fields: [dibuat_oleh_id], references: [id_profile], onDelete: SetNull)
+  created_at     DateTime      @default(now()) @db.Timestamptz(6)
+
+  dipakai_pertama_pada  DateTime? @db.Timestamptz(6)
+  terakhir_diunduh_pada DateTime? @db.Timestamptz(6)
+  jumlah_unduhan        Int       @default(0)
+
+  dicabut_pada    DateTime?     @db.Timestamptz(6)
+  dicabut_oleh_id String?       @db.Uuid
+  dicabut_oleh    tbl_profiles? @relation("KodeDicabutOleh", fields: [dicabut_oleh_id], references: [id_profile], onDelete: SetNull)
+
+  @@index([kerja_sama_id])
 }
 
-// ============================================================
-// FASILITAS
-// ============================================================
+// Pembatas tebak-tebakan kode di endpoint publik. IP disimpan dalam bentuk hash.
+model tbl_kerja_sama_kode_gagal {
+  id_gagal   BigInt   @id @default(autoincrement())
+  ip_hash    String   @db.VarChar(32)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
 
-enum KategoriFasilitas {
-  Laboratorium
-  RuangKelas         @map("Ruang Kelas")
-  Gedung
-  Perpustakaan
-  SaranaAdministrasi @map("sarana administrasi")
-}
-
-model tbl_fasilitas {
-  id_fasilitas BigInt            @id @default(autoincrement())
-  slug         String            @unique @db.VarChar(150)
-  nama         String            @db.VarChar(200)
-  kategori     KategoriFasilitas
-  foto         String?           @db.VarChar(255)
-  lokasi       String            @db.VarChar(150) // mis. "Gedung A, Lantai 2"
-  deskripsi    String
-  kapasitas    Int? // jumlah orang/kursi -- ga semua kategori punya ini
-  fitur        String[]
+  @@index([ip_hash, created_at])
 }
 
 // ============================================================
@@ -612,10 +624,12 @@ model tbl_langkah_mbkm {
   urutan     Int    @default(0)
 }
 
-// ============================================================
-// DOKUMEN UNDUHAN (lintas modul: Kurikulum, Kerja Sama, Kalender, MBKM)
-// ============================================================
+// ======================================================
+// SHARED / LINTAS MODUL
+// (dipakai lebih dari satu fitur — jangan duplikasi per modul)
+// ======================================================
 
+// DOKUMEN UNDUHAN (lintas modul: Kurikulum, Kerja Sama, Kalender, MBKM)
 enum ModulDokumen {
   Kurikulum
   KerjaSama
@@ -629,6 +643,18 @@ model tbl_dokumen {
   label      String       @db.VarChar(150)
   url        String       @db.VarChar(255) // path bucket "documents"
   aktif      Boolean      @default(true)
+}
+
+//  PENGATURAN HALAMAN LANDING
+model tbl_pengaturan_halaman {
+  id_pengaturan Int      @id @default(autoincrement())
+  kunci         String   @unique @db.VarChar(100) // "profil/kerja-sama", "pendidikan/mbkm", ...
+  eyebrow       String?  @db.VarChar(50)
+  judul         String   @db.VarChar(150)
+  deskripsi     String?  @db.VarChar(400)
+  pembuka       String[] // paragraf pengantar
+  opsi          Json     @default("{}") // mis. {"tampilkanStatistik": true}
+  updated_at    DateTime @updatedAt @db.Timestamptz(6)
 }
 
 // ============================================================
@@ -708,11 +734,132 @@ model tbl_struktur_posisi {
 model tbl_struktur_tupoksi {
   id_tupoksi BigInt @id @default(autoincrement())
 
-  posisi_id BigInt              
+  posisi_id BigInt
   posisi    tbl_struktur_posisi @relation(fields: [posisi_id], references: [id_posisi], onDelete: Cascade)
 
   isi    String @db.VarChar(300)
   urutan Int    @default(0)
 
   @@index([posisi_id])
+}
+
+
+// ============================================================
+// FASILITAS
+// ============================================================
+
+enum KepemilikanAset {
+  MilikSendiri @map("Milik Sendiri")
+  Sewa
+  Pinjam
+}
+
+enum KondisiAset {
+  Baik
+  RusakRingan @map("Rusak Ringan")
+  RusakBerat  @map("Rusak Berat")
+}
+
+enum StatusFasilitas {
+  Aktif
+  Renovasi
+  TidakDigunakan @map("Tidak Digunakan")
+}
+
+enum JenisBerkasFasilitas {
+  Foto
+  SertifikatKalibrasi @map("Sertifikat Kalibrasi")
+  DokumenInventaris   @map("Dokumen Inventaris")
+  Lainnya
+}
+
+// ---------- REFERENSI KATEGORI (diedit admin; slug dipakai route landing /fasilitas/[slug]) ----------
+model tbl_ref_kategori_fasilitas {
+  id_kategori BigInt  @id @default(autoincrement())
+  slug        String  @unique @db.VarChar(100)
+  nama        String  @unique @db.VarChar(100)
+  urutan      Int     @default(0)
+  aktif       Boolean @default(true)
+  fasilitas   tbl_fasilitas[]
+}
+
+// ---------- FASILITAS (prasarana: gedung, ruang, area) ----------
+model tbl_fasilitas {
+  id_fasilitas BigInt @id @default(autoincrement())
+  slug         String @unique @db.VarChar(150)
+  nama         String @db.VarChar(200)
+  kategori_id  BigInt
+  kategori     tbl_ref_kategori_fasilitas @relation(fields: [kategori_id], references: [id_kategori], onDelete: Restrict)
+
+  // Hierarki 2 level: gedung (gedung_id = null) -> ruang di dalamnya.
+  gedung_id BigInt?
+  gedung    tbl_fasilitas?  @relation("FasilitasGedung", fields: [gedung_id], references: [id_fasilitas], onDelete: SetNull)
+  ruangan   tbl_fasilitas[] @relation("FasilitasGedung")
+  lantai    String? @db.VarChar(20)
+
+  deskripsi String[]
+  foto      String? @db.VarChar(255) // path bucket images, folder fasilitas/
+
+  luas_m2     Decimal? @db.Decimal(8, 2)
+  kapasitas   Int?
+  kepemilikan KepemilikanAset @default(MilikSendiri)
+  kondisi     KondisiAset     @default(Baik)
+  status      StatusFasilitas @default(Aktif)
+  aksesibel_difabel         Boolean @default(false)
+  penggunaan_jam_per_minggu Int?
+
+  tampil_publik Boolean @default(false)
+  unggulan      Boolean @default(false)
+  urutan        Int     @default(0)
+
+  alat   tbl_fasilitas_alat[]
+  berkas tbl_fasilitas_berkas[]
+
+  created_by_id String?       @db.Uuid
+  created_by    tbl_profiles? @relation("FasilitasCreatedBy", fields: [created_by_id], references: [id_profile], onDelete: SetNull)
+  updated_by_id String?       @db.Uuid
+  updated_by    tbl_profiles? @relation("FasilitasUpdatedBy", fields: [updated_by_id], references: [id_profile], onDelete: SetNull)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([kategori_id])
+  @@index([gedung_id])
+}
+
+// ---------- ALAT (sarana/peralatan per ruang — Tabel Sarana LKPS) ----------
+model tbl_fasilitas_alat {
+  id_alat      BigInt @id @default(autoincrement())
+  fasilitas_id BigInt
+  fasilitas    tbl_fasilitas @relation(fields: [fasilitas_id], references: [id_fasilitas], onDelete: Cascade)
+
+  nama            String @db.VarChar(150)
+  jumlah_unit     Int    @default(1)
+  tahun_perolehan Int?
+  kepemilikan     KepemilikanAset @default(MilikSendiri)
+  kondisi         KondisiAset     @default(Baik)
+  spesifikasi     String?
+  tampil_publik   Boolean @default(true)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([fasilitas_id])
+}
+
+// ---------- BERKAS (galeri foto + dokumen pendukung) ----------
+model tbl_fasilitas_berkas {
+  id_berkas    BigInt @id @default(autoincrement())
+  fasilitas_id BigInt
+  fasilitas    tbl_fasilitas @relation(fields: [fasilitas_id], references: [id_fasilitas], onDelete: Cascade)
+
+  jenis  JenisBerkasFasilitas
+  label  String @db.VarChar(150)
+  path   String @db.VarChar(255)
+  mime   String? @db.VarChar(100)
+  ukuran Int?
+  urutan Int    @default(0)
+
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([fasilitas_id])
 }

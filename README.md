@@ -28,6 +28,8 @@ web-prodi
 │  │  │  ├─ tbl_dosen.ts
 │  │  │  ├─ tbl_event.ts
 │  │  │  ├─ tbl_fasilitas.ts
+│  │  │  ├─ tbl_fasilitas_alat.ts
+│  │  │  ├─ tbl_fasilitas_berkas.ts
 │  │  │  ├─ tbl_hki.ts
 │  │  │  ├─ tbl_jadwal.ts
 │  │  │  ├─ tbl_jalur_pendaftaran.ts
@@ -35,6 +37,8 @@ web-prodi
 │  │  │  ├─ tbl_kerja_sama.ts
 │  │  │  ├─ tbl_kerja_sama_berkas.ts
 │  │  │  ├─ tbl_kerja_sama_kegiatan.ts
+│  │  │  ├─ tbl_kerja_sama_kode_gagal.ts
+│  │  │  ├─ tbl_kerja_sama_kode_unduh.ts
 │  │  │  ├─ tbl_langkah_mbkm.ts
 │  │  │  ├─ tbl_mata_kuliah.ts
 │  │  │  ├─ tbl_mitra.ts
@@ -43,6 +47,7 @@ web-prodi
 │  │  │  ├─ tbl_profiles.ts
 │  │  │  ├─ tbl_profil_prodi.ts
 │  │  │  ├─ tbl_ref_bentuk.ts
+│  │  │  ├─ tbl_ref_kategori_fasilitas.ts
 │  │  │  ├─ tbl_ref_kategori_mitra.ts
 │  │  │  ├─ tbl_riset.ts
 │  │  │  ├─ tbl_struktur_posisi.ts
@@ -83,6 +88,8 @@ web-prodi
 │  │  │  └─ migration.sql
 │  │  ├─ 20261127041721_kerja_sama_tiga_lapis
 │  │  │  └─ migration.sql
+│  │  ├─ 20261127234039_kode_unduh_pratinjau
+│  │  │  └─ migration.sql
 │  │  └─ migration_lock.toml
 │  ├─ schema.prisma
 │  └─ seed.ts
@@ -110,6 +117,30 @@ web-prodi
 │  │  │  │  └─ logout
 │  │  │  │     └─ route.ts
 │  │  │  └─ dashboard
+│  │  │     ├─ fasilitas
+│  │  │     │  ├─ alat
+│  │  │     │  │  ├─ route.ts
+│  │  │     │  │  └─ [id]
+│  │  │     │  │     └─ route.ts
+│  │  │     │  ├─ berkas
+│  │  │     │  │  ├─ route.ts
+│  │  │     │  │  └─ [id]
+│  │  │     │  │     └─ route.ts
+│  │  │     │  ├─ gedung
+│  │  │     │  │  └─ route.ts
+│  │  │     │  ├─ kategori
+│  │  │     │  │  ├─ route.ts
+│  │  │     │  │  └─ [id]
+│  │  │     │  │     └─ route.ts
+│  │  │     │  ├─ route.ts
+│  │  │     │  ├─ upload
+│  │  │     │  │  └─ route.ts
+│  │  │     │  ├─ upload-dokumen
+│  │  │     │  │  └─ route.ts
+│  │  │     │  ├─ upload-galeri
+│  │  │     │  │  └─ route.ts
+│  │  │     │  └─ [id]
+│  │  │     │     └─ route.ts
 │  │  │     ├─ kabar
 │  │  │     │  ├─ route.ts
 │  │  │     │  ├─ upload
@@ -236,6 +267,15 @@ web-prodi
 │  │  └─ stats.ts
 │  ├─ database
 │  │  ├─ dosen.ts
+│  │  ├─ fasilitas
+│  │  │  ├─ alat.ts
+│  │  │  ├─ berkas.ts
+│  │  │  ├─ enums.ts
+│  │  │  ├─ fasilitas.ts
+│  │  │  ├─ index.ts
+│  │  │  ├─ publik.ts
+│  │  │  ├─ referensi.ts
+│  │  │  └─ shared.ts
 │  │  ├─ kabar.ts
 │  │  ├─ kerja-sama
 │  │  │  ├─ berkas.ts
@@ -254,6 +294,13 @@ web-prodi
 │  │  │  ├─ use-login.ts
 │  │  │  └─ use-logout.ts
 │  │  ├─ dashboard
+│  │  │  ├─ fasilitas
+│  │  │  │  ├─ use-fasilitas-alat.ts
+│  │  │  │  ├─ use-fasilitas-berkas.ts
+│  │  │  │  ├─ use-fasilitas-form.ts
+│  │  │  │  ├─ use-fasilitas-list.ts
+│  │  │  │  ├─ use-gedung-ringkas.ts
+│  │  │  │  └─ use-kategori-fasilitas.ts
 │  │  │  ├─ kabar
 │  │  │  │  ├─ use-kabar-form.ts
 │  │  │  │  └─ use-kabar-list.ts
@@ -275,6 +322,7 @@ web-prodi
 │  │  ├─ ids.ts
 │  │  ├─ image-upload-handlers.ts
 │  │  ├─ initials.ts
+│  │  ├─ kerja-sama-kode.ts
 │  │  ├─ kerja-sama-status.ts
 │  │  ├─ kerja-sama-storage.ts
 │  │  ├─ permissions.ts
